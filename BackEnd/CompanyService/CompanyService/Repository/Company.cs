@@ -17,5 +17,5 @@ public partial class Company
 
     public string? ContactDetails { get; set; }
 
-    public string IsApproved { get; set; } = null!;
+    public bool IsApproved { get; set; } = false;
 }

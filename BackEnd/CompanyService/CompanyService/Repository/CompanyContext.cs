@@ -46,10 +46,8 @@ public partial class CompanyContext : DbContext
                 .HasMaxLength(100)
                 .HasColumnName("email");
             entity.Property(e => e.IsApproved)
-                .HasMaxLength(1)
-                .HasDefaultValueSql("'0'")
-                .HasColumnName("isApproved")
-                .UseCollation("utf8mb4_bin");
+                .HasDefaultValueSql("false")
+                .HasColumnName("isApproved");
             entity.Property(e => e.Logo).HasColumnName("logo");
             entity.Property(e => e.Name)
                 .HasMaxLength(100)

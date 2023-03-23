@@ -127,7 +127,7 @@ namespace CompanyService.Services
                 throw new Exception($"Company with ID {id} is null. Could not approve company.");
             }
 
-            company.IsApproved = "1";
+            company.IsApproved = true;
 
             _context.Entry(company).State = EntityState.Modified;
 
@@ -164,7 +164,7 @@ namespace CompanyService.Services
                 throw new Exception($"Company with ID {id} is null. Could not disapprove company.");
             }
 
-            company.IsApproved = "0";
+            company.IsApproved = false;
 
             _context.Entry(company).State = EntityState.Modified;
 
