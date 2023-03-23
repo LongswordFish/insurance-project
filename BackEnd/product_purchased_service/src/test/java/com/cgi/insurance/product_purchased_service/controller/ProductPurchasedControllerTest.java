@@ -2,7 +2,11 @@ package com.cgi.insurance.product_purchased_service.controller;
 
 import com.cgi.insurance.product_purchased_service.model.ProductPurchased;
 import com.cgi.insurance.product_purchased_service.service.ProductPurchasedService;
+import com.cgi.insurance.product_purchased_service.utils.LocalDateAdapter;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -20,6 +24,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -59,6 +64,7 @@ public class ProductPurchasedControllerTest {
 
     @Test
     public void givenProductPurchasedToSaveThenShouldReturnSavedProductPurchased() throws Exception {
+        //System.out.println(pp);
         when(ppService.addProductPurchased(any())).thenReturn(pp);
         mockMvc.perform(post("/api/v1/purchased/add")
                 .contentType(MediaType.APPLICATION_JSON)
@@ -77,17 +83,14 @@ public class ProductPurchasedControllerTest {
 
     @Test
     public void givenProductPurchasedIdToDeleteThenShouldNotReturnDeletedProductPurchased() throws Exception {
-        mockMvc.perform(delete("/api/v1/purchased/delete/"+pp.getPpId())
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(asJsonString(pp)))
+        mockMvc.perform(delete("/api/v1/purchased/delete/"+pp.getPpId()))
                 .andExpect(MockMvcResultMatchers.status().isOk()).andDo(MockMvcResultHandlers.print());
     }
 
     @Test
     public void givenGetAllProductPurchasedsThenShouldReturnListOfAllProductPurchaseds() throws Exception {
         when(ppService.getAllProductPurchased()).thenReturn(ppList);
-        mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/purchased/view")
-                .contentType(MediaType.APPLICATION_JSON).content(asJsonString(pp)))
+        mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/purchased/viewAll"))
                 .andDo(MockMvcResultHandlers.print());
         verify(ppService).getAllProductPurchased();
         verify(ppService, times(1)).getAllProductPurchased();
@@ -97,8 +100,7 @@ public class ProductPurchasedControllerTest {
     @Test
     public void givenGetAllProductPurchasedsByProductIdThenShouldReturnListOfAllProductPurchaseds() throws Exception {
         when(ppService.getAllProductPurchasedByProductId(pp.getProductId())).thenReturn(ppList);
-        mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/purchased/view/product/"+pp.getProductId())
-                .contentType(MediaType.APPLICATION_JSON).content(asJsonString(pp)))
+        mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/purchased/view/product/"+pp.getProductId()))
                 .andDo(MockMvcResultHandlers.print());
         verify(ppService).getAllProductPurchasedByProductId(pp.getProductId());
         verify(ppService, times(1)).getAllProductPurchasedByProductId(pp.getProductId());
@@ -108,8 +110,7 @@ public class ProductPurchasedControllerTest {
     @Test
     public void givenGetAllProductPurchasedsByClientIdThenShouldReturnListOfAllProductPurchaseds() throws Exception {
         when(ppService.getAllProductPurchasedByClientId(pp.getClientId())).thenReturn(ppList);
-        mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/purchased/view/client/"+pp.getClientId())
-                .contentType(MediaType.APPLICATION_JSON).content(asJsonString(pp)))
+        mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/purchased/view/client/"+pp.getClientId()))
                 .andDo(MockMvcResultHandlers.print());
         verify(ppService).getAllProductPurchasedByClientId(pp.getClientId());
         verify(ppService, times(1)).getAllProductPurchasedByClientId(pp.getClientId());
@@ -119,8 +120,7 @@ public class ProductPurchasedControllerTest {
     @Test
     public void givenGetAllPPsNotInBundlesByClientIdThenShouldReturnListOfAllProductPurchaseds() throws Exception {
         when(ppService.getAllProductPurchasedByClientIdNotInBundles(pp.getClientId())).thenReturn(ppList);
-        mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/purchased/view/notbundle/client/"+pp.getClientId())
-                .contentType(MediaType.APPLICATION_JSON).content(asJsonString(pp)))
+        mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/purchased/view/notbundle/client/"+pp.getClientId()))
                 .andDo(MockMvcResultHandlers.print());
         verify(ppService).getAllProductPurchasedByClientIdNotInBundles(pp.getClientId());
         verify(ppService, times(1)).getAllProductPurchasedByClientIdNotInBundles(pp.getClientId());
@@ -130,8 +130,7 @@ public class ProductPurchasedControllerTest {
     @Test
     public void givenGetAllPPsByBundleIdThenShouldReturnListOfAllProductPurchaseds() throws Exception {
         when(ppService.getAllProductPurchasedByBundleId(pp.getBundleId())).thenReturn(ppList);
-        mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/purchased/view/bundle/"+pp.getBundleId())
-                .contentType(MediaType.APPLICATION_JSON).content(asJsonString(pp)))
+        mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/purchased/view/bundle/"+pp.getBundleId()))
                 .andDo(MockMvcResultHandlers.print());
         verify(ppService).getAllProductPurchasedByBundleId(pp.getBundleId());
         verify(ppService, times(1)).getAllProductPurchasedByBundleId(pp.getBundleId());
@@ -140,8 +139,7 @@ public class ProductPurchasedControllerTest {
     @Test
     public void givenGetAllPPsByCompanayIdThenShouldReturnListOfAllProductPurchaseds() throws Exception {
         when(ppService.getAllProductPurchasedByCompanyId(pp.getCompanyId())).thenReturn(ppList);
-        mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/purchased/view/company/"+pp.getCompanyId())
-                .contentType(MediaType.APPLICATION_JSON).content(asJsonString(pp)))
+        mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/purchased/view/company/"+pp.getCompanyId()))
                 .andDo(MockMvcResultHandlers.print());
         verify(ppService).getAllProductPurchasedByCompanyId(pp.getCompanyId());
         verify(ppService, times(1)).getAllProductPurchasedByCompanyId(pp.getCompanyId());
@@ -150,8 +148,7 @@ public class ProductPurchasedControllerTest {
     @Test
     public void givenGetAllPPsByClientIdAndBundleIdThenShouldReturnListOfAllProductPurchaseds() throws Exception {
         when(ppService.getALlProductPurchasedByClientIdAndBundleId(pp.getClientId(),pp.getBundleId())).thenReturn(ppList);
-        mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/purchased/view/bundle/"+pp.getClientId()+"/"+pp.getBundleId())
-                .contentType(MediaType.APPLICATION_JSON).content(asJsonString(pp)))
+        mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/purchased/view/bundle/"+pp.getClientId()+"/"+pp.getBundleId()))
                 .andDo(MockMvcResultHandlers.print());
         verify(ppService).getALlProductPurchasedByClientIdAndBundleId(pp.getClientId(),pp.getBundleId());
         verify(ppService, times(1)).getALlProductPurchasedByClientIdAndBundleId(pp.getClientId(),pp.getBundleId());
@@ -160,8 +157,7 @@ public class ProductPurchasedControllerTest {
     @Test
     public void givenGetPPByPPIdThenShouldReturnProductPurchased() throws Exception {
         when(ppService.getProductPurchasedByPPId(pp.getPpId())).thenReturn(pp);
-        mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/purchased/view/id/"+pp.getPpId())
-                .contentType(MediaType.APPLICATION_JSON).content(asJsonString(pp)))
+        mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/purchased/view/id/"+pp.getPpId()))
                 .andDo(MockMvcResultHandlers.print());
         verify(ppService).getProductPurchasedByPPId(pp.getPpId());
         verify(ppService, times(1)).getProductPurchasedByPPId(pp.getPpId());
@@ -169,7 +165,14 @@ public class ProductPurchasedControllerTest {
 
     public static String asJsonString(final Object obj) {
         try {
-            return new ObjectMapper().writeValueAsString(obj);
+
+            // return new ObjectMapper().writeValueAsString(obj);
+            Gson gson = new GsonBuilder()
+                .setPrettyPrinting()
+                .registerTypeAdapter(LocalDate.class, new LocalDateAdapter())
+                .create();
+
+        return gson.toJson(obj);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
