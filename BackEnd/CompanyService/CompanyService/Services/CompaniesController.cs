@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using CompanyService.Repository;
+using System.Net;
 
 namespace CompanyService.Services
 {
@@ -24,9 +25,9 @@ namespace CompanyService.Services
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Company>>> GetCompanies()
         {
-          if (_context.Companies == null)
-          {
-                throw new Exception("Entity set 'CompanyContext.Companies' is null.");
+            if (_context.Companies == null)
+            {
+                return NotFound("No companies to display.");
             }
             return await _context.Companies.ToListAsync();
         }
@@ -35,15 +36,15 @@ namespace CompanyService.Services
         [HttpGet("view/{id}")]
         public async Task<ActionResult<Company>> GetCompany(int id)
         {
-          if (_context.Companies == null)
-          {
-              throw new Exception("Entity set 'CompanyContext.Companies' is null.");
-          }
+            if (_context.Companies == null)
+            {
+                return NotFound("No companies to display.");
+            }
             var company = await _context.Companies.FindAsync(id);
 
             if (company == null)
             {
-                throw new Exception($"There are no companies with ID number: {id}");
+                return NotFound($"Company with ID {id} does not exist.");
             }
 
             return company;
@@ -55,7 +56,7 @@ namespace CompanyService.Services
         {
             if (id != company.CompanyId)
             {
-                throw new Exception($"ID {id} and company.CompanyId {company.CompanyId} do not match. Could not update company information in the database.");
+                return BadRequest($"Entered ID {id} and company.CompanyId {company.CompanyId} do not match. Could not update company information in the database.");
             }
 
             _context.Entry(company).State = EntityState.Modified;
@@ -68,11 +69,11 @@ namespace CompanyService.Services
             {
                 if (!CompanyExists(id))
                 {
-                    throw new Exception($"Company with ID {id} does not exist. Could not update company information in the database.");
+                    return NotFound($"Company with ID {id} does not exist. Could not update company information in the database.");
                 }
                 else
                 {
-                    throw new Exception("Could not update company information in the database");
+                    return BadRequest("Could not update company information in the database");
                 }
             }
 
@@ -83,9 +84,9 @@ namespace CompanyService.Services
         [HttpPost("add")]
         public async Task<ActionResult<Company>> PostCompany(Company company)
         {
-          if (_context.Companies == null)
-          {
-                throw new Exception("Entity set 'CompanyContext.Companies' is null.");
+            if (_context.Companies == null)
+            {
+                return NotFound("No companies to display.");
             }
             _context.Companies.Add(company);
             await _context.SaveChangesAsync();
@@ -99,12 +100,12 @@ namespace CompanyService.Services
         {
             if (_context.Companies == null)
             {
-                throw new Exception("Entity set 'CompanyContext.Companies' is null.");
+                return NotFound("No companies to display.");
             }
             var company = await _context.Companies.FindAsync(id);
             if (company == null)
             {
-                throw new Exception($"Company with ID {id} is null. Could not delete company.");
+                return NotFound($"Company with ID {id} could not be found. Could not delete company.");
             }
 
             _context.Companies.Remove(company);
@@ -119,12 +120,12 @@ namespace CompanyService.Services
         {
             if (_context.Companies == null)
             {
-                throw new Exception("Entity set 'CompanyContext.Companies' is null."); ;
+                return NotFound("No companies to display.");
             }
             var company = await _context.Companies.FindAsync(id);
             if (company == null)
             {
-                throw new Exception($"Company with ID {id} is null. Could not approve company.");
+                return NotFound($"Company with ID {id} could not be found. Could not approve company.");
             }
 
             company.IsApproved = true;
@@ -139,11 +140,11 @@ namespace CompanyService.Services
             {
                 if (!CompanyExists(id))
                 {
-                    throw new Exception($"Company with ID {id} does not exist. Could not approve company.");
+                    return NotFound($"Company with ID {id} does not exist. Could not approve company.");
                 }
                 else
                 {
-                    throw new Exception("Could not approve company.");
+                    return BadRequest("Could not approve company.");
                 }
             }
 
@@ -156,12 +157,12 @@ namespace CompanyService.Services
         {
             if (_context.Companies == null)
             {
-                throw new Exception("Entity set 'CompanyContext.Companies' is null."); ;
+                return NotFound("No companies to display.");
             }
             var company = await _context.Companies.FindAsync(id);
             if (company == null)
             {
-                throw new Exception($"Company with ID {id} is null. Could not disapprove company.");
+                return NotFound($"Company with ID {id} could not be found. Could not disapprove company.");
             }
 
             company.IsApproved = false;
@@ -176,11 +177,11 @@ namespace CompanyService.Services
             {
                 if (!CompanyExists(id))
                 {
-                    throw new Exception($"Company with ID {id} does not exist. Could not disapprove company.");
+                    return NotFound($"Company with ID {id} does not exist. Could not disapprove company.");
                 }
                 else
                 {
-                    throw new Exception("Could not disapprove company.");
+                    return BadRequest("Could not disapprove company.");
                 }
             }
 
