@@ -1,6 +1,9 @@
-select * from company;
+use company;
 
-insert into company (name, email, address, logo, contactDetails, isApproved)
+select * from company;
+delete from company;
+
+insert into company (email, name, address, logo, contactDetails, isApproved)
 values("comp2@gmail.com", "ABC Insurance", "123 St 20 Ave", "no image", '{"Instagram":"abc_insurance", "Facebook":"abc_insurance"}', 1),
 ("comp3@gmail.com", "LOTR", "1235 St SW", "no image", '{"Instagram":"lotr"}', 0),
 ("comp4@gmail.com", "Testing", "Antarctica Ave", "no image", '{"Instagram":"testing", "Facebook":"testing"}', 1),

@@ -23,9 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Exceptions\" />
     <Folder Include="Repository\" />
-    <Folder Include="Testing\" />
   </ItemGroup>
 
 </Project>
