@@ -17,13 +17,15 @@ import com.cgi.bundleservice.exception.BundleNotFoundException;
 import com.cgi.bundleservice.model.Bundle;
 import com.cgi.bundleservice.service.BundleService;
 
-import org.springframework.http.HttpStatus;
+import lombok.extern.slf4j.Slf4j;
 
+import org.springframework.http.HttpStatus;
 
 @RestController
 @RequestMapping("/bundles")
+@Slf4j
 public class BundleController {
-    
+	
     @Autowired
     BundleService bundleService;
 
@@ -42,6 +44,29 @@ public class BundleController {
         } catch (BundleNotFoundException ex) {
         	return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
 //            return ResponseEntity.notFound().build();
+        }
+    }
+    
+////  getting bundle by name
+//    @GetMapping("/{bundlename}")
+//    public ResponseEntity<?> getBundleByName(@PathVariable String bundlename) {
+//        try {
+//            Bundle bundle = bundleService.getBundleById(bundlename);
+//            return new ResponseEntity<>(bundle, HttpStatus.OK);
+//        } catch (BundleNotFoundException ex) {
+//        	return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
+////            return ResponseEntity.notFound().build();
+//        }
+//    }
+    
+//  getting bundle by companyid
+    @GetMapping("/{companyId}/{id}")
+    public ResponseEntity<?> viewBundleByCompanyId(@PathVariable String companyId, @PathVariable String id) {
+        try {
+            Bundle bundle = bundleService.viewBundleByCompanyId(companyId, id);
+            return new ResponseEntity<>(bundle, HttpStatus.OK);
+        } catch (BundleNotFoundException ex) {
+        	return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
         }
     }
 
@@ -65,7 +90,6 @@ public class BundleController {
         }
     }
 
-
 //    deleting the bundle
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> deleteBundle(@PathVariable String id) {
@@ -78,5 +102,4 @@ public class BundleController {
 //            return ResponseEntity.notFound().build();
         }
     }
-
 }

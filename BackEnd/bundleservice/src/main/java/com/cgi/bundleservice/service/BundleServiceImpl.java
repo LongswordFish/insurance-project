@@ -35,6 +35,31 @@ public class BundleServiceImpl implements BundleService {
             throw new BundleNotFoundException("Bundle with ID " + id + " not found.");
         }
     }
+    
+//    public Bundle getBundleByName(String bundlename) throws BundleNotFoundException {
+//        Optional<Bundle> optional = bundleRepository.findById(bundlename);
+//        if (optional.isPresent()) {
+//            return optional.get();
+//        } else {
+//            throw new BundleNotFoundException("Bundle with Name " + bundlename + " not found.");
+//        }
+//    }
+    
+    @Override
+    public Bundle viewBundleByCompanyId(String companyId, String id) throws BundleNotFoundException {
+        Optional<Bundle> optionalBundle = bundleRepository.findByCompanyidAndBundleid(companyId, id);
+        if (optionalBundle.isPresent()) {
+            Bundle bundle = optionalBundle.get();
+            if (bundle.getCompanyid().equals(companyId)) {
+                return bundle;
+            } else {
+                throw new BundleNotFoundException("Bundle with ID " + id + " is not associated with company with ID " + companyId);
+            }
+        } else {
+            throw new BundleNotFoundException("Bundle with ID " + id + " not found.");
+        }
+    }
+
 
     @Override
     public Bundle updateBundle(String id, Bundle bundle) throws BundleNotFoundException {

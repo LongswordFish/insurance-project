@@ -31,12 +31,13 @@ public class BundleServiceImplTest {
     @Test
     public void testCreateBundle() {
         // Test that the service can create a bundle
-        Bundle bundle = new Bundle("1", Arrays.asList("P1", "P2"), 100.0, "Location1", "C1");
+        Bundle bundle = new Bundle("1", "Sunlife", Arrays.asList("P1", "P2"), 100.0, "Location1", "C1");
         when(bundleRepository.save(bundle)).thenReturn(bundle);
 
         Bundle createdBundle = bundleService.createBundle(bundle);
 
         assertEquals(bundle.getBundleid(), createdBundle.getBundleid());
+        assertEquals(bundle.getBundlename(), createdBundle.getBundlename());
         assertEquals(bundle.getProductids(), createdBundle.getProductids());
         assertEquals(bundle.getTotalPrice(), createdBundle.getTotalPrice());
         assertEquals(bundle.getLocation(), createdBundle.getLocation());
@@ -47,30 +48,34 @@ public class BundleServiceImplTest {
     public void testGetBundleById() throws BundleNotFoundException {
         // Test that the service can retrieve an existing bundle by its ID
         String bundleId = "123";
-        Bundle bundle = new Bundle(bundleId, Arrays.asList("P1", "P2"), 100.0, "Location1", "C1");
+        Bundle bundle = new Bundle(bundleId, "Sunlife", Arrays.asList("P1", "P2"), 100.0, "Location1", "C1");
         when(bundleRepository.findById(bundleId)).thenReturn(Optional.of(bundle));
 
         Bundle resultBundle = bundleService.getBundleById(bundleId);
 
         assertEquals(bundle.getBundleid(), resultBundle.getBundleid());
+        assertEquals(bundle.getBundlename(), resultBundle.getBundlename());
         assertEquals(bundle.getProductids(), resultBundle.getProductids());
         assertEquals(bundle.getTotalPrice(), resultBundle.getTotalPrice());
         assertEquals(bundle.getLocation(), resultBundle.getLocation());
         assertEquals(bundle.getCompanyid(), resultBundle.getCompanyid());
     }
+    
+    
 
     @Test
     public void testUpdateBundle() throws BundleNotFoundException {
         // Test that the service can update an existing bundle
         String bundleId = "123";
-        Bundle originalBundle = new Bundle(bundleId, List.of("1", "2", "3"), 50.0, "location1", "company1");
+        Bundle originalBundle = new Bundle(bundleId, "Sunlife", List.of("1", "2", "3"), 50.0, "location1", "company1");
         when(bundleRepository.findById(bundleId)).thenReturn(Optional.of(originalBundle));
-        Bundle updatedBundle = new Bundle(bundleId, List.of("4", "5"), 30.0, "location2", "company2");
+        Bundle updatedBundle = new Bundle(bundleId, "Sunlife", List.of("4", "5"), 30.0, "location2", "company2");
         when(bundleRepository.save(any())).thenReturn(updatedBundle);
 
         Bundle resultBundle = bundleService.updateBundle(bundleId, updatedBundle);
 
         assertEquals(resultBundle.getBundleid(), updatedBundle.getBundleid());
+        assertEquals(resultBundle.getBundlename(), updatedBundle.getBundlename());
         assertEquals(resultBundle.getProductids(), updatedBundle.getProductids());
         assertEquals(resultBundle.getTotalPrice(), updatedBundle.getTotalPrice());
         assertEquals(resultBundle.getLocation(), updatedBundle.getLocation());
@@ -81,7 +86,7 @@ public class BundleServiceImplTest {
     public void testDeleteBundleById() throws BundleNotFoundException {
         // Test that the service can delete an existing bundle by its ID
         String bundleId = "123";
-        Bundle bundle = new Bundle(bundleId, Arrays.asList("P1", "P2"), 100.0, "Location1", "C1");
+        Bundle bundle = new Bundle(bundleId, "Sunlife", Arrays.asList("P1", "P2"), 100.0, "Location1", "C1");
         when(bundleRepository.findById(bundleId)).thenReturn(Optional.of(bundle));
         bundleService.deleteBundle(bundleId);
     }
