@@ -65,7 +65,7 @@ public class ClientFilter extends GenericFilter{
                         String role = (String)claim.get("role");
                         //System.out.println(claim.getAudience() + "  user " + claim.getSubject());
                         System.out.println("role is "+role);
-                        if(role==null || !role.equals("client")){
+                        if(role==null || !(role.equals("client")||role.equals("admin")) ){
                             handleMissingToken(httpResponse,"You don't have the access");
                             return;
                         }
