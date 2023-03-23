@@ -31,7 +31,7 @@ namespace CompanyService
                 options.AddPolicy("MyPolicy",
                     policy =>
                     {
-                        policy.WithOrigins("http://localhost:5139/api/Companies")
+                        policy.WithOrigins("http://localhost:9091/api/Companies")
                         .AllowAnyMethod()
                         .AllowAnyHeader()
                         .WithMethods("PUT", "DELETE", "GET", "POST");
