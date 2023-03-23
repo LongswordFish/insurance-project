@@ -37,7 +37,7 @@ public class ClaimServiceTest {
 	private ClaimDocument claimDocTest;
 	private List<Claim> claimList = new ArrayList<Claim>();
 	private List<ClaimDocument> claimDocList = new ArrayList<ClaimDocument>();
-	private Optional optc;
+	private Optional<Claim> optc;
 	
 	@BeforeEach
 	public void setUp() {
