@@ -65,6 +65,8 @@ public class ClientFilter extends GenericFilter{
                         Jwt jwtobj = jwtparser.parse(mytoken);
         
                         Claims claim = (Claims) jwtobj.getBody();
+                        System.out.println(claim);
+                        
                         String role = (String)claim.get("role");
                         //System.out.println(claim.getAudience() + "  user " + claim.getSubject());
                         System.out.println("role is "+role);

@@ -6,18 +6,20 @@ services:
     image: mongo
     ports:
       - 27017:27017
-    volumes:
-       - db-data:/var/lib/mongo/dat
-
-  bundleapp:
+    environment:
+      MONGOURL: mongodb://localhost:27017/insurance
+      
+  product_purchased_service:
     image: longswordfish/product_purchased_service
     depends_on:
       - mongos
     restart: always
     ports:
       - 9094:9094
-    environment:
-      MONGOURL: mongodb://localhost:27017/insurance
+
+  eureka_server:
+    image: longswordfish/eureka_server
+    restart: always
+    ports:
+      - 8761:8761
   
-volumes:
-  db-data:

@@ -7,6 +7,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.converter.xml.SourceHttpMessageConverter;
 
 import com.cgi.insurance.product_purchased_service.constant.Constant;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -65,8 +66,7 @@ public class CompanyFilter extends GenericFilter{
         
                         Claims claim = (Claims) jwtobj.getBody();
                         String role = (String)claim.get("role");
-                        //System.out.println(claim.getAudience() + "  user " + claim.getSubject());
-                        System.out.println("role is "+role);
+
                         if(role==null || !(role.equals("company")||role.equals("admin"))){
                             handleMissingToken(httpResponse,"You don't have the access");
                             return;
