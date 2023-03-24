@@ -8,8 +8,8 @@ namespace CompanyServiceTesting.Repository
 {
     public interface IDeleteEndpointsTest
     {
-        public void DeleteShouldSucceed();
-
-        public void DeleteShouldFail();
+        public Task DeleteShouldSucceed();
+        public Task DeleteShouldFail();
+        public Task DeleteGivenWrongCRUD(); 
     }
 }

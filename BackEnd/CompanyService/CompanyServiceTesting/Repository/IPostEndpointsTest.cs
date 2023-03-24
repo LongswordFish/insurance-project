@@ -8,8 +8,8 @@ namespace CompanyServiceTesting.Repository
 {
     public interface IPostEndpointsTest
     {
-        public void PostShouldSucceed();
-
-        public void PostShouldFail();
+        public Task PostShouldSucceed();
+        public Task PostShouldFail();
+        public Task PostGivenWrongCRUD();
     }
 }

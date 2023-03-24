@@ -8,18 +8,11 @@ namespace CompanyServiceTesting.Repository
 {
     public interface IPutEndpointsTest
     {
-        public void UpdateShouldSucceed();
+        public Task PutGivenWrongCRUD();
+        public Task UpdateShouldSucceed();
+        public Task UpdateShouldFail();
 
-        public void UpdateWrongEntriesFailed();
-
-        public void UpdateBadIdFailed();
-
-        public void ApproveShouldSucceed();
-
-        public void ApproveShouldFail();
-
-        public void DisapproveShouldSucceed();
-
-        public void DisapproveShouldFail();
+        public Task ApproveShouldSucceed();
+        public Task DisapproveShouldSucceed();
     }
 }

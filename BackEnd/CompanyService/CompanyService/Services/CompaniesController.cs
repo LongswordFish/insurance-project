@@ -50,6 +50,11 @@ namespace CompanyService.Services
             return company;
         }
 
+        // ------- TO IMPLEMENT --------------------
+        // GET: api/company/view/{number to display}
+        // GET: api/company/view/{name}
+        // -----------------------------------------
+
         // PUT: api/company/update/id
         [HttpPut("update/{id}")]
         public async Task<IActionResult> PutCompany(int id, Company company)
@@ -77,7 +82,7 @@ namespace CompanyService.Services
                 }
             }
 
-            return NoContent();
+            return Ok();
         }
 
         // POST: api/company/add
@@ -111,7 +116,7 @@ namespace CompanyService.Services
             _context.Companies.Remove(company);
             await _context.SaveChangesAsync();
 
-            return NoContent();
+            return Ok();
         }
 
         // POST (approve company): api/company/approve/id
@@ -148,7 +153,7 @@ namespace CompanyService.Services
                 }
             }
 
-            return NoContent();
+            return Ok();
         }
 
         // POST (disapprove company): api/company/disapprove/id
@@ -185,7 +190,7 @@ namespace CompanyService.Services
                 }
             }
 
-            return NoContent();
+            return Ok();
         }
 
         private bool CompanyExists(int id)

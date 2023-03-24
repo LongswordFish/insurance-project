@@ -8,10 +8,9 @@ namespace CompanyServiceTesting.Repository
 {
     public interface IGetEndpointsTest
     {
-        public void GetAllShouldSucceed();
-
-        public void GetOneShouldSucceed();
-
-        public void GetOneShouldFail();
+        public Task GetAllShouldSucceed();
+        public Task GetOneShouldSucceed();
+        public Task GetOneShouldFail();
+        public Task GetGivenWrongCRUD();
     }
 }
