@@ -19,11 +19,10 @@ import com.cgi.bundleservice.service.BundleService;
 
 import org.springframework.http.HttpStatus;
 
-
 @RestController
 @RequestMapping("/bundles")
 public class BundleController {
-    
+	
     @Autowired
     BundleService bundleService;
 
@@ -35,43 +34,69 @@ public class BundleController {
 
 //    getting bundle by id
     @GetMapping("/view/{id}")
-    public ResponseEntity<Bundle> getBundleById(@PathVariable String id) {
+    public ResponseEntity<?> getBundleById(@PathVariable String id) {
         try {
             Bundle bundle = bundleService.getBundleById(id);
             return new ResponseEntity<>(bundle, HttpStatus.OK);
         } catch (BundleNotFoundException ex) {
-            return ResponseEntity.notFound().build();
+        	return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
+//            return ResponseEntity.notFound().build();
+        }
+    }
+    
+////  getting bundle by name
+//    @GetMapping("/{bundlename}")
+//    public ResponseEntity<?> getBundleByName(@PathVariable String bundlename) {
+//        try {
+//            Bundle bundle = bundleService.getBundleById(bundlename);
+//            return new ResponseEntity<>(bundle, HttpStatus.OK);
+//        } catch (BundleNotFoundException ex) {
+//        	return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
+////            return ResponseEntity.notFound().build();
+//        }
+//    }
+    
+//  getting bundle by companyid
+    @GetMapping("/{companyId}/{id}")
+    public ResponseEntity<?> viewBundleByCompanyId(@PathVariable String companyId, @PathVariable String id) {
+        try {
+            Bundle bundle = bundleService.viewBundleByCompanyId(companyId, id);
+            return new ResponseEntity<>(bundle, HttpStatus.OK);
+        } catch (BundleNotFoundException ex) {
+        	return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
         }
     }
 
 //    adding the bundle
     @PostMapping("/create")
-    public ResponseEntity<Bundle> createBundle(@RequestBody Bundle bundle) {
+    public ResponseEntity<?> createBundle(@RequestBody Bundle bundle) {
         Bundle createdBundle = bundleService.createBundle(bundle);
         return new ResponseEntity<>(createdBundle, HttpStatus.CREATED);
     }
 
 //    updating the bundle
     @PutMapping("/update/{id}")
-    public ResponseEntity<Bundle> updateBundle(@PathVariable String id, @RequestBody Bundle bundle) {
+    public ResponseEntity<?> updateBundle(@PathVariable String id, @RequestBody Bundle bundle) {
         try {
             Bundle updatedBundle = bundleService.updateBundle(id, bundle);
             return new ResponseEntity<>(updatedBundle, HttpStatus.OK);
         } catch (BundleNotFoundException ex) {
-            return ResponseEntity.notFound().build();
+        	return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
+//        	throw new BundleNotFoundException("Cannot update bundle as given bundle ID" +id +"is invalid: ");        	
+//            return ResponseEntity.notFound().build();
         }
     }
 
-
 //    deleting the bundle
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<Void> deleteBundle(@PathVariable String id) {
+    public ResponseEntity<?> deleteBundle(@PathVariable String id) {
         try {
             bundleService.deleteBundle(id);
             return new ResponseEntity<>(HttpStatus.OK);
         } catch (BundleNotFoundException ex) {
-            return ResponseEntity.notFound().build();
+        	return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
+//        	throw new BundleNotFoundException("Cannot delete bundle as given bundle ID" +id +"is invalid: ");  
+//            return ResponseEntity.notFound().build();
         }
     }
-
 }

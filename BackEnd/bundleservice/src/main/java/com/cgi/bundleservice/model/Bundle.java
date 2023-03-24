@@ -7,8 +7,11 @@ import org.springframework.data.annotation.Id;
 
 public class Bundle {
 
+
 	 @Id
 	    private String bundleid;
+	 
+	 	private String bundlename;
 	    
 	    private List<String> productids;
 	    
@@ -18,8 +21,9 @@ public class Bundle {
 	    
 	    private String companyid;
 
-	    public Bundle(String bundleid, List<String> productids, Double totalPrice, String location, String companyid) {
+	    public Bundle(String bundleid, String bundlename, List<String> productids, Double totalPrice, String location, String companyid) {
 	    	this.bundleid = bundleid;
+	    	this.bundlename = bundlename;
 	        this.productids = productids;
 	        this.totalPrice = totalPrice;
 	        this.location = location;
@@ -28,6 +32,14 @@ public class Bundle {
 	    
 		public String getBundleid() {
 			return bundleid;
+		}
+
+		public String getBundlename() {
+			return bundlename;
+		}
+
+		public void setBundlename(String bundlename) {
+			this.bundlename = bundlename;
 		}
 
 		public void setBundleid(String bundleid) {
@@ -65,6 +77,4 @@ public class Bundle {
 		public void setCompanyid(String companyid) {
 			this.companyid = companyid;
 		}
-	    
-	    
 }
