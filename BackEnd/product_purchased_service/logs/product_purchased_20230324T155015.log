@@ -1,0 +1,1148 @@
+2023-03-24 15:50:16 [main] DEBUG org.jboss.logging -
+				Logging Provider: org.jboss.logging.Log4j2LoggerProvider
+2023-03-24 15:50:16 [main] INFO  o.h.validator.internal.util.Version -
+				HV000001: Hibernate Validator 8.0.0.Final
+2023-03-24 15:50:16 [main] DEBUG o.h.v.m.ResourceBundleMessageInterpolator -
+				Loaded expression factory via original TCCL
+2023-03-24 15:50:16 [main] DEBUG o.h.v.i.e.AbstractConfigurationImpl -
+				Setting custom MessageInterpolator of type org.springframework.validation.beanvalidation.LocaleContextMessageInterpolator
+2023-03-24 15:50:16 [main] DEBUG o.h.v.i.x.config.ValidationXmlParser -
+				Trying to load META-INF/validation.xml for XML based Validator configuration.
+2023-03-24 15:50:16 [main] DEBUG o.h.v.i.x.c.ResourceLoaderHelper -
+				Trying to load META-INF/validation.xml via TCCL
+2023-03-24 15:50:16 [main] DEBUG o.h.v.i.x.c.ResourceLoaderHelper -
+				Trying to load META-INF/validation.xml via Hibernate Validator's class loader
+2023-03-24 15:50:16 [main] DEBUG o.h.v.i.x.config.ValidationXmlParser -
+				No META-INF/validation.xml found. Using annotation based configuration only.
+2023-03-24 15:50:16 [main] DEBUG o.h.v.i.e.r.TraversableResolvers -
+				Cannot find jakarta.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+2023-03-24 15:50:16 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper -
+				HV000252: Using org.hibernate.validator.internal.engine.DefaultPropertyNodeNameProvider as property node name provider.
+2023-03-24 15:50:16 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper -
+				HV000234: Using org.springframework.validation.beanvalidation.LocaleContextMessageInterpolator as ValidatorFactory-scoped message interpolator.
+2023-03-24 15:50:16 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper -
+				HV000234: Using org.hibernate.validator.internal.engine.resolver.TraverseAllTraversableResolver as ValidatorFactory-scoped traversable resolver.
+2023-03-24 15:50:16 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper -
+				HV000234: Using org.hibernate.validator.internal.util.ExecutableParameterNameProvider as ValidatorFactory-scoped parameter name provider.
+2023-03-24 15:50:16 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper -
+				HV000234: Using org.hibernate.validator.internal.engine.DefaultClockProvider as ValidatorFactory-scoped clock provider.
+2023-03-24 15:50:16 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper -
+				HV000234: Using org.hibernate.validator.internal.engine.scripting.DefaultScriptEvaluatorFactory as ValidatorFactory-scoped script evaluator factory.
+2023-03-24 15:50:17 [main] DEBUG _.s.w.s.HandlerMapping.Mappings -
+				
+	c.c.i.p.c.ProductPurchasedController:
+	{GET [/api/v1/purchased/view/company/{companyId}]}: getAllProductPurchasedByCompanyId(String)
+	{PUT [/api/v1/purchased/update/{ppId}]}: updateProductPurchased(ProductPurchased,String)
+	{GET [/api/v1/purchased/view/client/{clientId}]}: getAllProductPurchasedByClientId(String)
+	{POST [/api/v1/purchased/add]}: addProductPurchased(ProductPurchased)
+	{GET [/api/v1/purchased/viewAll]}: getAllProductPurchased()
+	{GET [/api/v1/purchased/view/bundle/{bundleId}]}: getAllProductPurchasedByBundleId(String)
+	{GET [/api/v1/purchased/view/product/{productId}]}: getAllProductPurchasedByProductId(String)
+	{GET [/api/v1/purchased/view/id/{ppId}]}: getProductPurchasedByPPId(String)
+	{GET [/api/v1/purchased/view/notbundle/client/{clientId}]}: getAllProductPurchasedByClientIdNotInBundles(String)
+	{GET [/api/v1/purchased/view/bundle/{clientId}/{bundleId}]}: getALlProductPurchasedByClientIdAndBundleId(String,String)
+	{DELETE [/api/v1/purchased/delete/{ppId}]}: deleteProductPurchased(String)
+	{GET [/api/v1/purchased/view/company/{companyId}/bundle/{bundleId}]}: getProductPurchasedByCompanyIdAndBundleId(String,String)
+	{GET [/api/v1/purchased/view/client/{clientId}/product/{productId}]}: getProductPurchasedByClientIdAndProductId(String,String)
+	{GET [/api/v1/purchased/view/company/{companyId}/product/{productId}]}: getProductPurchasedByCompanyIdAndProductId(String,String)
+	{GET [/api/v1/purchased/view/client/{clientId}/date/{date}]}: getProductPurchasedByClientIdAndDate(String,LocalDate)
+2023-03-24 15:50:17 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				15 mappings in org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping
+2023-03-24 15:50:18 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter -
+				ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2023-03-24 15:50:18 [main] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver -
+				ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2023-03-24 15:50:18 [main] INFO  o.s.mock.web.MockServletContext -
+				Initializing Spring TestDispatcherServlet ''
+2023-03-24 15:50:18 [main] INFO  o.s.t.w.s.TestDispatcherServlet -
+				Initializing Servlet ''
+2023-03-24 15:50:18 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				Detected AcceptHeaderLocaleResolver
+2023-03-24 15:50:18 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				Detected FixedThemeResolver
+2023-03-24 15:50:18 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@7fad214a
+2023-03-24 15:50:18 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				Detected org.springframework.web.servlet.support.SessionFlashMapManager@164642a4
+2023-03-24 15:50:18 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2023-03-24 15:50:18 [main] INFO  o.s.t.w.s.TestDispatcherServlet -
+				Completed initialization in 11 ms
+2023-03-24 15:50:18 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				PUT "/api/v1/purchased/update/ppId1", parameters={}
+2023-03-24 15:50:18 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped to com.cgi.insurance.product_purchased_service.controller.ProductPurchasedController#updateProductPurchased(ProductPurchased, String)
+2023-03-24 15:50:19 [main] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor -
+				Read "application/json" to [com.cgi.insurance.product_purchased_service.model.ProductPurchased@22a260ff]
+2023-03-24 15:50:19 [main] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor -
+				Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2023-03-24 15:50:19 [main] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor -
+				Writing [com.cgi.insurance.product_purchased_service.model.ProductPurchased@5b2b8d86]
+2023-03-24 15:50:19 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				Completed 200 OK
+2023-03-24 15:50:19 [main] DEBUG o.h.v.m.ResourceBundleMessageInterpolator -
+				Loaded expression factory via original TCCL
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.e.AbstractConfigurationImpl -
+				Setting custom MessageInterpolator of type org.springframework.validation.beanvalidation.LocaleContextMessageInterpolator
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.x.config.ValidationXmlParser -
+				Trying to load META-INF/validation.xml for XML based Validator configuration.
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.x.c.ResourceLoaderHelper -
+				Trying to load META-INF/validation.xml via TCCL
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.x.c.ResourceLoaderHelper -
+				Trying to load META-INF/validation.xml via Hibernate Validator's class loader
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.x.config.ValidationXmlParser -
+				No META-INF/validation.xml found. Using annotation based configuration only.
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.e.r.TraversableResolvers -
+				Cannot find jakarta.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper -
+				HV000252: Using org.hibernate.validator.internal.engine.DefaultPropertyNodeNameProvider as property node name provider.
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper -
+				HV000234: Using org.springframework.validation.beanvalidation.LocaleContextMessageInterpolator as ValidatorFactory-scoped message interpolator.
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper -
+				HV000234: Using org.hibernate.validator.internal.engine.resolver.TraverseAllTraversableResolver as ValidatorFactory-scoped traversable resolver.
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper -
+				HV000234: Using org.hibernate.validator.internal.util.ExecutableParameterNameProvider as ValidatorFactory-scoped parameter name provider.
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper -
+				HV000234: Using org.hibernate.validator.internal.engine.DefaultClockProvider as ValidatorFactory-scoped clock provider.
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper -
+				HV000234: Using org.hibernate.validator.internal.engine.scripting.DefaultScriptEvaluatorFactory as ValidatorFactory-scoped script evaluator factory.
+2023-03-24 15:50:19 [main] DEBUG _.s.w.s.HandlerMapping.Mappings -
+				
+	c.c.i.p.c.ProductPurchasedController:
+	{GET [/api/v1/purchased/view/company/{companyId}]}: getAllProductPurchasedByCompanyId(String)
+	{PUT [/api/v1/purchased/update/{ppId}]}: updateProductPurchased(ProductPurchased,String)
+	{GET [/api/v1/purchased/view/client/{clientId}]}: getAllProductPurchasedByClientId(String)
+	{POST [/api/v1/purchased/add]}: addProductPurchased(ProductPurchased)
+	{GET [/api/v1/purchased/viewAll]}: getAllProductPurchased()
+	{GET [/api/v1/purchased/view/bundle/{bundleId}]}: getAllProductPurchasedByBundleId(String)
+	{GET [/api/v1/purchased/view/product/{productId}]}: getAllProductPurchasedByProductId(String)
+	{GET [/api/v1/purchased/view/id/{ppId}]}: getProductPurchasedByPPId(String)
+	{GET [/api/v1/purchased/view/notbundle/client/{clientId}]}: getAllProductPurchasedByClientIdNotInBundles(String)
+	{GET [/api/v1/purchased/view/bundle/{clientId}/{bundleId}]}: getALlProductPurchasedByClientIdAndBundleId(String,String)
+	{DELETE [/api/v1/purchased/delete/{ppId}]}: deleteProductPurchased(String)
+	{GET [/api/v1/purchased/view/company/{companyId}/bundle/{bundleId}]}: getProductPurchasedByCompanyIdAndBundleId(String,String)
+	{GET [/api/v1/purchased/view/client/{clientId}/product/{productId}]}: getProductPurchasedByClientIdAndProductId(String,String)
+	{GET [/api/v1/purchased/view/company/{companyId}/product/{productId}]}: getProductPurchasedByCompanyIdAndProductId(String,String)
+	{GET [/api/v1/purchased/view/client/{clientId}/date/{date}]}: getProductPurchasedByClientIdAndDate(String,LocalDate)
+2023-03-24 15:50:19 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				15 mappings in org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping
+2023-03-24 15:50:19 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter -
+				ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2023-03-24 15:50:19 [main] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver -
+				ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2023-03-24 15:50:19 [main] INFO  o.s.mock.web.MockServletContext -
+				Initializing Spring TestDispatcherServlet ''
+2023-03-24 15:50:19 [main] INFO  o.s.t.w.s.TestDispatcherServlet -
+				Initializing Servlet ''
+2023-03-24 15:50:19 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				Detected AcceptHeaderLocaleResolver
+2023-03-24 15:50:19 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				Detected FixedThemeResolver
+2023-03-24 15:50:19 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@1b52699c
+2023-03-24 15:50:19 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				Detected org.springframework.web.servlet.support.SessionFlashMapManager@dbed7fd
+2023-03-24 15:50:19 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2023-03-24 15:50:19 [main] INFO  o.s.t.w.s.TestDispatcherServlet -
+				Completed initialization in 5 ms
+2023-03-24 15:50:19 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				GET "/api/v1/purchased/view/client/clien1/date/2023-03-24", parameters={}
+2023-03-24 15:50:19 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped to com.cgi.insurance.product_purchased_service.controller.ProductPurchasedController#getProductPurchasedByClientIdAndDate(String, LocalDate)
+2023-03-24 15:50:19 [main] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor -
+				Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2023-03-24 15:50:19 [main] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor -
+				Writing [[com.cgi.insurance.product_purchased_service.model.ProductPurchased@6a1568d6]]
+2023-03-24 15:50:19 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				Completed 200 OK
+2023-03-24 15:50:19 [main] DEBUG o.h.v.m.ResourceBundleMessageInterpolator -
+				Loaded expression factory via original TCCL
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.e.AbstractConfigurationImpl -
+				Setting custom MessageInterpolator of type org.springframework.validation.beanvalidation.LocaleContextMessageInterpolator
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.x.config.ValidationXmlParser -
+				Trying to load META-INF/validation.xml for XML based Validator configuration.
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.x.c.ResourceLoaderHelper -
+				Trying to load META-INF/validation.xml via TCCL
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.x.c.ResourceLoaderHelper -
+				Trying to load META-INF/validation.xml via Hibernate Validator's class loader
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.x.config.ValidationXmlParser -
+				No META-INF/validation.xml found. Using annotation based configuration only.
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.e.r.TraversableResolvers -
+				Cannot find jakarta.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper -
+				HV000252: Using org.hibernate.validator.internal.engine.DefaultPropertyNodeNameProvider as property node name provider.
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper -
+				HV000234: Using org.springframework.validation.beanvalidation.LocaleContextMessageInterpolator as ValidatorFactory-scoped message interpolator.
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper -
+				HV000234: Using org.hibernate.validator.internal.engine.resolver.TraverseAllTraversableResolver as ValidatorFactory-scoped traversable resolver.
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper -
+				HV000234: Using org.hibernate.validator.internal.util.ExecutableParameterNameProvider as ValidatorFactory-scoped parameter name provider.
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper -
+				HV000234: Using org.hibernate.validator.internal.engine.DefaultClockProvider as ValidatorFactory-scoped clock provider.
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper -
+				HV000234: Using org.hibernate.validator.internal.engine.scripting.DefaultScriptEvaluatorFactory as ValidatorFactory-scoped script evaluator factory.
+2023-03-24 15:50:19 [main] DEBUG _.s.w.s.HandlerMapping.Mappings -
+				
+	c.c.i.p.c.ProductPurchasedController:
+	{GET [/api/v1/purchased/view/company/{companyId}]}: getAllProductPurchasedByCompanyId(String)
+	{PUT [/api/v1/purchased/update/{ppId}]}: updateProductPurchased(ProductPurchased,String)
+	{GET [/api/v1/purchased/view/client/{clientId}]}: getAllProductPurchasedByClientId(String)
+	{POST [/api/v1/purchased/add]}: addProductPurchased(ProductPurchased)
+	{GET [/api/v1/purchased/viewAll]}: getAllProductPurchased()
+	{GET [/api/v1/purchased/view/bundle/{bundleId}]}: getAllProductPurchasedByBundleId(String)
+	{GET [/api/v1/purchased/view/product/{productId}]}: getAllProductPurchasedByProductId(String)
+	{GET [/api/v1/purchased/view/id/{ppId}]}: getProductPurchasedByPPId(String)
+	{GET [/api/v1/purchased/view/notbundle/client/{clientId}]}: getAllProductPurchasedByClientIdNotInBundles(String)
+	{GET [/api/v1/purchased/view/bundle/{clientId}/{bundleId}]}: getALlProductPurchasedByClientIdAndBundleId(String,String)
+	{DELETE [/api/v1/purchased/delete/{ppId}]}: deleteProductPurchased(String)
+	{GET [/api/v1/purchased/view/company/{companyId}/bundle/{bundleId}]}: getProductPurchasedByCompanyIdAndBundleId(String,String)
+	{GET [/api/v1/purchased/view/client/{clientId}/product/{productId}]}: getProductPurchasedByClientIdAndProductId(String,String)
+	{GET [/api/v1/purchased/view/company/{companyId}/product/{productId}]}: getProductPurchasedByCompanyIdAndProductId(String,String)
+	{GET [/api/v1/purchased/view/client/{clientId}/date/{date}]}: getProductPurchasedByClientIdAndDate(String,LocalDate)
+2023-03-24 15:50:19 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				15 mappings in org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping
+2023-03-24 15:50:19 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter -
+				ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2023-03-24 15:50:19 [main] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver -
+				ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2023-03-24 15:50:19 [main] INFO  o.s.mock.web.MockServletContext -
+				Initializing Spring TestDispatcherServlet ''
+2023-03-24 15:50:19 [main] INFO  o.s.t.w.s.TestDispatcherServlet -
+				Initializing Servlet ''
+2023-03-24 15:50:19 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				Detected AcceptHeaderLocaleResolver
+2023-03-24 15:50:19 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				Detected FixedThemeResolver
+2023-03-24 15:50:19 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@353e6389
+2023-03-24 15:50:19 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				Detected org.springframework.web.servlet.support.SessionFlashMapManager@15e8f9b2
+2023-03-24 15:50:19 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2023-03-24 15:50:19 [main] INFO  o.s.t.w.s.TestDispatcherServlet -
+				Completed initialization in 1 ms
+2023-03-24 15:50:19 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				GET "/api/v1/purchased/view/company/comp1/bundle/bundle1", parameters={}
+2023-03-24 15:50:19 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped to com.cgi.insurance.product_purchased_service.controller.ProductPurchasedController#getProductPurchasedByCompanyIdAndBundleId(String, String)
+2023-03-24 15:50:19 [main] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor -
+				Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2023-03-24 15:50:19 [main] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor -
+				Writing [[com.cgi.insurance.product_purchased_service.model.ProductPurchased@7a65c995]]
+2023-03-24 15:50:19 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				Completed 200 OK
+2023-03-24 15:50:19 [main] DEBUG o.h.v.m.ResourceBundleMessageInterpolator -
+				Loaded expression factory via original TCCL
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.e.AbstractConfigurationImpl -
+				Setting custom MessageInterpolator of type org.springframework.validation.beanvalidation.LocaleContextMessageInterpolator
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.x.config.ValidationXmlParser -
+				Trying to load META-INF/validation.xml for XML based Validator configuration.
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.x.c.ResourceLoaderHelper -
+				Trying to load META-INF/validation.xml via TCCL
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.x.c.ResourceLoaderHelper -
+				Trying to load META-INF/validation.xml via Hibernate Validator's class loader
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.x.config.ValidationXmlParser -
+				No META-INF/validation.xml found. Using annotation based configuration only.
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.e.r.TraversableResolvers -
+				Cannot find jakarta.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper -
+				HV000252: Using org.hibernate.validator.internal.engine.DefaultPropertyNodeNameProvider as property node name provider.
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper -
+				HV000234: Using org.springframework.validation.beanvalidation.LocaleContextMessageInterpolator as ValidatorFactory-scoped message interpolator.
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper -
+				HV000234: Using org.hibernate.validator.internal.engine.resolver.TraverseAllTraversableResolver as ValidatorFactory-scoped traversable resolver.
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper -
+				HV000234: Using org.hibernate.validator.internal.util.ExecutableParameterNameProvider as ValidatorFactory-scoped parameter name provider.
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper -
+				HV000234: Using org.hibernate.validator.internal.engine.DefaultClockProvider as ValidatorFactory-scoped clock provider.
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper -
+				HV000234: Using org.hibernate.validator.internal.engine.scripting.DefaultScriptEvaluatorFactory as ValidatorFactory-scoped script evaluator factory.
+2023-03-24 15:50:19 [main] DEBUG _.s.w.s.HandlerMapping.Mappings -
+				
+	c.c.i.p.c.ProductPurchasedController:
+	{GET [/api/v1/purchased/view/company/{companyId}]}: getAllProductPurchasedByCompanyId(String)
+	{PUT [/api/v1/purchased/update/{ppId}]}: updateProductPurchased(ProductPurchased,String)
+	{GET [/api/v1/purchased/view/client/{clientId}]}: getAllProductPurchasedByClientId(String)
+	{POST [/api/v1/purchased/add]}: addProductPurchased(ProductPurchased)
+	{GET [/api/v1/purchased/viewAll]}: getAllProductPurchased()
+	{GET [/api/v1/purchased/view/bundle/{bundleId}]}: getAllProductPurchasedByBundleId(String)
+	{GET [/api/v1/purchased/view/product/{productId}]}: getAllProductPurchasedByProductId(String)
+	{GET [/api/v1/purchased/view/id/{ppId}]}: getProductPurchasedByPPId(String)
+	{GET [/api/v1/purchased/view/notbundle/client/{clientId}]}: getAllProductPurchasedByClientIdNotInBundles(String)
+	{GET [/api/v1/purchased/view/bundle/{clientId}/{bundleId}]}: getALlProductPurchasedByClientIdAndBundleId(String,String)
+	{DELETE [/api/v1/purchased/delete/{ppId}]}: deleteProductPurchased(String)
+	{GET [/api/v1/purchased/view/company/{companyId}/bundle/{bundleId}]}: getProductPurchasedByCompanyIdAndBundleId(String,String)
+	{GET [/api/v1/purchased/view/client/{clientId}/product/{productId}]}: getProductPurchasedByClientIdAndProductId(String,String)
+	{GET [/api/v1/purchased/view/company/{companyId}/product/{productId}]}: getProductPurchasedByCompanyIdAndProductId(String,String)
+	{GET [/api/v1/purchased/view/client/{clientId}/date/{date}]}: getProductPurchasedByClientIdAndDate(String,LocalDate)
+2023-03-24 15:50:19 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				15 mappings in org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping
+2023-03-24 15:50:19 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter -
+				ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2023-03-24 15:50:19 [main] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver -
+				ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2023-03-24 15:50:19 [main] INFO  o.s.mock.web.MockServletContext -
+				Initializing Spring TestDispatcherServlet ''
+2023-03-24 15:50:19 [main] INFO  o.s.t.w.s.TestDispatcherServlet -
+				Initializing Servlet ''
+2023-03-24 15:50:19 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				Detected AcceptHeaderLocaleResolver
+2023-03-24 15:50:19 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				Detected FixedThemeResolver
+2023-03-24 15:50:19 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@7d66e544
+2023-03-24 15:50:19 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				Detected org.springframework.web.servlet.support.SessionFlashMapManager@666618d6
+2023-03-24 15:50:19 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2023-03-24 15:50:19 [main] INFO  o.s.t.w.s.TestDispatcherServlet -
+				Completed initialization in 2 ms
+2023-03-24 15:50:19 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				GET "/api/v1/purchased/view/product/product1", parameters={}
+2023-03-24 15:50:19 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped to com.cgi.insurance.product_purchased_service.controller.ProductPurchasedController#getAllProductPurchasedByProductId(String)
+2023-03-24 15:50:19 [main] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor -
+				Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2023-03-24 15:50:19 [main] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor -
+				Writing [[com.cgi.insurance.product_purchased_service.model.ProductPurchased@24fba488]]
+2023-03-24 15:50:19 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				Completed 200 OK
+2023-03-24 15:50:19 [main] DEBUG o.h.v.m.ResourceBundleMessageInterpolator -
+				Loaded expression factory via original TCCL
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.e.AbstractConfigurationImpl -
+				Setting custom MessageInterpolator of type org.springframework.validation.beanvalidation.LocaleContextMessageInterpolator
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.x.config.ValidationXmlParser -
+				Trying to load META-INF/validation.xml for XML based Validator configuration.
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.x.c.ResourceLoaderHelper -
+				Trying to load META-INF/validation.xml via TCCL
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.x.c.ResourceLoaderHelper -
+				Trying to load META-INF/validation.xml via Hibernate Validator's class loader
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.x.config.ValidationXmlParser -
+				No META-INF/validation.xml found. Using annotation based configuration only.
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.e.r.TraversableResolvers -
+				Cannot find jakarta.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper -
+				HV000252: Using org.hibernate.validator.internal.engine.DefaultPropertyNodeNameProvider as property node name provider.
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper -
+				HV000234: Using org.springframework.validation.beanvalidation.LocaleContextMessageInterpolator as ValidatorFactory-scoped message interpolator.
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper -
+				HV000234: Using org.hibernate.validator.internal.engine.resolver.TraverseAllTraversableResolver as ValidatorFactory-scoped traversable resolver.
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper -
+				HV000234: Using org.hibernate.validator.internal.util.ExecutableParameterNameProvider as ValidatorFactory-scoped parameter name provider.
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper -
+				HV000234: Using org.hibernate.validator.internal.engine.DefaultClockProvider as ValidatorFactory-scoped clock provider.
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper -
+				HV000234: Using org.hibernate.validator.internal.engine.scripting.DefaultScriptEvaluatorFactory as ValidatorFactory-scoped script evaluator factory.
+2023-03-24 15:50:19 [main] DEBUG _.s.w.s.HandlerMapping.Mappings -
+				
+	c.c.i.p.c.ProductPurchasedController:
+	{GET [/api/v1/purchased/view/company/{companyId}]}: getAllProductPurchasedByCompanyId(String)
+	{PUT [/api/v1/purchased/update/{ppId}]}: updateProductPurchased(ProductPurchased,String)
+	{GET [/api/v1/purchased/view/client/{clientId}]}: getAllProductPurchasedByClientId(String)
+	{POST [/api/v1/purchased/add]}: addProductPurchased(ProductPurchased)
+	{GET [/api/v1/purchased/viewAll]}: getAllProductPurchased()
+	{GET [/api/v1/purchased/view/bundle/{bundleId}]}: getAllProductPurchasedByBundleId(String)
+	{GET [/api/v1/purchased/view/product/{productId}]}: getAllProductPurchasedByProductId(String)
+	{GET [/api/v1/purchased/view/id/{ppId}]}: getProductPurchasedByPPId(String)
+	{GET [/api/v1/purchased/view/notbundle/client/{clientId}]}: getAllProductPurchasedByClientIdNotInBundles(String)
+	{GET [/api/v1/purchased/view/bundle/{clientId}/{bundleId}]}: getALlProductPurchasedByClientIdAndBundleId(String,String)
+	{DELETE [/api/v1/purchased/delete/{ppId}]}: deleteProductPurchased(String)
+	{GET [/api/v1/purchased/view/company/{companyId}/bundle/{bundleId}]}: getProductPurchasedByCompanyIdAndBundleId(String,String)
+	{GET [/api/v1/purchased/view/client/{clientId}/product/{productId}]}: getProductPurchasedByClientIdAndProductId(String,String)
+	{GET [/api/v1/purchased/view/company/{companyId}/product/{productId}]}: getProductPurchasedByCompanyIdAndProductId(String,String)
+	{GET [/api/v1/purchased/view/client/{clientId}/date/{date}]}: getProductPurchasedByClientIdAndDate(String,LocalDate)
+2023-03-24 15:50:19 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				15 mappings in org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping
+2023-03-24 15:50:19 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter -
+				ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2023-03-24 15:50:19 [main] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver -
+				ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2023-03-24 15:50:19 [main] INFO  o.s.mock.web.MockServletContext -
+				Initializing Spring TestDispatcherServlet ''
+2023-03-24 15:50:19 [main] INFO  o.s.t.w.s.TestDispatcherServlet -
+				Initializing Servlet ''
+2023-03-24 15:50:19 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				Detected AcceptHeaderLocaleResolver
+2023-03-24 15:50:19 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				Detected FixedThemeResolver
+2023-03-24 15:50:19 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@59c43561
+2023-03-24 15:50:19 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				Detected org.springframework.web.servlet.support.SessionFlashMapManager@634f58d2
+2023-03-24 15:50:19 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2023-03-24 15:50:19 [main] INFO  o.s.t.w.s.TestDispatcherServlet -
+				Completed initialization in 1 ms
+2023-03-24 15:50:19 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				GET "/api/v1/purchased/view/client/clien1/product/product1", parameters={}
+2023-03-24 15:50:19 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped to com.cgi.insurance.product_purchased_service.controller.ProductPurchasedController#getProductPurchasedByClientIdAndProductId(String, String)
+2023-03-24 15:50:19 [main] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor -
+				Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2023-03-24 15:50:19 [main] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor -
+				Writing [[com.cgi.insurance.product_purchased_service.model.ProductPurchased@585513a8]]
+2023-03-24 15:50:19 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				Completed 200 OK
+2023-03-24 15:50:19 [main] DEBUG o.h.v.m.ResourceBundleMessageInterpolator -
+				Loaded expression factory via original TCCL
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.e.AbstractConfigurationImpl -
+				Setting custom MessageInterpolator of type org.springframework.validation.beanvalidation.LocaleContextMessageInterpolator
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.x.config.ValidationXmlParser -
+				Trying to load META-INF/validation.xml for XML based Validator configuration.
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.x.c.ResourceLoaderHelper -
+				Trying to load META-INF/validation.xml via TCCL
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.x.c.ResourceLoaderHelper -
+				Trying to load META-INF/validation.xml via Hibernate Validator's class loader
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.x.config.ValidationXmlParser -
+				No META-INF/validation.xml found. Using annotation based configuration only.
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.e.r.TraversableResolvers -
+				Cannot find jakarta.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper -
+				HV000252: Using org.hibernate.validator.internal.engine.DefaultPropertyNodeNameProvider as property node name provider.
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper -
+				HV000234: Using org.springframework.validation.beanvalidation.LocaleContextMessageInterpolator as ValidatorFactory-scoped message interpolator.
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper -
+				HV000234: Using org.hibernate.validator.internal.engine.resolver.TraverseAllTraversableResolver as ValidatorFactory-scoped traversable resolver.
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper -
+				HV000234: Using org.hibernate.validator.internal.util.ExecutableParameterNameProvider as ValidatorFactory-scoped parameter name provider.
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper -
+				HV000234: Using org.hibernate.validator.internal.engine.DefaultClockProvider as ValidatorFactory-scoped clock provider.
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper -
+				HV000234: Using org.hibernate.validator.internal.engine.scripting.DefaultScriptEvaluatorFactory as ValidatorFactory-scoped script evaluator factory.
+2023-03-24 15:50:19 [main] DEBUG _.s.w.s.HandlerMapping.Mappings -
+				
+	c.c.i.p.c.ProductPurchasedController:
+	{GET [/api/v1/purchased/view/company/{companyId}]}: getAllProductPurchasedByCompanyId(String)
+	{PUT [/api/v1/purchased/update/{ppId}]}: updateProductPurchased(ProductPurchased,String)
+	{GET [/api/v1/purchased/view/client/{clientId}]}: getAllProductPurchasedByClientId(String)
+	{POST [/api/v1/purchased/add]}: addProductPurchased(ProductPurchased)
+	{GET [/api/v1/purchased/viewAll]}: getAllProductPurchased()
+	{GET [/api/v1/purchased/view/bundle/{bundleId}]}: getAllProductPurchasedByBundleId(String)
+	{GET [/api/v1/purchased/view/product/{productId}]}: getAllProductPurchasedByProductId(String)
+	{GET [/api/v1/purchased/view/id/{ppId}]}: getProductPurchasedByPPId(String)
+	{GET [/api/v1/purchased/view/notbundle/client/{clientId}]}: getAllProductPurchasedByClientIdNotInBundles(String)
+	{GET [/api/v1/purchased/view/bundle/{clientId}/{bundleId}]}: getALlProductPurchasedByClientIdAndBundleId(String,String)
+	{DELETE [/api/v1/purchased/delete/{ppId}]}: deleteProductPurchased(String)
+	{GET [/api/v1/purchased/view/company/{companyId}/bundle/{bundleId}]}: getProductPurchasedByCompanyIdAndBundleId(String,String)
+	{GET [/api/v1/purchased/view/client/{clientId}/product/{productId}]}: getProductPurchasedByClientIdAndProductId(String,String)
+	{GET [/api/v1/purchased/view/company/{companyId}/product/{productId}]}: getProductPurchasedByCompanyIdAndProductId(String,String)
+	{GET [/api/v1/purchased/view/client/{clientId}/date/{date}]}: getProductPurchasedByClientIdAndDate(String,LocalDate)
+2023-03-24 15:50:19 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				15 mappings in org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping
+2023-03-24 15:50:19 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter -
+				ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2023-03-24 15:50:19 [main] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver -
+				ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2023-03-24 15:50:19 [main] INFO  o.s.mock.web.MockServletContext -
+				Initializing Spring TestDispatcherServlet ''
+2023-03-24 15:50:19 [main] INFO  o.s.t.w.s.TestDispatcherServlet -
+				Initializing Servlet ''
+2023-03-24 15:50:19 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				Detected AcceptHeaderLocaleResolver
+2023-03-24 15:50:19 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				Detected FixedThemeResolver
+2023-03-24 15:50:19 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@611d0763
+2023-03-24 15:50:19 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				Detected org.springframework.web.servlet.support.SessionFlashMapManager@615efd1c
+2023-03-24 15:50:19 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2023-03-24 15:50:19 [main] INFO  o.s.t.w.s.TestDispatcherServlet -
+				Completed initialization in 1 ms
+2023-03-24 15:50:19 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				POST "/api/v1/purchased/add", parameters={}
+2023-03-24 15:50:19 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped to com.cgi.insurance.product_purchased_service.controller.ProductPurchasedController#addProductPurchased(ProductPurchased)
+2023-03-24 15:50:19 [main] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor -
+				Read "application/json" to [com.cgi.insurance.product_purchased_service.model.ProductPurchased@1e226bcd]
+2023-03-24 15:50:19 [main] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor -
+				Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2023-03-24 15:50:19 [main] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor -
+				Writing [com.cgi.insurance.product_purchased_service.model.ProductPurchased@2a8dd942]
+2023-03-24 15:50:19 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				Completed 201 CREATED
+2023-03-24 15:50:19 [main] DEBUG o.h.v.m.ResourceBundleMessageInterpolator -
+				Loaded expression factory via original TCCL
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.e.AbstractConfigurationImpl -
+				Setting custom MessageInterpolator of type org.springframework.validation.beanvalidation.LocaleContextMessageInterpolator
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.x.config.ValidationXmlParser -
+				Trying to load META-INF/validation.xml for XML based Validator configuration.
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.x.c.ResourceLoaderHelper -
+				Trying to load META-INF/validation.xml via TCCL
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.x.c.ResourceLoaderHelper -
+				Trying to load META-INF/validation.xml via Hibernate Validator's class loader
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.x.config.ValidationXmlParser -
+				No META-INF/validation.xml found. Using annotation based configuration only.
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.e.r.TraversableResolvers -
+				Cannot find jakarta.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper -
+				HV000252: Using org.hibernate.validator.internal.engine.DefaultPropertyNodeNameProvider as property node name provider.
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper -
+				HV000234: Using org.springframework.validation.beanvalidation.LocaleContextMessageInterpolator as ValidatorFactory-scoped message interpolator.
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper -
+				HV000234: Using org.hibernate.validator.internal.engine.resolver.TraverseAllTraversableResolver as ValidatorFactory-scoped traversable resolver.
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper -
+				HV000234: Using org.hibernate.validator.internal.util.ExecutableParameterNameProvider as ValidatorFactory-scoped parameter name provider.
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper -
+				HV000234: Using org.hibernate.validator.internal.engine.DefaultClockProvider as ValidatorFactory-scoped clock provider.
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper -
+				HV000234: Using org.hibernate.validator.internal.engine.scripting.DefaultScriptEvaluatorFactory as ValidatorFactory-scoped script evaluator factory.
+2023-03-24 15:50:19 [main] DEBUG _.s.w.s.HandlerMapping.Mappings -
+				
+	c.c.i.p.c.ProductPurchasedController:
+	{GET [/api/v1/purchased/view/company/{companyId}]}: getAllProductPurchasedByCompanyId(String)
+	{PUT [/api/v1/purchased/update/{ppId}]}: updateProductPurchased(ProductPurchased,String)
+	{GET [/api/v1/purchased/view/client/{clientId}]}: getAllProductPurchasedByClientId(String)
+	{POST [/api/v1/purchased/add]}: addProductPurchased(ProductPurchased)
+	{GET [/api/v1/purchased/viewAll]}: getAllProductPurchased()
+	{GET [/api/v1/purchased/view/bundle/{bundleId}]}: getAllProductPurchasedByBundleId(String)
+	{GET [/api/v1/purchased/view/product/{productId}]}: getAllProductPurchasedByProductId(String)
+	{GET [/api/v1/purchased/view/id/{ppId}]}: getProductPurchasedByPPId(String)
+	{GET [/api/v1/purchased/view/notbundle/client/{clientId}]}: getAllProductPurchasedByClientIdNotInBundles(String)
+	{GET [/api/v1/purchased/view/bundle/{clientId}/{bundleId}]}: getALlProductPurchasedByClientIdAndBundleId(String,String)
+	{DELETE [/api/v1/purchased/delete/{ppId}]}: deleteProductPurchased(String)
+	{GET [/api/v1/purchased/view/company/{companyId}/bundle/{bundleId}]}: getProductPurchasedByCompanyIdAndBundleId(String,String)
+	{GET [/api/v1/purchased/view/client/{clientId}/product/{productId}]}: getProductPurchasedByClientIdAndProductId(String,String)
+	{GET [/api/v1/purchased/view/company/{companyId}/product/{productId}]}: getProductPurchasedByCompanyIdAndProductId(String,String)
+	{GET [/api/v1/purchased/view/client/{clientId}/date/{date}]}: getProductPurchasedByClientIdAndDate(String,LocalDate)
+2023-03-24 15:50:19 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				15 mappings in org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping
+2023-03-24 15:50:19 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter -
+				ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2023-03-24 15:50:19 [main] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver -
+				ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2023-03-24 15:50:19 [main] INFO  o.s.mock.web.MockServletContext -
+				Initializing Spring TestDispatcherServlet ''
+2023-03-24 15:50:19 [main] INFO  o.s.t.w.s.TestDispatcherServlet -
+				Initializing Servlet ''
+2023-03-24 15:50:19 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				Detected AcceptHeaderLocaleResolver
+2023-03-24 15:50:19 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				Detected FixedThemeResolver
+2023-03-24 15:50:19 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@1bd8afc8
+2023-03-24 15:50:19 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				Detected org.springframework.web.servlet.support.SessionFlashMapManager@24134cbc
+2023-03-24 15:50:19 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2023-03-24 15:50:19 [main] INFO  o.s.t.w.s.TestDispatcherServlet -
+				Completed initialization in 3 ms
+2023-03-24 15:50:19 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				GET "/api/v1/purchased/view/client/clien1", parameters={}
+2023-03-24 15:50:19 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped to com.cgi.insurance.product_purchased_service.controller.ProductPurchasedController#getAllProductPurchasedByClientId(String)
+2023-03-24 15:50:19 [main] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor -
+				Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2023-03-24 15:50:19 [main] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor -
+				Writing [[com.cgi.insurance.product_purchased_service.model.ProductPurchased@65da01f4]]
+2023-03-24 15:50:19 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				Completed 200 OK
+2023-03-24 15:50:19 [main] DEBUG o.h.v.m.ResourceBundleMessageInterpolator -
+				Loaded expression factory via original TCCL
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.e.AbstractConfigurationImpl -
+				Setting custom MessageInterpolator of type org.springframework.validation.beanvalidation.LocaleContextMessageInterpolator
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.x.config.ValidationXmlParser -
+				Trying to load META-INF/validation.xml for XML based Validator configuration.
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.x.c.ResourceLoaderHelper -
+				Trying to load META-INF/validation.xml via TCCL
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.x.c.ResourceLoaderHelper -
+				Trying to load META-INF/validation.xml via Hibernate Validator's class loader
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.x.config.ValidationXmlParser -
+				No META-INF/validation.xml found. Using annotation based configuration only.
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.e.r.TraversableResolvers -
+				Cannot find jakarta.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper -
+				HV000252: Using org.hibernate.validator.internal.engine.DefaultPropertyNodeNameProvider as property node name provider.
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper -
+				HV000234: Using org.springframework.validation.beanvalidation.LocaleContextMessageInterpolator as ValidatorFactory-scoped message interpolator.
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper -
+				HV000234: Using org.hibernate.validator.internal.engine.resolver.TraverseAllTraversableResolver as ValidatorFactory-scoped traversable resolver.
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper -
+				HV000234: Using org.hibernate.validator.internal.util.ExecutableParameterNameProvider as ValidatorFactory-scoped parameter name provider.
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper -
+				HV000234: Using org.hibernate.validator.internal.engine.DefaultClockProvider as ValidatorFactory-scoped clock provider.
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper -
+				HV000234: Using org.hibernate.validator.internal.engine.scripting.DefaultScriptEvaluatorFactory as ValidatorFactory-scoped script evaluator factory.
+2023-03-24 15:50:19 [main] DEBUG _.s.w.s.HandlerMapping.Mappings -
+				
+	c.c.i.p.c.ProductPurchasedController:
+	{GET [/api/v1/purchased/view/company/{companyId}]}: getAllProductPurchasedByCompanyId(String)
+	{PUT [/api/v1/purchased/update/{ppId}]}: updateProductPurchased(ProductPurchased,String)
+	{GET [/api/v1/purchased/view/client/{clientId}]}: getAllProductPurchasedByClientId(String)
+	{POST [/api/v1/purchased/add]}: addProductPurchased(ProductPurchased)
+	{GET [/api/v1/purchased/viewAll]}: getAllProductPurchased()
+	{GET [/api/v1/purchased/view/bundle/{bundleId}]}: getAllProductPurchasedByBundleId(String)
+	{GET [/api/v1/purchased/view/product/{productId}]}: getAllProductPurchasedByProductId(String)
+	{GET [/api/v1/purchased/view/id/{ppId}]}: getProductPurchasedByPPId(String)
+	{GET [/api/v1/purchased/view/notbundle/client/{clientId}]}: getAllProductPurchasedByClientIdNotInBundles(String)
+	{GET [/api/v1/purchased/view/bundle/{clientId}/{bundleId}]}: getALlProductPurchasedByClientIdAndBundleId(String,String)
+	{DELETE [/api/v1/purchased/delete/{ppId}]}: deleteProductPurchased(String)
+	{GET [/api/v1/purchased/view/company/{companyId}/bundle/{bundleId}]}: getProductPurchasedByCompanyIdAndBundleId(String,String)
+	{GET [/api/v1/purchased/view/client/{clientId}/product/{productId}]}: getProductPurchasedByClientIdAndProductId(String,String)
+	{GET [/api/v1/purchased/view/company/{companyId}/product/{productId}]}: getProductPurchasedByCompanyIdAndProductId(String,String)
+	{GET [/api/v1/purchased/view/client/{clientId}/date/{date}]}: getProductPurchasedByClientIdAndDate(String,LocalDate)
+2023-03-24 15:50:19 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				15 mappings in org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping
+2023-03-24 15:50:19 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter -
+				ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2023-03-24 15:50:19 [main] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver -
+				ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2023-03-24 15:50:19 [main] INFO  o.s.mock.web.MockServletContext -
+				Initializing Spring TestDispatcherServlet ''
+2023-03-24 15:50:19 [main] INFO  o.s.t.w.s.TestDispatcherServlet -
+				Initializing Servlet ''
+2023-03-24 15:50:19 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				Detected AcceptHeaderLocaleResolver
+2023-03-24 15:50:19 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				Detected FixedThemeResolver
+2023-03-24 15:50:19 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@2ca54da9
+2023-03-24 15:50:19 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				Detected org.springframework.web.servlet.support.SessionFlashMapManager@34a20f16
+2023-03-24 15:50:19 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2023-03-24 15:50:19 [main] INFO  o.s.t.w.s.TestDispatcherServlet -
+				Completed initialization in 1 ms
+2023-03-24 15:50:19 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				GET "/api/v1/purchased/view/bundle/clien1/bundle1", parameters={}
+2023-03-24 15:50:19 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped to com.cgi.insurance.product_purchased_service.controller.ProductPurchasedController#getALlProductPurchasedByClientIdAndBundleId(String, String)
+2023-03-24 15:50:19 [main] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor -
+				Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2023-03-24 15:50:19 [main] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor -
+				Writing [[com.cgi.insurance.product_purchased_service.model.ProductPurchased@496cc217]]
+2023-03-24 15:50:19 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				Completed 200 OK
+2023-03-24 15:50:19 [main] DEBUG o.h.v.m.ResourceBundleMessageInterpolator -
+				Loaded expression factory via original TCCL
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.e.AbstractConfigurationImpl -
+				Setting custom MessageInterpolator of type org.springframework.validation.beanvalidation.LocaleContextMessageInterpolator
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.x.config.ValidationXmlParser -
+				Trying to load META-INF/validation.xml for XML based Validator configuration.
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.x.c.ResourceLoaderHelper -
+				Trying to load META-INF/validation.xml via TCCL
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.x.c.ResourceLoaderHelper -
+				Trying to load META-INF/validation.xml via Hibernate Validator's class loader
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.x.config.ValidationXmlParser -
+				No META-INF/validation.xml found. Using annotation based configuration only.
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.e.r.TraversableResolvers -
+				Cannot find jakarta.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper -
+				HV000252: Using org.hibernate.validator.internal.engine.DefaultPropertyNodeNameProvider as property node name provider.
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper -
+				HV000234: Using org.springframework.validation.beanvalidation.LocaleContextMessageInterpolator as ValidatorFactory-scoped message interpolator.
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper -
+				HV000234: Using org.hibernate.validator.internal.engine.resolver.TraverseAllTraversableResolver as ValidatorFactory-scoped traversable resolver.
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper -
+				HV000234: Using org.hibernate.validator.internal.util.ExecutableParameterNameProvider as ValidatorFactory-scoped parameter name provider.
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper -
+				HV000234: Using org.hibernate.validator.internal.engine.DefaultClockProvider as ValidatorFactory-scoped clock provider.
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper -
+				HV000234: Using org.hibernate.validator.internal.engine.scripting.DefaultScriptEvaluatorFactory as ValidatorFactory-scoped script evaluator factory.
+2023-03-24 15:50:19 [main] DEBUG _.s.w.s.HandlerMapping.Mappings -
+				
+	c.c.i.p.c.ProductPurchasedController:
+	{GET [/api/v1/purchased/view/company/{companyId}]}: getAllProductPurchasedByCompanyId(String)
+	{PUT [/api/v1/purchased/update/{ppId}]}: updateProductPurchased(ProductPurchased,String)
+	{GET [/api/v1/purchased/view/client/{clientId}]}: getAllProductPurchasedByClientId(String)
+	{POST [/api/v1/purchased/add]}: addProductPurchased(ProductPurchased)
+	{GET [/api/v1/purchased/viewAll]}: getAllProductPurchased()
+	{GET [/api/v1/purchased/view/bundle/{bundleId}]}: getAllProductPurchasedByBundleId(String)
+	{GET [/api/v1/purchased/view/product/{productId}]}: getAllProductPurchasedByProductId(String)
+	{GET [/api/v1/purchased/view/id/{ppId}]}: getProductPurchasedByPPId(String)
+	{GET [/api/v1/purchased/view/notbundle/client/{clientId}]}: getAllProductPurchasedByClientIdNotInBundles(String)
+	{GET [/api/v1/purchased/view/bundle/{clientId}/{bundleId}]}: getALlProductPurchasedByClientIdAndBundleId(String,String)
+	{DELETE [/api/v1/purchased/delete/{ppId}]}: deleteProductPurchased(String)
+	{GET [/api/v1/purchased/view/company/{companyId}/bundle/{bundleId}]}: getProductPurchasedByCompanyIdAndBundleId(String,String)
+	{GET [/api/v1/purchased/view/client/{clientId}/product/{productId}]}: getProductPurchasedByClientIdAndProductId(String,String)
+	{GET [/api/v1/purchased/view/company/{companyId}/product/{productId}]}: getProductPurchasedByCompanyIdAndProductId(String,String)
+	{GET [/api/v1/purchased/view/client/{clientId}/date/{date}]}: getProductPurchasedByClientIdAndDate(String,LocalDate)
+2023-03-24 15:50:19 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				15 mappings in org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping
+2023-03-24 15:50:19 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter -
+				ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2023-03-24 15:50:19 [main] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver -
+				ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2023-03-24 15:50:19 [main] INFO  o.s.mock.web.MockServletContext -
+				Initializing Spring TestDispatcherServlet ''
+2023-03-24 15:50:19 [main] INFO  o.s.t.w.s.TestDispatcherServlet -
+				Initializing Servlet ''
+2023-03-24 15:50:19 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				Detected AcceptHeaderLocaleResolver
+2023-03-24 15:50:19 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				Detected FixedThemeResolver
+2023-03-24 15:50:19 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@285a4fe3
+2023-03-24 15:50:19 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				Detected org.springframework.web.servlet.support.SessionFlashMapManager@2589d787
+2023-03-24 15:50:19 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2023-03-24 15:50:19 [main] INFO  o.s.t.w.s.TestDispatcherServlet -
+				Completed initialization in 2 ms
+2023-03-24 15:50:19 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				GET "/api/v1/purchased/view/notbundle/client/clien1", parameters={}
+2023-03-24 15:50:19 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped to com.cgi.insurance.product_purchased_service.controller.ProductPurchasedController#getAllProductPurchasedByClientIdNotInBundles(String)
+2023-03-24 15:50:19 [main] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor -
+				Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2023-03-24 15:50:19 [main] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor -
+				Writing [[com.cgi.insurance.product_purchased_service.model.ProductPurchased@1788cb61]]
+2023-03-24 15:50:19 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				Completed 200 OK
+2023-03-24 15:50:19 [main] DEBUG o.h.v.m.ResourceBundleMessageInterpolator -
+				Loaded expression factory via original TCCL
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.e.AbstractConfigurationImpl -
+				Setting custom MessageInterpolator of type org.springframework.validation.beanvalidation.LocaleContextMessageInterpolator
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.x.config.ValidationXmlParser -
+				Trying to load META-INF/validation.xml for XML based Validator configuration.
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.x.c.ResourceLoaderHelper -
+				Trying to load META-INF/validation.xml via TCCL
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.x.c.ResourceLoaderHelper -
+				Trying to load META-INF/validation.xml via Hibernate Validator's class loader
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.x.config.ValidationXmlParser -
+				No META-INF/validation.xml found. Using annotation based configuration only.
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.e.r.TraversableResolvers -
+				Cannot find jakarta.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper -
+				HV000252: Using org.hibernate.validator.internal.engine.DefaultPropertyNodeNameProvider as property node name provider.
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper -
+				HV000234: Using org.springframework.validation.beanvalidation.LocaleContextMessageInterpolator as ValidatorFactory-scoped message interpolator.
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper -
+				HV000234: Using org.hibernate.validator.internal.engine.resolver.TraverseAllTraversableResolver as ValidatorFactory-scoped traversable resolver.
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper -
+				HV000234: Using org.hibernate.validator.internal.util.ExecutableParameterNameProvider as ValidatorFactory-scoped parameter name provider.
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper -
+				HV000234: Using org.hibernate.validator.internal.engine.DefaultClockProvider as ValidatorFactory-scoped clock provider.
+2023-03-24 15:50:19 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper -
+				HV000234: Using org.hibernate.validator.internal.engine.scripting.DefaultScriptEvaluatorFactory as ValidatorFactory-scoped script evaluator factory.
+2023-03-24 15:50:19 [main] DEBUG _.s.w.s.HandlerMapping.Mappings -
+				
+	c.c.i.p.c.ProductPurchasedController:
+	{GET [/api/v1/purchased/view/company/{companyId}]}: getAllProductPurchasedByCompanyId(String)
+	{PUT [/api/v1/purchased/update/{ppId}]}: updateProductPurchased(ProductPurchased,String)
+	{GET [/api/v1/purchased/view/client/{clientId}]}: getAllProductPurchasedByClientId(String)
+	{POST [/api/v1/purchased/add]}: addProductPurchased(ProductPurchased)
+	{GET [/api/v1/purchased/viewAll]}: getAllProductPurchased()
+	{GET [/api/v1/purchased/view/bundle/{bundleId}]}: getAllProductPurchasedByBundleId(String)
+	{GET [/api/v1/purchased/view/product/{productId}]}: getAllProductPurchasedByProductId(String)
+	{GET [/api/v1/purchased/view/id/{ppId}]}: getProductPurchasedByPPId(String)
+	{GET [/api/v1/purchased/view/notbundle/client/{clientId}]}: getAllProductPurchasedByClientIdNotInBundles(String)
+	{GET [/api/v1/purchased/view/bundle/{clientId}/{bundleId}]}: getALlProductPurchasedByClientIdAndBundleId(String,String)
+	{DELETE [/api/v1/purchased/delete/{ppId}]}: deleteProductPurchased(String)
+	{GET [/api/v1/purchased/view/company/{companyId}/bundle/{bundleId}]}: getProductPurchasedByCompanyIdAndBundleId(String,String)
+	{GET [/api/v1/purchased/view/client/{clientId}/product/{productId}]}: getProductPurchasedByClientIdAndProductId(String,String)
+	{GET [/api/v1/purchased/view/company/{companyId}/product/{productId}]}: getProductPurchasedByCompanyIdAndProductId(String,String)
+	{GET [/api/v1/purchased/view/client/{clientId}/date/{date}]}: getProductPurchasedByClientIdAndDate(String,LocalDate)
+2023-03-24 15:50:19 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				15 mappings in org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping
+2023-03-24 15:50:19 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter -
+				ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2023-03-24 15:50:19 [main] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver -
+				ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2023-03-24 15:50:19 [main] INFO  o.s.mock.web.MockServletContext -
+				Initializing Spring TestDispatcherServlet ''
+2023-03-24 15:50:19 [main] INFO  o.s.t.w.s.TestDispatcherServlet -
+				Initializing Servlet ''
+2023-03-24 15:50:19 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				Detected AcceptHeaderLocaleResolver
+2023-03-24 15:50:19 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				Detected FixedThemeResolver
+2023-03-24 15:50:19 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@6cbb7a7d
+2023-03-24 15:50:19 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				Detected org.springframework.web.servlet.support.SessionFlashMapManager@cdb3c85
+2023-03-24 15:50:19 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2023-03-24 15:50:19 [main] INFO  o.s.t.w.s.TestDispatcherServlet -
+				Completed initialization in 2 ms
+2023-03-24 15:50:19 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				DELETE "/api/v1/purchased/delete/ppId1", parameters={}
+2023-03-24 15:50:19 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped to com.cgi.insurance.product_purchased_service.controller.ProductPurchasedController#deleteProductPurchased(String)
+2023-03-24 15:50:20 [main] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor -
+				Using 'text/plain', given [*/*] and supported [text/plain, */*, application/json, application/*+json]
+2023-03-24 15:50:20 [main] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor -
+				Writing ["Record deleted!"]
+2023-03-24 15:50:20 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				Completed 200 OK
+2023-03-24 15:50:20 [main] DEBUG o.h.v.m.ResourceBundleMessageInterpolator -
+				Loaded expression factory via original TCCL
+2023-03-24 15:50:20 [main] DEBUG o.h.v.i.e.AbstractConfigurationImpl -
+				Setting custom MessageInterpolator of type org.springframework.validation.beanvalidation.LocaleContextMessageInterpolator
+2023-03-24 15:50:20 [main] DEBUG o.h.v.i.x.config.ValidationXmlParser -
+				Trying to load META-INF/validation.xml for XML based Validator configuration.
+2023-03-24 15:50:20 [main] DEBUG o.h.v.i.x.c.ResourceLoaderHelper -
+				Trying to load META-INF/validation.xml via TCCL
+2023-03-24 15:50:20 [main] DEBUG o.h.v.i.x.c.ResourceLoaderHelper -
+				Trying to load META-INF/validation.xml via Hibernate Validator's class loader
+2023-03-24 15:50:20 [main] DEBUG o.h.v.i.x.config.ValidationXmlParser -
+				No META-INF/validation.xml found. Using annotation based configuration only.
+2023-03-24 15:50:20 [main] DEBUG o.h.v.i.e.r.TraversableResolvers -
+				Cannot find jakarta.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+2023-03-24 15:50:20 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper -
+				HV000252: Using org.hibernate.validator.internal.engine.DefaultPropertyNodeNameProvider as property node name provider.
+2023-03-24 15:50:20 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper -
+				HV000234: Using org.springframework.validation.beanvalidation.LocaleContextMessageInterpolator as ValidatorFactory-scoped message interpolator.
+2023-03-24 15:50:20 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper -
+				HV000234: Using org.hibernate.validator.internal.engine.resolver.TraverseAllTraversableResolver as ValidatorFactory-scoped traversable resolver.
+2023-03-24 15:50:20 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper -
+				HV000234: Using org.hibernate.validator.internal.util.ExecutableParameterNameProvider as ValidatorFactory-scoped parameter name provider.
+2023-03-24 15:50:20 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper -
+				HV000234: Using org.hibernate.validator.internal.engine.DefaultClockProvider as ValidatorFactory-scoped clock provider.
+2023-03-24 15:50:20 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper -
+				HV000234: Using org.hibernate.validator.internal.engine.scripting.DefaultScriptEvaluatorFactory as ValidatorFactory-scoped script evaluator factory.
+2023-03-24 15:50:20 [main] DEBUG _.s.w.s.HandlerMapping.Mappings -
+				
+	c.c.i.p.c.ProductPurchasedController:
+	{GET [/api/v1/purchased/view/company/{companyId}]}: getAllProductPurchasedByCompanyId(String)
+	{PUT [/api/v1/purchased/update/{ppId}]}: updateProductPurchased(ProductPurchased,String)
+	{GET [/api/v1/purchased/view/client/{clientId}]}: getAllProductPurchasedByClientId(String)
+	{POST [/api/v1/purchased/add]}: addProductPurchased(ProductPurchased)
+	{GET [/api/v1/purchased/viewAll]}: getAllProductPurchased()
+	{GET [/api/v1/purchased/view/bundle/{bundleId}]}: getAllProductPurchasedByBundleId(String)
+	{GET [/api/v1/purchased/view/product/{productId}]}: getAllProductPurchasedByProductId(String)
+	{GET [/api/v1/purchased/view/id/{ppId}]}: getProductPurchasedByPPId(String)
+	{GET [/api/v1/purchased/view/notbundle/client/{clientId}]}: getAllProductPurchasedByClientIdNotInBundles(String)
+	{GET [/api/v1/purchased/view/bundle/{clientId}/{bundleId}]}: getALlProductPurchasedByClientIdAndBundleId(String,String)
+	{DELETE [/api/v1/purchased/delete/{ppId}]}: deleteProductPurchased(String)
+	{GET [/api/v1/purchased/view/company/{companyId}/bundle/{bundleId}]}: getProductPurchasedByCompanyIdAndBundleId(String,String)
+	{GET [/api/v1/purchased/view/client/{clientId}/product/{productId}]}: getProductPurchasedByClientIdAndProductId(String,String)
+	{GET [/api/v1/purchased/view/company/{companyId}/product/{productId}]}: getProductPurchasedByCompanyIdAndProductId(String,String)
+	{GET [/api/v1/purchased/view/client/{clientId}/date/{date}]}: getProductPurchasedByClientIdAndDate(String,LocalDate)
+2023-03-24 15:50:20 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				15 mappings in org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping
+2023-03-24 15:50:20 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter -
+				ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2023-03-24 15:50:20 [main] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver -
+				ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2023-03-24 15:50:20 [main] INFO  o.s.mock.web.MockServletContext -
+				Initializing Spring TestDispatcherServlet ''
+2023-03-24 15:50:20 [main] INFO  o.s.t.w.s.TestDispatcherServlet -
+				Initializing Servlet ''
+2023-03-24 15:50:20 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				Detected AcceptHeaderLocaleResolver
+2023-03-24 15:50:20 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				Detected FixedThemeResolver
+2023-03-24 15:50:20 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@30abf79c
+2023-03-24 15:50:20 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				Detected org.springframework.web.servlet.support.SessionFlashMapManager@49a38b1
+2023-03-24 15:50:20 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2023-03-24 15:50:20 [main] INFO  o.s.t.w.s.TestDispatcherServlet -
+				Completed initialization in 1 ms
+2023-03-24 15:50:20 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				GET "/api/v1/purchased/view/company/comp1/product/product1", parameters={}
+2023-03-24 15:50:20 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped to com.cgi.insurance.product_purchased_service.controller.ProductPurchasedController#getProductPurchasedByCompanyIdAndProductId(String, String)
+2023-03-24 15:50:20 [main] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor -
+				Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2023-03-24 15:50:20 [main] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor -
+				Writing [[com.cgi.insurance.product_purchased_service.model.ProductPurchased@681061d6]]
+2023-03-24 15:50:20 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				Completed 200 OK
+2023-03-24 15:50:20 [main] DEBUG o.h.v.m.ResourceBundleMessageInterpolator -
+				Loaded expression factory via original TCCL
+2023-03-24 15:50:20 [main] DEBUG o.h.v.i.e.AbstractConfigurationImpl -
+				Setting custom MessageInterpolator of type org.springframework.validation.beanvalidation.LocaleContextMessageInterpolator
+2023-03-24 15:50:20 [main] DEBUG o.h.v.i.x.config.ValidationXmlParser -
+				Trying to load META-INF/validation.xml for XML based Validator configuration.
+2023-03-24 15:50:20 [main] DEBUG o.h.v.i.x.c.ResourceLoaderHelper -
+				Trying to load META-INF/validation.xml via TCCL
+2023-03-24 15:50:20 [main] DEBUG o.h.v.i.x.c.ResourceLoaderHelper -
+				Trying to load META-INF/validation.xml via Hibernate Validator's class loader
+2023-03-24 15:50:20 [main] DEBUG o.h.v.i.x.config.ValidationXmlParser -
+				No META-INF/validation.xml found. Using annotation based configuration only.
+2023-03-24 15:50:20 [main] DEBUG o.h.v.i.e.r.TraversableResolvers -
+				Cannot find jakarta.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+2023-03-24 15:50:20 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper -
+				HV000252: Using org.hibernate.validator.internal.engine.DefaultPropertyNodeNameProvider as property node name provider.
+2023-03-24 15:50:20 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper -
+				HV000234: Using org.springframework.validation.beanvalidation.LocaleContextMessageInterpolator as ValidatorFactory-scoped message interpolator.
+2023-03-24 15:50:20 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper -
+				HV000234: Using org.hibernate.validator.internal.engine.resolver.TraverseAllTraversableResolver as ValidatorFactory-scoped traversable resolver.
+2023-03-24 15:50:20 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper -
+				HV000234: Using org.hibernate.validator.internal.util.ExecutableParameterNameProvider as ValidatorFactory-scoped parameter name provider.
+2023-03-24 15:50:20 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper -
+				HV000234: Using org.hibernate.validator.internal.engine.DefaultClockProvider as ValidatorFactory-scoped clock provider.
+2023-03-24 15:50:20 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper -
+				HV000234: Using org.hibernate.validator.internal.engine.scripting.DefaultScriptEvaluatorFactory as ValidatorFactory-scoped script evaluator factory.
+2023-03-24 15:50:20 [main] DEBUG _.s.w.s.HandlerMapping.Mappings -
+				
+	c.c.i.p.c.ProductPurchasedController:
+	{GET [/api/v1/purchased/view/company/{companyId}]}: getAllProductPurchasedByCompanyId(String)
+	{PUT [/api/v1/purchased/update/{ppId}]}: updateProductPurchased(ProductPurchased,String)
+	{GET [/api/v1/purchased/view/client/{clientId}]}: getAllProductPurchasedByClientId(String)
+	{POST [/api/v1/purchased/add]}: addProductPurchased(ProductPurchased)
+	{GET [/api/v1/purchased/viewAll]}: getAllProductPurchased()
+	{GET [/api/v1/purchased/view/bundle/{bundleId}]}: getAllProductPurchasedByBundleId(String)
+	{GET [/api/v1/purchased/view/product/{productId}]}: getAllProductPurchasedByProductId(String)
+	{GET [/api/v1/purchased/view/id/{ppId}]}: getProductPurchasedByPPId(String)
+	{GET [/api/v1/purchased/view/notbundle/client/{clientId}]}: getAllProductPurchasedByClientIdNotInBundles(String)
+	{GET [/api/v1/purchased/view/bundle/{clientId}/{bundleId}]}: getALlProductPurchasedByClientIdAndBundleId(String,String)
+	{DELETE [/api/v1/purchased/delete/{ppId}]}: deleteProductPurchased(String)
+	{GET [/api/v1/purchased/view/company/{companyId}/bundle/{bundleId}]}: getProductPurchasedByCompanyIdAndBundleId(String,String)
+	{GET [/api/v1/purchased/view/client/{clientId}/product/{productId}]}: getProductPurchasedByClientIdAndProductId(String,String)
+	{GET [/api/v1/purchased/view/company/{companyId}/product/{productId}]}: getProductPurchasedByCompanyIdAndProductId(String,String)
+	{GET [/api/v1/purchased/view/client/{clientId}/date/{date}]}: getProductPurchasedByClientIdAndDate(String,LocalDate)
+2023-03-24 15:50:20 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				15 mappings in org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping
+2023-03-24 15:50:20 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter -
+				ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2023-03-24 15:50:20 [main] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver -
+				ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2023-03-24 15:50:20 [main] INFO  o.s.mock.web.MockServletContext -
+				Initializing Spring TestDispatcherServlet ''
+2023-03-24 15:50:20 [main] INFO  o.s.t.w.s.TestDispatcherServlet -
+				Initializing Servlet ''
+2023-03-24 15:50:20 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				Detected AcceptHeaderLocaleResolver
+2023-03-24 15:50:20 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				Detected FixedThemeResolver
+2023-03-24 15:50:20 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@62a6674f
+2023-03-24 15:50:20 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				Detected org.springframework.web.servlet.support.SessionFlashMapManager@70881123
+2023-03-24 15:50:20 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2023-03-24 15:50:20 [main] INFO  o.s.t.w.s.TestDispatcherServlet -
+				Completed initialization in 1 ms
+2023-03-24 15:50:20 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				GET "/api/v1/purchased/view/id/ppId1", parameters={}
+2023-03-24 15:50:20 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped to com.cgi.insurance.product_purchased_service.controller.ProductPurchasedController#getProductPurchasedByPPId(String)
+2023-03-24 15:50:20 [main] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor -
+				Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2023-03-24 15:50:20 [main] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor -
+				Writing [com.cgi.insurance.product_purchased_service.model.ProductPurchased@703fa45]
+2023-03-24 15:50:20 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				Completed 200 OK
+2023-03-24 15:50:20 [main] DEBUG o.h.v.m.ResourceBundleMessageInterpolator -
+				Loaded expression factory via original TCCL
+2023-03-24 15:50:20 [main] DEBUG o.h.v.i.e.AbstractConfigurationImpl -
+				Setting custom MessageInterpolator of type org.springframework.validation.beanvalidation.LocaleContextMessageInterpolator
+2023-03-24 15:50:20 [main] DEBUG o.h.v.i.x.config.ValidationXmlParser -
+				Trying to load META-INF/validation.xml for XML based Validator configuration.
+2023-03-24 15:50:20 [main] DEBUG o.h.v.i.x.c.ResourceLoaderHelper -
+				Trying to load META-INF/validation.xml via TCCL
+2023-03-24 15:50:20 [main] DEBUG o.h.v.i.x.c.ResourceLoaderHelper -
+				Trying to load META-INF/validation.xml via Hibernate Validator's class loader
+2023-03-24 15:50:20 [main] DEBUG o.h.v.i.x.config.ValidationXmlParser -
+				No META-INF/validation.xml found. Using annotation based configuration only.
+2023-03-24 15:50:20 [main] DEBUG o.h.v.i.e.r.TraversableResolvers -
+				Cannot find jakarta.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+2023-03-24 15:50:20 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper -
+				HV000252: Using org.hibernate.validator.internal.engine.DefaultPropertyNodeNameProvider as property node name provider.
+2023-03-24 15:50:20 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper -
+				HV000234: Using org.springframework.validation.beanvalidation.LocaleContextMessageInterpolator as ValidatorFactory-scoped message interpolator.
+2023-03-24 15:50:20 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper -
+				HV000234: Using org.hibernate.validator.internal.engine.resolver.TraverseAllTraversableResolver as ValidatorFactory-scoped traversable resolver.
+2023-03-24 15:50:20 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper -
+				HV000234: Using org.hibernate.validator.internal.util.ExecutableParameterNameProvider as ValidatorFactory-scoped parameter name provider.
+2023-03-24 15:50:20 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper -
+				HV000234: Using org.hibernate.validator.internal.engine.DefaultClockProvider as ValidatorFactory-scoped clock provider.
+2023-03-24 15:50:20 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper -
+				HV000234: Using org.hibernate.validator.internal.engine.scripting.DefaultScriptEvaluatorFactory as ValidatorFactory-scoped script evaluator factory.
+2023-03-24 15:50:20 [main] DEBUG _.s.w.s.HandlerMapping.Mappings -
+				
+	c.c.i.p.c.ProductPurchasedController:
+	{GET [/api/v1/purchased/view/company/{companyId}]}: getAllProductPurchasedByCompanyId(String)
+	{PUT [/api/v1/purchased/update/{ppId}]}: updateProductPurchased(ProductPurchased,String)
+	{GET [/api/v1/purchased/view/client/{clientId}]}: getAllProductPurchasedByClientId(String)
+	{POST [/api/v1/purchased/add]}: addProductPurchased(ProductPurchased)
+	{GET [/api/v1/purchased/viewAll]}: getAllProductPurchased()
+	{GET [/api/v1/purchased/view/bundle/{bundleId}]}: getAllProductPurchasedByBundleId(String)
+	{GET [/api/v1/purchased/view/product/{productId}]}: getAllProductPurchasedByProductId(String)
+	{GET [/api/v1/purchased/view/id/{ppId}]}: getProductPurchasedByPPId(String)
+	{GET [/api/v1/purchased/view/notbundle/client/{clientId}]}: getAllProductPurchasedByClientIdNotInBundles(String)
+	{GET [/api/v1/purchased/view/bundle/{clientId}/{bundleId}]}: getALlProductPurchasedByClientIdAndBundleId(String,String)
+	{DELETE [/api/v1/purchased/delete/{ppId}]}: deleteProductPurchased(String)
+	{GET [/api/v1/purchased/view/company/{companyId}/bundle/{bundleId}]}: getProductPurchasedByCompanyIdAndBundleId(String,String)
+	{GET [/api/v1/purchased/view/client/{clientId}/product/{productId}]}: getProductPurchasedByClientIdAndProductId(String,String)
+	{GET [/api/v1/purchased/view/company/{companyId}/product/{productId}]}: getProductPurchasedByCompanyIdAndProductId(String,String)
+	{GET [/api/v1/purchased/view/client/{clientId}/date/{date}]}: getProductPurchasedByClientIdAndDate(String,LocalDate)
+2023-03-24 15:50:20 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				15 mappings in org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping
+2023-03-24 15:50:20 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter -
+				ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2023-03-24 15:50:20 [main] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver -
+				ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2023-03-24 15:50:20 [main] INFO  o.s.mock.web.MockServletContext -
+				Initializing Spring TestDispatcherServlet ''
+2023-03-24 15:50:20 [main] INFO  o.s.t.w.s.TestDispatcherServlet -
+				Initializing Servlet ''
+2023-03-24 15:50:20 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				Detected AcceptHeaderLocaleResolver
+2023-03-24 15:50:20 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				Detected FixedThemeResolver
+2023-03-24 15:50:20 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@55877274
+2023-03-24 15:50:20 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				Detected org.springframework.web.servlet.support.SessionFlashMapManager@723e2d08
+2023-03-24 15:50:20 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2023-03-24 15:50:20 [main] INFO  o.s.t.w.s.TestDispatcherServlet -
+				Completed initialization in 1 ms
+2023-03-24 15:50:20 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				GET "/api/v1/purchased/view/company/comp1", parameters={}
+2023-03-24 15:50:20 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped to com.cgi.insurance.product_purchased_service.controller.ProductPurchasedController#getAllProductPurchasedByCompanyId(String)
+2023-03-24 15:50:20 [main] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor -
+				Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2023-03-24 15:50:20 [main] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor -
+				Writing [[com.cgi.insurance.product_purchased_service.model.ProductPurchased@6d4a82]]
+2023-03-24 15:50:20 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				Completed 200 OK
+2023-03-24 15:50:20 [main] DEBUG o.h.v.m.ResourceBundleMessageInterpolator -
+				Loaded expression factory via original TCCL
+2023-03-24 15:50:20 [main] DEBUG o.h.v.i.e.AbstractConfigurationImpl -
+				Setting custom MessageInterpolator of type org.springframework.validation.beanvalidation.LocaleContextMessageInterpolator
+2023-03-24 15:50:20 [main] DEBUG o.h.v.i.x.config.ValidationXmlParser -
+				Trying to load META-INF/validation.xml for XML based Validator configuration.
+2023-03-24 15:50:20 [main] DEBUG o.h.v.i.x.c.ResourceLoaderHelper -
+				Trying to load META-INF/validation.xml via TCCL
+2023-03-24 15:50:20 [main] DEBUG o.h.v.i.x.c.ResourceLoaderHelper -
+				Trying to load META-INF/validation.xml via Hibernate Validator's class loader
+2023-03-24 15:50:20 [main] DEBUG o.h.v.i.x.config.ValidationXmlParser -
+				No META-INF/validation.xml found. Using annotation based configuration only.
+2023-03-24 15:50:20 [main] DEBUG o.h.v.i.e.r.TraversableResolvers -
+				Cannot find jakarta.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+2023-03-24 15:50:20 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper -
+				HV000252: Using org.hibernate.validator.internal.engine.DefaultPropertyNodeNameProvider as property node name provider.
+2023-03-24 15:50:20 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper -
+				HV000234: Using org.springframework.validation.beanvalidation.LocaleContextMessageInterpolator as ValidatorFactory-scoped message interpolator.
+2023-03-24 15:50:20 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper -
+				HV000234: Using org.hibernate.validator.internal.engine.resolver.TraverseAllTraversableResolver as ValidatorFactory-scoped traversable resolver.
+2023-03-24 15:50:20 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper -
+				HV000234: Using org.hibernate.validator.internal.util.ExecutableParameterNameProvider as ValidatorFactory-scoped parameter name provider.
+2023-03-24 15:50:20 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper -
+				HV000234: Using org.hibernate.validator.internal.engine.DefaultClockProvider as ValidatorFactory-scoped clock provider.
+2023-03-24 15:50:20 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper -
+				HV000234: Using org.hibernate.validator.internal.engine.scripting.DefaultScriptEvaluatorFactory as ValidatorFactory-scoped script evaluator factory.
+2023-03-24 15:50:20 [main] DEBUG _.s.w.s.HandlerMapping.Mappings -
+				
+	c.c.i.p.c.ProductPurchasedController:
+	{GET [/api/v1/purchased/view/company/{companyId}]}: getAllProductPurchasedByCompanyId(String)
+	{PUT [/api/v1/purchased/update/{ppId}]}: updateProductPurchased(ProductPurchased,String)
+	{GET [/api/v1/purchased/view/client/{clientId}]}: getAllProductPurchasedByClientId(String)
+	{POST [/api/v1/purchased/add]}: addProductPurchased(ProductPurchased)
+	{GET [/api/v1/purchased/viewAll]}: getAllProductPurchased()
+	{GET [/api/v1/purchased/view/bundle/{bundleId}]}: getAllProductPurchasedByBundleId(String)
+	{GET [/api/v1/purchased/view/product/{productId}]}: getAllProductPurchasedByProductId(String)
+	{GET [/api/v1/purchased/view/id/{ppId}]}: getProductPurchasedByPPId(String)
+	{GET [/api/v1/purchased/view/notbundle/client/{clientId}]}: getAllProductPurchasedByClientIdNotInBundles(String)
+	{GET [/api/v1/purchased/view/bundle/{clientId}/{bundleId}]}: getALlProductPurchasedByClientIdAndBundleId(String,String)
+	{DELETE [/api/v1/purchased/delete/{ppId}]}: deleteProductPurchased(String)
+	{GET [/api/v1/purchased/view/company/{companyId}/bundle/{bundleId}]}: getProductPurchasedByCompanyIdAndBundleId(String,String)
+	{GET [/api/v1/purchased/view/client/{clientId}/product/{productId}]}: getProductPurchasedByClientIdAndProductId(String,String)
+	{GET [/api/v1/purchased/view/company/{companyId}/product/{productId}]}: getProductPurchasedByCompanyIdAndProductId(String,String)
+	{GET [/api/v1/purchased/view/client/{clientId}/date/{date}]}: getProductPurchasedByClientIdAndDate(String,LocalDate)
+2023-03-24 15:50:20 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				15 mappings in org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping
+2023-03-24 15:50:20 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter -
+				ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2023-03-24 15:50:20 [main] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver -
+				ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2023-03-24 15:50:20 [main] INFO  o.s.mock.web.MockServletContext -
+				Initializing Spring TestDispatcherServlet ''
+2023-03-24 15:50:20 [main] INFO  o.s.t.w.s.TestDispatcherServlet -
+				Initializing Servlet ''
+2023-03-24 15:50:20 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				Detected AcceptHeaderLocaleResolver
+2023-03-24 15:50:20 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				Detected FixedThemeResolver
+2023-03-24 15:50:20 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@5fb3111a
+2023-03-24 15:50:20 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				Detected org.springframework.web.servlet.support.SessionFlashMapManager@4aaecabd
+2023-03-24 15:50:20 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2023-03-24 15:50:20 [main] INFO  o.s.t.w.s.TestDispatcherServlet -
+				Completed initialization in 0 ms
+2023-03-24 15:50:20 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				GET "/api/v1/purchased/viewAll", parameters={}
+2023-03-24 15:50:20 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped to com.cgi.insurance.product_purchased_service.controller.ProductPurchasedController#getAllProductPurchased()
+2023-03-24 15:50:20 [main] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor -
+				Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2023-03-24 15:50:20 [main] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor -
+				Writing [[com.cgi.insurance.product_purchased_service.model.ProductPurchased@23bd0c81]]
+2023-03-24 15:50:20 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				Completed 200 OK
+2023-03-24 15:50:20 [main] DEBUG o.h.v.m.ResourceBundleMessageInterpolator -
+				Loaded expression factory via original TCCL
+2023-03-24 15:50:20 [main] DEBUG o.h.v.i.e.AbstractConfigurationImpl -
+				Setting custom MessageInterpolator of type org.springframework.validation.beanvalidation.LocaleContextMessageInterpolator
+2023-03-24 15:50:20 [main] DEBUG o.h.v.i.x.config.ValidationXmlParser -
+				Trying to load META-INF/validation.xml for XML based Validator configuration.
+2023-03-24 15:50:20 [main] DEBUG o.h.v.i.x.c.ResourceLoaderHelper -
+				Trying to load META-INF/validation.xml via TCCL
+2023-03-24 15:50:20 [main] DEBUG o.h.v.i.x.c.ResourceLoaderHelper -
+				Trying to load META-INF/validation.xml via Hibernate Validator's class loader
+2023-03-24 15:50:20 [main] DEBUG o.h.v.i.x.config.ValidationXmlParser -
+				No META-INF/validation.xml found. Using annotation based configuration only.
+2023-03-24 15:50:20 [main] DEBUG o.h.v.i.e.r.TraversableResolvers -
+				Cannot find jakarta.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+2023-03-24 15:50:20 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper -
+				HV000252: Using org.hibernate.validator.internal.engine.DefaultPropertyNodeNameProvider as property node name provider.
+2023-03-24 15:50:20 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper -
+				HV000234: Using org.springframework.validation.beanvalidation.LocaleContextMessageInterpolator as ValidatorFactory-scoped message interpolator.
+2023-03-24 15:50:20 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper -
+				HV000234: Using org.hibernate.validator.internal.engine.resolver.TraverseAllTraversableResolver as ValidatorFactory-scoped traversable resolver.
+2023-03-24 15:50:20 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper -
+				HV000234: Using org.hibernate.validator.internal.util.ExecutableParameterNameProvider as ValidatorFactory-scoped parameter name provider.
+2023-03-24 15:50:20 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper -
+				HV000234: Using org.hibernate.validator.internal.engine.DefaultClockProvider as ValidatorFactory-scoped clock provider.
+2023-03-24 15:50:20 [main] DEBUG o.h.v.i.e.ValidatorFactoryConfigurationHelper -
+				HV000234: Using org.hibernate.validator.internal.engine.scripting.DefaultScriptEvaluatorFactory as ValidatorFactory-scoped script evaluator factory.
+2023-03-24 15:50:20 [main] DEBUG _.s.w.s.HandlerMapping.Mappings -
+				
+	c.c.i.p.c.ProductPurchasedController:
+	{GET [/api/v1/purchased/view/company/{companyId}]}: getAllProductPurchasedByCompanyId(String)
+	{PUT [/api/v1/purchased/update/{ppId}]}: updateProductPurchased(ProductPurchased,String)
+	{GET [/api/v1/purchased/view/client/{clientId}]}: getAllProductPurchasedByClientId(String)
+	{POST [/api/v1/purchased/add]}: addProductPurchased(ProductPurchased)
+	{GET [/api/v1/purchased/viewAll]}: getAllProductPurchased()
+	{GET [/api/v1/purchased/view/bundle/{bundleId}]}: getAllProductPurchasedByBundleId(String)
+	{GET [/api/v1/purchased/view/product/{productId}]}: getAllProductPurchasedByProductId(String)
+	{GET [/api/v1/purchased/view/id/{ppId}]}: getProductPurchasedByPPId(String)
+	{GET [/api/v1/purchased/view/notbundle/client/{clientId}]}: getAllProductPurchasedByClientIdNotInBundles(String)
+	{GET [/api/v1/purchased/view/bundle/{clientId}/{bundleId}]}: getALlProductPurchasedByClientIdAndBundleId(String,String)
+	{DELETE [/api/v1/purchased/delete/{ppId}]}: deleteProductPurchased(String)
+	{GET [/api/v1/purchased/view/company/{companyId}/bundle/{bundleId}]}: getProductPurchasedByCompanyIdAndBundleId(String,String)
+	{GET [/api/v1/purchased/view/client/{clientId}/product/{productId}]}: getProductPurchasedByClientIdAndProductId(String,String)
+	{GET [/api/v1/purchased/view/company/{companyId}/product/{productId}]}: getProductPurchasedByCompanyIdAndProductId(String,String)
+	{GET [/api/v1/purchased/view/client/{clientId}/date/{date}]}: getProductPurchasedByClientIdAndDate(String,LocalDate)
+2023-03-24 15:50:20 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				15 mappings in org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping
+2023-03-24 15:50:20 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter -
+				ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2023-03-24 15:50:20 [main] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver -
+				ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2023-03-24 15:50:20 [main] INFO  o.s.mock.web.MockServletContext -
+				Initializing Spring TestDispatcherServlet ''
+2023-03-24 15:50:20 [main] INFO  o.s.t.w.s.TestDispatcherServlet -
+				Initializing Servlet ''
+2023-03-24 15:50:20 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				Detected AcceptHeaderLocaleResolver
+2023-03-24 15:50:20 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				Detected FixedThemeResolver
+2023-03-24 15:50:20 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@530ee28b
+2023-03-24 15:50:20 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				Detected org.springframework.web.servlet.support.SessionFlashMapManager@3a3f96ab
+2023-03-24 15:50:20 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2023-03-24 15:50:20 [main] INFO  o.s.t.w.s.TestDispatcherServlet -
+				Completed initialization in 5 ms
+2023-03-24 15:50:20 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				GET "/api/v1/purchased/view/bundle/bundle1", parameters={}
+2023-03-24 15:50:20 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping -
+				Mapped to com.cgi.insurance.product_purchased_service.controller.ProductPurchasedController#getAllProductPurchasedByBundleId(String)
+2023-03-24 15:50:20 [main] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor -
+				Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2023-03-24 15:50:20 [main] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor -
+				Writing [[com.cgi.insurance.product_purchased_service.model.ProductPurchased@4def7d36]]
+2023-03-24 15:50:20 [main] DEBUG o.s.t.w.s.TestDispatcherServlet -
+				Completed 200 OK
