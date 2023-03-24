@@ -58,7 +58,7 @@ public class CompanyFilter extends GenericFilter{
             }
         	
         	String mytoken = authheader.substring(7);
-            System.out.println(mytoken);
+            //System.out.println(mytoken);
 
 
             try {
@@ -69,7 +69,7 @@ public class CompanyFilter extends GenericFilter{
                 Claims claim = (Claims) jwtobj.getBody();
                 String role = (String)claim.get("role");
                 
-                System.out.println("role is "+role);
+                //System.out.println("role is "+role);
                 if(role==null || !(role.equals("company")||role.equals("admin"))){
                     handleMissingToken(httpResponse,"You don't have access");
                     return;
