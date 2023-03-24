@@ -1,0 +1,27 @@
+version: '3.7'
+
+services:
+
+  mongos:
+    image: mongo
+    ports:
+      - 27017:27017
+    environment:
+      MONGOURL: mongodb://localhost:27017/insurance
+
+  bundleapp:
+    image: vipuldarji29/bundle
+    depends_on:
+      - mongos
+    restart: always
+    ports:
+      - 9095:9095
+  
+  product_purchased_service:
+    image: longswordfish/product_purchased_service
+    depends_on:
+      - mongos
+    restart: always
+    ports:
+      - 9094:9094
+    

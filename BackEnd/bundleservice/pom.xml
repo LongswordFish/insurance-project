@@ -43,13 +43,23 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-aop -->
+		
 <dependency>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-aop</artifactId>
     <version>3.0.3</version>
 </dependency>
 
+<dependency>
+	<groupId>org.slf4j</groupId>
+<artifactId>slf4j-api</artifactId>
+</dependency>
+
+<dependency>
+	<groupId>org.slf4j</groupId>
+<artifactId>slf4j-log4j12</artifactId>
+<scope>test</scope>
+</dependency>
 	</dependencies>
 
 	<build>

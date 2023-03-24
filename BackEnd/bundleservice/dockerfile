@@ -1,0 +1,5 @@
+FROM openjdk:17-alpine
+WORKDIR usr/src
+ADD /target/bundleservice-0.0.1-SNAPSHOT.jar /usr/src/bundleservice-0.0.1-SNAPSHOT.jar
+ENTRYPOINT ["java","-jar","bundleservice-0.0.1-SNAPSHOT.jar"]
+ENV MONGOURL=mongodb://mongos:27017/insurancebundle

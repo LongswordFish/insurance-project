@@ -17,13 +17,10 @@ import com.cgi.bundleservice.exception.BundleNotFoundException;
 import com.cgi.bundleservice.model.Bundle;
 import com.cgi.bundleservice.service.BundleService;
 
-import lombok.extern.slf4j.Slf4j;
-
 import org.springframework.http.HttpStatus;
 
 @RestController
 @RequestMapping("/bundles")
-@Slf4j
 public class BundleController {
 	
     @Autowired
