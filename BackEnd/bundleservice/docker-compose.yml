@@ -8,36 +8,40 @@ services:
       - 27017:27017
     environment:
       MONGOURL: mongodb://localhost:27017/insurance
-
+      
+  
   bundleapp:
     image: vipuldarji29/bundle
     depends_on:
       - mongos
     restart: always
-    volumes:
-      - ./data:/data/db
     ports:
       - 9095:9095
-  
+    environment:
+      EUREKAURL: http://eurekaservice:8761/eureka
+
   product_purchased_service:
     image: longswordfish/product_purchased_service
     depends_on:
       - mongos
     restart: always
-    volumes:
-      - ./data:/data/db
     ports:
       - 9094:9094
     environment:
-      - EUREKAURL=http://eurekaservice:8761/eureka
-
-  eurekaserver:
-    image: longswordfish/eureka_server
+      EUREKAURL: http://eurekaservice:8761/eureka
+ 
+  claim_service:
+    image: rossbaumgartner/claimserviceimg
     depends_on:
       - mongos
     restart: always
-    volumes:
-      - ./data:/data/db
+    ports:
+      - 9096:9096
+    environment:
+      EUREKAURL: http://eurekaservice:8761/eureka
+
+  eurekaservice:
+    image: longswordfish/eureka_server
+    restart: always
     ports:
       - 8761:8761
-    
