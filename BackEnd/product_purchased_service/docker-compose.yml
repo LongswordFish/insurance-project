@@ -1,0 +1,23 @@
+version: '3.7'
+
+services:
+
+  mongos:
+    image: mongo
+    ports:
+      - 27017:27017
+    volumes:
+       - db-data:/var/lib/mongo/dat
+
+  bundleapp:
+    image: longswordfish/product_purchased_service
+    depends_on:
+      - mongos
+    restart: always
+    ports:
+      - 9094:9094
+    environment:
+      MONGOURL: mongodb://localhost:27017/insurance
+  
+volumes:
+  db-data:

@@ -16,36 +16,36 @@ public class ProductPurchasedServiceApplication {
 		SpringApplication.run(ProductPurchasedServiceApplication.class, args);
 	}
 
-	// @Bean
-	// public FilterRegistrationBean getAdminFilter()
-	// {
-	// 	FilterRegistrationBean fbean=new FilterRegistrationBean();
-	// 	fbean.setFilter(new AdminFilter());
-	// 	fbean.addUrlPatterns("/api/v1/purchased/viewAll");
-	// 	return fbean;
-	// }
+	@Bean
+	public FilterRegistrationBean getAdminFilter()
+	{
+		FilterRegistrationBean fbean=new FilterRegistrationBean();
+		fbean.setFilter(new AdminFilter());
+		fbean.addUrlPatterns("/api/v1/purchased/viewAll");
+		return fbean;
+	}
 
-	// @Bean
-	// public FilterRegistrationBean getCompanyFilter()
-	// {
-	// 	FilterRegistrationBean fbean=new FilterRegistrationBean();
-	// 	fbean.setFilter(new CompanyFilter());
-	// 	fbean.addUrlPatterns("/api/v1/purchased/view/company/*");
-	// 	return fbean;
-	// }
+	@Bean
+	public FilterRegistrationBean getCompanyFilter()
+	{
+		FilterRegistrationBean fbean=new FilterRegistrationBean();
+		fbean.setFilter(new CompanyFilter());
+		fbean.addUrlPatterns("/api/v1/purchased/view/company/*");
+		return fbean;
+	}
 
-	// @Bean
-	// public FilterRegistrationBean getClientFilter()
-	// {
-	// 	FilterRegistrationBean fbean=new FilterRegistrationBean();
-	// 	fbean.setFilter(new ClientFilter());
-	// 	fbean.addUrlPatterns("/api/v1/purchased/add");
-	// 	fbean.addUrlPatterns("/api/v1/purchased/delete/*");
-	// 	fbean.addUrlPatterns("/api/v1/purchased/update/*");
-	// 	fbean.addUrlPatterns("/api/v1/purchased/view/bundle/*");
-	// 	fbean.addUrlPatterns("/api/v1/purchased/view/id/*");
-	// 	fbean.addUrlPatterns("/api/v1/purchased/view/client/*");
-	// 	fbean.addUrlPatterns("/api/v1/purchased/view/notbundle/client/*");
-	// 	return fbean;
-	// }
+	@Bean
+	public FilterRegistrationBean getClientFilter()
+	{
+		FilterRegistrationBean fbean=new FilterRegistrationBean();
+		fbean.setFilter(new ClientFilter());
+		fbean.addUrlPatterns("/api/v1/purchased/add");
+		fbean.addUrlPatterns("/api/v1/purchased/delete/*");
+		fbean.addUrlPatterns("/api/v1/purchased/update/*");
+		fbean.addUrlPatterns("/api/v1/purchased/view/bundle/*");
+		fbean.addUrlPatterns("/api/v1/purchased/view/id/*");
+		fbean.addUrlPatterns("/api/v1/purchased/view/client/*");
+		fbean.addUrlPatterns("/api/v1/purchased/view/notbundle/client/*");
+		return fbean;
+	}
 }

@@ -163,6 +163,45 @@ public class ProductPurchasedControllerTest {
         verify(ppService, times(1)).getProductPurchasedByPPId(pp.getPpId());
     }
 
+    @Test
+    public void givenGetPPByClientIdAndProductIdThenShouldReturnProductPurchased() throws Exception {
+        when(ppService.getAllProductPurchasedByClientIdAndProductId(pp.getClientId(),pp.getProductId())).thenReturn(ppList);
+        mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/purchased/view/client/"+pp.getClientId()+"/product/"+pp.getProductId()))
+                .andDo(MockMvcResultHandlers.print());
+        verify(ppService).getAllProductPurchasedByClientIdAndProductId(pp.getClientId(),pp.getProductId());
+        verify(ppService, times(1)).getAllProductPurchasedByClientIdAndProductId(pp.getClientId(),pp.getProductId());
+    }
+
+
+    @Test
+    public void givenGetPPByDateAndClientIdThenShouldReturnProductPurchased() throws Exception {
+        when(ppService.getAllProductPurchasedByClientIdPurchaseDate(pp.getClientId(),pp.getPurchaseDate())).thenReturn(ppList);
+        mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/purchased/view/client/"+pp.getClientId()+"/date/"+pp.getPurchaseDate()))
+                .andDo(MockMvcResultHandlers.print());
+        verify(ppService).getAllProductPurchasedByClientIdPurchaseDate(pp.getClientId(),pp.getPurchaseDate());
+        verify(ppService, times(1)).getAllProductPurchasedByClientIdPurchaseDate(pp.getClientId(),pp.getPurchaseDate());
+   
+    }
+
+
+    @Test
+    public void givenGetPPByCompanyIdProductIdAndThenShouldReturnProductPurchased() throws Exception {
+        when(ppService.getAllProductPurchasedByCompanyIdAndProductId(pp.getCompanyId(),pp.getProductId())).thenReturn(ppList);
+        mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/purchased/view/company/"+pp.getCompanyId()+"/product/"+pp.getProductId()))
+                .andDo(MockMvcResultHandlers.print());
+        verify(ppService).getAllProductPurchasedByCompanyIdAndProductId(pp.getCompanyId(),pp.getProductId());
+        verify(ppService, times(1)).getAllProductPurchasedByCompanyIdAndProductId(pp.getCompanyId(),pp.getProductId());
+    }
+
+    @Test
+    public void givenGetPPByCompanyIdAndBundleIdThenShouldReturnProductPurchased() throws Exception {
+        when(ppService.getAllProductPurchasedByCompanyIdAndBundleId(pp.getCompanyId(),pp.getBundleId())).thenReturn(ppList);
+        mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/purchased/view/company/"+pp.getCompanyId()+"/bundle/"+pp.getBundleId()))
+                .andDo(MockMvcResultHandlers.print());
+        verify(ppService).getAllProductPurchasedByCompanyIdAndBundleId(pp.getCompanyId(),pp.getBundleId());
+        verify(ppService, times(1)).getAllProductPurchasedByCompanyIdAndBundleId(pp.getCompanyId(),pp.getBundleId());
+    }
+
     public static String asJsonString(final Object obj) {
         try {
 

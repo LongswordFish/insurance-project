@@ -5,8 +5,10 @@ import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 
+import com.cgi.insurance.product_purchased_service.constant.Constant;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -26,7 +28,8 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 public class CompanyFilter extends GenericFilter{
-
+    private String SECRET_KEY = Constant.SECRET_KEY;
+    
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
             throws IOException, ServletException {
@@ -56,7 +59,7 @@ public class CompanyFilter extends GenericFilter{
                     System.out.println(mytoken);
         
                     try {
-                        JwtParser jwtparser = Jwts.parser().setSigningKey("cgicanada23".getBytes());
+                        JwtParser jwtparser = Jwts.parser().setSigningKey(SECRET_KEY.getBytes());
         
                         Jwt jwtobj = jwtparser.parse(mytoken);
         
