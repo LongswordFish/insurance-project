@@ -9,9 +9,12 @@ using Newtonsoft.Json;
 using Microsoft.EntityFrameworkCore;
 using System.Net;
 using Microsoft.AspNetCore.Mvc;
+using Xunit.Extensions.Ordering;
+using Xunit;
 
 namespace CompanyServiceTesting.Tests
 {
+    [CollectionDefinition("C3"), Order(3)]
     public class DeleteEndpointsTest : IDeleteEndpointsTest
     {
         private readonly CompanyContext _dbContext;
@@ -29,7 +32,7 @@ namespace CompanyServiceTesting.Tests
             _output = output;
         }
 
-        [Fact]
+        [Fact, Order(1)]
         public async Task DeleteGivenWrongCRUD()
         {
             // Ensure that given the wrong endpoint, exception is caught
@@ -37,7 +40,7 @@ namespace CompanyServiceTesting.Tests
             Assert.Equal(HttpStatusCode.NotFound, http_response.StatusCode);
         }
 
-        [Fact]
+        [Fact, Order(1)]
         public async Task DeleteShouldFail()
         {
             // Ensure that given a bad ID, exception is caught
@@ -45,7 +48,7 @@ namespace CompanyServiceTesting.Tests
             Assert.IsType<NotFoundObjectResult>(controller_response);
         }
 
-        [Fact]
+        [Fact, Order(2)]
         public async Task DeleteShouldSucceed()
         {
             // Adding and deleting a test item should return successful 

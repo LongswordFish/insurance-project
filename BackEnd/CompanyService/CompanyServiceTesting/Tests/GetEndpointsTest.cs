@@ -13,9 +13,11 @@ using System.Xml.Linq;
 using Xunit.Abstractions;
 using Newtonsoft.Json;
 using Microsoft.AspNetCore.Http.HttpResults;
+using Xunit.Extensions.Ordering; 
 
 namespace CompanyServiceTesting.Tests
 {
+    [CollectionDefinition("C1"), Order(1)]
     public class GetEndpointsTest : IGetEndpointsTest
     {
         private readonly CompanyContext _dbContext;
@@ -33,7 +35,7 @@ namespace CompanyServiceTesting.Tests
             _output = output;
         }
 
-        [Fact]
+        [Fact, Order(1)]
         public async Task GetAllShouldSucceed()
         {
             // Ensure that controller get method returns expected result
@@ -53,7 +55,7 @@ namespace CompanyServiceTesting.Tests
             Assert.Equal(obj1Str, obj2Str);
         }
 
-        [Fact]
+        [Fact, Order(1)]
         public async Task GetGivenWrongCRUD()
         {
             // Ensure that given the wrong endpoint, exception is caught
@@ -61,7 +63,7 @@ namespace CompanyServiceTesting.Tests
             Assert.Equal(HttpStatusCode.NotFound, http_response.StatusCode);
         }
 
-        [Fact]
+        [Fact, Order(1)]
         public async Task GetMaxShouldFail()
         {
             // Ensure that when getting a specified number of results, exceptions are handled
@@ -69,7 +71,7 @@ namespace CompanyServiceTesting.Tests
             Assert.IsType<BadRequestObjectResult>(controller_response.Result); 
         }
 
-        [Fact]
+        [Fact, Order(2)]
         public async Task GetMaxShouldSucceed()
         {
             // Ensure that when getting a specified number of results, it is successful 
@@ -89,7 +91,7 @@ namespace CompanyServiceTesting.Tests
             Assert.Equal(obj1Str, obj2Str);
         }
 
-        [Fact]
+        [Fact, Order(1)]
         public async Task GetOneIdShouldFail()
         {
             // Ensure that given a wrong ID, exception is caught
@@ -97,7 +99,7 @@ namespace CompanyServiceTesting.Tests
             Assert.IsType<NotFoundObjectResult>(controller_response.Result); 
         }
 
-        [Fact]
+        [Fact, Order(2)]
         public async Task GetOneIdShouldSucceed()
         {
             // Ensure that for a company that exists, get is successful 
@@ -119,7 +121,7 @@ namespace CompanyServiceTesting.Tests
             Assert.Equal(obj1Str, obj2Str);
         }
 
-        [Fact]
+        [Fact, Order(3)]
         public async Task GetNameShouldFail()
         {
             // Ensure that given a name that doesn't exist, exception is caught
@@ -127,7 +129,7 @@ namespace CompanyServiceTesting.Tests
             Assert.Equal(null, controller_response.Result);
         }
 
-        [Fact]
+        [Fact, Order(3)]
         public async Task GetNameShouldSucceed()
         {
             // Ensure that for a company that exists, get is successful 

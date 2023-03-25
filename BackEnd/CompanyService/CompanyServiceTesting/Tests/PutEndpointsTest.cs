@@ -10,9 +10,11 @@ using Xunit.Abstractions;
 using System.Net;
 using System.Net.Http.Headers;
 using Microsoft.AspNetCore.Mvc;
+using Xunit.Extensions.Ordering;
 
 namespace CompanyServiceTesting.Tests
 {
+    [CollectionDefinition("C4"), Order(4)]
     public class PutEndpointsTest : IPutEndpointsTest
     {
         private readonly CompanyContext _dbContext;
@@ -30,7 +32,7 @@ namespace CompanyServiceTesting.Tests
             _output = output;
         }
 
-        [Fact]
+        [Fact, Order(1)]
         public async Task PutGivenWrongCRUD()
         {
             Company test_comp = new Company
@@ -50,7 +52,7 @@ namespace CompanyServiceTesting.Tests
             Assert.Equal(HttpStatusCode.NotFound, http_response.StatusCode);
         }
 
-        [Fact]
+        [Fact, Order(2)]
         public async Task ApproveShouldSucceed()
         {
             // Ensure that company can be approved
@@ -86,7 +88,7 @@ namespace CompanyServiceTesting.Tests
             Assert.False(found_company);
         }
 
-        [Fact]
+        [Fact, Order(3)]
         public async Task DisapproveShouldSucceed()
         {
             // Ensure that company can be disapproved
@@ -122,7 +124,7 @@ namespace CompanyServiceTesting.Tests
             Assert.False(found_company);
         }
 
-        [Fact]
+        [Fact, Order(4)]
         public async Task UpdateShouldFail()
         {
             // Ensure that given bad entries, exception is caught 
@@ -170,7 +172,7 @@ namespace CompanyServiceTesting.Tests
             Assert.False(found_company);
         }
 
-        [Fact]
+        [Fact, Order(5)]
         public async Task UpdateShouldSucceed()
         {
             // Ensure that company can be updated 

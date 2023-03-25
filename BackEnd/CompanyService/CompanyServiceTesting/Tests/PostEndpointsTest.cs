@@ -11,9 +11,11 @@ using System.Net;
 using Microsoft.AspNetCore.Http.HttpResults;
 using System.Net.Http.Headers;
 using Microsoft.AspNetCore.Mvc;
+using Xunit.Extensions.Ordering;
 
 namespace CompanyServiceTesting.Tests
 {
+    [CollectionDefinition("C2"), Order(2)]
     public class PostEndpointsTest : IPostEndpointsTest
     {
         private readonly CompanyContext _dbContext;
@@ -48,7 +50,7 @@ namespace CompanyServiceTesting.Tests
             _output = output;
         }
 
-        [Fact]
+        [Fact, Order(1)]
         public async Task PostGivenWrongCRUD()
         {
             // Ensure that given the wrong endpoint, exception is caught
@@ -60,7 +62,7 @@ namespace CompanyServiceTesting.Tests
             Assert.Equal(HttpStatusCode.NotFound, http_response.StatusCode);
         }
 
-        [Fact]
+        [Fact, Order(1)]
         public async Task PostShouldFail()
         {
             // Ensure that given bad data entries, exception is caught
@@ -72,7 +74,7 @@ namespace CompanyServiceTesting.Tests
             Assert.Equal(HttpStatusCode.BadRequest, http_response.StatusCode);
         }
 
-        [Fact]
+        [Fact, Order(2)]
         public async Task PostShouldSucceed()
         {
             // Ensure that a fake data is successfully added and deleted
