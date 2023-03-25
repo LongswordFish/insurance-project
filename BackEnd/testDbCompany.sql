@@ -2,7 +2,7 @@ use company;
 
 select * from company;
 
-delete from company where name="XUNIT Good Update";
+delete from company where name like '%XUNIT%';
 
 insert into company (email, name, address, logo, contactDetails, isApproved)
 values("comp2@gmail.com", "ABC Insurance", "123 St 20 Ave", "no image", '{"Instagram":"abc_insurance", "Facebook":"abc_insurance"}', true),

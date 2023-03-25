@@ -32,8 +32,8 @@ namespace CompanyService.Services
             return await _context.Companies.ToListAsync();
         }
 
-        // GET: api/company/view/id
-        [HttpGet("view/{id}")]
+        // GET: api/company/id/id
+        [HttpGet("id/{id}")]
         public async Task<ActionResult<Company>> GetCompany(int id)
         {
             if (_context.Companies == null)
@@ -50,10 +50,37 @@ namespace CompanyService.Services
             return company;
         }
 
-        // ------- TO IMPLEMENT --------------------
         // GET: api/company/view/{number to display}
+        [HttpGet("view/{num_companies}")]
+        public async Task<ActionResult<IEnumerable<Company>>> GetCompanies(int num_companies)
+        {
+            if (_context.Companies == null)
+            {
+                return NotFound("No companies to display.");
+            }
+            if (num_companies <= 0)
+            {
+                return BadRequest("Please enter a valid integer above 0."); 
+            }
+            var companies = await _context.Companies.Take(num_companies).ToListAsync();
+            if (!companies.Any())
+            {
+                return NotFound("No companies to display.");
+            }
+            return companies;
+        }
+
+
         // GET: api/company/view/{name}
-        // -----------------------------------------
+        [HttpGet("name/{name}")]
+        public async Task<ActionResult<IEnumerable<Company>>> GetCompany(string name)
+        {
+            if (_context.Companies == null)
+            {
+                return NotFound("No companies to display.");
+            }
+            return await _context.Companies.Where<Company>(c => c.Name.ToLower().Contains(name.ToLower())).ToListAsync();
+        }
 
         // PUT: api/company/update/id
         [HttpPut("update/{id}")]
