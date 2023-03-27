@@ -13,7 +13,8 @@ using System.Xml.Linq;
 using Xunit.Abstractions;
 using Newtonsoft.Json;
 using Microsoft.AspNetCore.Http.HttpResults;
-using Xunit.Extensions.Ordering; 
+using Xunit.Extensions.Ordering;
+using System.Net.Http.Headers;
 
 namespace CompanyServiceTesting.Tests
 {
@@ -24,6 +25,9 @@ namespace CompanyServiceTesting.Tests
         private readonly CompaniesController _controller;
         private readonly HttpClient _httpClient;
         private readonly ITestOutputHelper _output;
+        private readonly string _adminToken;
+        private readonly string _companyToken;
+        private readonly string _clientToken;
 
         public GetEndpointsTest(ITestOutputHelper output)
         {
@@ -33,12 +37,18 @@ namespace CompanyServiceTesting.Tests
             _httpClient = new HttpClient();
             _httpClient.BaseAddress = new Uri("http://localhost:9091/");
             _output = output;
+
+            // Grab tokens 
+            _adminToken = GlobalTokens.adminToken;
+            _clientToken = GlobalTokens.clientToken;
+            _companyToken = GlobalTokens.companyToken;
         }
 
         [Fact, Order(1)]
         public async Task GetAllShouldSucceed()
         {
             // Ensure that controller get method returns expected result
+            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _adminToken);
 
             var http_response = await _httpClient.GetAsync("api/company");
             var http_companies = await http_response.Content.ReadAsAsync<IEnumerable<Company>>();
@@ -58,6 +68,8 @@ namespace CompanyServiceTesting.Tests
         [Fact, Order(1)]
         public async Task GetGivenWrongCRUD()
         {
+            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _adminToken);
+
             // Ensure that given the wrong endpoint, exception is caught
             var http_response = await _httpClient.GetAsync("api/company/get");
             Assert.Equal(HttpStatusCode.NotFound, http_response.StatusCode);
@@ -67,6 +79,7 @@ namespace CompanyServiceTesting.Tests
         public async Task GetMaxShouldFail()
         {
             // Ensure that when getting a specified number of results, exceptions are handled
+            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _adminToken);
             var controller_response = await _controller.GetCompanies(-1);
             Assert.IsType<BadRequestObjectResult>(controller_response.Result); 
         }
@@ -75,6 +88,7 @@ namespace CompanyServiceTesting.Tests
         public async Task GetMaxShouldSucceed()
         {
             // Ensure that when getting a specified number of results, it is successful 
+            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _adminToken);
             int num_companies = 20;
             var http_response = await _httpClient.GetAsync($"api/company/view/{num_companies}");
             var http_companies = await http_response.Content.ReadAsAsync<IEnumerable<Company>>();
@@ -95,6 +109,7 @@ namespace CompanyServiceTesting.Tests
         public async Task GetOneIdShouldFail()
         {
             // Ensure that given a wrong ID, exception is caught
+            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _adminToken);
             var controller_response = await _controller.GetCompany(-100);
             Assert.IsType<NotFoundObjectResult>(controller_response.Result); 
         }
@@ -103,7 +118,7 @@ namespace CompanyServiceTesting.Tests
         public async Task GetOneIdShouldSucceed()
         {
             // Ensure that for a company that exists, get is successful 
-
+            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _adminToken);
             var http_all_response = await _httpClient.GetAsync("api/company");
             var http_all_companies = await http_all_response.Content.ReadAsAsync<List<Company>>();
             Assert.Equal(HttpStatusCode.OK, http_all_response.StatusCode);
@@ -125,6 +140,7 @@ namespace CompanyServiceTesting.Tests
         public async Task GetNameShouldFail()
         {
             // Ensure that given a name that doesn't exist, exception is caught
+            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _clientToken);
             var controller_response = await _controller.GetCompany("XUnitTESTING");
             Assert.Equal(null, controller_response.Result);
         }
@@ -133,6 +149,7 @@ namespace CompanyServiceTesting.Tests
         public async Task GetNameShouldSucceed()
         {
             // Ensure that for a company that exists, get is successful 
+            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _clientToken);
             var http_all_response = await _httpClient.GetAsync("api/company");
             var http_all_companies = await http_all_response.Content.ReadAsAsync<List<Company>>();
             Assert.Equal(HttpStatusCode.OK, http_all_response.StatusCode);

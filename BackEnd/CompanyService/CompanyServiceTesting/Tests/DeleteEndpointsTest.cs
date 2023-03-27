@@ -11,6 +11,8 @@ using System.Net;
 using Microsoft.AspNetCore.Mvc;
 using Xunit.Extensions.Ordering;
 using Xunit;
+using System.Net.Http.Headers;
+using System.Net.Http;
 
 namespace CompanyServiceTesting.Tests
 {
@@ -21,6 +23,9 @@ namespace CompanyServiceTesting.Tests
         private readonly CompaniesController _controller;
         private readonly HttpClient _httpClient;
         private readonly ITestOutputHelper _output;
+        private readonly string _adminToken;
+        private readonly string _companyToken;
+        private readonly string _clientToken; 
 
         public DeleteEndpointsTest(ITestOutputHelper output)
         {
@@ -30,6 +35,14 @@ namespace CompanyServiceTesting.Tests
             _httpClient = new HttpClient();
             _httpClient.BaseAddress = new Uri("http://localhost:9091/");
             _output = output;
+
+            // Grab tokens 
+            _adminToken = GlobalTokens.adminToken; 
+            _clientToken = GlobalTokens.clientToken;
+            _companyToken = GlobalTokens.companyToken;
+
+            // Admin has access to all DELETE endpoints
+            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _adminToken);
         }
 
         [Fact, Order(1)]

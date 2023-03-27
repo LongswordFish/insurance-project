@@ -1,7 +1,10 @@
 using CompanyService.Middleware;
 using CompanyService.Repository;
 using CompanyService.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace CompanyService
 {
@@ -22,6 +25,26 @@ namespace CompanyService
             IConfiguration configuration = new ConfigurationBuilder()
             .AddJsonFile("appsettings.json")
             .Build();
+
+            builder.Services.AddAuthentication(x =>
+            {
+                x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(o =>
+            {
+                var Key = Encoding.UTF8.GetBytes(configuration["JWT:Key"]);
+                o.SaveToken = true;
+                o.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuer = false,
+                    ValidateAudience = false,
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
+                    ValidIssuer = configuration["JWT:Issuer"],
+                    ValidAudience = configuration["JWT:Audience"],
+                    IssuerSigningKey = new SymmetricSecurityKey(Key)
+                };
+            });
 
             builder.Services.AddDbContext<CompanyContext>
             (option => option.UseMySql(configuration.GetConnectionString("DBConnection"), ServerVersion.Parse("8.0.32-mysql")));
@@ -47,6 +70,7 @@ namespace CompanyService
                 app.UseSwaggerUI();
             }
 
+            app.UseAuthentication();
             app.UseAuthorization();
             app.UseMiddleware<CorsMiddleware>();
             app.UseCors("MyPolicy");

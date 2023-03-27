@@ -22,6 +22,9 @@ namespace CompanyServiceTesting.Tests
         private readonly CompaniesController _controller;
         private readonly HttpClient _httpClient;
         private readonly ITestOutputHelper _output;
+        private readonly string _adminToken;
+        private readonly string _companyToken;
+        private readonly string _clientToken;
 
         private readonly Company _test_comp = new Company
         {
@@ -48,12 +51,18 @@ namespace CompanyServiceTesting.Tests
             _httpClient = new HttpClient();
             _httpClient.BaseAddress = new Uri("http://localhost:9091/");
             _output = output;
+
+            // Grab tokens 
+            _adminToken = GlobalTokens.adminToken;
+            _clientToken = GlobalTokens.clientToken;
+            _companyToken = GlobalTokens.companyToken;
         }
 
         [Fact, Order(1)]
         public async Task PostGivenWrongCRUD()
         {
             // Ensure that given the wrong endpoint, exception is caught
+            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _companyToken);
             var json_content = JsonConvert.SerializeObject(_test_comp);
             var buffer = System.Text.Encoding.UTF8.GetBytes(json_content);
             var byteContent = new ByteArrayContent(buffer);
@@ -66,6 +75,7 @@ namespace CompanyServiceTesting.Tests
         public async Task PostShouldFail()
         {
             // Ensure that given bad data entries, exception is caught
+            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _companyToken);
             var json_content = JsonConvert.SerializeObject(_bad_test);
             var buffer = System.Text.Encoding.UTF8.GetBytes(json_content);
             var byteContent = new ByteArrayContent(buffer);
@@ -78,6 +88,7 @@ namespace CompanyServiceTesting.Tests
         public async Task PostShouldSucceed()
         {
             // Ensure that a fake data is successfully added and deleted
+            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _companyToken);
             var add_response = await _controller.PostCompany(_test_comp);
             Assert.IsType<CreatedAtActionResult>(add_response.Result);
 

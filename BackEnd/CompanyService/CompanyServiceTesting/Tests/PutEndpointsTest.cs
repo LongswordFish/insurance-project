@@ -21,6 +21,9 @@ namespace CompanyServiceTesting.Tests
         private readonly CompaniesController _controller;
         private readonly HttpClient _httpClient;
         private readonly ITestOutputHelper _output;
+        private readonly string _adminToken;
+        private readonly string _companyToken;
+        private readonly string _clientToken;
 
         public PutEndpointsTest(ITestOutputHelper output)
         {
@@ -30,6 +33,11 @@ namespace CompanyServiceTesting.Tests
             _httpClient = new HttpClient();
             _httpClient.BaseAddress = new Uri("http://localhost:9091/");
             _output = output;
+
+            // Grab tokens 
+            _adminToken = GlobalTokens.adminToken;
+            _clientToken = GlobalTokens.clientToken;
+            _companyToken = GlobalTokens.companyToken;
         }
 
         [Fact, Order(1)]
@@ -44,6 +52,7 @@ namespace CompanyServiceTesting.Tests
             };
 
             // Ensure that given the wrong endpoint, exception is caught
+            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _adminToken);
             var json_content = JsonConvert.SerializeObject(test_comp);
             var buffer = System.Text.Encoding.UTF8.GetBytes(json_content);
             var byteContent = new ByteArrayContent(buffer);
@@ -56,6 +65,7 @@ namespace CompanyServiceTesting.Tests
         public async Task ApproveShouldSucceed()
         {
             // Ensure that company can be approved
+            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _adminToken);
             Company test_comp = new Company
             {
                 Name = "XUNIT Approve",
@@ -92,6 +102,7 @@ namespace CompanyServiceTesting.Tests
         public async Task DisapproveShouldSucceed()
         {
             // Ensure that company can be disapproved
+            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _adminToken);
             Company test_comp = new Company
             {
                 Name = "XUNIT Disapprove",
@@ -128,6 +139,7 @@ namespace CompanyServiceTesting.Tests
         public async Task UpdateShouldFail()
         {
             // Ensure that given bad entries, exception is caught 
+            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _companyToken);
             Company test_comp = new Company
             {
                 Name = "XUNIT Bad Update",
@@ -176,6 +188,7 @@ namespace CompanyServiceTesting.Tests
         public async Task UpdateShouldSucceed()
         {
             // Ensure that company can be updated 
+            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _companyToken);
             Company test_comp = new Company
             {
                 Name = "XUNIT Good Update",

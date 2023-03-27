@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using CompanyService.Repository;
 using System.Net;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CompanyService.Services
 {
+    [Authorize]
     [Route("api/company")]
     [ApiController]
     public class CompaniesController : ControllerBase
@@ -23,6 +25,7 @@ namespace CompanyService.Services
 
         // GET: api/company
         [HttpGet]
+        [Authorize(Roles = "admin, client")]
         public async Task<ActionResult<IEnumerable<Company>>> GetCompanies()
         {
             if (_context.Companies == null)
@@ -34,6 +37,7 @@ namespace CompanyService.Services
 
         // GET: api/company/id/id
         [HttpGet("id/{id}")]
+        [Authorize(Roles = "admin")]
         public async Task<ActionResult<Company>> GetCompany(int id)
         {
             if (_context.Companies == null)
@@ -52,6 +56,7 @@ namespace CompanyService.Services
 
         // GET: api/company/view/{number to display}
         [HttpGet("view/{num_companies}")]
+        [Authorize(Roles = "admin")]
         public async Task<ActionResult<IEnumerable<Company>>> GetCompanies(int num_companies)
         {
             if (_context.Companies == null)
@@ -73,6 +78,7 @@ namespace CompanyService.Services
 
         // GET: api/company/view/{name}
         [HttpGet("name/{name}")]
+        [Authorize(Roles = "admin, client")]
         public async Task<ActionResult<IEnumerable<Company>>> GetCompany(string name)
         {
             if (_context.Companies == null)
@@ -84,6 +90,7 @@ namespace CompanyService.Services
 
         // PUT: api/company/update/id
         [HttpPut("update/{id}")]
+        [Authorize(Roles = "company")]
         public async Task<IActionResult> PutCompany(int id, Company company)
         {
             if (id != company.CompanyId)
@@ -114,6 +121,7 @@ namespace CompanyService.Services
 
         // POST: api/company/add
         [HttpPost("add")]
+        [Authorize(Roles = "admin, company")]
         public async Task<ActionResult<Company>> PostCompany(Company company)
         {
             if (_context.Companies == null)
@@ -128,6 +136,7 @@ namespace CompanyService.Services
 
         // DELETE: api/company/delete/id
         [HttpDelete("delete/{id}")]
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> DeleteCompany(int id)
         {
             if (_context.Companies == null)
@@ -148,6 +157,7 @@ namespace CompanyService.Services
 
         // POST (approve company): api/company/approve/id
         [HttpPut("approve/{id}")]
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> ApproveCompany(int id)
         {
             if (_context.Companies == null)
@@ -185,6 +195,7 @@ namespace CompanyService.Services
 
         // POST (disapprove company): api/company/disapprove/id
         [HttpPut("disapprove/{id}")]
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> DisapproveCompany(int id)
         {
             if (_context.Companies == null)
