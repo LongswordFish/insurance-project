@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import com.cgi.insurance.claimservice.service.*;
 import com.cgi.insurance.claimservice.exception.ClaimIdAlreadyExistsException;
@@ -21,6 +22,7 @@ import com.cgi.insurance.claimservice.exception.DocumentIdAlreadyExistsException
 import com.cgi.insurance.claimservice.model.*;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/claim")
 public class ClaimController {
 
