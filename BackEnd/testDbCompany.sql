@@ -18,3 +18,17 @@ values("comp2@gmail.com", "ABC Insurance", "123 St 20 Ave", "no image", '{"Insta
 ("comp12@gmail.com", "Genie Bottle", "Somewhere in Canada", "no image", '{"Instagram":"genie_bottle", "Facebook":"genie"}', false),
 ("comp13@gmail.com", "Pop Rocks", "98 st 45 Ave NE", "no image", '{"Instagram":"pop_rocks", "Facebook":"pop_rocks"}', false),
 ("comp14@gmail.com", "Laptop is Broken", "Ducky Ave", "no image", '{"Instagram":"laptop_is_broken"}', true);
+
+CREATE TABLE `company` (
+  `companyId` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(100) NOT NULL,
+  `email` VARCHAR(100) NOT NULL,
+  `address` VARCHAR(100) NOT NULL,
+  `logo` LONGBLOB NULL,
+  `contactDetails` JSON NULL,
+  `isApproved` bool NOT NULL DEFAULT false,
+  PRIMARY KEY (`companyId`),
+  UNIQUE KEY `email_UNIQUE` (`email`)
+);
+
+drop table company;

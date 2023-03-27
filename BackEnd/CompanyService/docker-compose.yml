@@ -1,0 +1,25 @@
+version: '3.4'
+
+services:
+  db:
+    image: mysql:8.0.32
+    environment:
+        MYSQL_ROOT_PASSWORD: password
+        MYSQL_DATABASE: test 
+        restart: always 
+        container_name: db-mysql
+    ports:
+        - 3305:3306
+
+  companyservice:
+    depends_on:
+        - db
+    image: ${DOCKER_REGISTRY-}companyservice
+    restart: on-failure
+    environment:
+        - ASPNETCORE_ENVIRONMENT=Development
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+        - "8001:80"

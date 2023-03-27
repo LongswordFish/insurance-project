@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33424.131
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompanyService", "CompanyService\CompanyService.csproj", "{3C5AF906-495B-4D3A-8E38-032530F5B7A8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CompanyService", "CompanyService\CompanyService.csproj", "{3C5AF906-495B-4D3A-8E38-032530F5B7A8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompanyServiceTesting", "CompanyServiceTesting\CompanyServiceTesting.csproj", "{E1B75F26-AEC4-437A-B2FA-45F6AC244808}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CompanyServiceTesting", "CompanyServiceTesting\CompanyServiceTesting.csproj", "{E1B75F26-AEC4-437A-B2FA-45F6AC244808}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

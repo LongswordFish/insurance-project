@@ -4,6 +4,7 @@ using CompanyService.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Steeltoe.Discovery.Client;
 using System.Text;
 
 namespace CompanyService
@@ -46,8 +47,24 @@ namespace CompanyService
                 };
             });
 
+            //builder.Services.AddDbContext<CompanyContext>
+            //(option => option.UseMySql(configuration.GetConnectionString("DBConnection"), ServerVersion.Parse("8.0.32-mysql")));
+
+            //Add service
+            var connectionstring = configuration["ConnectionStrings: DBConnection"];
             builder.Services.AddDbContext<CompanyContext>
-            (option => option.UseMySql(configuration.GetConnectionString("DBConnection"), ServerVersion.Parse("8.0.32-mysql")));
+            (option => option.UseMySql(
+                connectionstring,
+                ServerVersion.Parse("8.0.32-mysql"),
+                option =>
+                {
+                    option.EnableRetryOnFailure(
+                        maxRetryCount: 5,
+                        maxRetryDelay: System.TimeSpan.FromSeconds(5),
+                        errorNumbersToAdd: null);
+                }
+                ));
+
 
             builder.Services.AddCors(options =>
             {
@@ -60,6 +77,8 @@ namespace CompanyService
                         .WithMethods("PUT", "DELETE", "GET", "POST");
                     });
             });
+
+            builder.Services.AddDiscoveryClient(builder.Configuration);
 
             var app = builder.Build();
 
@@ -74,6 +93,8 @@ namespace CompanyService
             app.UseAuthorization();
             app.UseMiddleware<CorsMiddleware>();
             app.UseCors("MyPolicy");
+            app.UseDiscoveryClient();
+
             app.MapControllers();
 
             app.Run();
