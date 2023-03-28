@@ -31,6 +31,18 @@ services:
     environment:
       EUREKAURL: http://eurekaservice:8761/eureka
 
+  product:
+    image: parthpatel13/product
+    depends_on:
+      - mongos
+    restart: always
+    volumes:
+      - ./data:/data/db
+    ports:
+      - 9093:9093
+    environment:
+      EUREKAURL: http://eurekaservice:8761/eureka
+
   notification:
     image: paramvir28/notification
     depends_on:
