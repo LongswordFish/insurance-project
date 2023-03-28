@@ -48,6 +48,10 @@ namespace CompanyServiceTesting.Tests
                 Name = "XUNIT Put",
                 Email = "xunit_put@gmail.com",
                 Address = "Test Address",
+                City = "Edmonton",
+                State = "Alberta",
+                Country = "Canada",
+                PostalCode = "A1A2B2",
                 IsApproved = false
             };
 
@@ -71,6 +75,10 @@ namespace CompanyServiceTesting.Tests
                 Name = "XUNIT Approve",
                 Email = "xunit_approve@gmail.com",
                 Address = "Test Address",
+                City = "Edmonton",
+                State = "Alberta",
+                Country = "Canada",
+                PostalCode = "A1A2B2",
                 IsApproved = false
             };
 
@@ -108,6 +116,10 @@ namespace CompanyServiceTesting.Tests
                 Name = "XUNIT Disapprove",
                 Email = "xunit_disapprove@gmail.com",
                 Address = "Test Address",
+                City = "Edmonton",
+                State = "Alberta",
+                Country = "Canada",
+                PostalCode = "A1A2B2",
                 IsApproved = true
             };
 
@@ -145,6 +157,10 @@ namespace CompanyServiceTesting.Tests
                 Name = "XUNIT Bad Update",
                 Email = "xunit_bad_update@gmail.com",
                 Address = "Test Address",
+                City = "Edmonton",
+                State = "Alberta",
+                Country = "Canada",
+                PostalCode = "A1A2B2",
                 IsApproved = false
             };
             Bad_Put_Company bad_test = new Bad_Put_Company
@@ -152,6 +168,10 @@ namespace CompanyServiceTesting.Tests
                 Name = "XUNIT Bad Update",
                 Email = "xunit_bad_update@gmail.com",
                 Address = "Test Address",
+                City = "Edmonton",
+                State = "Alberta",
+                Country = "Canada",
+                PostalCode = "A1A2B2",
                 IsApproved = "t"
             };
 
@@ -194,6 +214,10 @@ namespace CompanyServiceTesting.Tests
                 Name = "XUNIT Good Update",
                 Email = "xunit_good_update@gmail.com",
                 Address = "Test Address",
+                City = "Edmonton",
+                State = "Alberta",
+                Country = "Canada",
+                PostalCode = "A1A2B2",
                 IsApproved = false
             };
 
@@ -232,6 +256,14 @@ namespace CompanyServiceTesting.Tests
         public string Email { get; set; } = null!;
 
         public string Address { get; set; } = null!;
+
+        public string City { get; set; } = null!;
+
+        public string State { get; set; } = null!;
+
+        public string Country { get; set; } = null!;
+
+        public string PostalCode { get; set; } = null!;
 
         public byte[]? Logo { get; set; }
 

@@ -31,6 +31,10 @@ namespace CompanyServiceTesting.Tests
             Name = "XUNIT Add",
             Email = "xunit_add@gmail.com",
             Address = "Test Address",
+            City = "Edmonton",
+            State = "Alberta",
+            Country = "Canada",
+            PostalCode = "A1A2B2",
             IsApproved = false
         };
 
@@ -40,6 +44,10 @@ namespace CompanyServiceTesting.Tests
             Name = "XUNIT Bad Add",
             Email = "xunit_bad_add@gmail.com",
             Address = "Test Address",
+            City = "Edmonton",
+            State = "Alberta",
+            Country = "Canada",
+            PostalCode = "A1A2B2",
             IsApproved = false
         }; 
 
@@ -119,6 +127,14 @@ namespace CompanyServiceTesting.Tests
         public string Email { get; set; } = null!;
 
         public string Address { get; set; } = null!;
+
+        public string City { get; set; } = null!;
+
+        public string State { get; set; } = null!;
+
+        public string Country { get; set; } = null!;
+
+        public string PostalCode { get; set; } = null!;
 
         public byte[]? Logo { get; set; }
 

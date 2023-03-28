@@ -72,6 +72,10 @@ namespace CompanyServiceTesting.Tests
                 Name = "XUNIT Delete",
                 Email = "xunit_delete@gmail.com",
                 Address = "Test Address",
+                City = "Edmonton",
+                State = "Alberta",
+                Country = "Canada",
+                PostalCode = "A1A2B2",
                 IsApproved = false
             };
             var add_response = await _controller.PostCompany(test_comp);

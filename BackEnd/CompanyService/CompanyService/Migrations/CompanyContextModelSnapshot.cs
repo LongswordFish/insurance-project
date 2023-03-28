@@ -34,6 +34,30 @@ namespace CompanyService.Migrations
                         .HasColumnType("varchar(100)")
                         .HasColumnName("address");
 
+                    b.Property<string>("City")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)")
+                        .HasColumnName("city");
+
+                    b.Property<string>("State")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)")
+                        .HasColumnName("state");
+
+                    b.Property<string>("Country")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)")
+                        .HasColumnName("country");
+
+                    b.Property<string>("PostalCode")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(6)")
+                        .HasColumnName("postalCode");
+
                     b.Property<string>("ContactDetails")
                         .HasColumnType("json")
                         .HasColumnName("contactDetails");

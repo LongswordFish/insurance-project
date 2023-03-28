@@ -26,6 +26,7 @@ namespace CompanyService.Services
         // GET: api/company
         [HttpGet]
         [Authorize(Roles = "admin, client")]
+        //[AllowAnonymous]
         public async Task<ActionResult<IEnumerable<Company>>> GetCompanies()
         {
             if (_context.Companies == null)
@@ -37,7 +38,8 @@ namespace CompanyService.Services
 
         // GET: api/company/id/id
         [HttpGet("id/{id}")]
-        [Authorize(Roles = "admin")]
+        [Authorize(Roles = "admin, client")]
+        //[AllowAnonymous]
         public async Task<ActionResult<Company>> GetCompany(int id)
         {
             if (_context.Companies == null)
@@ -56,7 +58,8 @@ namespace CompanyService.Services
 
         // GET: api/company/view/{number to display}
         [HttpGet("view/{num_companies}")]
-        [Authorize(Roles = "admin")]
+        [Authorize(Roles = "admin, client")]
+        //[AllowAnonymous]
         public async Task<ActionResult<IEnumerable<Company>>> GetCompanies(int num_companies)
         {
             if (_context.Companies == null)
@@ -76,9 +79,10 @@ namespace CompanyService.Services
         }
 
 
-        // GET: api/company/view/{name}
+        // GET: api/company/name/{name}
         [HttpGet("name/{name}")]
         [Authorize(Roles = "admin, client")]
+        //[AllowAnonymous]
         public async Task<ActionResult<IEnumerable<Company>>> GetCompany(string name)
         {
             if (_context.Companies == null)
@@ -88,9 +92,62 @@ namespace CompanyService.Services
             return await _context.Companies.Where<Company>(c => c.Name.ToLower().Contains(name.ToLower())).ToListAsync();
         }
 
+        // GET: api/company/city/{city}
+        [HttpGet("city/{city}")]
+        [Authorize(Roles = "admin, client")]
+        //[AllowAnonymous]
+        public async Task<ActionResult<IEnumerable<Company>>> GetCompanyByCity(string city)
+        {
+            if (_context.Companies == null)
+            {
+                return NotFound("No companies to display.");
+            }
+            return await _context.Companies.Where<Company>(c => c.City.ToLower().Contains(city.ToLower())).ToListAsync();
+        }
+
+        // GET: api/company/state/{state}
+        [HttpGet("state/{state}")]
+        [Authorize(Roles = "admin, client")]
+        //[AllowAnonymous]
+        public async Task<ActionResult<IEnumerable<Company>>> GetCompanyByState(string state)
+        {
+            if (_context.Companies == null)
+            {
+                return NotFound("No companies to display.");
+            }
+            return await _context.Companies.Where<Company>(c => c.State.ToLower().Contains(state.ToLower())).ToListAsync();
+        }
+
+        // GET: api/company/country/{country}
+        [HttpGet("country/{country}")]
+        [Authorize(Roles = "admin, client")]
+        //[AllowAnonymous]
+        public async Task<ActionResult<IEnumerable<Company>>> GetCompanyByCountry(string country)
+        {
+            if (_context.Companies == null)
+            {
+                return NotFound("No companies to display.");
+            }
+            return await _context.Companies.Where<Company>(c => c.Country.ToLower().Contains(country.ToLower())).ToListAsync();
+        }
+
+        // GET: api/company/postalcode/{postalcode}
+        [HttpGet("postalcode/{postalcode}")]
+        [Authorize(Roles = "admin, client")]
+        //[AllowAnonymous]
+        public async Task<ActionResult<IEnumerable<Company>>> GetCompanyByPostalCode(string postalcode)
+        {
+            if (_context.Companies == null)
+            {
+                return NotFound("No companies to display.");
+            }
+            return await _context.Companies.Where<Company>(c => c.PostalCode.ToLower().Contains(postalcode.ToLower())).ToListAsync();
+        }
+
         // PUT: api/company/update/id
         [HttpPut("update/{id}")]
         [Authorize(Roles = "company")]
+        //[AllowAnonymous]
         public async Task<IActionResult> PutCompany(int id, Company company)
         {
             if (id != company.CompanyId)
@@ -122,6 +179,7 @@ namespace CompanyService.Services
         // POST: api/company/add
         [HttpPost("add")]
         [Authorize(Roles = "admin, company")]
+        //[AllowAnonymous]
         public async Task<ActionResult<Company>> PostCompany(Company company)
         {
             if (_context.Companies == null)
@@ -137,6 +195,7 @@ namespace CompanyService.Services
         // DELETE: api/company/delete/id
         [HttpDelete("delete/{id}")]
         [Authorize(Roles = "admin")]
+        //[AllowAnonymous]
         public async Task<IActionResult> DeleteCompany(int id)
         {
             if (_context.Companies == null)
@@ -158,6 +217,7 @@ namespace CompanyService.Services
         // POST (approve company): api/company/approve/id
         [HttpPut("approve/{id}")]
         [Authorize(Roles = "admin")]
+        //[AllowAnonymous]
         public async Task<IActionResult> ApproveCompany(int id)
         {
             if (_context.Companies == null)
@@ -196,6 +256,7 @@ namespace CompanyService.Services
         // POST (disapprove company): api/company/disapprove/id
         [HttpPut("disapprove/{id}")]
         [Authorize(Roles = "admin")]
+        //[AllowAnonymous]
         public async Task<IActionResult> DisapproveCompany(int id)
         {
             if (_context.Companies == null)

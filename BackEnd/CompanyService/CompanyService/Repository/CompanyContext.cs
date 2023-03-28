@@ -38,6 +38,18 @@ public partial class CompanyContext : DbContext
             entity.Property(e => e.Address)
                 .HasMaxLength(100)
                 .HasColumnName("address");
+            entity.Property(e => e.City)
+                .HasMaxLength(100)
+                .HasColumnName("city");
+            entity.Property(e => e.State)
+                .HasMaxLength(100)
+                .HasColumnName("state");
+            entity.Property(e => e.Country)
+                .HasMaxLength(100)
+                .HasColumnName("country");
+            entity.Property(e => e.PostalCode)
+                .HasMaxLength(100)
+                .HasColumnName("postalCode");
             entity.Property(e => e.ContactDetails)
                 .HasColumnType("json")
                 .HasColumnName("contactDetails");
