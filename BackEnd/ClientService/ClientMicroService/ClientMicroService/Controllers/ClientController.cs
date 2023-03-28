@@ -43,6 +43,17 @@ namespace ClientMicroService.Controllers
         {
             try
             {
+                var existingClient = await _clientService.GetClientById(client.ClientId);
+                if (existingClient != null)
+                {
+                    return Conflict($"A client with ID {client.ClientId} already exists.");
+                }
+
+                if (string.IsNullOrEmpty(client.Email) || string.IsNullOrEmpty(client.Location) || string.IsNullOrEmpty(client.ClientName))
+                {
+                    return BadRequest("Client data is invalid");
+                }
+
                 var addedClient = await _clientService.AddClient(client);
                 return CreatedAtAction(nameof(GetClientById), new { clientId = addedClient.ClientId }, addedClient);
             }
