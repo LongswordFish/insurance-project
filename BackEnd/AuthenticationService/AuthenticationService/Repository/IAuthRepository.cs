@@ -11,6 +11,6 @@ namespace AuthenticationService.Repository
 
         void Update(Authentication auth);
 
-        string BuildToken(Authentication auth);
+        Tokens BuildToken(Authentication auth);
     }
 }
