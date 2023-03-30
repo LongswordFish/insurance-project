@@ -1,0 +1,35 @@
+version: '3.7'
+
+services:
+
+  mongos:
+    image: mongo
+    ports:
+      - 27017:27017
+    environment:
+      MONGOURL: mongodb://localhost:27017/insurance
+
+  productMicroservice:
+    image: parthpatel13/product
+    depends_on:
+      - mongos
+    restart: always
+    volumes:
+      - ./data:/data/db
+    ports:
+      - 9093:9093
+    environment:
+      EUREKAURL: http://eurekaserver:8761/eureka
+      
+  eurekaserver:
+    image: longswordfish/eureka_server
+    depends_on:
+      - mongos
+    restart: always
+    volumes:
+      - ./data:/data/db
+    ports:
+      - 8761:8761
+  
+
+    

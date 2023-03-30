@@ -9,14 +9,48 @@ services:
     environment:
       MONGOURL: mongodb://localhost:27017/insurance
 
+  dbCompany:
+    image: mysql:8.0.32
+    environment:
+        MYSQL_ROOT_PASSWORD: password
+        MYSQL_DATABASE: insurance
+        restart: always 
+        container_name: db-mysql
+    ports:
+        - 3304:3306
+
+  db:
+    image: mysql:8.0.32
+    environment:
+        MYSQL_ROOT_PASSWORD: password
+        MYSQL_DATABASE: Authentication
+        restart: always 
+        container_name: db-mysql
+    ports:
+        - 3305:3306
+
+  db_client:
+     image: mysql:8.0.32
+     environment:
+        MYSQL_ROOT_PASSWORD: password
+        MYSQL_DATABASE: test
+        restart: always
+        container_name: con-db-mysql
+     ports:
+       - 3307:3306
+    
   bundleapp:
     image: vipuldarji29/bundle
     depends_on:
       - mongos
     restart: always
+    volumes:
+      - ./data:/data/db
     ports:
       - 9095:9095
-  
+    environment:
+      EUREKAURL: http://eurekaservice:8761/eureka
+
   product_purchased_service:
     image: longswordfish/product_purchased_service
     depends_on:
@@ -24,4 +58,86 @@ services:
     restart: always
     ports:
       - 9094:9094
-    
+    environment:
+      EUREKAURL: http://eurekaservice:8761/eureka
+
+  product:
+    image: parthpatel13/product
+    depends_on:
+      - mongos
+    restart: always
+    volumes:
+      - ./data:/data/db
+    ports:
+      - 9093:9093
+    environment:
+      EUREKAURL: http://eurekaservice:8761/eureka
+
+  notification:
+    image: paramvir28/notification
+    depends_on:
+      - mongos
+    restart: always
+    ports:
+      - 9098:9098
+    environment:
+      EUREKAURL: http://eurekaservice:8761/eureka
+ 
+  claim_service:
+    image: rossbaumgartner/claimserviceimg
+    depends_on:
+      - mongos
+    restart: always
+    ports:
+      - 9096:9096
+    environment:
+      EUREKAURL: http://eurekaservice:8761/eureka
+
+  review:
+    image: pavithra2211/review
+    depends_on:
+      - mongos
+    restart: always
+    ports:
+      - 9097:9097
+    environment:
+      EUREKAURL: http://eurekaservice:8761/eureka
+
+  companyservice:
+    depends_on:
+        - dbCompany
+    image: tassaiyera/companyservice
+    restart: on-failure
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      EUREKAURL: http://eurekaservice:8761/eureka
+    ports:
+        - 9091:80
+
+  authenticationservice:
+    depends_on:
+      - db
+    image: prathikasuvarna/authenticationservice
+    restart: on-failure
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      EUREKAURL: http://eurekaservice:8761/eureka
+    ports:
+      - 9000:80
+
+  clientmicroservice:
+    depends_on:
+     - db_client
+    image: rohithsunkara/clientmicroservice
+    restart: on-failure
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      EUREKAURL: http://eurekaservice:8761/eureka
+    ports:
+       - 9092:80
+
+  eurekaservice:
+    image: longswordfish/eureka_server
+    restart: always
+    ports:
+      - 8761:8761

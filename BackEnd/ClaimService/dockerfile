@@ -1,0 +1,6 @@
+FROM openjdk:17-alpine
+WORKDIR usr/src
+ADD /target/claimservice-0.0.1-SNAPSHOT.jar /usr/src/claimservice-0.0.1-SNAPSHOT.jar
+ENTRYPOINT ["java","-jar","claimservice-0.0.1-SNAPSHOT.jar"]
+ENV MONGOURL=mongodb://mongos:27017/insurance
+ENV EUREKAURL=http://eurekaservice:8761/eureka

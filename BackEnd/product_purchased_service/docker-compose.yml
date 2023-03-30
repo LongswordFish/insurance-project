@@ -1,0 +1,26 @@
+version: '3.7'
+
+services:
+
+  mongos:
+    image: mongo
+    ports:
+      - 27017:27017
+    environment:
+      MONGOURL: mongodb://localhost:27017/insurance
+      
+  product_purchased_service:
+    image: longswordfish/product_purchased_service
+    depends_on:
+      - mongos
+    restart: always
+    ports:
+      - 9094:9094
+    environment:
+      EUREKAURL: http://eurekaservice:8761/eureka
+
+  eurekaservice:
+    image: longswordfish/eureka_server
+    restart: always
+    ports:
+      - 8761:8761

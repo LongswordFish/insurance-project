@@ -1,0 +1,26 @@
+version: '3.4'
+
+services:
+  dbCompany:
+    image: mysql:8.0.32
+    environment:
+        MYSQL_ROOT_PASSWORD: password
+        MYSQL_DATABASE: insurance
+        restart: always 
+        container_name: db-mysql
+    ports:
+        - 3304:3306
+
+  companyservice:
+    depends_on:
+        - dbCompany
+    image: ${DOCKER_REGISTRY-}companyservice
+    restart: on-failure
+    environment:
+        - ASPNETCORE_ENVIRONMENT=Development
+        - EUREKAURL=http://eurekaservice:8761/eureka
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+        - "9091:80"
