@@ -2,3 +2,8 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+<<<<<<< HEAD
+=======
+
+@import "/node_modules/bootstrap/dist/css/bootstrap.min.css";
+>>>>>>> 825d6913f89622335739e02dd53b046d3f69afca

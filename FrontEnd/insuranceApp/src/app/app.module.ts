@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+<<<<<<< HEAD
 import { CompanyNavComponent } from './company-nav/company-nav.component';
 import { FooterComponent } from './footer/footer.component';
 import { SideCompanyDashComponent } from './side-company-dash/side-company-dash.component';
@@ -36,10 +37,17 @@ import { AddProductComponent } from './add-product/add-product.component';
 import { AddBundleComponent } from './add-bundle/add-bundle.component';
 import { AddClaimsComponent } from './add-claims/add-claims.component';
 import { BundleDetailsComponent } from './bundle-details/bundle-details.component';
+=======
+import { RegisterComponent } from './authentication/register/register.component';
+import { LoginComponent } from './authentication/login/login.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+>>>>>>> 825d6913f89622335739e02dd53b046d3f69afca
 
 @NgModule({
   declarations: [
     AppComponent,
+<<<<<<< HEAD
     CompanyNavComponent,
     FooterComponent,
     SideCompanyDashComponent,
@@ -48,11 +56,16 @@ import { BundleDetailsComponent } from './bundle-details/bundle-details.componen
     AddClaimsComponent,
     AllBundlesComponent,
     BundleDetailsComponent,
+=======
+    RegisterComponent,
+    LoginComponent
+>>>>>>> 825d6913f89622335739e02dd53b046d3f69afca
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+<<<<<<< HEAD
     HttpClientModule,
     NgbModule,
     CommonModule,
@@ -82,3 +95,13 @@ import { BundleDetailsComponent } from './bundle-details/bundle-details.componen
   bootstrap: [AppComponent],
 })
 export class AppModule {}
+=======
+    NgbModule,
+    FormsModule,
+    HttpClientModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+>>>>>>> 825d6913f89622335739e02dd53b046d3f69afca
