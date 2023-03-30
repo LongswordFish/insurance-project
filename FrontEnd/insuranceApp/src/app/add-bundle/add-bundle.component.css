@@ -1,0 +1,23 @@
+:host {
+    display: block;
+}
+
+form {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+mat-form-field {
+    flex: 1;
+    margin-right: 10px;
+}
+
+button {
+    margin-top: 20px;
+}
+
+@media only screen and (max-width: 600px) {
+    mat-form-field {
+        flex-basis: 100%;
+    }
+}
