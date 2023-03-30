@@ -1,23 +1,32 @@
-:host {
-    display: block;
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 5px;
 }
 
-form {
-    display: flex;
-    flex-wrap: wrap;
+h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
 }
 
 mat-form-field {
-    flex: 1;
-    margin-right: 10px;
+    width: 100%;
 }
 
-button {
+mat-error {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+textarea {
+    height: 80px;
+    resize: vertical;
+}
+
+button[type="submit"] {
     margin-top: 20px;
-}
-
-@media only screen and (max-width: 600px) {
-    mat-form-field {
-        flex-basis: 100%;
-    }
 }

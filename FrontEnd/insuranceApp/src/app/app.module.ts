@@ -19,9 +19,11 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
-import { AddProductComponent } from './add-product/add-product.component';
-import { AddBundleComponent } from './add-bundle/add-bundle.component';
-import { AddClaimsComponent } from './add-claims/add-claims.component';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { MatSelectModule } from '@angular/material/select';
+import { MatOptionModule } from '@angular/material/core';
 
 import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
@@ -29,6 +31,11 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { HttpClientModule } from '@angular/common/http';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { AllBundlesComponent } from './all-bundles/all-bundles.component';
+import { AddProductComponent } from './add-product/add-product.component';
+import { AddBundleComponent } from './add-bundle/add-bundle.component';
+import { AddClaimsComponent } from './add-claims/add-claims.component';
+import { BundleDetailsComponent } from './bundle-details/bundle-details.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +46,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     AddProductComponent,
     AddBundleComponent,
     AddClaimsComponent,
+    AllBundlesComponent,
+    BundleDetailsComponent,
   ],
   imports: [
     BrowserModule,
@@ -63,6 +72,11 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     FormsModule,
     ReactiveFormsModule,
     MatSnackBarModule,
+    MatGridListModule,
+    MatProgressSpinnerModule,
+    NgxPaginationModule,
+    MatSelectModule,
+    MatOptionModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

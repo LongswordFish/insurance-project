@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
@@ -8,13 +8,15 @@ import {
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Bundle } from '../bundle';
 import { BundleService } from '../bundle.service';
+import { PaginatePipe } from 'ngx-pagination';
 
 @Component({
-  selector: 'app-add-bundle',
-  templateUrl: './add-bundle.component.html',
-  styleUrls: ['./add-bundle.component.css'],
+  selector: 'app-all-bundles',
+  templateUrl: './all-bundles.component.html',
+  styleUrls: ['./all-bundles.component.css'],
+  providers: [PaginatePipe],
 })
-export class AddBundleComponent implements OnInit {
+export class AllBundlesComponent {
   bundles: Bundle[] = [];
   selectedBundle: Bundle | null = null;
   updateForm: FormGroup;
@@ -24,7 +26,7 @@ export class AddBundleComponent implements OnInit {
       Validators.required,
       Validators.maxLength(50),
     ]),
-    productids: new FormControl<string | null>(null, [Validators.required]),
+    productids: new FormControl<string[] | null>(null, [Validators.required]),
     totalPrice: new FormControl<number | null>(null, [
       Validators.required,
       Validators.min(0),
@@ -50,16 +52,8 @@ export class AddBundleComponent implements OnInit {
       companyid: ['', Validators.required],
     });
   }
-
   ngOnInit(): void {
     this.getAllBundles();
-  }
-
-  getAllBundles(): void {
-    this.bundleService.getAllBundles().subscribe(
-      (data) => (this.bundles = data),
-      (error) => console.log(error)
-    );
   }
 
   getBundleById(id: string): void {
@@ -74,37 +68,11 @@ export class AddBundleComponent implements OnInit {
     );
   }
 
-  createBundle(): void {
-    if (this.bundleForm.valid && !this.isEditing) {
-      // check if not editing before creating
-      let ids = this.bundleForm.get('productids')?.value;
-      let idArray = ids.split(',');
-
-      const bundle: Bundle = {
-        bundleid: this.bundleForm.get('bundleid')?.value,
-        bundlename: this.bundleForm.get('bundlename')?.value,
-        productids: idArray,
-        totalPrice: this.bundleForm.get('totalPrice')?.value,
-        location: this.bundleForm.get('location')?.value,
-        companyid: this.bundleForm.get('companyid')?.value,
-      };
-      console.log(bundle.productids);
-      this.bundleService.createBundle(bundle).subscribe(
-        (data) => {
-          console.log(data);
-          this.snackBar.open('Bundle created successfully', 'Close', {
-            duration: 2000,
-          });
-          this.getAllBundles();
-          this.bundleForm.reset();
-        },
-        (error) => console.log(error)
-      );
-    } else {
-      this.snackBar.open('Please fill in all required fields', 'Close', {
-        duration: 2000,
-      });
-    }
+  getAllBundles(): void {
+    this.bundleService.getAllBundles().subscribe(
+      (data) => (this.bundles = data),
+      (error) => console.log(error)
+    );
   }
 
   editBundle(bundle: Bundle): void {
@@ -155,4 +123,24 @@ export class AddBundleComponent implements OnInit {
       }
     );
   }
+
+  items = [
+    { id: 1, name: 'Item 1' },
+    { id: 2, name: 'Item 2' },
+    { id: 3, name: 'Item 3' },
+    { id: 4, name: 'Item 4' },
+    { id: 5, name: 'Item 5' },
+    { id: 6, name: 'Item 6' },
+    { id: 7, name: 'Item 7' },
+    { id: 8, name: 'Item 8' },
+    { id: 9, name: 'Item 9' },
+    { id: 10, name: 'Item 10' },
+    { id: 11, name: 'Item 11' },
+    { id: 12, name: 'Item 12' },
+    { id: 13, name: 'Item 13' },
+    { id: 14, name: 'Item 14' },
+    { id: 15, name: 'Item 15' },
+  ];
+
+  p: number = 1;
 }
