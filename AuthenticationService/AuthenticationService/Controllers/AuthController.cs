@@ -58,15 +58,20 @@ namespace AuthenticationService.Controllers
         public async Task<IActionResult> Login([FromBody] Authentication authData)
         {
             var dbdata = await _authContext.Auths.SingleOrDefaultAsync(u=> u.Email == authData.Email);
-
+      
             if (dbdata == null)
             {
                 return Unauthorized("User Not Found");
             }
             var isvaild = dbdata.Password == authData.Password;
+            var isvalidrole = dbdata.Role == authData.Role;
             if (!isvaild)
             {
                 return Unauthorized("Could not Authenticate User");
+            }
+            if (!isvalidrole)
+            {
+                return Unauthorized("Could not Authenticate User(Role Mismatch) ");
             }
             var token = _authRepository.BuildToken(authData);
 

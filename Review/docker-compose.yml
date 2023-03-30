@@ -1,0 +1,22 @@
+version: '3.7'
+
+services:
+
+  mongos:
+    image: mongo
+    ports:
+      - 27017:27017
+    environment:
+      MONGOURL: mongodb://localhost:27017/ReviewDB
+
+  Review:
+    image: pavithra2211/review
+    depends_on:
+      - mongos
+    restart: always
+    volumes:
+      - ./data:/data/db
+    ports:
+      - 9097:9097
+  
+  
