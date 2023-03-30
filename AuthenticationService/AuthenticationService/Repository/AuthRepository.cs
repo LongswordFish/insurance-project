@@ -64,7 +64,7 @@ namespace AuthenticationService.Repository
             }
         }
 
-        public string BuildToken(Authentication auth)
+        public Tokens BuildToken(Authentication auth)
         {
 
             var signinkey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("CgiInsuranceSecretKey"));
@@ -86,9 +86,11 @@ namespace AuthenticationService.Repository
                 SigningCredentials = signingcredentials
             };
 
-            var token = tokenHandler.CreateToken(tokenDescripter);
 
-            return tokenHandler.WriteToken(token);
+            var token = tokenHandler.CreateToken(tokenDescripter);
+            var dbdata = _context.Auths.SingleOrDefault(u => u.Email == auth.Email);
+
+            return new Tokens { Token = tokenHandler.WriteToken(token) , userid=dbdata.UserId};
 
 
         }
