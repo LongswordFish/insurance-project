@@ -1,1 +1,15 @@
-<p>login works!</p>
+<div>
+    <h2>Login</h2>
+    <form #login="ngForm" (ngSubmit) = "userLogin(login.value)" ngNativeValidate>
+        Email: <input type="text" name="email" ngModel required=""><br/><br/>
+        Password: <input type="password" name="password" ngModel required=""><br/><br/>
+        Role: <input type="text" name="role" ngModel required=""><br/><br/>
+       <!--  <select name="country" [(ngModel)]="country1">
+            <option value="" disabled>Choose your country</option>
+            <option *ngFor="let country of countries" [value]="country.id">
+                {{ country.name }}
+            </option>
+        </select> -->
+        <input type="submit" value="Login"/>
+    </form>
+</div>

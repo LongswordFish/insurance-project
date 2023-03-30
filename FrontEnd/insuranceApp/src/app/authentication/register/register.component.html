@@ -1,1 +1,23 @@
-<p>register works!</p>
+<div>
+    <h2>Register</h2>
+    <form #register="ngForm" (ngSubmit) = "userRegister(register.value)" ngNativeValidate>
+        Email: <input type="text" name="email" ngModel required=""><br/><br/>
+        Password: <input type="password" name="password" ngModel required=""><br/><br/>
+        Role: <input type="text" name="role" ngModel required=""><br/><br/>
+       <!--  <select name="country" [(ngModel)]="country1">
+            <option value="" disabled>Choose your country</option>
+            <option *ngFor="let country of countries" [value]="country.id">
+                {{ country.name }}
+            </option>
+        </select> -->
+        <input type="submit" value="Register"/>
+    </form>
+</div>
+
+
+
+<h5>Welcome {{email}}</h5>>
+<h4>Token is : {{tokendata}}</h4>
+
+<br/>
+<button (click)="logout()">Logout</button>
