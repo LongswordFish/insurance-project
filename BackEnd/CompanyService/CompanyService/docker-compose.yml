@@ -1,11 +1,7 @@
 version: '3.4'
 
 services:
-  eurekaservice:
-    image: longswordfish/eureka_server:latest 
-    ports: 
-        - "8761:8761"
-  db:
+  dbCompany:
     image: mysql:8.0.32
     environment:
         MYSQL_ROOT_PASSWORD: password
@@ -13,12 +9,11 @@ services:
         restart: always 
         container_name: db-mysql
     ports:
-        - 3305:3306
+        - 3304:3306
 
   companyservice:
     depends_on:
-        - db
-        - eurekaservice
+        - dbCompany
     image: ${DOCKER_REGISTRY-}companyservice
     restart: on-failure
     environment:
