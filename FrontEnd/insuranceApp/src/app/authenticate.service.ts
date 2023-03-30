@@ -13,18 +13,21 @@ export class AuthenticateService {
    login(data:any){
     this.http.post("http://localhost:9000/api/Auth/login",data)
     .subscribe((res:any)=>{
+      console.warn(data),
       console.warn(res),
-      localStorage.setItem("token",res.token);
-      localStorage.setItem("email",data.email);
+      sessionStorage.setItem("token",res.token);
+      sessionStorage.setItem("Userid",res.userid);
+      sessionStorage.setItem("role",data.role);
       this.router.navigate(['']);
     })
+    
    }
 
    logout(){
     if(localStorage.getItem("token")!=null && localStorage.getItem("email")!=null){
-        localStorage.removeItem("token");
-        localStorage.removeItem("email");
-        localStorage.clear();
+        sessionStorage.removeItem("token");
+        sessionStorage.removeItem("email");
+        sessionStorage.clear();
         this.router.navigate(['']);
     }
    }
