@@ -14,8 +14,8 @@ export class RegisterComponent {
     }
 
     ngOnInit(){
-      this.tokendata=localStorage.getItem("token");
-      this.email=localStorage.getItem("email");
+      this.tokendata=sessionStorage.getItem("token");
+      this.email=sessionStorage.getItem("email");
     }
       logout(){
         this.authenticate.logout();
