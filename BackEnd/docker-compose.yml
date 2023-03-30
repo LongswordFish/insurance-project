@@ -8,6 +8,16 @@ services:
       - 27017:27017
     environment:
       MONGOURL: mongodb://localhost:27017/insurance
+
+  db:
+    image: mysql:8.0.32
+    environment:
+        MYSQL_ROOT_PASSWORD: password
+        MYSQL_DATABASE: insurance
+        restart: always 
+        container_name: db-mysql
+    ports:
+        - 3305:3306
     
   bundleapp:
     image: vipuldarji29/bundle
@@ -72,6 +82,30 @@ services:
       - 9097:9097
     environment:
       EUREKAURL: http://eurekaservice:8761/eureka
+
+  companyservice:
+    depends_on:
+        - db
+        - eurekaservice
+    image: tassaiyera/companyservice
+    restart: on-failure
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      EUREKAURL: http://eurekaservice:8761/eureka
+    ports:
+        - 9091:80
+
+  authenticationservice:
+    depends_on:
+      - db
+      - eurekaservice
+    image: prathikasuvarna/authenticationservice
+    restart: on-failure
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      EUREKAURL: http://eurekaservice:8761/eureka 
+    ports:
+      - 9000:80
 
   eurekaservice:
     image: longswordfish/eureka_server
