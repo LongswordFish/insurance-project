@@ -1,11 +1,6 @@
 version: '3.4'
 
 services:
-  eurekaservice:
-    image: longswordfish/eureka_server:latest
-    ports:
-        - "8761:8761"
-
   db:
     image: mysql:8.0.32
     environment:
