@@ -1,0 +1,42 @@
+2023-03-24 13:53:29 [background-preinit] INFO  o.h.validator.internal.util.Version -
+				HV000001: Hibernate Validator 8.0.0.Final
+2023-03-24 13:53:29 [main] INFO  c.c.p.ProductMicroserviceApplication -
+				Starting ProductMicroserviceApplication using Java 17.0.5 with PID 19160 (C:\Users\parth.patel1\Documents\workspace-spring-tool-suite-4-4.17.1.RELEASE\productMicroservice\target\classes started by parth.patel1 in C:\Users\parth.patel1\Documents\workspace-spring-tool-suite-4-4.17.1.RELEASE\productMicroservice)
+2023-03-24 13:53:29 [main] INFO  c.c.p.ProductMicroserviceApplication -
+				No active profile set, falling back to 1 default profile: "default"
+2023-03-24 13:53:29 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate -
+				Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2023-03-24 13:53:29 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate -
+				Finished Spring Data repository scanning in 36 ms. Found 1 MongoDB repository interfaces.
+2023-03-24 13:53:30 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer -
+				Tomcat initialized with port(s): 9997 (http)
+2023-03-24 13:53:30 [main] INFO  o.a.coyote.http11.Http11NioProtocol -
+				Initializing ProtocolHandler ["http-nio-9997"]
+2023-03-24 13:53:30 [main] INFO  o.a.catalina.core.StandardService -
+				Starting service [Tomcat]
+2023-03-24 13:53:30 [main] INFO  o.a.catalina.core.StandardEngine -
+				Starting Servlet engine: [Apache Tomcat/10.1.5]
+2023-03-24 13:53:30 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] -
+				Initializing Spring embedded WebApplicationContext
+2023-03-24 13:53:30 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext -
+				Root WebApplicationContext: initialization completed in 950 ms
+2023-03-24 13:53:30 [main] INFO  org.mongodb.driver.client -
+				MongoClient with metadata {"driver": {"name": "mongo-java-driver|sync|spring-boot", "version": "4.8.2"}, "os": {"type": "Windows", "name": "Windows 10", "architecture": "amd64", "version": "10.0"}, "platform": "Java/Eclipse Adoptium/17.0.5+8"} created with settings MongoClientSettings{readPreference=primary, writeConcern=WriteConcern{w=null, wTimeout=null ms, journal=null}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=null}, credential=null, streamFactoryFactory=null, commandListeners=[], codecRegistry=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, CollectionCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, EnumCodecProvider{}, com.mongodb.Jep395RecordCodecProvider@bbb6f0]}, clusterSettings={hosts=[localhost:27017], srvServiceName=mongodb, mode=SINGLE, requiredClusterType=UNKNOWN, requiredReplicaSetName='null', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='30000 ms', localThreshold='30000 ms'}, socketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=0, receiveBufferSize=0, sendBufferSize=0}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=10000, receiveBufferSize=0, sendBufferSize=0}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=0, maxWaitTimeMS=120000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=false, invalidHostNameAllowed=false, context=null}, applicationName='null', compressorList=[], uuidRepresentation=JAVA_LEGACY, serverApi=null, autoEncryptionSettings=null, contextProvider=null}
+2023-03-24 13:53:30 [cluster-ClusterId{value='641de39a5e8e00575febe7f7', description='null'}-localhost:27017] INFO  org.mongodb.driver.cluster -
+				Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=17, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=15029100}
+2023-03-24 13:53:31 [main] INFO  o.a.coyote.http11.Http11NioProtocol -
+				Starting ProtocolHandler ["http-nio-9997"]
+2023-03-24 13:53:31 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer -
+				Tomcat started on port(s): 9997 (http) with context path ''
+2023-03-24 13:53:31 [main] INFO  c.c.p.ProductMicroserviceApplication -
+				Started ProductMicroserviceApplication in 2.265 seconds (process running for 2.917)
+2023-03-24 13:53:50 [RMI TCP Connection(2)-127.0.0.1] INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin -
+				Application shutdown requested.
+2023-03-24 13:53:50 [RMI TCP Connection(2)-127.0.0.1] INFO  o.a.coyote.http11.Http11NioProtocol -
+				Pausing ProtocolHandler ["http-nio-9997"]
+2023-03-24 13:53:50 [RMI TCP Connection(2)-127.0.0.1] INFO  o.a.catalina.core.StandardService -
+				Stopping service [Tomcat]
+2023-03-24 13:53:50 [RMI TCP Connection(2)-127.0.0.1] INFO  o.a.coyote.http11.Http11NioProtocol -
+				Stopping ProtocolHandler ["http-nio-9997"]
+2023-03-24 13:53:50 [RMI TCP Connection(2)-127.0.0.1] INFO  o.a.coyote.http11.Http11NioProtocol -
+				Destroying ProtocolHandler ["http-nio-9997"]
