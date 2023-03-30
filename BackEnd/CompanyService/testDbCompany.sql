@@ -1,4 +1,6 @@
-use company;
+create database insurance;
+
+use insurance;
 
 select * from company;
 
