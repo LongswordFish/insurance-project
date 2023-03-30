@@ -5,7 +5,7 @@ import { LoginComponent } from './authentication/login/login.component';
 import { RegisterComponent } from './authentication/register/register.component';
 
 export function tokengetter(){
-  return localStorage.getItem("token");
+  return sessionStorage.getItem("token");
 }
 
 const routes: Routes = [
