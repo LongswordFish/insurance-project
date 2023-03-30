@@ -64,7 +64,7 @@ namespace AuthenticationService.Repository
             }
         }
 
-        public string BuildToken(Authentication auth)
+        public Tokens BuildToken(Authentication auth)
         {
 
             var signinkey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("CgiInsuranceSecretKey"));
@@ -88,7 +88,7 @@ namespace AuthenticationService.Repository
 
             var token = tokenHandler.CreateToken(tokenDescripter);
 
-            return tokenHandler.WriteToken(token);
+            return new Tokens { Token = tokenHandler.WriteToken(token) };
 
 
         }
