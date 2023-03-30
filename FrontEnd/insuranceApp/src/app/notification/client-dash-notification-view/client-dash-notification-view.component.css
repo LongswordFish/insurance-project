@@ -1,0 +1,144 @@
+/* h1 {   font-family: "Great Vibes", cursive; font-size: 125px; line-height: 160px; font-weight: normal; margin-bottom: 50px; margin-top: 40px; text-align: center; text-shadow: 0 1px 1px #fff; } */
+.main {
+	background: linear-gradient(-45deg, #ee7752, #ff83b2, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+	height: 100vh;
+}
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+h3 { color: #fbfbfb; font-size: 59px; font-family: "Libre Baskerville", serif; line-height: 45px; text-align: center; text-shadow: 0 1px 1px #fff; padding-top: 20px; margin-bottom: 40px; } 
+
+
+ h3.byline { font-style: italic; color: #B6B6B6; font-size: 24px; margin-top: 20px; text-align: center; text-shadow: 0 1px 1px #fff; } 
+
+.boujee-text {
+    --bg-size: 400%;
+    --color-one: hsl(0, 0%, 95%);
+    --color-two: hsl(63, 78%, 58%);
+    font-family:  "Great Vibes",cursive;
+    line-height: 160px; font-weight: normal; margin-bottom: 100px; margin-top: 40px; text-align: center; text-shadow: 0 1px 1px ;
+    font-size: 85px;
+    background: linear-gradient(
+        90deg,
+        var(--color-one),
+        var(--color-two),
+        var(--color-one)
+      )
+      0 0 / var(--bg-size) 100%;
+    color: transparent;
+    background-clip: text;
+  }
+  
+  @media (prefers-reduced-motion: no-preference) {
+    .boujee-text {
+      animation: move-bg 8s linear infinite;
+    }
+    @keyframes move-bg {
+      to {
+        background-position: var(--bg-size) 0;
+      }
+    }
+  }
+
+  .btn, .btn2
+  {
+    
+  margin-top: 20px;  
+  width: auto;
+  height: 50px;
+  font-size: 30px;
+  text-align: center;
+  line-height: 20px;
+  color: rgba(255,255,255,0.9);
+  border-radius: 5px;
+  background: linear-gradient(-45deg, #FFA63D, #FF3D77, #338AFF, #3CF0C5);
+  background-size: 600%;
+  animation: anime 16s linear infinite;}
+.btn2
+  {position: absolute;
+  margin-top: -70px;
+  z-index: -1;
+  filter:blur(30px);
+  opacity: 0.8;}
+
+  .btn3, .btn4
+  {width: auto;
+  height: 30px;
+  font-size: 20px;
+  text-align: center;
+  line-height: 10px;
+  color: rgba(255,255,255,0.9);
+  border-radius: 5px;
+  background: linear-gradient(-45deg, #461309, #eb2b24, #dd0800, #000000);
+  background-size: 600%;
+  animation: anime 16s linear infinite;}
+.btn4
+  {position: absolute;
+  margin-top: -70px;
+  z-index: -1;
+  filter:blur(30px);
+  opacity: 0.8;}
+  
+@keyframes anime {
+0%
+{  background-position: 0% 50%;}
+50%
+ { background-position: 100% 50%;}
+100%
+  {background-position: 0% 50%;}}
+
+
+  .gradient {
+    background: linear-gradient(-45deg, #ff9946, #5feed8, #f27f9e);
+    background-size: 400% 400%;
+    animation: gradient-bg 20s ease infinite;
+   
+}
+
+@keyframes gradient-bg {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+mat-card {
+    margin-top: 100px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 500px;
+   
+  }
+  
+  mat-card-title {
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  mat-list-item {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+  
+  h4 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 20px;
+  }

@@ -1,0 +1,19 @@
+
+    <div class="gradient">
+    <mat-card>
+    <mat-card-title>NOTIFICATIONS</mat-card-title>
+    <mat-card-content>
+      <mat-list *ngFor="let notification of notifications">    
+        <mat-list-item >
+        <mat-icon mat-list-icon>notifications</mat-icon>
+            <h5 mat-line>Sender ID: {{notification.senderId}} - Client ID: {{notification.recipientId}}</h5>
+            <h4 mat-line>message - {{notification.message}}</h4>
+            <h4 mat-line>Date - {{notification.createdAt}}</h4>
+            <button class="btn3 btn-danger" (click)="deleteNotification(notification.notificationId)">Delete</button>
+        </mat-list-item>
+        ---------------------------------------------------------------------------------------
+        </mat-list>
+    </mat-card-content>
+    </mat-card>
+
+    </div>
