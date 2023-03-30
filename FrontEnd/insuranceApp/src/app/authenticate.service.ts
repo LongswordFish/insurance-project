@@ -24,11 +24,11 @@ export class AuthenticateService {
    }
 
    logout(){
-    if(localStorage.getItem("token")!=null && localStorage.getItem("email")!=null){
+    if(sessionStorage.getItem("token")!=null){
         sessionStorage.removeItem("token");
-        sessionStorage.removeItem("email");
+        sessionStorage.removeItem("Userid");
         sessionStorage.clear();
-        this.router.navigate(['']);
+        this.router.navigate(['/login']);
     }
    }
 
