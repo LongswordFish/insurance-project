@@ -1,41 +1,47 @@
-<mat-card>
-    <mat-card-header>
-        <mat-card-title>Bundle Details</mat-card-title>
-    </mat-card-header>
-    <mat-list *ngIf="bundle">
-        <mat-list-item>
-            <div mat-line><strong>Bundle ID:</strong></div>
-            <div mat-line>{{ bundle.bundleid }}</div>
-        </mat-list-item>
-
-        <mat-list-item>
-            <div mat-line><strong>Bundle Name:</strong></div>
-            <div mat-line>{{ bundle.bundlename }}</div>
-        </mat-list-item>
-
-        <mat-list-item>
-            <div mat-line><strong>Product IDs:</strong></div>
-            <div mat-line>{{ bundle.productids }}</div>
-        </mat-list-item>
-
-        <mat-list-item>
-            <div mat-line><strong>Total Price:</strong></div>
-            <div mat-line>{{ bundle.totalPrice }}</div>
-        </mat-list-item>
-
-        <mat-list-item>
-            <div mat-line><strong>Location:</strong></div>
-            <div mat-line>{{ bundle.location }}</div>
-        </mat-list-item>
-
-        <mat-list-item>
-            <div mat-line><strong>Company ID:</strong></div>
-            <div mat-line>{{ bundle.companyid }}</div>
-        </mat-list-item>
-    </mat-list>
-    <div *ngIf="!bundle" class="loading-spinner">
-        <mat-spinner diameter="32"></mat-spinner>
-        <div>Loading...</div>
+<div class="container mt-5">
+    <div class="card bundle-card">
+        <div class="card-header bg-white">
+            <h5 class="card-title mb-0">Bundle Details</h5>
+        </div>
+        <div class="card-body">
+            <ul class="list-group list-group-flush" *ngIf="bundle">
+                <li class="list-group-item bundle-item">
+                    <span class="iconify bundle-icon" data-icon="bi:tree"></span>
+                    <div class="bundle-label"><strong>Bundle ID:</strong></div>
+                    <div class="bundle-value">{{ bundle.bundleid }}</div>
+                </li>
+                <li class="list-group-item bundle-item">
+                    <span class="iconify bundle-icon" data-icon="bi:list"></span>
+                    <div class="bundle-label"><strong>Bundle Name:</strong></div>
+                    <div class="bundle-value">{{ bundle.bundlename }}</div>
+                </li>
+                <li class="list-group-item bundle-item">
+                    <span class="iconify bundle-icon" data-icon="bi:cart"></span>
+                    <div class="bundle-label"><strong>Product IDs:</strong></div>
+                    <div class="bundle-value">{{ bundle.productids }}</div>
+                </li>
+                <li class="list-group-item bundle-item">
+                    <span class="iconify bundle-icon" data-icon="bi:currency-dollar"></span>
+                    <div class="bundle-label"><strong>Total Price:</strong></div>
+                    <div class="bundle-value">{{ bundle.totalPrice }}</div>
+                </li>
+                <li class="list-group-item bundle-item">
+                    <span class="iconify bundle-icon" data-icon="bi:geo-alt"></span>
+                    <div class="bundle-label"><strong>Location:</strong></div>
+                    <div class="bundle-value">{{ bundle.location }}</div>
+                </li>
+                <li class="list-group-item bundle-item">
+                    <span class="iconify bundle-icon" data-icon="bi:building"></span>
+                    <div class="bundle-label"><strong>Company ID:</strong></div>
+                    <div class="bundle-value">{{ bundle.companyid }}</div>
+                </li>
+            </ul>
+        </div>
+        <div class="card-footer bg-white">
+            <button class="btn btn-primary btn-block" (click)="addToCart()">
+                <span class="iconify bundle-icon" data-icon="bi:cart-plus"></span>
+                Add to Cart
+            </button>
+        </div>
     </div>
-
-</mat-card>
+</div>

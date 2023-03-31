@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
@@ -9,6 +9,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Bundle } from '../bundle';
 import { BundleService } from '../bundle.service';
 import { PaginatePipe } from 'ngx-pagination';
+import { PageEvent } from '@angular/material/paginator';
+import { BundleFilterPipe } from '../bundle-filter.pipe';
 
 @Component({
   selector: 'app-all-bundles',
@@ -52,6 +54,33 @@ export class AllBundlesComponent {
       companyid: ['', Validators.required],
     });
   }
+  searchText: string = '';
+  filteredBundles: Bundle[] = [];
+
+  //   applyFilter(filterValue: string) {
+  //     this.searchText = filterValue.trim().toLowerCase();
+  //
+  //     this.filteredBundles = this.bundles.filter(
+  //       (bundle) =>
+  //         bundle.bundleid.toLowerCase().includes(this.searchText) ||
+  //         bundle.bundlename?.toLowerCase().includes(this.searchText) ||
+  //         bundle.productids.includes(this.searchText) ||
+  //         bundle.totalPrice.toLowerCase().includes(this.searchText) ||
+  //         bundle.location.toLowerCase().includes(this.searchText) ||
+  //         bundle.companyid.toLowerCase().includes(this.searchText)
+  //     );
+  //   }
+
+  // pagination
+  pageSizeOptions: number[] = [5, 10, 15];
+  pageSize: number = this.pageSizeOptions[0];
+  pageIndex: number = 0;
+
+  onPageChange(event: PageEvent) {
+    this.pageSize = event.pageSize;
+    this.pageIndex = event.pageIndex;
+  }
+
   ngOnInit(): void {
     this.getAllBundles();
   }

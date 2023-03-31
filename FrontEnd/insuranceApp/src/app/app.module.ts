@@ -24,6 +24,10 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { BundleFilterPipe } from './bundle-filter.pipe';
 
 import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
@@ -52,6 +56,7 @@ import { BundleDetailsComponent } from './bundle-details/bundle-details.componen
     AddClaimsComponent,
     AllBundlesComponent,
     BundleDetailsComponent,
+    BundleFilterPipe,
   ],
   imports: [
     BrowserModule,
@@ -59,7 +64,7 @@ import { BundleDetailsComponent } from './bundle-details/bundle-details.componen
     BrowserAnimationsModule,
     NgbModule,
     HttpClientModule,
-    NgbModule,
+    FormsModule,
     CommonModule,
     MatToolbarModule,
     MatIconModule,
@@ -84,6 +89,9 @@ import { BundleDetailsComponent } from './bundle-details/bundle-details.componen
     NgxPaginationModule,
     MatSelectModule,
     MatOptionModule,
+    MatAutocompleteModule,
+    MatCheckboxModule,
+    MatPaginatorModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

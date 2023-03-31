@@ -10,6 +10,7 @@ import { Bundle } from '../bundle';
 })
 export class BundleDetailsComponent {
   bundle!: Bundle;
+  quantity: number = 1;
 
   constructor(
     private route: ActivatedRoute,
@@ -28,5 +29,9 @@ export class BundleDetailsComponent {
         }
       );
     }
+  }
+  addToCart(): void {
+    // Here you can implement your logic to add the bundle to the cart
+    console.log('Added to cart:', this.bundle, 'quantity:', this.quantity);
   }
 }
