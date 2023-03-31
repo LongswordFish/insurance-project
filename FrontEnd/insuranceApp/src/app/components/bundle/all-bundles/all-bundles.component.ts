@@ -9,14 +9,16 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Bundle } from '../../../bundle';
 import { BundleService } from '../../../bundle.service';
 import { PaginatePipe } from 'ngx-pagination';
-import { PageEvent } from '@angular/material/paginator';
+import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { BundleFilterPipe } from '../../../bundle-filter.pipe';
+import { MatTableDataSource } from '@angular/material/table';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-all-bundles',
   templateUrl: './all-bundles.component.html',
   styleUrls: ['./all-bundles.component.css'],
-  providers: [PaginatePipe],
+  providers: [PaginatePipe,BundleFilterPipe],
 })
 export class AllBundlesComponent {
   bundles: Bundle[] = [];
@@ -39,11 +41,19 @@ export class AllBundlesComponent {
 
   isUpdateFormOpen: boolean = false;
   isEditing: boolean = false;
+
+  dataSource!: MatTableDataSource<any>
+  obs!:Observable<any>
+  @ViewChild(MatPaginator)
+  paginator !:MatPaginator;
+
+
   constructor(
     private bundleService: BundleService,
     private snackBar: MatSnackBar,
     private fb: FormBuilder,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private bundleFilterPipe:BundleFilterPipe
   ) {
     this.updateForm = this.formBuilder.group({
       bundleid: [''],
@@ -99,7 +109,12 @@ export class AllBundlesComponent {
 
   getAllBundles(): void {
     this.bundleService.getAllBundles().subscribe(
-      (data) => (this.bundles = data),
+      (data) => {
+        this.bundles = data;
+        this.dataSource = new MatTableDataSource<any>(this.bundles);
+        this.dataSource.paginator = this.paginator
+        this.obs = this.dataSource.connect()
+      },
       (error) => console.log(error)
     );
   }
@@ -172,4 +187,11 @@ export class AllBundlesComponent {
   ];
 
   p: number = 1;
+
+  searchTextChange(value:string){
+    let source = this.bundleFilterPipe.transform(this.bundles,value);
+    this.dataSource = new MatTableDataSource<any>(source);
+    this.dataSource.paginator = this.paginator
+    this.obs = this.dataSource.connect()
+  }
 }
