@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { BundleService } from '../bundle.service';
-import { Bundle } from '../bundle';
+import { BundleService } from '../../../bundle.service';
+import { Bundle } from '../../../bundle';
 
 @Component({
   selector: 'app-bundle-details',
