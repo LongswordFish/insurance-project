@@ -1,179 +1,137 @@
 <app-navigation></app-navigation>
 
-<br/>
-<h1>Companies Registered & Unapproved</h1>
-<br/>
+<div class="company-accordion">
+  <br/>
+  <h1>Newly Registered Companies</h1>
+  <h3>Below is a list of companies that have registered and are waiting for your decision: Approve or Reject.</h3>
+  <br/>
 
-  <mat-accordion class="example-headers-align" multi>
-    <mat-expansion-panel>
+  <mat-accordion class="example-headers-align" multi *ngFor ="let data of allCompanyData">
+    <mat-expansion-panel *ngIf="data.isApproved==false && data.adminViewed==false">
       <mat-expansion-panel-header>
         <mat-panel-title>
-          East Coast Best Auto Insurance
+          {{data.name}}
         </mat-panel-title>
         <mat-action-row> 
-            <button mat-raised-button color="warn">Reject</button>
+          <button mat-raised-button (click)="approveCompany(data)">Approve</button> <br/>
+          <button mat-raised-button color="warn" (click)="rejectCompany(data)">Reject</button>
         </mat-action-row>
         <mat-panel-description>
-          Registered: Sept. 1, 2023, 3:04:56 AM MST
-          <mat-icon>account_circle</mat-icon>
+          Registered: {{data.dateRegistered}}
+          <img src="data:image/png;base64, {{data.logo}}" alt="no image"/>
         </mat-panel-description>
-        </mat-expansion-panel-header>
-        <p>We are Halifax's premier auto insurance providers! A quote within 24 hours guaranteed.</p>
+      </mat-expansion-panel-header>
+        <div class="jumbotron jumbotron-fluid">
+          <p class="lead">{{data.description}}</p>
+        </div>
         <br/>
         <h3>Contact Details</h3>
         <ul>
-            <li>Email: example@gmail.com</li>
-            <li>Phone Number: 1-567-890-1234</li>
+          <li>Address: {{data.address}}, {{data.city}} {{data.state}}, {{data.country}} {{data.postalCode}}</li>
+          <li>{{data.contactDetails}}</li>
         </ul>
     </mat-expansion-panel>
-    
-    <mat-expansion-panel>
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            Junk Yard Car Crashes
-          </mat-panel-title>
-          <mat-action-row>
-            <button mat-raised-button color="warn">Reject</button>
-        </mat-action-row>
-          <mat-panel-description>
-            Registered: Oct.4, 2018, 6:05:23 PM MST
-            <mat-icon>account_circle</mat-icon>
-          </mat-panel-description>
-      </mat-expansion-panel-header>
-      <p>We provide rates unmatched by any other company!</p>
-      <br/>
-      <h3>Contact Details</h3>
-      <ul>
-          <li>Email: example@gmail.com</li>
-          <li>Phone Number: 1-567-890-1234</li>
-      </ul>
-      </mat-expansion-panel>
-  
-      <mat-expansion-panel>
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            Alberta Insurance
-          </mat-panel-title>
-          <mat-action-row>
-            <button mat-raised-button color="warn">Reject</button>
-        </mat-action-row>
-          <mat-panel-description>
-            Registered: Oct. 5, 2022, 11:18:55 PM MST
-            <mat-icon>account_circle</mat-icon>
-          </mat-panel-description>
-      </mat-expansion-panel-header>
-      <p>We are Alberta farmer's favourite insurance folks.</p>
-      <br/>
-      <h3>Contact Details</h3>
-      <ul>
-          <li>Email: example@gmail.com</li>
-          <li>Phone Number: 1-567-890-1234</li>
-      </ul>
-      </mat-expansion-panel>
-
-      <mat-expansion-panel>
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            General Store Insurance
-          </mat-panel-title>
-          <mat-action-row>
-            <button mat-raised-button color="warn">Reject</button>
-        </mat-action-row>
-          <mat-panel-description>
-            Registered: Jan. 31, 2025, 6:18:56 PM MST
-            <mat-icon>account_circle</mat-icon>
-          </mat-panel-description>
-      </mat-expansion-panel-header>
-      <p>We provide decent insurance for decent people.</p>
-      <br/>
-      <h3>Contact Details</h3>
-      <ul>
-          <li>Email: example@gmail.com</li>
-          <li>Phone Number: 1-567-890-1234</li>
-      </ul>
-      </mat-expansion-panel>
   </mat-accordion>
 
-<br/>
   <br/>
-<h1>Companies Approved</h1>
-<br/>
+  <br/>
+  <h1>Companies Approved</h1>
+  <h3>Below is a list of companies that have been approved.</h3>
+  <br/>
 
-  <mat-accordion class="example-headers-align" multi>
-    <mat-expansion-panel>
+  <mat-accordion class="example-headers-align" multi *ngFor ="let data of allCompanyData">
+    <mat-expansion-panel *ngIf="data.isApproved==true && data.adminViewed==true">
       <mat-expansion-panel-header>
         <mat-panel-title>
-          East Coast Best Auto Insurance
+          {{data.name}}
         </mat-panel-title>
+        <mat-action-row> 
+          <button mat-raised-button color="warn" (click)="rejectCompany(data)">Disable</button>
+        </mat-action-row>
         <mat-panel-description>
-          Registered: Sept. 1, 2023, 3:04:56 AM MST
-          <mat-icon>account_circle</mat-icon>
+          Registered: {{data.dateRegistered}}&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Approved: {{data.dateApproved}}
+          <img src="data:image/png;base64, {{data.logo}}" alt="no image"/>
         </mat-panel-description>
-    </mat-expansion-panel-header>
-    <p>We are Halifax's premier auto insurance providers! A quote within 24 hours guaranteed.</p>
-    <br/>
-    <h3>Contact Details</h3>
-    <ul>
-        <li>Email: example@gmail.com</li>
-        <li>Phone Number: 1-567-890-1234</li>
-    </ul>
+      </mat-expansion-panel-header>
+        <div class="jumbotron jumbotron-fluid">
+          <p class="lead">{{data.description}}</p>
+        </div>
+        <br/>
+        <h3>Contact Details</h3>
+        <ul>
+          <li>Address: {{data.address}}, {{data.city}} {{data.state}}, {{data.country}} {{data.postalCode}}</li>
+          <li>{{data.contactDetails}}</li>
+        </ul>
     </mat-expansion-panel>
-    
-    <mat-expansion-panel>
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            Junk Yard Car Crashes
-          </mat-panel-title>
-          <mat-panel-description>
-            Registered: Oct.4, 2018, 6:05:23 PM MST
-            <mat-icon>account_circle</mat-icon>
-          </mat-panel-description>
-      </mat-expansion-panel-header>
-      <p>We provide rates unmatched by any other company!</p>
-      <br/>
-      <h3>Contact Details</h3>
-      <ul>
-          <li>Email: example@gmail.com</li>
-          <li>Phone Number: 1-567-890-1234</li>
-      </ul>
-      </mat-expansion-panel>
-  
-      <mat-expansion-panel>
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            Alberta Insurance
-          </mat-panel-title>
-          <mat-panel-description>
-            Registered: Oct. 5, 2022, 11:18:55 PM MST
-            <mat-icon>account_circle</mat-icon>
-          </mat-panel-description>
-      </mat-expansion-panel-header>
-      <p>We are Alberta farmer's favourite insurance folks.</p>
-      <br/>
-      <h3>Contact Details</h3>
-      <ul>
-          <li>Email: example@gmail.com</li>
-          <li>Phone Number: 1-567-890-1234</li>
-      </ul>
-      </mat-expansion-panel>
-
-      <mat-expansion-panel>
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            General Store Insurance
-          </mat-panel-title>
-          <mat-panel-description>
-            Registered: Jan. 31, 2025, 6:18:56 PM MST
-            <mat-icon>account_circle</mat-icon>
-          </mat-panel-description>
-      </mat-expansion-panel-header>
-      <p>We provide decent insurance for decent people.</p>
-      <br/>
-      <h3>Contact Details</h3>
-      <ul>
-          <li>Email: example@gmail.com</li>
-          <li>Phone Number: 1-567-890-1234</li>
-      </ul>
-      </mat-expansion-panel>
   </mat-accordion>
-  
+
+
+  <br/>
+  <br/>
+  <h1>Companies Rejected</h1>
+  <h3>Below is a list of companies that have registered, but ultimately rejected.</h3>
+  <br/>
+
+  <mat-accordion class="example-headers-align" multi *ngFor ="let data of allCompanyData">
+    <mat-expansion-panel *ngIf="data.isApproved==false && data.adminViewed==true && data.dateApproved==null">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{data.name}}
+        </mat-panel-title>
+        <mat-action-row> 
+          <button mat-raised-button (click)="approveCompany(data)">Accept</button>
+        </mat-action-row>
+        <mat-panel-description>
+          Registered: {{data.dateRegistered}}
+          <img src="data:image/png;base64, {{data.logo}}" alt="no image"/>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+        <div class="jumbotron jumbotron-fluid">
+          <p class="lead">{{data.description}}</p>
+        </div>
+        <br/>
+        <h3>Contact Details</h3>
+        <ul>
+          <li>Address: {{data.address}}, {{data.city}} {{data.state}}, {{data.country}} {{data.postalCode}}</li>
+          <li>{{data.contactDetails}}</li>
+        </ul>
+    </mat-expansion-panel>
+  </mat-accordion>
+
+
+  <br/>
+  <br/>
+  <h1>Banned Companies</h1>
+  <h3>Below is a list of companies that have been approved in the past, but are now banned from selling products.</h3>
+  <br/>
+
+  <mat-accordion class="example-headers-align" multi *ngFor ="let data of allCompanyData">
+    <mat-expansion-panel *ngIf="data.isApproved==false && data.adminViewed==true && data.dateApproved!=null">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{data.name}}
+        </mat-panel-title>
+        <mat-action-row> 
+          <button mat-raised-button (click)="approveCompany(data)">Re-Enable & Accept</button>
+        </mat-action-row>
+        <mat-panel-description>
+          Registered: {{data.dateRegistered}}&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Last Approved: {{data.dateApproved}}
+          <img src="data:image/png;base64, {{data.logo}}" alt="no image"/>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+        <div class="jumbotron jumbotron-fluid">
+          <p class="lead">{{data.description}}</p>
+        </div>
+        <br/>
+        <h3>Contact Details</h3>
+        <ul>
+          <li>Address: {{data.address}}, {{data.city}} {{data.state}}, {{data.country}} {{data.postalCode}}</li>
+          <li>{{data.contactDetails}}</li>
+        </ul>
+    </mat-expansion-panel>
+  </mat-accordion>
+
+  <br/>
+  <br/>
+
+</div>
