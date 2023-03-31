@@ -5,9 +5,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { CompanyNavComponent } from './company-nav/company-nav.component';
-import { FooterComponent } from './footer/footer.component';
-import { SideCompanyDashComponent } from './side-company-dash/side-company-dash.component';
+
+import { FooterComponent } from './components/footer/footer.component';
+import { SideCompanyDashComponent } from './components/side-company-dash/side-company-dash.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { CommonModule } from '@angular/common';
@@ -34,21 +34,18 @@ import { MatTableModule } from '@angular/material/table';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { HttpClientModule } from '@angular/common/http';
 import { PurchasedModule } from './purchased/purchased.module';
-import {RouterModule} from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { AllBundlesComponent } from './all-bundles/all-bundles.component';
-import { AddProductComponent } from './add-product/add-product.component';
-import { AddBundleComponent } from './add-bundle/add-bundle.component';
-import { AddClaimsComponent } from './add-claims/add-claims.component';
-import { BundleDetailsComponent } from './bundle-details/bundle-details.component';
-
+import { AllBundlesComponent } from './components/bundle/all-bundles/all-bundles.component';
+import { AddProductComponent } from './components/add-product/add-product.component';
+import { AddBundleComponent } from './components/bundle/add-bundle/add-bundle.component';
+import { AddClaimsComponent } from './components/add-claims/add-claims.component';
+import { BundleDetailsComponent } from './components/bundle/bundle-details/bundle-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-
-    CompanyNavComponent,
     FooterComponent,
     SideCompanyDashComponent,
     AddProductComponent,

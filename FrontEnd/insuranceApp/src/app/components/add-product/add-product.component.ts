@@ -7,8 +7,8 @@ import {
   Validators,
 } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Product } from '../product';
-import { ProductService } from '../product.service';
+import { Product } from '../../product';
+import { ProductService } from '../../product.service';
 
 @Component({
   selector: 'app-add-product',
