@@ -7,6 +7,15 @@ import { AddProductComponent } from './add-product/add-product.component';
 import { AllBundlesComponent } from './all-bundles/all-bundles.component';
 import { BundleDetailsComponent } from './bundle-details/bundle-details.component';
 
+<<<<<<< Updated upstream
+=======
+import { AddBundleComponent } from './add-bundle/add-bundle.component';
+import { AddClaimsComponent } from './add-claims/add-claims.component';
+import { AddProductComponent } from './add-product/add-product.component';
+import { AllBundlesComponent } from './all-bundles/all-bundles.component';
+import { BundleDetailsComponent } from './bundle-details/bundle-details.component';
+
+>>>>>>> Stashed changes
 const routes: Routes = [
   { path: 'add-product', component: AddProductComponent },
   { path: 'add-bundle', component: AddBundleComponent },
@@ -18,6 +27,7 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
+<<<<<<< Updated upstream
 })
 export class AppRoutingModule {}
 =======
@@ -51,3 +61,8 @@ const routes: Routes = [
 })
 export class AppRoutingModule { }
 >>>>>>> 825d6913f89622335739e02dd53b046d3f69afca
+=======
+})
+export class AppRoutingModule {}
+
+>>>>>>> Stashed changes
