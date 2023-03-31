@@ -1,0 +1,62 @@
+<!-- <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ViewProducts</title>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="/node_modules/bootstrap/dist/js/jquery.min.js" type="text/javascript"></script>
+</head>
+<body>
+
+    <div class="container mt-5">
+        <div class="row">
+          <div class="col-md-4" *ngFor="let product of products">
+            <div class="card mb-3">
+              <img [src]="product.picture" class="card-img-top" alt="product image">
+              <div class="card-body">
+                <h5 class="card-title">{{ product.name }}</h5>
+                <p class="card-text">{{ product.description }}</p>
+                <p class="card-text"><strong>Price:</strong> {{ product.price }}</p>
+                <a href="#" class="btn btn-primary">View Details</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+</body>
+</html>  -->
+<!-- <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-4" *ngFor="let product of products">
+        <div class="card mb-3">
+          <img [src]="product.picture" class="card-img-top" alt="product image">
+          <div class="card-body">
+            <h5 class="card-title">{{ product.name }}</h5>
+            <p class="card-text">{{ product.description }}</p>
+            <p class="card-text"><strong>Price:</strong> {{ product.price }}</p>
+            <a href="#" class="btn btn-primary">View Details</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+  <!-- <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-4" *ngFor="let product of products">
+        <mat-card class="mb-3">
+          <img mat-card-image [src]="product.picture" alt="product image">
+          <mat-card-content>
+            <h5 mat-card-title>{{ product.name }}</h5>
+            <p mat-card-subtitle>{{ product.description }}</p>
+            <p><strong>Price:</strong> {{ product.price }}</p>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-raised-button color="primary">View Details</button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </div>
+  </div>  -->
