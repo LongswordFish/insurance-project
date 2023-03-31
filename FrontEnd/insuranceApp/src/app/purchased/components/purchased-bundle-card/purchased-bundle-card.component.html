@@ -1,0 +1,23 @@
+
+<div class="bundle-card row">
+    <div class="bundle-title">
+        <div class="text-wrapper">
+            <span class="bundle-name">Happy Bundle</span>
+            -
+            <span class="bundle-company">Sunlife Insurance</span>
+            <span class="date">{{bundle.purchaseDate}}</span>
+        </div>
+        <div class="button-wrapper">
+            <span *ngIf="bundle.productList!==undefined">
+                <mat-icon (click)="onDelete(bundle.productList)">delete</mat-icon>
+            </span>
+            
+        </div>
+    </div>
+    <div *ngFor="let pp of bundle.productList">
+        <app-purchased-product-card [productId]="pp.productId!=undefined?pp.productId:''" 
+                                    [ppId]="pp.ppId!=undefined?pp.ppId:''"
+                                    [showDelete]="false">
+        </app-purchased-product-card>
+    </div>
+</div>

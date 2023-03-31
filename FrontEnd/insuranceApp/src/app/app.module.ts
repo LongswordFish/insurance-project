@@ -9,7 +9,8 @@ import { RegisterComponent } from './authentication/register/register.component'
 import { LoginComponent } from './authentication/login/login.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-
+import { PurchasedModule } from './purchased/purchased.module';
+import {RouterModule} from '@angular/router';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     NgbModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    PurchasedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
