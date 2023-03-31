@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { JwtModule } from '@auth0/angular-jwt';
-import { LoginComponent } from './authentication/login/login.component';
-import { RegisterComponent } from './authentication/register/register.component';
+import { RegisterloginComponent } from './authentication/registerlogin/registerlogin.component';
 
 export function tokengetter(){
   return sessionStorage.getItem("token");
@@ -10,10 +9,7 @@ export function tokengetter(){
 
 const routes: Routes = [
   {
-    path: '',component:RegisterComponent
-  },
-  {
-    path: 'login',component:LoginComponent
+    path: '',component:RegisterloginComponent
   }
 ];
 

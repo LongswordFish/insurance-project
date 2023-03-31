@@ -13,12 +13,11 @@ export class AuthenticateService {
    login(data:any){
     this.http.post("http://localhost:9000/api/Auth/login",data)
     .subscribe((res:any)=>{
-      console.warn(data),
       console.warn(res),
       sessionStorage.setItem("token",res.token);
       sessionStorage.setItem("Userid",res.userid);
       sessionStorage.setItem("role",data.role);
-      this.router.navigate(['']);
+      // this.router.navigate(['/register']);
     })
     
    }
@@ -27,17 +26,16 @@ export class AuthenticateService {
     if(sessionStorage.getItem("token")!=null){
         sessionStorage.removeItem("token");
         sessionStorage.removeItem("Userid");
+        sessionStorage.removeItem("role");
         sessionStorage.clear();
-        this.router.navigate(['/login']);
+        this.router.navigate(['']);
     }
    }
 
    register(data:any){
     this.http.post("http://localhost:9000/api/Auth/register",data)
     .subscribe((res:any)=>{
-      console.warn(res),
       console.log("Registration success")
-      this.router.navigate(['/login']);
     })
    }
 }
