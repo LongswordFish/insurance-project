@@ -1,41 +1,39 @@
-<mat-card>
-    <mat-card-header>
-        <mat-card-title>Bundle Details</mat-card-title>
-    </mat-card-header>
-    <mat-list *ngIf="bundle">
-        <mat-list-item>
-            <div mat-line><strong>Bundle ID:</strong></div>
-            <div mat-line>{{ bundle.bundleid }}</div>
-        </mat-list-item>
+<!-- <app-side-company-dash></app-side-company-dash> -->
+<mat-card-header>
+    <mat-card-title>Bundle Details</mat-card-title>
+</mat-card-header>
+<mat-list *ngIf="bundle">
+    <mat-list-item>
+        <div mat-line><strong>Bundle ID:</strong></div>
+        <div mat-line>{{ bundle.bundleid }}</div>
+    </mat-list-item>
 
-        <mat-list-item>
-            <div mat-line><strong>Bundle Name:</strong></div>
-            <div mat-line>{{ bundle.bundlename }}</div>
-        </mat-list-item>
+    <mat-list-item>
+        <div mat-line><strong>Bundle Name:</strong></div>
+        <div mat-line>{{ bundle.bundlename }}</div>
+    </mat-list-item>
 
-        <mat-list-item>
-            <div mat-line><strong>Product IDs:</strong></div>
-            <div mat-line>{{ bundle.productids }}</div>
-        </mat-list-item>
+    <mat-list-item>
+        <div mat-line><strong>Product IDs:</strong></div>
+        <div mat-line>{{ bundle.productids }}</div>
+    </mat-list-item>
 
-        <mat-list-item>
-            <div mat-line><strong>Total Price:</strong></div>
-            <div mat-line>{{ bundle.totalPrice }}</div>
-        </mat-list-item>
+    <mat-list-item>
+        <div mat-line><strong>Total Price:</strong></div>
+        <div mat-line>{{ bundle.totalPrice }}</div>
+    </mat-list-item>
 
-        <mat-list-item>
-            <div mat-line><strong>Location:</strong></div>
-            <div mat-line>{{ bundle.location }}</div>
-        </mat-list-item>
+    <mat-list-item>
+        <div mat-line><strong>Location:</strong></div>
+        <div mat-line>{{ bundle.location }}</div>
+    </mat-list-item>
 
-        <mat-list-item>
-            <div mat-line><strong>Company ID:</strong></div>
-            <div mat-line>{{ bundle.companyid }}</div>
-        </mat-list-item>
-    </mat-list>
-    <div *ngIf="!bundle" class="loading-spinner">
-        <mat-spinner diameter="32"></mat-spinner>
-        <div>Loading...</div>
-    </div>
-
-</mat-card>
+    <mat-list-item>
+        <div mat-line><strong>Company ID:</strong></div>
+        <div mat-line>{{ bundle.companyid }}</div>
+    </mat-list-item>
+</mat-list>
+<div *ngIf="!bundle" class="loading-spinner">
+    <mat-spinner diameter="32"></mat-spinner>
+    <div>Loading...</div>
+</div>

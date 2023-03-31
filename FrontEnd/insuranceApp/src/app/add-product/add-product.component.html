@@ -1,3 +1,4 @@
+
 <form [formGroup]="productForm" (ngSubmit)="addProduct()">
     <mat-form-field>
         <mat-label>Name</mat-label>
@@ -19,12 +20,18 @@
 
     <mat-form-field>
         <mat-label>Category</mat-label>
-        <input matInput formControlName="category" required>
+        <mat-select formControlName="category" required>
+            <mat-option value="">-- Select Category --</mat-option>
+            <mat-option value="life">Life Insurance Policy</mat-option>
+            <mat-option value="auto">Auto Insurance Policy</mat-option>
+            <mat-option value="home">Home Insurance Policy</mat-option>
+        </mat-select>
         <mat-error
             *ngIf="productForm.get('category')?.invalid && (productForm.get('category')?.touched || productForm.get('category')?.dirty)">
             Category is required
         </mat-error>
     </mat-form-field>
+
 
     <mat-form-field>
         <mat-label>Price</mat-label>
@@ -41,25 +48,32 @@
         <div formArrayName="locations">
             <div *ngFor="let location of locations.controls; let i = index">
                 <div [formGroupName]="i">
-                    <input matInput formControlName="locationName" required>
-                    <mat-error *ngIf="location.get('locationName')?.hasError('required')">
-                        Location name is required
-                    </mat-error>
-                    <input matInput type="number" formControlName="locationPrice" required>
-                    <mat-error *ngIf="location.get('locationPrice')?.hasError('required')">
-                        Location price is required
-                    </mat-error>
-                    <mat-error *ngIf="location.get('locationPrice')?.hasError('min')">
-                        Location price must be greater than or equal to 0
-                    </mat-error>
-                    <button mat-icon-button color="warn" (click)="removeLocation(i)">
+                    <mat-form-field>
+                        <mat-label>Location Name</mat-label>
+                        <input matInput formControlName="locationName" required>
+                        <mat-error *ngIf="location.get('locationName')?.hasError('required')">
+                            Location name is required
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <mat-label>Location Price</mat-label>
+                        <input matInput type="number" formControlName="locationPrice" required>
+                        <mat-error *ngIf="location.get('locationPrice')?.hasError('required')">
+                            Location price is required
+                        </mat-error>
+                        <mat-error *ngIf="location.get('locationPrice')?.hasError('min')">
+                            Location price must be greater than or equal to 0
+                        </mat-error>
+                    </mat-form-field>
+                    <!-- <button mat-icon-button color="warn" (click)="removeLocation(i)">
                         <mat-icon>delete</mat-icon>
-                    </button>
+                    </button> -->
                 </div>
             </div>
-            <button mat-button color="primary" type="button" (click)="addLocation()">Add Location</button>
+            <!-- <button mat-button color="primary" type="button" (click)="addLocation()">Add Location</button> -->
         </div>
     </mat-form-field>
+
 
     <button mat-raised-button color="primary" type="submit">Add Product</button>
 </form>

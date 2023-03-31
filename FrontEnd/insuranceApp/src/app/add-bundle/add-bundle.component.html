@@ -13,11 +13,14 @@
 
         <mat-form-field appearance="outline">
             <mat-label>Product IDs</mat-label>
-            <textarea matInput formControlName="productids"
-                placeholder="Enter product IDs separated by commas"></textarea>
+            <mat-select formControlName="productids" placeholder="Select product IDs" multiple>
+                <mat-option *ngFor="let productId of productIds" [value]="productId">
+                    {{ productId }}
+                </mat-option>
+            </mat-select>
             <mat-error
                 *ngIf="bundleForm.get('productids')?.invalid && (bundleForm.get('productids')?.dirty || bundleForm.get('productids')?.touched)">
-                Please enter valid product IDs separated by commas
+                Please select valid product IDs
             </mat-error>
         </mat-form-field>
 
@@ -39,14 +42,14 @@
             </mat-error>
         </mat-form-field>
 
-        <mat-form-field appearance="outline">
+        <!-- <mat-form-field appearance="outline">
             <mat-label>Company ID</mat-label>
             <input matInput formControlName="companyid" placeholder="Enter company ID">
             <mat-error
                 *ngIf="bundleForm.get('companyid')?.invalid && (bundleForm.get('companyid')?.dirty || bundleForm.get('companyid')?.touched)">
                 Please enter a valid company ID
             </mat-error>
-        </mat-form-field>
+        </mat-form-field> -->
 
         <div fxLayout="row" fxLayoutAlign="end">
             <button type="submit" mat-raised-button color="primary" [disabled]="!bundleForm.valid">Create

@@ -8,6 +8,7 @@ import {
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Bundle } from '../bundle';
 import { BundleService } from '../bundle.service';
+import { MatCheckboxChange } from '@angular/material/checkbox';
 
 @Component({
   selector: 'app-add-bundle',
@@ -30,7 +31,7 @@ export class AddBundleComponent implements OnInit {
       Validators.min(0),
     ]),
     location: new FormControl<string | null>(null, [Validators.required]),
-    companyid: new FormControl<string | null>(null, [Validators.required]),
+    companyid: new FormControl<string | null>(null),
   });
 
   isUpdateFormOpen: boolean = false;
@@ -47,8 +48,27 @@ export class AddBundleComponent implements OnInit {
       productids: ['', Validators.required],
       totalPrice: ['', Validators.required],
       location: ['', Validators.required],
-      companyid: ['', Validators.required],
+      companyid: [''],
     });
+  }
+  productIds = [
+    '642707950be8eb014b1103f4',
+    '6e727f6c33c3401fb0cfa7b6',
+    '496ee6b28fbf16a10cd1b0b5',
+    '642707950be8eb014b1103f4',
+    '6e727f6c33c3401fb0cfa7b6',
+    '496ee6b28fbf16a10cd1b0b5',
+    '642707950be8eb014b1103f4',
+    '6e727f6c33c3401fb0cfa7b6',
+    '496ee6b28fbf16a10cd1b0b5',
+  ];
+
+  addMoreProductIds(event: MatCheckboxChange): void {
+    if (event.checked) {
+      // add more product IDs to the list
+    } else {
+      // remove product IDs from the list
+    }
   }
 
   ngOnInit(): void {
@@ -78,12 +98,12 @@ export class AddBundleComponent implements OnInit {
     if (this.bundleForm.valid && !this.isEditing) {
       // check if not editing before creating
       let ids = this.bundleForm.get('productids')?.value;
-      let idArray = ids.split(',');
+      let idString = Array.isArray(ids) ? ids.join(',') : '';
 
       const bundle: Bundle = {
         bundleid: this.bundleForm.get('bundleid')?.value,
         bundlename: this.bundleForm.get('bundlename')?.value,
-        productids: idArray,
+        productids: idString.split(','),
         totalPrice: this.bundleForm.get('totalPrice')?.value,
         location: this.bundleForm.get('location')?.value,
         companyid: this.bundleForm.get('companyid')?.value,
