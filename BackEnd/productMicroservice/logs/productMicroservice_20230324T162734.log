@@ -1,0 +1,6 @@
+2023-03-24 16:27:35 [background-preinit] INFO  o.h.validator.internal.util.Version -
+				HV000001: Hibernate Validator 8.0.0.Final
+2023-03-24 16:27:35 [main] INFO  c.c.p.ProductMicroserviceApplication -
+				Starting ProductMicroserviceApplication using Java 17.0.5 with PID 10900 (C:\Users\parth.patel1\Documents\workspace-spring-tool-suite-4-4.17.1.RELEASE\productMicroservice\target\classes started by parth.patel1 in C:\Users\parth.patel1\Documents\workspace-spring-tool-suite-4-4.17.1.RELEASE\productMicroservice)
+2023-03-24 16:27:35 [main] INFO  c.c.p.ProductMicroserviceApplication -
+				No active profile set, falling back to 1 default profile: "default"
