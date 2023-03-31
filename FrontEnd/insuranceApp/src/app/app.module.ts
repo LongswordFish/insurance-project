@@ -29,10 +29,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { HttpClientModule } from '@angular/common/http';
-<<<<<<< HEAD
 import { PurchasedModule } from './purchased/purchased.module';
 import {RouterModule} from '@angular/router';
-=======
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { AllBundlesComponent } from './all-bundles/all-bundles.component';
@@ -41,7 +39,7 @@ import { AddBundleComponent } from './add-bundle/add-bundle.component';
 import { AddClaimsComponent } from './add-claims/add-claims.component';
 import { BundleDetailsComponent } from './bundle-details/bundle-details.component';
 
->>>>>>> c897bb7a83787b7f5b12f39dc5024f0f9da91a11
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -77,10 +75,8 @@ import { BundleDetailsComponent } from './bundle-details/bundle-details.componen
     MatFormFieldModule,
     MatDialogModule,
     FormsModule,
-<<<<<<< HEAD
     HttpClientModule,
-    PurchasedModule
-=======
+    PurchasedModule,
     ReactiveFormsModule,
     MatSnackBarModule,
     MatGridListModule,
@@ -88,7 +84,6 @@ import { BundleDetailsComponent } from './bundle-details/bundle-details.componen
     NgxPaginationModule,
     MatSelectModule,
     MatOptionModule,
->>>>>>> c897bb7a83787b7f5b12f39dc5024f0f9da91a11
   ],
   providers: [],
   bootstrap: [AppComponent],
