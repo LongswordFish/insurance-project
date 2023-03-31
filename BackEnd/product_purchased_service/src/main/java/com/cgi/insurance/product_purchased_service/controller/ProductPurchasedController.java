@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,8 +27,10 @@ import com.cgi.insurance.product_purchased_service.exception.PPIdNotExistsExcept
 import com.cgi.insurance.product_purchased_service.model.ProductPurchased;
 import com.cgi.insurance.product_purchased_service.service.ProductPurchasedService;
 import org.springframework.validation.FieldError;
+
 @RestController
 @RequestMapping("/api/v1/purchased")
+@CrossOrigin
 public class ProductPurchasedController {
     private final ProductPurchasedService ppService;
 

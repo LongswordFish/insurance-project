@@ -9,6 +9,7 @@ import com.cgi.insurance.product_purchased_service.filter.AdminFilter;
 import com.cgi.insurance.product_purchased_service.filter.ClientFilter;
 import com.cgi.insurance.product_purchased_service.filter.CompanyFilter;
 
+
 @SpringBootApplication
 public class ProductPurchasedServiceApplication {
 

@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { MyPlanViewComponent } from './purchased/components/my-plan-view/my-plan-view.component';
+import { BuyProductComponent } from './purchased/components/buy-product/buy-product.component';
 
 import { AddBundleComponent } from './add-bundle/add-bundle.component';
 import { AddClaimsComponent } from './add-claims/add-claims.component';
@@ -13,6 +15,8 @@ const routes: Routes = [
   { path: 'viewAllBundles', component: AllBundlesComponent },
   { path: 'bundles/:id', component: BundleDetailsComponent },
   { path: 'claims', component: AddClaimsComponent },
+  {path:'my-plans',component:MyPlanViewComponent},
+  {path:'buy-product',component:BuyProductComponent}
 ];
 
 @NgModule({

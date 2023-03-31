@@ -29,6 +29,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { HttpClientModule } from '@angular/common/http';
+import { PurchasedModule } from './purchased/purchased.module';
+import {RouterModule} from '@angular/router';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { AllBundlesComponent } from './all-bundles/all-bundles.component';
@@ -36,6 +38,7 @@ import { AddProductComponent } from './add-product/add-product.component';
 import { AddBundleComponent } from './add-bundle/add-bundle.component';
 import { AddClaimsComponent } from './add-claims/add-claims.component';
 import { BundleDetailsComponent } from './bundle-details/bundle-details.component';
+
 
 @NgModule({
   declarations: [
@@ -72,6 +75,8 @@ import { BundleDetailsComponent } from './bundle-details/bundle-details.componen
     MatFormFieldModule,
     MatDialogModule,
     FormsModule,
+    HttpClientModule,
+    PurchasedModule,
     ReactiveFormsModule,
     MatSnackBarModule,
     MatGridListModule,
