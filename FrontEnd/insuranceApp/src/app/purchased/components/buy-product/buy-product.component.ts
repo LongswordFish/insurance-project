@@ -59,6 +59,7 @@ export class BuyProductComponent implements OnInit{
     
     this.ppService.postPurchased(pp).subscribe(res=>{
       this._snackBar.open("Record added", "close");
+      sessionStorage.removeItem("pid");
       this.routingService.openMyPlans();
     });
 

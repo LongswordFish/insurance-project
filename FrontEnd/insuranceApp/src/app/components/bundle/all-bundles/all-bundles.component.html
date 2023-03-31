@@ -1,7 +1,7 @@
 <!-- search bundle by name and id -->
 <mat-form-field class="search-field">
     <mat-label>Search for bundle</mat-label>
-    <input matInput [(ngModel)]="searchText">
+    <input matInput [(ngModel)]="searchText" (ngModelChange)="searchTextChange($event)">
     <button mat-icon-button matSuffix>
         <mat-icon>search</mat-icon>
     </button>
@@ -47,7 +47,7 @@
 </div>
 
 <!-- view all bundles -->
-<table mat-table [dataSource]="bundles | bundleFilter:searchText" class="mat-elevation-z8">
+<table mat-table [dataSource]="obs|async " class="mat-elevation-z8">
     <ng-container matColumnDef="bundleid">
         <th mat-header-cell *matHeaderCellDef> Bundle ID </th>
         <td mat-cell *matCellDef="let bundle">
@@ -93,5 +93,8 @@
     </tr>
 </table>
 
-
+<div class="container">
+    <mat-paginator
+              [pageSize]="2"></mat-paginator>
+  </div>
 <!-- pagination -->
