@@ -32,6 +32,7 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 import {MatSelectModule} from '@angular/material/select';
 import { BuyProductComponent } from './components/buy-product/buy-product.component';
 import {RouterModule} from '@angular/router';
+import { BuyBundleComponent } from './components/buy-bundle/buy-bundle.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import {RouterModule} from '@angular/router';
     AddPurchasedComponent,
     PurchasedBundleListComponent,
     PurchasedBundleCardComponent,
-    BuyProductComponent
+    BuyProductComponent,
+    BuyBundleComponent
   ],
   imports: [
     FormsModule,

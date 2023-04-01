@@ -8,6 +8,7 @@ import { AddClaimsComponent } from './components/add-claims/add-claims.component
 import { AddProductComponent } from './components/add-product/add-product.component';
 import { AllBundlesComponent } from './components/bundle/all-bundles/all-bundles.component';
 import { BundleDetailsComponent } from './components/bundle/bundle-details/bundle-details.component';
+import { BuyBundleComponent } from './purchased/components/buy-bundle/buy-bundle.component';
 
 const routes: Routes = [
   { path: 'add-product', component: AddProductComponent },
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'claims', component: AddClaimsComponent },
   { path: 'my-plans', component: MyPlanViewComponent },
   { path: 'buy-product', component: BuyProductComponent },
+  {path:'buy-bundle',component:BuyBundleComponent}
 ];
 
 @NgModule({

@@ -8,5 +8,6 @@ export class PurchasedBundle{
     quotePrice?:number;
     location?:string ;
     ppIds?:string[];
+    bundlename?:string;
     productList?:PurchasedProduct[];
 }
