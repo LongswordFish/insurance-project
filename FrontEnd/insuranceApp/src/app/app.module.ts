@@ -18,7 +18,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
-import { MatInputModule } from '@angular/material/input';
+
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatBadgeModule } from '@angular/material/badge';
@@ -35,9 +35,9 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { BundleFilterPipe } from './bundle-filter.pipe';
 
 import { MatCardModule } from '@angular/material/card';
-import { MatTableModule } from '@angular/material/table';
+
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { HttpClientModule } from '@angular/common/http';
+
 import { PurchasedModule } from './purchased/purchased.module';
 import { RouterModule } from '@angular/router';
 import { MatDialogModule } from '@angular/material/dialog';
