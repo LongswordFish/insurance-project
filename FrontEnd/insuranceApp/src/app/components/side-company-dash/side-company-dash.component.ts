@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./side-company-dash.component.css']
 })
 export class SideCompanyDashComponent {
+  role:any;
 
+  constructor(){
+    this.role=sessionStorage.getItem("role");
+  }
 }

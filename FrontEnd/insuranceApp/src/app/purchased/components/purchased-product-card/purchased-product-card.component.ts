@@ -8,6 +8,7 @@ import { pp_Review } from '../../models/pp-Review.type';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
 import { AddreviewComponent } from '../addreview/addreview.component';
+import { RoutingService } from '../../services/routing.service';
 @Component({
   selector: 'app-purchased-product-card',
   templateUrl: './purchased-product-card.component.html',
@@ -42,7 +43,8 @@ export class PurchasedProductCardComponent implements OnChanges{
             private ppService:PurchasedService,
             private ppReviewService:PpReviewService,
             private _snackBar: MatSnackBar,
-            private matdialogobj:MatDialog){
+            private matdialogobj:MatDialog,
+            private routingService:RoutingService){
     this.product={};
     this.pp_review={};
     this.reviewList=[];
@@ -84,7 +86,6 @@ export class PurchasedProductCardComponent implements OnChanges{
           this.pp_review=this.reviewList[0];
           if(this.pp_review?.rating!=undefined){  
             this.currentRate=this.pp_review?.rating;
-            console.log(this.productId+" "+this.currentRate);
           } 
         }
       },err=>{
@@ -125,6 +126,6 @@ export class PurchasedProductCardComponent implements OnChanges{
     if(this.product.companyId!=undefined){
       sessionStorage.setItem("companyId",this.product.companyId);
     }
-    
+    this.routingService.openAddClaim();
   }
 }

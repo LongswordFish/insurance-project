@@ -18,6 +18,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
+
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatBadgeModule } from '@angular/material/badge';
@@ -34,7 +35,9 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { BundleFilterPipe } from './bundle-filter.pipe';
 
 import { MatCardModule } from '@angular/material/card';
+
 import { MatFormFieldModule } from '@angular/material/form-field';
+
 import { PurchasedModule } from './purchased/purchased.module';
 import { RouterModule } from '@angular/router';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -45,6 +48,8 @@ import { AddProductComponent } from './components/add-product/add-product.compon
 import { AddBundleComponent } from './components/bundle/add-bundle/add-bundle.component';
 import { AddClaimsComponent } from './components/add-claims/add-claims.component';
 import { BundleDetailsComponent } from './components/bundle/bundle-details/bundle-details.component';
+import { ClientNavComponent } from './components/client-nav/client-nav.component';
+import { PublicNavComponent } from './components/public-nav/public-nav.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +62,8 @@ import { BundleDetailsComponent } from './components/bundle/bundle-details/bundl
     AllBundlesComponent,
     BundleDetailsComponent,
     BundleFilterPipe,
+    ClientNavComponent,
+    PublicNavComponent,
   ],
   imports: [
     BrowserModule,

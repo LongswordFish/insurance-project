@@ -17,7 +17,7 @@ public interface ProductPurchasedRepository extends MongoRepository<ProductPurch
     List<ProductPurchased> findByClientIdAndProductId(String clientId, String productId);
     List<ProductPurchased> findByClientIdAndBundleId(String clientId, String bundleId);
     List<ProductPurchased> findByClientIdAndPurchaseDate(String clientId,LocalDate date);
-
+    List<ProductPurchased> findByClientIdAndProductName(String clientId,String productName);
     List<ProductPurchased> findByCompanyIdAndBundleId(String companyId, String bundleId);
     List<ProductPurchased> findByCompanyIdAndProductId(String companyId, String productId);
 }
