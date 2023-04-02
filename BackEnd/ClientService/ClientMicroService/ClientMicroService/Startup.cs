@@ -1,10 +1,13 @@
-﻿using ClientMicroService.Data;
+using ClientMicroService.Data;
+using ClientMicroService.Middleware;
 using ClientMicroService.Repositories;
 using ClientMicroService.Services;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using Newtonsoft.Json;
+using NUnit.Framework;
+using Steeltoe.Discovery.Client;
 using System.Net;
 
 namespace ClientMicroService
@@ -27,11 +30,38 @@ namespace ClientMicroService
             .AddJsonFile("appsettings.json")
             .Build();
 
+            //Add service
+            var connectionstring = configuration["mysqlconnection:connectionString"];
             services.AddDbContext<ClientContext>
-(options => options.UseMySql(configuration.GetConnectionString("DBConn"), ServerVersion.Parse("8.0.32-mysql")));
+(option => option.UseMySql(
+                connectionstring,
+                ServerVersion.Parse("8.0.32-mysql"),
+                option =>
+                {
+                    option.EnableRetryOnFailure(
+                        maxRetryCount: 5,
+                        maxRetryDelay: System.TimeSpan.FromSeconds(5),
+                        errorNumbersToAdd: null);
+                }
+                ));
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy("MyPolicy",
+                    policy =>
+                    {
+                        policy.WithOrigins("http://localhost:9092/api/client")
+                        .AllowAnyMethod()
+                        .AllowAnyHeader()
+                        .WithMethods("PUT", "DELETE", "GET", "POST");
+                    });
+            });
+
 
             services.AddScoped<IClientService, ClientService>();
             services.AddScoped<IClientRepository, ClientRepository>();
+
+            services.AddDiscoveryClient(configuration);
 
             services.AddSwaggerGen(c =>
             {
@@ -48,6 +78,12 @@ namespace ClientMicroService
             }
 
             app.UseRouting();
+
+            app.UseMiddleware<CorsMiddleWare>();
+            app.UseCors("MyPolicy");
+
+
+            app.UseDiscoveryClient();
 
             app.UseAuthorization();
 
