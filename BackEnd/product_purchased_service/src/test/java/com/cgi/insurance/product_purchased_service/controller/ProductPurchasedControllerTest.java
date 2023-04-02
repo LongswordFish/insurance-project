@@ -51,7 +51,7 @@ public class ProductPurchasedControllerTest {
     public void setUp() {
         MockitoAnnotations.initMocks(this);
         mockMvc = MockMvcBuilders.standaloneSetup(ppController).build();
-        pp = new ProductPurchased("ppId1","product1","comp1","clien1","bundle1",null,11.11,"toronto");
+        pp = new ProductPurchased("ppId1","product1","comp1","clien1","bundle1",null,11.11,"toronto","","","");
         ppList = new ArrayList<>();
         ppList.add(pp);
     }

@@ -273,4 +273,34 @@ public class ProductPurchasedController {
 
         return new ResponseEntity<List<ProductPurchased>>(result, HttpStatus.OK);
 	}
+
+    @GetMapping("/view/client/{clientId}/productname/{productName}")
+    public ResponseEntity<?> getAllProductPurchasedByClientIdAndProductName(@PathVariable String clientId, @PathVariable String productName) {   
+        if(clientId==null || productName==null){
+            return new ResponseEntity<String>("clientId and productName cannout be null", HttpStatus.BAD_REQUEST);
+        }          
+        List<ProductPurchased> result = ppService.getAllProductPurchasedByClientIdAndProductName(clientId,productName);
+
+        return new ResponseEntity<List<ProductPurchased>>(result, HttpStatus.OK);
+	}
+
+    @GetMapping("/view/company/clients/{productId}")
+    public ResponseEntity<?> getAllClientIdByProductId(@PathVariable String productId) {   
+        if(productId==null){
+            return new ResponseEntity<String>("productId bundleId be null", HttpStatus.BAD_REQUEST);
+        }          
+        List<String> result = ppService.getAllClientIdByProductId(productId);
+
+        return new ResponseEntity<List<String>>(result, HttpStatus.OK);
+	}
+
+    @GetMapping("/view/client/{clientId}/bundleids")
+    public ResponseEntity<?> getAllBundleIdByClientId(@PathVariable String clientId) {   
+        if(clientId==null ){
+            return new ResponseEntity<String>("clientId  cannout be null", HttpStatus.BAD_REQUEST);
+        }          
+        List<String> result = ppService.getAllBundleIdByClientId(clientId);
+
+        return new ResponseEntity<List<String>>(result, HttpStatus.OK);
+	}
 }
