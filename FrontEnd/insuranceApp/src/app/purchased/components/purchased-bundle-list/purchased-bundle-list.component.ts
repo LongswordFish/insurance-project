@@ -19,7 +19,7 @@ export class PurchasedBundleListComponent {
   displayedColumns: string[] = ['b'];
   private pBList:PurchasedBundle[];
   private ppList:PurchasedProduct[];
-
+  searchText:string="";
   constructor(private purchasedService:PurchasedService){
     this.pBList=[];
     this.ppList=[];
@@ -59,7 +59,6 @@ export class PurchasedBundleListComponent {
       bundles.push(bundle);
     })
 
-    console.log(bundles);
     return bundles;
   }
 

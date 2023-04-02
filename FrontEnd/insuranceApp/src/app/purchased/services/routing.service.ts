@@ -14,9 +14,16 @@ export class RoutingService {
   {
     this.routeobj.navigate(['login'])
   }
+  openMyProducts()
+  {
+    this.routeobj.navigate(['my-products'])
+  }
   openMyPlans()
   {
-
     this.routeobj.navigate(['my-plans'])
+  }
+  openMyBundles()
+  {
+    this.routeobj.navigate(['my-bundles'])
   }
 }

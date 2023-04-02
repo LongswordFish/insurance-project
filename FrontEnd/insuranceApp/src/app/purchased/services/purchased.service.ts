@@ -108,6 +108,21 @@ export class PurchasedService {
         headers:new HttpHeaders().set('Authorization','Bearer '+this.token)
       }) ;
     }
+
+    postPurchasedList(ppList:PurchasedProduct[]):Observable<any>{
+      let postCalls:any[]=[];
+      ppList.forEach(pp=>{
+        postCalls.push(
+          this.httpClient.post<PurchasedProduct>(`${this.purchasedUrl}/add`,pp,
+        {
+          headers:new HttpHeaders().set('Authorization','Bearer '+this.token)
+        }))
+      }
+      )
+    
+      return forkJoin(postCalls);
+      
+    }
     
   }
 

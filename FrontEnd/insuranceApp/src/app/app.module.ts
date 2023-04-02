@@ -36,6 +36,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { PurchasedModule } from './purchased/purchased.module';
 import { RouterModule } from '@angular/router';
 import { MatDialogModule } from '@angular/material/dialog';
+import {MatRadioModule} from '@angular/material/radio';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { AllBundlesComponent } from './components/bundle/all-bundles/all-bundles.component';
 import { AddProductComponent } from './components/add-product/add-product.component';
@@ -89,6 +90,7 @@ import { BundleDetailsComponent } from './components/bundle/bundle-details/bundl
     MatAutocompleteModule,
     MatCheckboxModule,
     MatPaginatorModule,
+    MatRadioModule
   ],
   providers: [],
   bootstrap: [AppComponent],

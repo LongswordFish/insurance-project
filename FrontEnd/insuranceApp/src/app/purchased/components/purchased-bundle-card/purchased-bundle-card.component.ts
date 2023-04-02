@@ -3,6 +3,7 @@ import { PurchasedBundle } from '../../models/PurcahsedBundle.type';
 import { PurchasedService } from '../../services/purchased.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { PurchasedProduct } from '../../models/PurchasedProduct.type';
+import { PpBundleService } from '../../services/pp-bundle.service';
 
 @Component({
   selector: 'app-purchased-bundle-card',
@@ -15,10 +16,13 @@ export class PurchasedBundleCardComponent {
   
   private clientId:string|null="";
 
-  constructor(private ppService:PurchasedService, private _snackBar:MatSnackBar){}
+  constructor(private ppService:PurchasedService, private _snackBar:MatSnackBar,
+              private pbService:PpBundleService){}
 
   ngOnInit(): void {
-
+    this.pbService.fetchBundleByProductIdObs(this.bundle.bundleId).subscribe((res:PurchasedBundle)=>{
+      this.bundle.bundlename=res.bundlename;
+    })
   }
   onDelete(pps:PurchasedProduct[]):void{
     let ppids = pps.map(pp=>pp.ppId);

@@ -8,4 +8,7 @@ export class PurchasedProduct{
     userDesription?:string ;
     quotePrice?:number;
     location?:string ;
+    productCategory?:string;
+    companyName?:string;
+    productName?:string;
 }

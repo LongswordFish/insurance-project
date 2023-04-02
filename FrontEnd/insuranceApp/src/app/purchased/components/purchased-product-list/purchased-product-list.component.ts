@@ -17,7 +17,12 @@ export class PurchasedProductListComponent {
   @ViewChild(MatPaginator)
   paginator !:MatPaginator;
   displayedColumns: string[] = ['p'];
+
   private ppList:PurchasedProduct[];
+
+  searchText:string="";
+  category:string="All";
+  categories:string[]=["All","Auto","Life","House"];
 
   constructor(private purchasedService:PurchasedService){
     this.ppList=[];
@@ -34,5 +39,9 @@ export class PurchasedProductListComponent {
         this.obs = this.dataSource.connect();
       }
     );
+  }
+
+  search(){
+
   }
 }
