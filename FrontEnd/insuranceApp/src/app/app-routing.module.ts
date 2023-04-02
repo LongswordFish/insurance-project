@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MyPlanViewComponent } from './purchased/components/my-plan-view/my-plan-view.component';
 import { BuyProductComponent } from './purchased/components/buy-product/buy-product.component';
@@ -11,16 +11,19 @@ import { BundleDetailsComponent } from './components/bundle/bundle-details/bundl
 import { BuyBundleComponent } from './purchased/components/buy-bundle/buy-bundle.component';
 import { PurchasedBundleListComponent } from './purchased/components/purchased-bundle-list/purchased-bundle-list.component';
 import { PurchasedProductListComponent } from './purchased/components/purchased-product-list/purchased-product-list.component';
+import { ClaimCreateComponent } from './claim-dashboard/claim-create/claim-create.component';
+import { ClaimViewComponent } from './claim-dashboard/claim-view/claim-view.component';
 
 const routes: Routes = [
   { path: 'add-product', component: AddProductComponent },
   { path: 'add-bundle', component: AddBundleComponent },
   { path: 'viewAllBundles', component: AllBundlesComponent },
   { path: 'bundles/:id', component: BundleDetailsComponent },
-  { path: 'claims', component: AddClaimsComponent },
+  { path: 'claims', component: ClaimViewComponent },
   { path: 'my-plans', component: MyPlanViewComponent },
   { path: 'buy-product/:productId', component: BuyProductComponent },
-  {path:'buy-bundle/:bundleId',component:BuyBundleComponent}
+  {path:'buy-bundle/:bundleId',component:BuyBundleComponent},
+  {path:'create-claim',component:ClaimCreateComponent}
 ];
 
 @NgModule({
