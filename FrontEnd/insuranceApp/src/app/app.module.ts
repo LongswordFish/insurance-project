@@ -43,6 +43,8 @@ import { AddProductComponent } from './components/add-product/add-product.compon
 import { AddBundleComponent } from './components/bundle/add-bundle/add-bundle.component';
 import { AddClaimsComponent } from './components/add-claims/add-claims.component';
 import { BundleDetailsComponent } from './components/bundle/bundle-details/bundle-details.component';
+import { ClientNavComponent } from './components/client-nav/client-nav.component';
+import { PublicNavComponent } from './components/public-nav/public-nav.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +57,8 @@ import { BundleDetailsComponent } from './components/bundle/bundle-details/bundl
     AllBundlesComponent,
     BundleDetailsComponent,
     BundleFilterPipe,
+    ClientNavComponent,
+    PublicNavComponent,
   ],
   imports: [
     BrowserModule,
