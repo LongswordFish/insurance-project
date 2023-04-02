@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { pp_Product } from 'src/app/purchased/models/pp-Product.type';
 import { PpProductService } from 'src/app/purchased/services/pp-product.service';
 import { PurchasedService } from '../../services/purchased.service';
@@ -6,13 +6,15 @@ import { NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
 import { PpReviewService } from '../../services/pp-review.service';
 import { pp_Review } from '../../models/pp-Review.type';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import { MatDialog } from '@angular/material/dialog';
+import { AddreviewComponent } from '../addreview/addreview.component';
 @Component({
   selector: 'app-purchased-product-card',
   templateUrl: './purchased-product-card.component.html',
   styleUrls: ['./purchased-product-card.component.css'],
   
 })
-export class PurchasedProductCardComponent {
+export class PurchasedProductCardComponent implements OnChanges{
   @Input()
   productId:string="";
 
@@ -21,6 +23,14 @@ export class PurchasedProductCardComponent {
 
   @Input()
   showDelete:boolean=true;
+
+  @Input()
+  searchText:string="";
+
+  @Input()
+  category="all";
+
+  show:Boolean=true;
 
   product:pp_Product;
 
@@ -31,27 +41,54 @@ export class PurchasedProductCardComponent {
   constructor(private ppProductService:PpProductService,
             private ppService:PurchasedService,
             private ppReviewService:PpReviewService,
-            private _snackBar: MatSnackBar){
+            private _snackBar: MatSnackBar,
+            private matdialogobj:MatDialog){
     this.product={};
     this.pp_review={};
     this.reviewList=[];
   }
+  ngOnChanges(changes: SimpleChanges): void {
+    // if(this.searchText==""){
+    //   if(this.category=="all" || this.product.category?.toLocaleLowerCase()==this.category.toLocaleLowerCase()){
+    //     this.show=true;
+    //   }else{
+    //     this.show=false;
+    //   }
+    //   return;
+    // }
+    // if(this.product.name?.toLocaleLowerCase().includes(this.searchText.toLocaleLowerCase())){
+    //   if(this.category=="all" || this.product.category?.toLocaleLowerCase()==this.category.toLocaleLowerCase()){
+    //     this.show=true;
+    //   }else{
+    //     this.show=false;
+    //   }
+    //   return;
+    // }else{
+    //   this.show=false;
+    // }
+  }
 
   ngOnInit(): void {
     this.clientId=sessionStorage.getItem('Userid');
+    
     this.ppProductService.fetchProductByProductId(this.productId).subscribe(
       res=>{
         this.product=res;
-        console.log(res);
       }
     );
     
     this.ppReviewService.fetchProductByProductId(this.productId).subscribe(
       res=>{
         this.reviewList=res;
-        this.pp_review=this.reviewList[0];
-        this.currentRate=this.pp_review.rating!=null?this.pp_review.rating:0;
-        
+        if(this.reviewList?.length>0){
+          this.pp_review=this.reviewList[0];
+          if(this.pp_review?.rating!=undefined){  
+            this.currentRate=this.pp_review?.rating;
+            console.log(this.productId+" "+this.currentRate);
+          } 
+        }
+      },err=>{
+
       }
     );
   }
@@ -66,7 +103,19 @@ export class PurchasedProductCardComponent {
   }
 
   addReview(){
-
+    {
+      this.matdialogobj.open(AddreviewComponent,{
+        width:'50%',
+        height:'50%',
+        data:{compId : this.product.companyId, prodId:this.product.productId}
+      }).afterClosed().subscribe (
+        res=>
+          {
+            if (res==="Addreview")
+            console.log("Review added successfully")
+          }
+      )
+      }
   }
 
   addClaim(){

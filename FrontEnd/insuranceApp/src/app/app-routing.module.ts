@@ -9,6 +9,8 @@ import { AddProductComponent } from './components/add-product/add-product.compon
 import { AllBundlesComponent } from './components/bundle/all-bundles/all-bundles.component';
 import { BundleDetailsComponent } from './components/bundle/bundle-details/bundle-details.component';
 import { BuyBundleComponent } from './purchased/components/buy-bundle/buy-bundle.component';
+import { PurchasedBundleListComponent } from './purchased/components/purchased-bundle-list/purchased-bundle-list.component';
+import { PurchasedProductListComponent } from './purchased/components/purchased-product-list/purchased-product-list.component';
 
 const routes: Routes = [
   { path: 'add-product', component: AddProductComponent },
@@ -17,8 +19,8 @@ const routes: Routes = [
   { path: 'bundles/:id', component: BundleDetailsComponent },
   { path: 'claims', component: AddClaimsComponent },
   { path: 'my-plans', component: MyPlanViewComponent },
-  { path: 'buy-product', component: BuyProductComponent },
-  {path:'buy-bundle',component:BuyBundleComponent}
+  { path: 'buy-product/:productId', component: BuyProductComponent },
+  {path:'buy-bundle/:bundleId',component:BuyBundleComponent}
 ];
 
 @NgModule({

@@ -2,6 +2,7 @@ import { PurchasedProduct } from "./PurchasedProduct.type";
 
 export class PurchasedBundle{
     companyId?:string ;
+    companyName?:string;
     clientId?:string ;
     purchaseDate?: Date;
     bundleId?:string ;

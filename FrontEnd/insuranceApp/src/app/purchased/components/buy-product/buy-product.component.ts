@@ -9,6 +9,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // <== add th
 import { NgModule }      from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { RoutingService } from '../../services/routing.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-buy-product',
@@ -25,18 +26,16 @@ export class BuyProductComponent implements OnInit{
   constructor(private productService:PpProductService,
               private ppService:PurchasedService,
               private _snackBar:MatSnackBar,
-              private routingService:RoutingService){
+              private routingService:RoutingService,
+              private activatedRoute: ActivatedRoute){
                 this.locationform = new FormGroup({
                   sLocation: new FormControl('', [Validators.required])
                 });
   }
 
   ngOnInit(): void {
-
-    let o = sessionStorage.getItem("pid");
-    if(o!=undefined){
-      this.pid=o;
-    }
+    let o = this.activatedRoute.snapshot.paramMap.get('productId');
+    if(o!=undefined) this.pid=o;
 
     this.productService.fetchProductByProductId(this.pid).subscribe(
       res=>this.product=res
@@ -48,6 +47,8 @@ export class BuyProductComponent implements OnInit{
     let pp = new PurchasedProduct();
     let clientId=sessionStorage.getItem("Userid");
     pp.productId=this.product.productId;
+    pp.productName=this.product.name;
+    pp.productCategory=this.product.category;
     pp.clientId=clientId!=undefined?clientId:"";
     pp.companyId=this.product.companyId;
     this.product.locations?.forEach(l=>{
@@ -59,7 +60,6 @@ export class BuyProductComponent implements OnInit{
     
     this.ppService.postPurchased(pp).subscribe(res=>{
       this._snackBar.open("Record added", "close");
-      sessionStorage.removeItem("pid");
       this.routingService.openMyPlans();
     });
 

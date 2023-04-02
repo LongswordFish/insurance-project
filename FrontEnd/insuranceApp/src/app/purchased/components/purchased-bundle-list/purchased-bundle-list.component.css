@@ -5,5 +5,10 @@
 }
 
 h2{
+    margin-top: 50px;
     text-align: center;
+}
+
+.pb-list{
+    margin-bottom: 30px;
 }

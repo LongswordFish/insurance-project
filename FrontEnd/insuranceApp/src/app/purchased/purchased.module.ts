@@ -29,10 +29,16 @@ import { AddPurchasedComponent } from './components/add-purchased/add-purchased.
 import { PurchasedBundleListComponent } from './components/purchased-bundle-list/purchased-bundle-list.component';
 import { PurchasedBundleCardComponent } from './components/purchased-bundle-card/purchased-bundle-card.component';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import {MatTabsModule} from '@angular/material/tabs';
 import {MatSelectModule} from '@angular/material/select';
 import { BuyProductComponent } from './components/buy-product/buy-product.component';
 import {RouterModule} from '@angular/router';
 import { BuyBundleComponent } from './components/buy-bundle/buy-bundle.component';
+import { SearchPipe } from './pipes/search.pipe';
+import { AddreviewComponent } from './components/addreview/addreview.component';
+import { ViewreviewComponent } from './components/viewreview/viewreview.component';
+import { ProductNameFilterPipe } from './pipes/product-name-filter.pipe';
+import { ProductCategoryFilterPipe } from './pipes/product-category-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -43,7 +49,12 @@ import { BuyBundleComponent } from './components/buy-bundle/buy-bundle.component
     PurchasedBundleListComponent,
     PurchasedBundleCardComponent,
     BuyProductComponent,
-    BuyBundleComponent
+    BuyBundleComponent,
+    SearchPipe,
+    AddreviewComponent,
+    ViewreviewComponent,
+    ProductNameFilterPipe,
+    ProductCategoryFilterPipe
   ],
   imports: [
     FormsModule,
@@ -64,8 +75,10 @@ import { BuyBundleComponent } from './components/buy-bundle/buy-bundle.component
     MatSnackBarModule,
     MatSelectModule,
     RouterModule,
-    ReactiveFormsModule
-    
+    ReactiveFormsModule,
+    MatTabsModule,
+    MatRadioModule,
+    MatDialogModule
   ],
   exports: [
     MyPlanViewComponent,

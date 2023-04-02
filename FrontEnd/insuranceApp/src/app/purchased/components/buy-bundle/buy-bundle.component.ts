@@ -9,6 +9,7 @@ import { PpBundleService } from '../../services/pp-bundle.service';
 import { pp_Bundle } from '../../models/pp-Bundle.type';
 import { PurchasedProduct } from '../../models/PurchasedProduct.type';
 import { pp_Product } from '../../models/pp-Product.type';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-buy-bundle',
@@ -23,15 +24,13 @@ export class BuyBundleComponent {
               private ppService:PurchasedService,
               private _snackBar:MatSnackBar,
               private routingService:RoutingService,
-              private bundleService:PpBundleService){
+              private bundleService:PpBundleService,
+              private activatedRoute:ActivatedRoute){
   }
 
   ngOnInit(): void {
-
-    let o = sessionStorage.getItem("bid");
-    if(o!=undefined){
-      this.bid=o;
-    }
+    let o = this.activatedRoute.snapshot.paramMap.get('bundleId');
+    if(o!=undefined) this.bid=o;
 
     this.bundleService.fetchBundleByProductIdObs(this.bid).subscribe(
       (res:PurchasedBundle)=>{
@@ -56,7 +55,7 @@ export class BuyBundleComponent {
     this.ppService.postPurchasedList(ppListToPost).subscribe(res=>{
       this._snackBar.open("Bundle added to your account", "close");
       sessionStorage.removeItem("bid");
-      this.routingService.openMyPlans();
+      this.routingService.openMyBundles();
     });
 
   }
