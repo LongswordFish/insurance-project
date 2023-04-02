@@ -28,6 +28,6 @@ export class RoutingService {
   }
   openAddClaim()
   {
-    this.routeobj.navigate(['claims'])
+    this.routeobj.navigate(['create-claim'])
   }
 }
