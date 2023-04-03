@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 
 import { AdminDashboardRoutingModule } from './admin-dashboard-routing.module';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
@@ -26,6 +26,7 @@ var CanvasJSChart = CanvasJSAngularChart.CanvasJSChart;
     MatExpansionModule,
     MatIconModule,
     MatButtonModule
-  ]
+  ],
+  providers: [ DatePipe ]
 })
 export class AdminDashboardModule { }
