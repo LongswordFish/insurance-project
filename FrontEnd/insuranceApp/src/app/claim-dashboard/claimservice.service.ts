@@ -12,7 +12,7 @@ export class ClaimserviceService {
 
   private url = 'http://localhost:9096/claim/'
   
-  token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNvbXBhbnkxQGdtYWlsLmNvbSIsInJvbGUiOiJjb21wYW55IiwibmJmIjoxNjgwMTkzNTY2LCJleHAiOjE2ODAyMTE1NjYsImlhdCI6MTY4MDE5MzU2NiwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6OTAwMCIsImF1ZCI6Ikluc3VyYW5jZSJ9.z3FuBdZHgthuu9saQ43AuRCsjeAp3rU74ZZI0a_2hj8'
+  token = sessionStorage.getItem("token");
 
   
   constructor(private http: HttpClient) { }
