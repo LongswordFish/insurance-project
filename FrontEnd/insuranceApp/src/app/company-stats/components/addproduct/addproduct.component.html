@@ -1,0 +1,70 @@
+<h2 style="text-align: center;"  mat-dialog-title>Add a New Product</h2>
+
+<div mat-dialog-content>
+<form [formGroup]="productForm" (ngSubmit)="addProduct()" novalidate style="display: flex; justify-content: center; flex-direction: column;">
+    
+    <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name" required>
+        <mat-error *ngIf="productForm.controls['name'].invalid">Name is required.</mat-error>
+    </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Category</mat-label>
+    <input matInput formControlName="category" required>
+    <mat-error *ngIf="productForm.controls['category'].invalid">Category is required.</mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Picture</mat-label>
+    <input matInput formControlName="picture" required>
+    <mat-error *ngIf="productForm.controls['picture'].invalid">Picture is required.</mat-error>
+  </mat-form-field>
+
+ 
+  <mat-form-field>
+    <mat-label>Description</mat-label>
+    <textarea matInput formControlName="description" required></textarea>
+    <mat-error *ngIf="productForm.controls['description'].invalid">Description is required.</mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Price</mat-label>
+    <input matInput type="number" formControlName="price" required>
+    <mat-error *ngIf="productForm.controls['price'].invalid">Price is required.</mat-error>
+  </mat-form-field>
+
+  <mat-checkbox formControlName="available">Is Available</mat-checkbox>
+
+  <!-- Add input fields for the new locations -->
+  <div formArrayName="locations">
+    <mat-card mat-elevation="3">
+        <mat-card-title style="text-align: center; margin: 1em;">Product Availability By Location</mat-card-title>
+        <mat-card-content>
+            <div *ngFor="let location of locationForms.controls; let i=index" [formGroupName]="i" style="display: flex; flex-direction: row; align-items: center; margin-bottom: 1em;">
+            <mat-form-field style="flex-grow: 1; margin-right: 0.8em;">
+                <mat-label>Location Name</mat-label>
+                <input matInput formControlName="locationName" required>
+                <mat-error *ngIf="locationForms.controls[i].get('locationName')!.invalid">Location name is required.</mat-error>
+            </mat-form-field>
+
+            <mat-form-field style="flex-grow: 1;">
+                <mat-label>Product Price</mat-label>
+                <input matInput type="number" formControlName="locationPrice" required>
+                <mat-error *ngIf="locationForms.controls[i].get('locationPrice')!.invalid">Location price is required.</mat-error>
+            </mat-form-field>
+
+            <mat-icon color="warn" (click)="removeLocation(i)" style="margin: 0.4em;">delete</mat-icon>
+            </div>
+            <button mat-raised-button type="button" color="primary" (click)="addLocation()">Add Location</button>
+        </mat-card-content>
+    </mat-card>
+  </div>
+
+
+
+  <div style="display: flex; justify-content: center;" mat-dialog-actions>
+    <button mat-raised-button type="submit" color="primary" style="padding: 1em; margin: 1em;" [disabled]="!productForm.valid">Add Product</button>
+  </div>
+</form>
+</div>

@@ -1,0 +1,38 @@
+<section class="pp-list">
+    <h2>MY PLANS</h2>
+    <div class="search-area">
+        <mat-form-field class="search-field">
+            <mat-label>Search By Product Name</mat-label>
+            <input matInput [(ngModel)]="searchText" >
+            <button mat-icon-button matSuffix (click)="search()">
+                <mat-icon>search</mat-icon>
+            </button>
+        </mat-form-field>
+        
+        <mat-radio-group
+          class="radio-group"
+          [(ngModel)]="category">
+          <mat-radio-button class="example-radio-button" *ngFor="let cat of categories" [value]='cat'>
+            {{cat}}
+           </mat-radio-button>
+    
+        </mat-radio-group>
+    </div>
+
+    
+    <table mat-table [dataSource]="(obs|async |productNameFilter:searchText |productCategoryFilter:category)">
+        <ng-container matColumnDef="p">
+            <td mat-cell *matCellDef="let p" > 
+                <app-purchased-product-card [productId]="p.productId" [ppId]="p.ppId" [searchText]="searchText"
+                                            [category]="category">
+                </app-purchased-product-card>
+            </td>
+        </ng-container>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <div class="container">
+        <mat-paginator
+                  [pageSize]="1"></mat-paginator>
+      </div>
+</section>

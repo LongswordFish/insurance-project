@@ -1,8 +1,10 @@
 package com.cgi.insurance.product_purchased_service.service;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -175,6 +177,33 @@ public class ProductPurchasedServiceImpl implements ProductPurchasedService{
     @Override
     public List<ProductPurchased> getAllProductPurchasedByCompanyIdAndBundleId(String companyId, String bundleId) {
         return this.ppRepo.findByCompanyIdAndBundleId(companyId, bundleId);
+    }
+
+
+    @Override
+    public List<ProductPurchased> getAllProductPurchasedByClientIdAndProductName(String clientId, String productName) {
+        return this.ppRepo.findByClientIdAndProductName(clientId, productName);
+    }
+
+
+    @Override
+    public List<String> getAllClientIdByProductId(String productId) {
+        List<ProductPurchased> pps = this.ppRepo.findByProductId(productId);
+        Set<String> clientIdSet = pps.stream().map(pp->pp.getClientId()).collect(Collectors.toSet());
+        List<String> clientIdList = new ArrayList();
+        clientIdList.addAll(clientIdSet);
+        return clientIdList;
+    }
+
+
+    @Override
+    public List<String> getAllBundleIdByClientId(String clientId) {
+        List<ProductPurchased> pps = this.ppRepo.findByClientId(clientId);
+        Set<String> bundleIdSet = pps.stream().filter(pp->pp.getBundleId()!=null)
+                    .map(pp->pp.getBundleId()).collect(Collectors.toSet());
+        List<String> bundleIdList = new ArrayList();
+        bundleIdList.addAll(bundleIdSet);
+        return bundleIdList;
     }
 
     

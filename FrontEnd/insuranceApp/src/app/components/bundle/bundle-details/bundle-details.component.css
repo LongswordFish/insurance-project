@@ -1,0 +1,53 @@
+.bundle-card {
+    margin-bottom: 20px;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+}
+
+.bundle-card .card-header {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.bundle-card .card-title {
+    margin-bottom: 0;
+    font-size: 1.25rem;
+}
+
+.bundle-card .bundle-item {
+    display: flex;
+    align-items: center;
+    border-top: none;
+}
+
+.bundle-card .bundle-icon {
+    font-size: 1.5rem;
+    margin-right: 10px;
+}
+
+.bundle-card .bundle-label {
+    font-weight: 500;
+    margin-right: 10px;
+}
+
+.bundle-card .bundle-value {
+    flex: 1;
+}
+
+.bundle-card .card-footer {
+    background-color: #f8f9fa;
+    border-top: 1px solid #dee2e6;
+}
+
+.bundle-card .btn {
+    width: 10%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    padding-left: 2px;
+}
+
+.bundle-card .btn .bundle-icon {
+    font-size: 1.25rem;
+    margin-right: 10px;
+}
