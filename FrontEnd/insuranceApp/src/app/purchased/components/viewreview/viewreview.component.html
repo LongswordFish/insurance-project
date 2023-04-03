@@ -1,1 +1,14 @@
-<p>viewreview works!</p>
+<h1 mat-dialog-title>View Review</h1>
+<div mat-dialog-content class="clsdiv">
+  <form [formGroup]="reviewForm">
+    <mat-form-field>
+      <input matInput formControlName="title" placeholder="Title" />
+    </mat-form-field>
+    <mat-form-field>
+      <textarea matInput formControlName="description" placeholder="Description"></textarea>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput formControlName="rating" placeholder="Rating" />
+    </mat-form-field>
+  </form>
+</div>

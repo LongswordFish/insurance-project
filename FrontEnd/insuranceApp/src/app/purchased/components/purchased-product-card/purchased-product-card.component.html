@@ -15,7 +15,7 @@
     </div>
 
     <div class="button-wrapper">
-        <span *ngIf="currentRate!=0"><mat-icon (click)="addReview()">zoom_in</mat-icon></span>
+        <span *ngIf="currentRate!=0"><mat-icon (click)="viewReview()">zoom_in</mat-icon></span>
         <span *ngIf="currentRate==0"><mat-icon (click)="addReview()">note_add</mat-icon></span>
         <mat-icon (click)="addClaim()">library_books</mat-icon>
         <span *ngIf="showDelete"><mat-icon (click)="onDelete(ppId)">delete</mat-icon></span>    
