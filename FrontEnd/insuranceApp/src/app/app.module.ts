@@ -47,6 +47,7 @@ import { AddClaimsComponent } from './components/add-claims/add-claims.component
 import { BundleDetailsComponent } from './components/bundle/bundle-details/bundle-details.component';
 import { ClientNavComponent } from './components/client-nav/client-nav.component';
 import { PublicNavComponent } from './components/public-nav/public-nav.component';
+import { ClientProfileModule } from './client-profile/client-profile.module';
 import { RegisterloginComponent } from './authentication/registerlogin/registerlogin.component';
 import { MatTabsModule } from '@angular/material/tabs';
 import { AuthenticateService } from './authentication/services/authenticate.service';
@@ -122,6 +123,8 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     MatOptionModule,
     MatSelectModule,
     ModalModule.forRoot(),
+    ClientProfileModule
+
   ],
   providers: [AuthenticateService],
   bootstrap: [AppComponent],

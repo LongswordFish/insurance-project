@@ -20,7 +20,7 @@ import { PurchasedBundleListComponent } from './purchased/components/purchased-b
 import { PurchasedProductListComponent } from './purchased/components/purchased-product-list/purchased-product-list.component';
 import { ClaimCreateComponent } from './claim-dashboard/claim-create/claim-create.component';
 import { ClaimViewComponent } from './claim-dashboard/claim-view/claim-view.component';
-
+import { ClientProfileComponent } from './client-profile/components/client-profile/client-profile.component';
 const routes: Routes = [
   {
     path: '',
@@ -74,6 +74,7 @@ const routes: Routes = [
     path: 'notification/clientView',
     component: ClientDashNotificationViewComponent,
   },
+  {path:'client-profile',component:ClientProfileComponent}
 ];
 
 @NgModule({
