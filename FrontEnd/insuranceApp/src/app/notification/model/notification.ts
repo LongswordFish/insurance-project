@@ -4,5 +4,5 @@ export class Notification{
     recipientId?: String;
     message?: String;
     createdAt?: Date; 
-    isRead?: Boolean;
+    read?: Boolean;
 }

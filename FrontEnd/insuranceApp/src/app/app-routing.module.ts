@@ -4,9 +4,9 @@ import { ClientDashNotificationViewComponent } from './notification/client-dash-
 import { CompanyDashNotificationViewComponent } from './notification/company-dash-notification-view/company-dash-notification-view.component';
 
 const routes: Routes = [
-  { path: "companyView", component: CompanyDashNotificationViewComponent, },
-  { path: "clientView", component: ClientDashNotificationViewComponent },
-  { path: '**', redirectTo: "clientView", pathMatch: 'full', }
+  { path: "notification/companyview", component: CompanyDashNotificationViewComponent, },
+  { path: "notification/clientView", component: ClientDashNotificationViewComponent },
+  { path: '**', redirectTo: "notification/clientView", pathMatch: 'full', }
 ];
 
 @NgModule({
