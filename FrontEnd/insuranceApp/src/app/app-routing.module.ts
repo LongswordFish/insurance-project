@@ -1,5 +1,7 @@
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { JwtModule } from '@auth0/angular-jwt';
+import { RegisterloginComponent } from './authentication/registerlogin/registerlogin.component';
 import { ClientDashNotificationViewComponent } from './notification/client-dash-notification-view/client-dash-notification-view.component';
 import { CompanyDashNotificationViewComponent } from './notification/company-dash-notification-view/company-dash-notification-view.component';
 import { AddAProductComponent } from './company-stats/components/addproduct/addproduct.component';
@@ -21,18 +23,24 @@ import { ClaimViewComponent } from './claim-dashboard/claim-view/claim-view.comp
 
 const routes: Routes = [
   {
-    path: "",
-    redirectTo: "companyStatsHome",
-    pathMatch: "full",
+    path: '',
+    component: RegisterloginComponent,
   },
   {
-    path: "companyStatsHome",
+    path: 'companyStats',
+    redirectTo: 'companyStatsHome',
+    pathMatch: 'full',
+  },
+  {
+    path: 'companyStatsHome',
     component: CompanyStatsListPageComponent,
-  },{
-    path: "productDetails",
+  },
+  {
+    path: 'productDetails',
     component: ProductDetailsPageComponent,
-  },{
-    path: "addProduct",
+  },
+  {
+    path: 'addProduct',
     component: AddAProductComponent,
   },
   { path: 'add-product', component: AddProductComponent },
@@ -42,14 +50,30 @@ const routes: Routes = [
   { path: 'claims', component: ClaimViewComponent },
   { path: 'my-plans', component: MyPlanViewComponent },
   { path: 'buy-product/:productId', component: BuyProductComponent },
-  { path: 'buy-bundle/:bundleId', component:BuyBundleComponent },
-  { path: 'create-claim', component:ClaimCreateComponent },
-  { path: 'company-profile', loadChildren: () => import('./company-profile/company-profile.module').then(m => m.CompanyProfileModule)},
-  { path: 'admin', loadChildren: () => import('./admin-dashboard/admin-dashboard.module').then(m => m.AdminDashboardModule)},
-  { path: "notification/companyview", component: CompanyDashNotificationViewComponent, },
-  { path: "notification/clientView", component: ClientDashNotificationViewComponent },
- 
-
+  { path: 'buy-bundle/:bundleId', component: BuyBundleComponent },
+  { path: 'create-claim', component: ClaimCreateComponent },
+  {
+    path: 'company-profile',
+    loadChildren: () =>
+      import('./company-profile/company-profile.module').then(
+        (m) => m.CompanyProfileModule
+      ),
+  },
+  {
+    path: 'admin',
+    loadChildren: () =>
+      import('./admin-dashboard/admin-dashboard.module').then(
+        (m) => m.AdminDashboardModule
+      ),
+  },
+  {
+    path: 'notification/companyview',
+    component: CompanyDashNotificationViewComponent,
+  },
+  {
+    path: 'notification/clientView',
+    component: ClientDashNotificationViewComponent,
+  },
 ];
 
 @NgModule({

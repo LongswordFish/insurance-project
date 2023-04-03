@@ -1,30 +1,23 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
-
-
-import { NotificationModule } from './notification/notification.module';
-
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HttpClientModule } from '@angular/common/http';
+import { NotificationModule } from './notification/notification.module';
 import { CompanyStatsModule } from './company-stats/company-stats.module';
 
-import { ClaimDashboardModule } from './claim-dashboard/claim-dashboard.module'
+import { ClaimDashboardModule } from './claim-dashboard/claim-dashboard.module';
 import { MatInputModule } from '@angular/material/input';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
-
 import { FooterComponent } from './components/footer/footer.component';
 import { SideCompanyDashComponent } from './components/side-company-dash/side-company-dash.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
 import { CommonModule } from '@angular/common';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
-
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatBadgeModule } from '@angular/material/badge';
@@ -39,15 +32,13 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { BundleFilterPipe } from './bundle-filter.pipe';
-
 import { MatCardModule } from '@angular/material/card';
-
 import { MatFormFieldModule } from '@angular/material/form-field';
 
 import { PurchasedModule } from './purchased/purchased.module';
 import { RouterModule } from '@angular/router';
 import { MatDialogModule } from '@angular/material/dialog';
-import {MatRadioModule} from '@angular/material/radio';
+import { MatRadioModule } from '@angular/material/radio';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { AllBundlesComponent } from './components/bundle/all-bundles/all-bundles.component';
 import { AddProductComponent } from './components/add-product/add-product.component';
@@ -56,6 +47,10 @@ import { AddClaimsComponent } from './components/add-claims/add-claims.component
 import { BundleDetailsComponent } from './components/bundle/bundle-details/bundle-details.component';
 import { ClientNavComponent } from './components/client-nav/client-nav.component';
 import { PublicNavComponent } from './components/public-nav/public-nav.component';
+import { RegisterloginComponent } from './authentication/registerlogin/registerlogin.component';
+import { MatTabsModule } from '@angular/material/tabs';
+import { AuthenticateService } from './authentication/services/authenticate.service';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 @NgModule({
   declarations: [
@@ -70,6 +65,7 @@ import { PublicNavComponent } from './components/public-nav/public-nav.component
     BundleFilterPipe,
     ClientNavComponent,
     PublicNavComponent,
+    RegisterloginComponent,
   ],
   imports: [
     BrowserModule,
@@ -109,12 +105,25 @@ import { PublicNavComponent } from './components/public-nav/public-nav.component
     MatDialogModule,
     MatRadioModule,
     MatSnackBarModule,
-    
-    
-    
-
+    MatTabsModule,
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    NgbModule,
+    FormsModule,
+    HttpClientModule,
+    MatInputModule,
+    MatCardModule,
+    MatTabsModule,
+    MatFormFieldModule,
+    MatButtonModule,
+    MatCheckboxModule,
+    MatIconModule,
+    MatOptionModule,
+    MatSelectModule,
+    ModalModule.forRoot(),
   ],
-  providers: [],
+  providers: [AuthenticateService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
