@@ -56,6 +56,7 @@ import { AddClaimsComponent } from './components/add-claims/add-claims.component
 import { BundleDetailsComponent } from './components/bundle/bundle-details/bundle-details.component';
 import { ClientNavComponent } from './components/client-nav/client-nav.component';
 import { PublicNavComponent } from './components/public-nav/public-nav.component';
+import { ClientProfileModule } from './client-profile/client-profile.module';
 
 @NgModule({
   declarations: [
@@ -69,7 +70,7 @@ import { PublicNavComponent } from './components/public-nav/public-nav.component
     BundleDetailsComponent,
     BundleFilterPipe,
     ClientNavComponent,
-    PublicNavComponent,
+    PublicNavComponent
   ],
   imports: [
     BrowserModule,
@@ -109,7 +110,7 @@ import { PublicNavComponent } from './components/public-nav/public-nav.component
     MatDialogModule,
     MatRadioModule,
     MatSnackBarModule,
-    
+    ClientProfileModule
     
     
 
