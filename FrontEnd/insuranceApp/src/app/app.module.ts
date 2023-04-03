@@ -111,7 +111,6 @@ import { ClientProfileModule } from './client-profile/client-profile.module';
     MatRadioModule,
     MatSnackBarModule,
     ClientProfileModule
-    
 
   ],
   providers: [],
