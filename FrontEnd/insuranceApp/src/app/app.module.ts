@@ -65,7 +65,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     BundleDetailsComponent,
     BundleFilterPipe,
     ClientNavComponent,
-    PublicNavComponent
+    PublicNavComponent,
     RegisterloginComponent,
   ],
   imports: [
