@@ -77,7 +77,7 @@
         Add a Document
       </button>
 
-      <button mat-raised-button class="green-button" (click)="approveClaim(claim)" (click)="openSnackBar('Updated Claim', 'OK')" >
+      <button *ngIf="role != 'client'" mat-raised-button class="green-button" (click)="approveClaim(claim)" (click)="openSnackBar('Updated Claim', 'OK')" >
         <div *ngIf="!claim.isApproved">Approve Claim</div>
         <div *ngIf="claim.isApproved">Unapprove Claim</div>
       </button>
