@@ -1,34 +1,4 @@
-<!-- 
-<mat-card>
-    <mat-card-title>Claim Details</mat-card-title>
-    <mat-card-content>
-        <div class="row" *ngFor="let claim of claims" style="display: inline-flex;">
-        <p><strong>Claim ID:</strong> {{ claim.claimId }}</p>
-        <p><strong>Customer ID:</strong> {{ claim.customerId }}</p>
-        <p><strong>Product ID:</strong> {{ claim.productId }}</p>
-        <p><strong>Company ID:</strong> {{ claim.companyId }}</p>
-        <p><strong>Date Created:</strong> {{ claim.date_created }}</p>
-        <p><strong>Is Active:</strong> {{ claim.isActive }}</p>
-        <p><strong>Is Approved:</strong> {{ claim.isApproved }}</p>
-        <ul>
-            <li *ngFor="let document of claim.documents">
-                <p mat-line>Document ID: {{document.documentId}}</p>
-                <p mat-line>Date: {{document.date}}</p>
-                <p mat-line>URL: {{document.url}}</p>
-                <p mat-line>{{document.information}}</p>
-            </li>
-        </ul>
-    
-    
-      
-      <div *ngIf="!claim">
-        Loading claim details...
-      </div>
-    </div>
-    </mat-card-content>
-  </mat-card> -->
-  
-<p>Your Claims</p>
+<h1>Your Claims</h1>
 
 <mat-checkbox [(ngModel)] = "showUnapproved">Show only unapproved claims</mat-checkbox>
 
