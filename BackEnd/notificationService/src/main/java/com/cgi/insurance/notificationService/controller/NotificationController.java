@@ -58,7 +58,7 @@ public class NotificationController {
 	{
 		try {
 			boolean notify=notifyService.deleteNotification(notifID);
-			return new ResponseEntity<String>("Deletion succesfull",HttpStatus.OK);
+			return new ResponseEntity<String>("Deletion succesful",HttpStatus.OK);
 		} catch (NotificationIdNotFoundException e) {
 			// TODO Auto-generated catch block
 			return new ResponseEntity<String>("Notification id is not available",HttpStatus.NOT_FOUND);

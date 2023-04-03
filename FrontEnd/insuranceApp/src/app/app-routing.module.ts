@@ -1,5 +1,7 @@
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ClientDashNotificationViewComponent } from './notification/client-dash-notification-view/client-dash-notification-view.component';
+import { CompanyDashNotificationViewComponent } from './notification/company-dash-notification-view/company-dash-notification-view.component';
 import { AddAProductComponent } from './company-stats/components/addproduct/addproduct.component';
 import { CompanyStatsListPageComponent } from './company-stats/components/company-stats-list-page/company-stats-list-page.component';
 import { ProductDetailsPageComponent } from './company-stats/components/product-details-page/product-details-page.component';
@@ -44,6 +46,9 @@ const routes: Routes = [
   { path: 'create-claim', component:ClaimCreateComponent },
   { path: 'company-profile', loadChildren: () => import('./company-profile/company-profile.module').then(m => m.CompanyProfileModule)},
   { path: 'admin', loadChildren: () => import('./admin-dashboard/admin-dashboard.module').then(m => m.AdminDashboardModule)},
+  { path: "notification/companyview", component: CompanyDashNotificationViewComponent, },
+  { path: "notification/clientView", component: ClientDashNotificationViewComponent },
+ 
 
 ];
 

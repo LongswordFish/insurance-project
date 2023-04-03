@@ -4,9 +4,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
+
+
+import { NotificationModule } from './notification/notification.module';
+
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CompanyStatsModule } from './company-stats/company-stats.module';
-import { HttpClientModule } from '@angular/common/http';
+
 import { ClaimDashboardModule } from './claim-dashboard/claim-dashboard.module'
 import { MatInputModule } from '@angular/material/input';
 import { MatSortModule } from '@angular/material/sort';
@@ -70,6 +75,7 @@ import { PublicNavComponent } from './components/public-nav/public-nav.component
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    NotificationModule,
     NgbModule,
     CompanyStatsModule,
     FormsModule,
