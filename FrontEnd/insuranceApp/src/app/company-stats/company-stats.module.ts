@@ -15,7 +15,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatCardModule } from '@angular/material/card';
-import { AddProductComponent } from './components/addproduct/addproduct.component';
+import { AddAProductComponent } from './components/addproduct/addproduct.component';
 import { ProductService } from './services/product.service';
 import { ClientService } from './services/client.service';
 import { CompanyStatsListPageComponent } from './components/company-stats-list-page/company-stats-list-page.component';
@@ -29,7 +29,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     CompanyStatsListPageComponent,
     UpdateProductDialogComponent,
     ProductDetailsPageComponent,
-    AddProductComponent
+    AddAProductComponent
     
   ],
   imports: [

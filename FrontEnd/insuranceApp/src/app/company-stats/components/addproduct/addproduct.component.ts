@@ -10,7 +10,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   templateUrl: './addproduct.component.html',
   styleUrls: ['./addproduct.component.css']
 })
-export class AddProductComponent {
+export class AddAProductComponent {
 
   productForm!: FormGroup;
   newLocations!: FormArray;
@@ -20,7 +20,7 @@ export class AddProductComponent {
               private route: ActivatedRoute, 
               private productService: ProductService,
               private _snackBar: MatSnackBar,
-              private dialogRef: MatDialogRef<AddProductComponent>,
+              private dialogRef: MatDialogRef<AddAProductComponent>,
               @Inject(MAT_DIALOG_DATA) public data: string ) 
   { 
       this.productForm = this.formBuilder.group({

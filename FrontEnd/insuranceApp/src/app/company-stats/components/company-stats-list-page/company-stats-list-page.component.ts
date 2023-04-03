@@ -8,7 +8,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 import { UpdateProductDialogComponent } from '../update-product-dialog/update-product-dialog.component';
-import { AddProductComponent } from '../addproduct/addproduct.component';
+import { AddAProductComponent } from '../addproduct/addproduct.component';
 import { Product } from '../../models/product';
 import { ProductService } from '../../services/product.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
@@ -100,7 +100,7 @@ export class CompanyStatsListPageComponent {
   addProduct(){
     // this.router.navigate(['addProduct'], {queryParams: {companyID: this.companyID}});
 
-    const dialogRef = this.dialog.open(AddProductComponent, {
+    const dialogRef = this.dialog.open(AddAProductComponent, {
       width: '500px',
       data: this.companyID
     });
