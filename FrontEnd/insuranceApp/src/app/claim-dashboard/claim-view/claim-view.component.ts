@@ -22,6 +22,7 @@ export class ClaimViewComponent {
   claims: Claim[] = [];
   showUnapproved: boolean = false;
   panelOpenState = false;
+  role = sessionStorage.getItem("role");
 
   constructor(private claimservice:ClaimserviceService, public snackBar: MatSnackBar, public dialog:MatDialog){}
 
