@@ -30,12 +30,15 @@ namespace CompanyServiceTesting.Tests
         {
             Name = "XUNIT Add",
             Email = "xunit_add@gmail.com",
+            Description = "Test Description",
             Address = "Test Address",
             City = "Edmonton",
             State = "Alberta",
             Country = "Canada",
             PostalCode = "A1A2B2",
-            IsApproved = false
+            IsApproved = false,
+            AdminViewed = false,
+            DateRegistered = DateTime.Now
         };
 
         private readonly Bad_Post_Company _bad_test = new Bad_Post_Company
@@ -43,12 +46,15 @@ namespace CompanyServiceTesting.Tests
             CompanyId = "bad_test",
             Name = "XUNIT Bad Add",
             Email = "xunit_bad_add@gmail.com",
+            Description = "Test Description",
             Address = "Test Address",
             City = "Edmonton",
             State = "Alberta",
             Country = "Canada",
             PostalCode = "A1A2B2",
-            IsApproved = false
+            IsApproved = false,
+            AdminViewed = false,
+            DateRegistered = DateTime.Now
         }; 
 
         public PostEndpointsTest(ITestOutputHelper output)
@@ -126,6 +132,8 @@ namespace CompanyServiceTesting.Tests
 
         public string Email { get; set; } = null!;
 
+        public string? Description { get; set; }
+
         public string Address { get; set; } = null!;
 
         public string City { get; set; } = null!;
@@ -141,5 +149,11 @@ namespace CompanyServiceTesting.Tests
         public string? ContactDetails { get; set; }
 
         public bool IsApproved { get; set; } = false;
+
+        public bool AdminViewed { get; set; } = false;
+
+        public DateTime? DateRegistered { get; set; }
+
+        public DateTime? DateApproved { get; set; }
     }
 }

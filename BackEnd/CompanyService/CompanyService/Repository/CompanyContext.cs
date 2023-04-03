@@ -18,7 +18,7 @@ public partial class CompanyContext : DbContext
     public virtual DbSet<Company> Companies { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseMySql("server=dbCompany;port=3306;database=company;user id=root;password=password", Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.32-mysql"));
+        => optionsBuilder.UseMySql("server=dbCompany;port=3306;database=insurance;user id=root;password=password", Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.32-mysql"));
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -35,6 +35,9 @@ public partial class CompanyContext : DbContext
             entity.HasIndex(e => e.Email, "email_UNIQUE").IsUnique();
 
             entity.Property(e => e.CompanyId).HasColumnName("companyId");
+            entity.Property(e => e.Description)
+                .HasMaxLength(500)
+                .HasColumnName("description");
             entity.Property(e => e.Address)
                 .HasMaxLength(100)
                 .HasColumnName("address");
@@ -59,10 +62,15 @@ public partial class CompanyContext : DbContext
             entity.Property(e => e.IsApproved)
                 .HasDefaultValueSql("false")
                 .HasColumnName("isApproved");
+            entity.Property(e => e.AdminViewed)
+                .HasDefaultValueSql("false")
+                .HasColumnName("adminViewed");
             entity.Property(e => e.Logo).HasColumnName("logo");
             entity.Property(e => e.Name)
                 .HasMaxLength(100)
                 .HasColumnName("name");
+            entity.Property(e => e.DateRegistered).HasColumnName("dateRegistered");
+            entity.Property(e => e.DateApproved).HasColumnName("dateApproved");
         });
 
         OnModelCreatingPartial(modelBuilder);

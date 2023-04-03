@@ -28,6 +28,16 @@ services:
         container_name: db-mysql
     ports:
         - 3305:3306
+
+  db_client:
+     image: mysql:8.0.32
+     environment:
+        MYSQL_ROOT_PASSWORD: password
+        MYSQL_DATABASE: test
+        restart: always
+        container_name: con-db-mysql
+     ports:
+       - 3307:3306
     
   bundleapp:
     image: vipuldarji29/bundle
@@ -114,6 +124,17 @@ services:
       EUREKAURL: http://eurekaservice:8761/eureka
     ports:
       - 9000:80
+
+  clientmicroservice:
+    depends_on:
+     - db_client
+    image: rohithsunkara/clientmicroservice
+    restart: on-failure
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      EUREKAURL: http://eurekaservice:8761/eureka
+    ports:
+       - 9092:80
 
   eurekaservice:
     image: longswordfish/eureka_server

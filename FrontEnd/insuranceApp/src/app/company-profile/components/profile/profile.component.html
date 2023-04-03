@@ -1,0 +1,122 @@
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="card mb-4">
+                <div class="card-body text-center">
+                    <img src="data:image/png;base64, {{company.logo}}" alt="logo"/>
+                    <h1 class="my-3">{{company.name}}</h1>
+                    <p class="text-muted mb-1">{{company.city}}, {{company.state}}</p>
+                    <hr>
+                    <p class="mb-0">{{company.description}}</p>
+                    <br/>
+                    <br/>
+                    <div class="d-flex justify-content-center mb-2">
+                        <button type="button" class="btn btn-outline-info ms-1">Update Profile</button>
+                        <button type="button" class="btn btn-outline-warning ms-1">Update Password</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-8">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-1">
+                            <mat-icon>public</mat-icon>
+                        </div>
+                        <div class="col-sm-2">
+                            <p class="mb-0">Address</p>
+                        </div>
+                        <div class="col-sm-9">
+                            <p class="text-muted mb-0">{{company.address}} {{company.city}}, {{company.state}} {{company.country}}, {{company.postalCode}}</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-1">
+                            <mat-icon>email</mat-icon>
+                        </div>
+                        <div class="col-sm-2">
+                            <p class="mb-0">Email</p>
+                        </div>
+                        <div class="col-sm-9">
+                            <p class="text-muted mb-0">{{company.email}}</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-1">
+                            <mat-icon>phone</mat-icon>
+                        </div>
+                        <div class="col-sm-2">
+                            <p class="mb-0">Phone Number</p>
+                        </div>
+                        <div class="col-sm-9">
+                            <p class="text-muted mb-0">{{contactDetails.Phone}}</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-1">
+                            <mat-icon>keyboard</mat-icon>
+                        </div>
+                        <div class="col-sm-2">
+                            <p class="mb-0">Fax Number</p>
+                        </div>
+                        <div class="col-sm-9">
+                            <p class="text-muted mb-0">{{contactDetails.Fax}}</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-1">
+                            <mat-icon>language</mat-icon>
+                        </div>
+                        <div class="col-sm-2">
+                            <p class="mb-0">Website</p>
+                        </div>
+                        <div class="col-sm-9">
+                            <p class="text-muted mb-0">{{contactDetails.Website}}</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-1">
+                            <mat-icon>people-outline</mat-icon>
+                        </div>
+                        <div class="col-sm-2">
+                            <p class="mb-0">Instagram</p>
+                        </div>
+                        <div class="col-sm-9">
+                            <p class="text-muted mb-0">{{contactDetails.Instagram}}</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-1">
+                            <mat-icon>alarm</mat-icon>
+                        </div>
+                        <div class="col-sm-2">
+                            <p class="mb-0">Date Registered</p>
+                        </div>
+                        <div class="col-sm-9">
+                            <p class="text-muted mb-0">{{ company.dateRegistered | date:'full' }}</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-1">
+                            <mat-icon>alarm</mat-icon>
+                        </div>
+                        <div class="col-sm-2">
+                            <p class="mb-0">Date Approved</p>
+                        </div>
+                        <div class="col-sm-9">
+                            <p class="text-muted mb-0">{{company.dateApproved | date:'full'}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>        
+    </div>
+</div>

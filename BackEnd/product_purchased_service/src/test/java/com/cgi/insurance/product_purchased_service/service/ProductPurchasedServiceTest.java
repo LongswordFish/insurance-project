@@ -38,7 +38,7 @@ public class ProductPurchasedServiceTest {
     public void setUp() {
         MockitoAnnotations.initMocks(this);
 
-        pp1 = new ProductPurchased("ppId1","product1","comp1","clien1",null,null,11.11,"toronto");
+        pp1 = new ProductPurchased("ppId1","product1","comp1","clien1",null,null,11.11,"toronto","","","");
         optional = Optional.of(pp1);
     }
 

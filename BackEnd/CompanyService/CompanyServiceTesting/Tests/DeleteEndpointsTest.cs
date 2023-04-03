@@ -71,12 +71,15 @@ namespace CompanyServiceTesting.Tests
             {
                 Name = "XUNIT Delete",
                 Email = "xunit_delete@gmail.com",
+                Description = "Test Description",
                 Address = "Test Address",
                 City = "Edmonton",
                 State = "Alberta",
                 Country = "Canada",
                 PostalCode = "A1A2B2",
-                IsApproved = false
+                IsApproved = false,
+                AdminViewed = false,
+                DateRegistered = DateTime.Now
             };
             var add_response = await _controller.PostCompany(test_comp);
             Assert.IsType<CreatedAtActionResult>(add_response.Result);

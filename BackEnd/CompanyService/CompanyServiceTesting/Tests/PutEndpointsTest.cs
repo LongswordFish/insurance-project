@@ -47,12 +47,15 @@ namespace CompanyServiceTesting.Tests
             {
                 Name = "XUNIT Put",
                 Email = "xunit_put@gmail.com",
+                Description = "Test Description",
                 Address = "Test Address",
                 City = "Edmonton",
                 State = "Alberta",
                 Country = "Canada",
                 PostalCode = "A1A2B2",
-                IsApproved = false
+                IsApproved = false,
+                AdminViewed = false,
+                DateRegistered = DateTime.Now
             };
 
             // Ensure that given the wrong endpoint, exception is caught
@@ -74,12 +77,15 @@ namespace CompanyServiceTesting.Tests
             {
                 Name = "XUNIT Approve",
                 Email = "xunit_approve@gmail.com",
+                Description = "Test Description",
                 Address = "Test Address",
                 City = "Edmonton",
                 State = "Alberta",
                 Country = "Canada",
                 PostalCode = "A1A2B2",
-                IsApproved = false
+                IsApproved = false,
+                AdminViewed = false,
+                DateRegistered = DateTime.Now
             };
 
             // Add to database
@@ -115,12 +121,15 @@ namespace CompanyServiceTesting.Tests
             {
                 Name = "XUNIT Disapprove",
                 Email = "xunit_disapprove@gmail.com",
+                Description = "Test Description",
                 Address = "Test Address",
                 City = "Edmonton",
                 State = "Alberta",
                 Country = "Canada",
                 PostalCode = "A1A2B2",
-                IsApproved = true
+                IsApproved = true,
+                AdminViewed = false,
+                DateRegistered = DateTime.Now
             };
 
             // Add to database
@@ -156,23 +165,29 @@ namespace CompanyServiceTesting.Tests
             {
                 Name = "XUNIT Bad Update",
                 Email = "xunit_bad_update@gmail.com",
+                Description = "Test Description",
                 Address = "Test Address",
                 City = "Edmonton",
                 State = "Alberta",
                 Country = "Canada",
                 PostalCode = "A1A2B2",
-                IsApproved = false
+                IsApproved = false,
+                AdminViewed = false,
+                DateRegistered = DateTime.Now
             };
             Bad_Put_Company bad_test = new Bad_Put_Company
             {
                 Name = "XUNIT Bad Update",
                 Email = "xunit_bad_update@gmail.com",
+                Description = "Test Description",
                 Address = "Test Address",
                 City = "Edmonton",
                 State = "Alberta",
                 Country = "Canada",
                 PostalCode = "A1A2B2",
-                IsApproved = "t"
+                IsApproved = "t",
+                AdminViewed = false,
+                DateRegistered = DateTime.Now
             };
 
             // Add to database
@@ -213,12 +228,15 @@ namespace CompanyServiceTesting.Tests
             {
                 Name = "XUNIT Good Update",
                 Email = "xunit_good_update@gmail.com",
+                Description = "Test Description",
                 Address = "Test Address",
                 City = "Edmonton",
                 State = "Alberta",
                 Country = "Canada",
                 PostalCode = "A1A2B2",
-                IsApproved = false
+                IsApproved = false,
+                AdminViewed = false,
+                DateRegistered = DateTime.Now
             };
 
             // Add to database
@@ -255,6 +273,8 @@ namespace CompanyServiceTesting.Tests
 
         public string Email { get; set; } = null!;
 
+        public string? Description { get; set; }
+
         public string Address { get; set; } = null!;
 
         public string City { get; set; } = null!;
@@ -270,5 +290,11 @@ namespace CompanyServiceTesting.Tests
         public string? ContactDetails { get; set; }
 
         public string IsApproved { get; set; } = null;
+
+        public bool AdminViewed { get; set; } = false;
+
+        public DateTime? DateRegistered { get; set; }
+
+        public DateTime? DateApproved { get; set; }
     }
 }

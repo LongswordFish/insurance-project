@@ -1,0 +1,136 @@
+<div class="company-accordion">
+    <br/>
+    <h1>Newly Registered Companies</h1>
+    <h3>Below is a list of companies that have registered and are waiting for your decision: Approve or Reject.</h3>
+    <br/>
+  
+    <mat-accordion class="example-headers-align" multi *ngFor ="let data of allCompanyData">
+      <mat-expansion-panel *ngIf="data.isApproved==false && data.adminViewed==false">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            {{data.name}}
+          </mat-panel-title>
+          <mat-action-row> 
+            <button mat-raised-button (click)="approveCompany(data)">Approve</button> <br/>
+            <button mat-raised-button color="warn" (click)="rejectCompany(data)">Reject</button>
+          </mat-action-row>
+          <mat-panel-description>
+            Registered: {{data.dateRegistered}}
+            <img src="data:image/png;base64, {{data.logo}}" alt="no image"/>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+          <div class="jumbotron jumbotron-fluid">
+            <p class="lead">{{data.description}}</p>
+          </div>
+          <br/>
+          <h3>Contact Details</h3>
+          <ul>
+            <li>Address: {{data.address}}, {{data.city}} {{data.state}}, {{data.country}} {{data.postalCode}}</li>
+            <li>{{data.contactDetails}}</li>
+          </ul>
+      </mat-expansion-panel>
+    </mat-accordion>
+  
+    <br/>
+    <br/>
+    <h1>Companies Approved</h1>
+    <h3>Below is a list of companies that have been approved.</h3>
+    <br/>
+  
+    <mat-accordion class="example-headers-align" multi *ngFor ="let data of allCompanyData">
+      <mat-expansion-panel *ngIf="data.isApproved==true && data.adminViewed==true">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            {{data.name}}
+          </mat-panel-title>
+          <mat-action-row> 
+            <button mat-raised-button color="warn" (click)="rejectCompany(data)">Disable</button>
+          </mat-action-row>
+          <mat-panel-description>
+            Registered: {{data.dateRegistered}}&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Approved: {{data.dateApproved}}
+            <img src="data:image/png;base64, {{data.logo}}" alt="no image"/>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+          <div class="jumbotron jumbotron-fluid">
+            <p class="lead">{{data.description}}</p>
+          </div>
+          <br/>
+          <h3>Contact Details</h3>
+          <ul>
+            <li>Address: {{data.address}}, {{data.city}} {{data.state}}, {{data.country}} {{data.postalCode}}</li>
+            <li>{{data.contactDetails}}</li>
+          </ul>
+      </mat-expansion-panel>
+    </mat-accordion>
+  
+  
+    <br/>
+    <br/>
+    <h1>Companies Rejected</h1>
+    <h3>Below is a list of companies that have registered, but ultimately rejected.</h3>
+    <br/>
+  
+    <mat-accordion class="example-headers-align" multi *ngFor ="let data of allCompanyData">
+      <mat-expansion-panel *ngIf="data.isApproved==false && data.adminViewed==true && data.dateApproved==null">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            {{data.name}}
+          </mat-panel-title>
+          <mat-action-row> 
+            <button mat-raised-button (click)="approveCompany(data)">Accept</button>
+          </mat-action-row>
+          <mat-panel-description>
+            Registered: {{data.dateRegistered}}
+            <img src="data:image/png;base64, {{data.logo}}" alt="no image"/>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+          <div class="jumbotron jumbotron-fluid">
+            <p class="lead">{{data.description}}</p>
+          </div>
+          <br/>
+          <h3>Contact Details</h3>
+          <ul>
+            <li>Address: {{data.address}}, {{data.city}} {{data.state}}, {{data.country}} {{data.postalCode}}</li>
+            <li>{{data.contactDetails}}</li>
+          </ul>
+      </mat-expansion-panel>
+    </mat-accordion>
+  
+  
+    <br/>
+    <br/>
+    <h1>Banned Companies</h1>
+    <h3>Below is a list of companies that have been approved in the past, but are now banned from selling products.</h3>
+    <br/>
+  
+    <mat-accordion class="example-headers-align" multi *ngFor ="let data of allCompanyData">
+      <mat-expansion-panel *ngIf="data.isApproved==false && data.adminViewed==true && data.dateApproved!=null">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            {{data.name}}
+          </mat-panel-title>
+          <mat-action-row> 
+            <button mat-raised-button (click)="approveCompany(data)">Re-Enable & Accept</button>
+          </mat-action-row>
+          <mat-panel-description>
+            Registered: {{data.dateRegistered}}&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Last Approved: {{data.dateApproved}}
+            <img src="data:image/png;base64, {{data.logo}}" alt="no image"/>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+          <div class="jumbotron jumbotron-fluid">
+            <p class="lead">{{data.description}}</p>
+          </div>
+          <br/>
+          <h3>Contact Details</h3>
+          <ul>
+            <li>Address: {{data.address}}, {{data.city}} {{data.state}}, {{data.country}} {{data.postalCode}}</li>
+            <li>{{data.contactDetails}}</li>
+          </ul>
+      </mat-expansion-panel>
+    </mat-accordion>
+  
+    <br/>
+    <br/>
+  
+</div>
+  
