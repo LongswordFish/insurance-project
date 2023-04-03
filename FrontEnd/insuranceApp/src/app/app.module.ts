@@ -112,7 +112,6 @@ import { ClientProfileModule } from './client-profile/client-profile.module';
     MatSnackBarModule,
     ClientProfileModule
     
-    
 
   ],
   providers: [],

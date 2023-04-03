@@ -1,1 +1,56 @@
-<p>client-profile works!</p>
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="card mb-4">
+                <div class="card-body text-center">
+                    <div class="d-flex justify-content-center mb-2">
+                        <button type="button" class="btn btn-outline-info ms-1">Update Profile</button>
+                        <button type="button" class="btn btn-outline-warning ms-1">Update Password</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="edit==false" class="col-lg-8">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-1">
+                            <mat-icon>public</mat-icon>
+                        </div>
+                        <div class="col-sm-2">
+                            <p class="mb-0">UserName</p>
+                        </div>
+                        <div class="col-sm-9">
+                            <p class="text-muted mb-0">{{client.clientName}} {{client.location}}</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-1">
+                            <mat-icon>email</mat-icon>
+                        </div>
+                        <div class="col-sm-2">
+                            <p class="mb-0">Email</p>
+                        </div>
+                        <div class="col-sm-9">
+                            <p class="text-muted mb-0">{{client.email}}</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-1">
+                            <mat-icon>public</mat-icon>
+                        </div>
+                        <div class="col-sm-2">
+                            <p class="mb-0">Location</p>
+                        </div>
+                        <div class="col-sm-9">
+                            <p class="text-muted mb-0">{{client.location}}</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>        
+    </div>
+</div>
