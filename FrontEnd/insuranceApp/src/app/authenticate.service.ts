@@ -11,14 +11,7 @@ export class AuthenticateService {
     
    }
    login(data:any){
-    this.http.post("http://localhost:9000/api/Auth/login",data)
-    .subscribe((res:any)=>{
-      console.warn(res),
-      sessionStorage.setItem("token",res.token);
-      sessionStorage.setItem("Userid",res.userid);
-      sessionStorage.setItem("role",data.role);
-      // this.router.navigate(['/register']);
-    })
+    return this.http.post("http://localhost:9000/api/Auth/login",data);
     
    }
 

@@ -23,8 +23,16 @@ export class RegisterloginComponent {
   @ViewChild('template', { static: true }) modal : any;
 
   userLogin(data:any){
-    console.warn(data);
-    this.authenticate.login(data);
+    this.authenticate.login(data).subscribe((res:any)=>{
+      console.warn(res),
+      sessionStorage.setItem("token",res.token);
+      sessionStorage.setItem("Userid",res.userid);
+      sessionStorage.setItem("role",data.role);
+      this.modalMessage = "Your login was Successful";
+    },error=>{
+      this.modalMessage = error.error;
+    })
+    this.modalRef = this.modalService.show(this.modal);
   }
   // ngOnInit(){
   //   this.tokendata=sessionStorage.getItem("token");
