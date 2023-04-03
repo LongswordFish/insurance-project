@@ -1,5 +1,5 @@
 import { Component, TemplateRef, ViewChild } from '@angular/core';
-import { AuthenticateService } from 'src/app/authenticate.service';
+import { AuthenticateService } from 'src/app/authentication/services/authenticate.service';
 import { BsModalRef,BsModalService } from 'ngx-bootstrap/modal'; 
 import { EmailValidator } from '@angular/forms';
 
@@ -16,6 +16,7 @@ export class RegisterloginComponent {
   modalRef: any;
   errorlist:any[]=[];
   modalMessage:any;
+  value:any='client';
   constructor(private authenticate:AuthenticateService,private modalService:BsModalService){
    
   }

@@ -40,7 +40,7 @@
                 </mat-form-field>
                 <mat-form-field appearence="fill">
                     <mat-label>Role</mat-label>
-                    <mat-select ngModel name="role" value="client" required>
+                    <mat-select [(ngModel)]="value" name="role" required>
                         <mat-option value="client">Client</mat-option>
                         <mat-option value="company">Company</mat-option>
                         <mat-option value="admin">Admin</mat-option>
@@ -117,8 +117,7 @@
               </mat-form-field> -->
               <mat-form-field appearence="fill">
                 <mat-label>Role</mat-label>
-                <mat-select ngModel name="role" required #role="ngModel">
-                    <mat-option></mat-option>
+                <mat-select [(ngModel)]="value" name="role" required #role="ngModel">    
                     <mat-option value="client">Client</mat-option>
                     <mat-option value="company">Company</mat-option>
                 </mat-select>

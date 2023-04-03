@@ -18,7 +18,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatOptionModule } from '@angular/material/core';
 import {MatSelectModule} from '@angular/material/select';
 import { ModalModule} from 'ngx-bootstrap/modal'
-import { AuthenticateService } from './authenticate.service';
+import { AuthenticateService } from './authentication/services/authenticate.service';
 
 @NgModule({
   declarations: [
