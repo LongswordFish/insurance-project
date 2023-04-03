@@ -18,6 +18,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatOptionModule } from '@angular/material/core';
 import {MatSelectModule} from '@angular/material/select';
 import { ModalModule} from 'ngx-bootstrap/modal'
+import { AuthenticateService } from './authenticate.service';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,9 @@ import { ModalModule} from 'ngx-bootstrap/modal'
     MatSelectModule
     
   ],
-  providers: [],
+  providers: [
+    AuthenticateService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -33,9 +33,6 @@ export class AuthenticateService {
    }
 
    register(data:any){
-    this.http.post("http://localhost:9000/api/Auth/register",data)
-    .subscribe((res:any)=>{
-      console.log("Registration success")
-    })
+    return this.http.post("http://localhost:9000/api/Auth/register",data);
    }
 }

@@ -1,6 +1,7 @@
 import { Component, TemplateRef, ViewChild } from '@angular/core';
 import { AuthenticateService } from 'src/app/authenticate.service';
 import { BsModalRef,BsModalService } from 'ngx-bootstrap/modal'; 
+import { EmailValidator } from '@angular/forms';
 
 @Component({
   selector: 'app-registerlogin',
@@ -34,9 +35,16 @@ export class RegisterloginComponent {
       this.authenticate.logout();
     }
     userRegister(data:any){
-
-      this.authenticate.register(data);
-      this.modalMessage = "Your Registration Was Successful";
+      //RegExp regex = @"^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$";
+      if(data.role == null){
+        this.modalMessage = "Please select a Role";
+      }else{
+      this.authenticate.register(data).subscribe(()=>{
+        this.modalMessage = "Your registration was Successful";
+      },error=>{
+        this.modalMessage = error.error;
+      })
+    }
       this.modalRef = this.modalService.show(this.modal);
     }
 }
