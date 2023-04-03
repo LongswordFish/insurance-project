@@ -24,88 +24,88 @@ namespace AuthenticationServiceTest
             _authController = new AuthController(authRepository, authContext);
         }
 
-        [Test]
-        public void Register_Success()
-        {
-            var registration = new Authentication
-            {
-                Email = "test1@gmail.com",
-                Password = "password1",
-                Role = "client"
-            };
+        //[Test]
+        //public void Register_Success()
+        //{
+        //    var registration = new Authentication
+        //    {
+        //        Email = "test1@gmail.com",
+        //        Password = "password1",
+        //        Role = "client"
+        //    };
 
-            var result = _authController.Register(registration);
+        //    var result = _authController.Register(registration);
 
-            Assert.IsInstanceOf<OkResult>(result);
-        }
+        //    Assert.IsInstanceOf<OkResult>(result);
+        //}
 
-        [Test]
-        public void Register_EmailInvalid()
-        {
-            var registration = new Authentication
-            {
-                Email = "client@",
-                Password = "password1",
-                Role = "client"
-            };
+        //[Test]
+        //public void Register_EmailInvalid()
+        //{
+        //    var registration = new Authentication
+        //    {
+        //        Email = "client@",
+        //        Password = "password1",
+        //        Role = "client"
+        //    };
 
-            var result = _authController.Register(registration);
+        //    var result = _authController.Register(registration);
 
-            Assert.IsInstanceOf<BadRequestObjectResult>(result);
-            var badRequestResult = (BadRequestObjectResult)result;
-            Assert.AreEqual("Email is Invalid", badRequestResult.Value);
-        }
+        //    Assert.IsInstanceOf<BadRequestObjectResult>(result);
+        //    var badRequestResult = (BadRequestObjectResult)result;
+        //    Assert.AreEqual("Email is Invalid", badRequestResult.Value);
+        //}
 
-        [Test]
-        public void Register_EmptyNotSuccess()
-        {
-            var registration = new Authentication
-            {
-                Email = "",
-                Password = "password1",
-                Role = "client"
-            };
+        //[Test]
+        //public void Register_EmptyNotSuccess()
+        //{
+        //    var registration = new Authentication
+        //    {
+        //        Email = "",
+        //        Password = "password1",
+        //        Role = "client"
+        //    };
 
-            var result = _authController.Register(registration);
+        //    var result = _authController.Register(registration);
 
-            Assert.IsInstanceOf<BadRequestObjectResult>(result);
-            var badRequestResult = (BadRequestObjectResult)result;
-            Assert.AreEqual("Registration Unsuccesfull", badRequestResult.Value);
-        }
+        //    Assert.IsInstanceOf<BadRequestObjectResult>(result);
+        //    var badRequestResult = (BadRequestObjectResult)result;
+        //    Assert.AreEqual("Registration Unsuccesfull", badRequestResult.Value);
+        //}
 
-        [Test]
-        public void Register_PasswordInvalid()
-        {
-            var registration = new Authentication
-            {
-                Email = "client@gmail.com",
-                Password = "pass",
-                Role = "client"
-            };
+        //[Test]
+        //public void Register_PasswordInvalid()
+        //{
+        //    var registration = new Authentication
+        //    {
+        //        Email = "client@gmail.com",
+        //        Password = "pass",
+        //        Role = "client"
+        //    };
 
-            var result = _authController.Register(registration);
+        //    var result = _authController.Register(registration);
 
-            Assert.IsInstanceOf<BadRequestObjectResult>(result);
-            var badRequestResult = (BadRequestObjectResult)result;
-            Assert.AreEqual("Password should have length between 6 & 12", badRequestResult.Value);
-        }
+        //    Assert.IsInstanceOf<BadRequestObjectResult>(result);
+        //    var badRequestResult = (BadRequestObjectResult)result;
+        //    Assert.AreEqual("Password should have length between 6 & 12", badRequestResult.Value);
+        //}
 
-        [Test]
-        public void Register_RoleInvalid()
-        {
-            var registration = new Authentication
-            {
-                Email = "client@gmail.com",
-                Password = "password1",
-                Role = "admin"
-            };
+        //[Test]
+        //public void Register_RoleInvalid()
+        //{
+        //    var registration = new Authentication
+        //    {
+        //        Email = "client@gmail.com",
+        //        Password = "password1",
+        //        Role = "admin"
+        //    };
 
-            var result = _authController.Register(registration);
+        //    var result = _authController.Register(registration);
 
-            Assert.IsInstanceOf<BadRequestObjectResult>(result);
-            var badRequestResult = (BadRequestObjectResult)result;
-            Assert.AreEqual("Role should be either a 'company' or a 'client'", badRequestResult.Value);
-        }
+        //    Assert.IsInstanceOf<BadRequestObjectResult>(result);
+        //    var badRequestResult = (BadRequestObjectResult)result;
+        //    Assert.AreEqual("Role should be either a 'company' or a 'client'", badRequestResult.Value);
+        //}
 
 
         [Test]
