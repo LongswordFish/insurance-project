@@ -23,7 +23,8 @@ const routes: Routes = [
   { path: 'my-plans', component: MyPlanViewComponent },
   { path: 'buy-product/:productId', component: BuyProductComponent },
   {path:'buy-bundle/:bundleId',component:BuyBundleComponent},
-  {path:'create-claim',component:ClaimCreateComponent}
+  {path:'create-claim',component:ClaimCreateComponent},
+  { path: 'company-profile', loadChildren: () => import('./company-profile/company-profile.module').then(m => m.CompanyProfileModule)},
 ];
 
 @NgModule({
