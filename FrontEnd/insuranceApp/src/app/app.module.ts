@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CompanyStatsModule } from './company-stats/company-stats.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ClaimDashboardModule } from './claim-dashboard/claim-dashboard.module'
 import { MatInputModule } from '@angular/material/input';
@@ -70,6 +71,8 @@ import { PublicNavComponent } from './components/public-nav/public-nav.component
     AppRoutingModule,
     BrowserAnimationsModule,
     NgbModule,
+    CompanyStatsModule,
+    FormsModule,
     HttpClientModule,
     ClaimDashboardModule,
     MatInputModule,
@@ -78,6 +81,7 @@ import { PublicNavComponent } from './components/public-nav/public-nav.component
     FormsModule,
     ReactiveFormsModule,
     CommonModule,
+    NgxPaginationModule,
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
@@ -99,7 +103,7 @@ import { PublicNavComponent } from './components/public-nav/public-nav.component
     MatDialogModule,
     MatRadioModule,
     MatSnackBarModule,
-    NgxPaginationModule
+    
     
     
 

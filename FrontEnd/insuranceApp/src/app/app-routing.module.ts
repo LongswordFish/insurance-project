@@ -1,5 +1,8 @@
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AddAProductComponent } from './company-stats/components/addproduct/addproduct.component';
+import { CompanyStatsListPageComponent } from './company-stats/components/company-stats-list-page/company-stats-list-page.component';
+import { ProductDetailsPageComponent } from './company-stats/components/product-details-page/product-details-page.component';
 import { MyPlanViewComponent } from './purchased/components/my-plan-view/my-plan-view.component';
 import { BuyProductComponent } from './purchased/components/buy-product/buy-product.component';
 
@@ -15,6 +18,21 @@ import { ClaimCreateComponent } from './claim-dashboard/claim-create/claim-creat
 import { ClaimViewComponent } from './claim-dashboard/claim-view/claim-view.component';
 
 const routes: Routes = [
+  {
+    path: "",
+    redirectTo: "companyStatsHome",
+    pathMatch: "full",
+  },
+  {
+    path: "companyStatsHome",
+    component: CompanyStatsListPageComponent,
+  },{
+    path: "productDetails",
+    component: ProductDetailsPageComponent,
+  },{
+    path: "addProduct",
+    component: AddAProductComponent,
+  },
   { path: 'add-product', component: AddProductComponent },
   { path: 'add-bundle', component: AddBundleComponent },
   { path: 'viewAllBundles', component: AllBundlesComponent },
@@ -26,6 +44,7 @@ const routes: Routes = [
   { path: 'create-claim', component:ClaimCreateComponent },
   { path: 'company-profile', loadChildren: () => import('./company-profile/company-profile.module').then(m => m.CompanyProfileModule)},
   { path: 'admin', loadChildren: () => import('./admin-dashboard/admin-dashboard.module').then(m => m.AdminDashboardModule)},
+
 ];
 
 @NgModule({

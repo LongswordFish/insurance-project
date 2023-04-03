@@ -1,0 +1,105 @@
+
+<div style="padding: 2em; margin: 4em; border: 1px solid black;">
+    <h1 style="text-align: center;">List Of Clients</h1>
+    <mat-form-field style="width: 100%;">
+      <mat-label>Search Clients</mat-label>
+      <input matInput (keyup)="applyFilterClients($event)" placeholder="Search" #input>
+    </mat-form-field>
+    <div class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataSourceClient" matSort>
+
+        <!-- ID Column -->
+        <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+            <td mat-cell *matCellDef="let row"> {{row.ClientId}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> NAME </th>
+            <td mat-cell *matCellDef="let row"> {{row.ClientName}} </td>
+        </ng-container>
+
+        <!-- Location column -->
+        <ng-container matColumnDef="location">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> LOCATION </th>
+            <td mat-cell *matCellDef="let row"> {{row.Location}} </td>
+        </ng-container>
+
+        <!-- Email column -->
+        <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> EMAIL </th>
+            <td mat-cell *matCellDef="let row"> {{row.Email}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr class="tableRow" mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+        <!-- Row shown when there is no matching data. -->
+        <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+        </tr>
+        </table>
+
+        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+    </div>
+</div>
+
+<!-- List of Reviews -->
+<div style="padding: 2em; margin: 4em; border: 1px solid black;">
+    <h1 style="text-align: center;">List Of Reviews</h1>
+    <mat-form-field style="width: 100%;">
+      <mat-label>Search Reviews</mat-label>
+      <input matInput (keyup)="applyFilterReviews($event)" placeholder="Search" #input>
+    </mat-form-field>
+    <div class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataSourceReview" matSort>
+
+        <!-- ID Column -->
+        <ng-container matColumnDef="reviewId">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+            <td mat-cell *matCellDef="let row"> {{row.reviewId}} </td>
+        </ng-container>
+        
+        <!-- CREATION DATE Column -->
+        <ng-container matColumnDef="reviewCreated_date">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> CREATED AT </th>
+            <td mat-cell *matCellDef="let row"> {{row.reviewCreated_date}} </td>
+        </ng-container>
+
+        <!-- TITLE Column -->
+        <ng-container matColumnDef="reviewTitle">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> TITLE </th>
+            <td mat-cell *matCellDef="let row"> {{row.reviewTitle}} </td>
+        </ng-container>
+
+        <!-- RATING column -->
+        <ng-container matColumnDef="rating">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> RATING </th>
+            <td mat-cell *matCellDef="let row"> {{row.rating}} </td>
+        </ng-container>
+
+        <!-- FEEDBACK Column -->
+        <ng-container matColumnDef="feedback">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> FEEDBACK </th>
+            <td mat-cell *matCellDef="let row"> {{row.feedback}} </td>
+        </ng-container>
+
+        <!-- CLIENT ID column -->
+        <ng-container matColumnDef="customerId">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> CLIENT ID </th>
+            <td mat-cell *matCellDef="let row"> {{row.customerId}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedReviewColumns"></tr>
+        <tr class="tableRow" mat-row *matRowDef="let row; columns: displayedReviewColumns;"></tr>
+
+        <!-- Row shown when there is no matching data. -->
+        <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+        </tr>
+        </table>
+
+        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+    </div>
+</div>
