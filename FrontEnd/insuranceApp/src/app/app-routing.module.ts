@@ -22,8 +22,10 @@ const routes: Routes = [
   { path: 'claims', component: ClaimViewComponent },
   { path: 'my-plans', component: MyPlanViewComponent },
   { path: 'buy-product/:productId', component: BuyProductComponent },
-  {path:'buy-bundle/:bundleId',component:BuyBundleComponent},
-  {path:'create-claim',component:ClaimCreateComponent}
+  { path: 'buy-bundle/:bundleId', component:BuyBundleComponent },
+  { path: 'create-claim', component:ClaimCreateComponent },
+  { path: 'company-profile', loadChildren: () => import('./company-profile/company-profile.module').then(m => m.CompanyProfileModule)},
+  { path: 'admin', loadChildren: () => import('./admin-dashboard/admin-dashboard.module').then(m => m.AdminDashboardModule)},
 ];
 
 @NgModule({
