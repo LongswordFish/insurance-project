@@ -9,6 +9,7 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
 import { AddreviewComponent } from '../addreview/addreview.component';
 import { RoutingService } from '../../services/routing.service';
+import { ViewreviewComponent } from '../viewreview/viewreview.component';
 @Component({
   selector: 'app-purchased-product-card',
   templateUrl: './purchased-product-card.component.html',
@@ -107,8 +108,24 @@ export class PurchasedProductCardComponent implements OnChanges{
     {
       this.matdialogobj.open(AddreviewComponent,{
         width:'50%',
-        height:'50%',
+        height:'80%',
         data:{compId : this.product.companyId, prodId:this.product.productId}
+      }).afterClosed().subscribe (
+        res=>
+          {
+            if (res==="Addreview")
+            console.log("Review added successfully")
+          }
+      )
+      }
+  }
+
+  viewReview(){
+    {
+      this.matdialogobj.open(ViewreviewComponent,{
+        width:'50%',
+        height:'80%',
+        data:{revId : this.pp_review.reviewId}
       }).afterClosed().subscribe (
         res=>
           {
