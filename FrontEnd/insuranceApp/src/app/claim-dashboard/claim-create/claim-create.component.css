@@ -34,6 +34,19 @@
   .submit-button {
     margin-top: 20px;
   }
+
+
+
+  
+.claim-form h4 {
+    display: inline-block;
+    margin: 0;
+    width: 150px;
+    vertical-align: top;
+    text-align: left !important;
+  }
+  
+  
   
   
   
