@@ -2,6 +2,8 @@ import { Component, TemplateRef, ViewChild } from '@angular/core';
 import { AuthenticateService } from 'src/app/authentication/services/authenticate.service';
 import { BsModalRef,BsModalService } from 'ngx-bootstrap/modal'; 
 import { EmailValidator } from '@angular/forms';
+import { RoutingService } from 'src/app/purchased/services/routing.service';
+import { User } from '../model/User.type';
 
 @Component({
   selector: 'app-registerlogin',
@@ -17,7 +19,8 @@ export class RegisterloginComponent {
   errorlist:any[]=[];
   modalMessage:any;
   value:any='client';
-  constructor(private authenticate:AuthenticateService,private modalService:BsModalService){
+  constructor(private authenticate:AuthenticateService,private modalService:BsModalService,
+              private routingService:RoutingService){
    
   }
 
@@ -30,6 +33,11 @@ export class RegisterloginComponent {
       sessionStorage.setItem("Userid",res.userid);
       sessionStorage.setItem("role",data.role);
       this.modalMessage = "Your login was Successful";
+      let user = new User();
+      user.Userid=res.userid;
+      user.role=data.role;
+      this.authenticate.updateUserForNavbar(user);
+      this.routingService.openMyPlans();
     },error=>{
       this.modalMessage = error.error;
     })
