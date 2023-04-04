@@ -1,83 +1,131 @@
-import { AfterViewInit, Component } from '@angular/core';
+import { Component } from '@angular/core';
+import { CompanyDataService } from '../../services/company-data.service';
+import { CompanyModel } from '../../models/company.model';
+import { DatePipe } from '@angular/common';
+import { Router } from '@angular/router';
+
+import { Chart, registerables } from 'chart.js';
+Chart.register(...registerables);
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent implements AfterViewInit {
-  active = 1;
+export class DashboardComponent {
+  allCompanyData: any;
+  xaxis: string[] = [];
+  recentDates: string[] = []; 
+  dataRegistered: number[] = []; 
+  dataApproved: number[] = []; 
   chart: any;
-  showChart: Boolean = false;
-  columnChartOptions = {
-    animationEnabled: true,
-    title: {
-      text: 'Top 10 Performing Companies (by Revenue)',
-      fontFamily: "Roboto",
-      fontSize: 23,
-    },
-    data: [{
-        type: 'column',
-        dataPoints: [
-          { label: 'ABC Company', y: 150000 },
-          { label: 'Rocky Mountain Insurance', y: 125000 },
-          { label: 'Long Roads Packages', y: 115000 },
-          { label: 'General Store', y: 99000 },
-          { label: 'Locality', y: 89000 },
-          { label: 'Cars4Us', y: 88000 },
-          { label: 'Cushion Home', y: 87000 },
-          { label: 'Diamond Deals', y: 67000 },
-          { label: 'Right Turn', y: 45000 },
-          { label: 'River Bank Insured', y: 30000 }
-        ]
-    }]
-  };
-  lineChartOptions = {
-    animationEnabled: true,
-    title: {
-      text: 'Companies Joined in the Past 5 Days',
-      fontFamily: "Roboto",
-      fontSize: 23,
-    },
-    data: [{
+
+  constructor(private api:CompanyDataService, private datePipe: DatePipe,private router: Router) { 
+  }
+
+  ngOnInit() {
+    this.api.getAllCompanies().subscribe(res => {
+      this.allCompanyData = res;
+      this.xaxis = this.getLast30Days();
+      this.dataRegistered = this.countRegistered();
+      this.dataApproved = this.countApproved(); 
+  
+      var myChart = new Chart("myChart", {
         type: 'line',
-        dataPoints: [
-          { label: 'Monday, March 27, 2023', y: 10 },
-          { label: 'Tuesday, March 28, 2023', y: 15 },
-          { label: 'Wednesday, March 29, 2023', y: 25 },
-          { label: 'Thursday, March 30, 2023', y: 30 },
-          { label: 'Friday, March 31, 2023', y: 28 }
-        ]
-      }]
-  };
-  pieChartOptions = {
-    animationEnabled: true,
-    title: {
-      text: 'Top Performing Products',
-      fontFamily: "Roboto",
-      fontSize: 23,
-    },
-    data: [{
-        type: 'pie',
-        dataPoints: [
-          { label: 'Complete Auto Insurance - ABC Insurance', y: 39 },
-          { label: 'Home Insurance Pkg 3 - General Store', y: 25 },
-          { label: 'Diamond Protection Plan - Cars4Us', y: 16 },
-          { label: 'Touring Pkg 4.5 - ABC Insurance', y: 10 },
-          { label: 'Other', y: 5 }
-        ]
-    }]
-  };
-  getChartInstance(chart: object) {
-    this.chart = chart;
+  
+        data: {
+          labels: this.xaxis, 
+           datasets: [
+            {
+              label: "Companies Registered",
+              data: this.dataRegistered,
+              backgroundColor: 'blue'
+            },
+            {
+              label: "Companies Approved",
+              data: this.dataApproved,
+              backgroundColor: 'red'
+            }
+          ]
+        },
+        options: {
+          aspectRatio:3.5
+        }
+        
+      });
+    });
   }
-  navChangeEvent(e: any) {
-    this.showChart = true;
+
+  // Re-route to companies page
+  onButtonClick() {
+    this.router.navigate(['/admin/companies']);
   }
-  navHiddenEvent(e: any) {
-    this.showChart = false;
+
+  // Get all companies 
+  getAllCompanies() {
+    this.api.getAllCompanies().subscribe(res => {
+      this.allCompanyData = res; 
+    })
   }
-  ngAfterViewInit() {
-    this.showChart = true;
+
+
+
+  // Approve company
+  approveCompany(data:any){
+    this.api.approveCompany(data.companyId).subscribe(res => {
+      this.getAllCompanies();
+    })
   }
+
+  // Reject company
+  rejectCompany(data:any){
+    this.api.rejectCompany(data.companyId).subscribe(res => {
+      this.getAllCompanies();
+    })
+  }
+
+  // Return array of data points for charting num occurences in last 30 days
+  getLast30Days(): string[] {
+    const dates: string[] = [];
+    const today: Date = new Date();
+    for (let i = 0; i < 30; i++) {
+      const date: Date = new Date(today.getTime() - i * 24 * 60 * 60 * 1000);
+      dates.push(date.toISOString().slice(0, 10));
+    }
+    return dates.reverse();
+  }
+
+  // Data returned from this function will be used in y-axis plotting --> Registered
+  countRegistered() {
+    const occurrences = new Array(this.xaxis.length).fill(0); // initialize array of zeros
+    for (let i = 0; i < this.xaxis.length; i++) {
+      const date = this.xaxis[i];
+      for (let j = 0; j < this.allCompanyData.length; j++) {
+        const company = this.allCompanyData[j];
+        const companyDate = company.dateRegistered.slice(0, 10); // extract date from ISO string
+        if (date === companyDate) {
+          occurrences[i]++;
+        }
+      }
+    }
+    return occurrences;
+  }
+
+  // Data returned from this function will be used in y-axis plotting --> Approved
+  countApproved() {
+    const occurrences = new Array(this.xaxis.length).fill(0); // initialize array of zeros
+    for (let i = 0; i < this.xaxis.length; i++) {
+      const date = this.xaxis[i];
+      for (let j = 0; j < this.allCompanyData.length; j++) {
+        const company = this.allCompanyData[j];
+        if (company.dateApproved) { // check for null value
+          const companyDate = company.dateApproved.slice(0, 10); // extract date from ISO string
+          if (date === companyDate) {
+            occurrences[i]++;
+          }
+        }
+      }
+    }
+    return occurrences;
+  }  
 }

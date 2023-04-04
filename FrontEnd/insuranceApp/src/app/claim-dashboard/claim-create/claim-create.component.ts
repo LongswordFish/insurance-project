@@ -18,6 +18,11 @@ export class ClaimCreateComponent {
   notify : Notification = new Notification();
   senderIdForNotification = sessionStorage.getItem("Userid") as String;
 
+  role = sessionStorage.getItem("role");
+  Userid = sessionStorage.getItem("Userid");
+  productId = sessionStorage.getItem("productId");
+  companyId = sessionStorage.getItem("companyId");
+
   constructor(
     private fb: FormBuilder,
     private snackBar: MatSnackBar,
@@ -28,13 +33,27 @@ export class ClaimCreateComponent {
   }
 
   createForm() {
-    this.claimForm = this.fb.group({
-      customerId: ['', Validators.required],
-      productId: ['', Validators.required],
-      companyId: ['', Validators.required],
-      description:['', Validators.required],
-      notes:['']
-    });
+
+    if(this.Userid != null && this.productId != null && this.companyId != null){
+      
+      this.claimForm = this.fb.group({
+        customerId: [this.Userid, Validators.required],
+        productId: [this.productId, Validators.required],
+        companyId: [this.companyId, Validators.required],
+        description:['', Validators.required],
+        notes:['']
+      });
+
+    }else{
+      this.claimForm = this.fb.group({
+        customerId: ['', Validators.required],
+        productId: ['', Validators.required],
+        companyId: ['', Validators.required],
+        description:['', Validators.required],
+        notes:['']
+      });
+    }
+
   }
 
   onSubmit() {

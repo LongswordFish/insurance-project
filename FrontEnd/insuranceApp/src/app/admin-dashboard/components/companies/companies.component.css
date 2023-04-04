@@ -8,3 +8,12 @@ img {
     height:30px;
     border-radius: 50%;
 }
+
+.company-accordion {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+mat-icon {
+    font-size: 10px;
+  }

@@ -1,22 +1,32 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { Product } from './product';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { map, Observable } from 'rxjs';
+import { Product } from '../client-dashboard/product.model';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class ProductService {
-  private baseUrl = 'http://localhost:9093/products';
 
-  constructor(private http: HttpClient) {}
+   private baseUrl = 'http://localhost:9093/products';
+  // private baseUrl = 'http://localhost:3000/products';
 
-  createProduct(product: Product): Observable<Product> {
+  token: any;
+
+  constructor(private http:HttpClient) { 
+    this.token = sessionStorage.getItem("token");
+  }
+  
+
+  addProduct(product: Product): Observable<Product> {
     return this.http.post<Product>(`${this.baseUrl}/add`, product);
   }
 
   getAllProducts(): Observable<Product[]> {
-    return this.http.get<Product[]>(`${this.baseUrl}/view/all`);
+    return this.http.get<Product[]>(`${this.baseUrl}/view/all` ,
+{
+  headers:new HttpHeaders().set('Authorization','Bearer '+this.token)
+    });
   }
 
   updateProduct(productId: string, product: Product): Observable<Product> {
@@ -70,4 +80,5 @@ export class ProductService {
   getProductsByLocationName(locationName: string): Observable<Product[]> {
     return this.http.get<Product[]>(`${this.baseUrl}/location/${locationName}`);
   }
+
 }

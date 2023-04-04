@@ -1,0 +1,63 @@
+<div class="container py-5">
+    <form [formGroup]="form" (ngSubmit)="onButtonClickSubmit()">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="card mb-4">
+                    <div class="card-body text-center">
+                        <br/><br/>
+                        <img src="../../../../assets/images/faces/client-profile.jpg" alt="client profile"/>
+                        <br/><br/>
+                        <hr>
+                        <br/>
+                        <div class="d-flex justify-content-center mb-2">
+                            <input class="btn btn-outline-warning ms-1" type="submit" value="Apply Changes">
+                            <button type="button" class="btn btn-outline-info ms-1" (click)="onButtonClickCancel()">Cancel Updates</button>
+                        </div>
+                        <br/>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-1">
+                                <mat-icon>person</mat-icon>
+                            </div>
+                            <div class="col-sm-2">
+                                <p class="mb-0">Name</p>
+                            </div>
+                            <div class="col-sm-9">
+                                <input formControlName="clientName" type="text" [value]="client.clientName">
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-1">
+                                <mat-icon>public</mat-icon>
+                            </div>
+                            <div class="col-sm-2">
+                                <p class="mb-0">Address</p>
+                            </div>
+                            <div class="col-sm-9">
+                                <input formControlName="location" type="text">
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-1">
+                                <mat-icon>email</mat-icon>
+                            </div>
+                            <div class="col-sm-2">
+                                <p class="mb-0">Email</p>
+                            </div>
+                            <div class="col-sm-9">
+                                <input formControlName="email" type="text">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>        
+        </div>
+    </form>
+</div>

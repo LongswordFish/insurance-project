@@ -1,0 +1,60 @@
+<!-- search bundle by name and id -->
+<!-- <mat-form-field class="search-field">
+    <mat-label>Search for bundle</mat-label>
+    <input matInput [(ngModel)]="searchText">
+    <button mat-icon-button matSuffix>
+        <mat-icon>search</mat-icon>
+    </button>
+</mat-form-field>  -->
+
+<!-- <input matInput placeholder="Search for bundle" [(ngModel)]="searchText"> -->
+
+
+
+<!-- view all bundles -->
+<table mat-table [dataSource]="bundles | bundleFilter:searchText" class="mat-elevation-z8">
+    <ng-container matColumnDef="bundleid">
+        <th mat-header-cell *matHeaderCellDef> Bundle ID </th>
+        <td mat-cell *matCellDef="let bundle">
+            <a [routerLink]="['/bundles', bundle.bundleid]">{{bundle.bundleid}}</a>
+        </td>
+    </ng-container>
+    <ng-container matColumnDef="bundlename">
+        <th mat-header-cell *matHeaderCellDef> Bundle Name </th>
+        <td mat-cell *matCellDef="let bundle"> {{bundle.bundlename}} </td>
+    </ng-container>
+    <ng-container matColumnDef="productids">
+        <th mat-header-cell *matHeaderCellDef> Product IDs </th>
+        <td mat-cell *matCellDef="let bundle"> {{bundle.productids}} </td>
+    </ng-container>
+    <ng-container matColumnDef="totalPrice">
+        <th mat-header-cell *matHeaderCellDef> Total Price </th>
+        <td mat-cell *matCellDef="let bundle"> {{bundle.totalPrice}} </td>
+    </ng-container>
+    <ng-container matColumnDef="location">
+        <th mat-header-cell *matHeaderCellDef> Location </th>
+        <td mat-cell *matCellDef="let bundle"> {{bundle.location}} </td>
+    </ng-container>
+    <ng-container matColumnDef="companyid">
+        <th mat-header-cell *matHeaderCellDef> Company ID </th>
+        <td mat-cell *matCellDef="let bundle"> {{bundle.companyid}} </td>
+    </ng-container>
+    <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef> Actions </th>
+        <td mat-cell *matCellDef="let bundle">
+            <button mat-icon-button color="primary" [routerLink]="['/buy-bundle', bundle.bundleId]">
+                <mat-icon>shopping_cart</mat-icon>
+            </button>
+        </td>
+    </ng-container>
+    <tr mat-header-row
+        *matHeaderRowDef="['bundleid', 'bundlename', 'productids', 'totalPrice', 'location', 'companyid', 'actions']">
+    </tr>
+    <tr mat-row
+        *matRowDef="let bundle; columns: ['bundleid', 'bundlename', 'productids', 'totalPrice', 'location', 'companyid', 'actions'];">
+    </tr>
+</table>
+
+
+
+

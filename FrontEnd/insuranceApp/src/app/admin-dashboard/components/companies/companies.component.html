@@ -1,3 +1,6 @@
+<!-- Add icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <div class="company-accordion">
     <br/>
     <h1>Newly Registered Companies</h1>
@@ -8,26 +11,61 @@
       <mat-expansion-panel *ngIf="data.isApproved==false && data.adminViewed==false">
         <mat-expansion-panel-header>
           <mat-panel-title>
-            {{data.name}}
+            <img src="data:image/png;base64, {{data.logo}}" alt="logo"/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{data.name}}
           </mat-panel-title>
           <mat-action-row> 
             <button mat-raised-button (click)="approveCompany(data)">Approve</button> <br/>
             <button mat-raised-button color="warn" (click)="rejectCompany(data)">Reject</button>
           </mat-action-row>
           <mat-panel-description>
-            Registered: {{data.dateRegistered}}
-            <img src="data:image/png;base64, {{data.logo}}" alt="no image"/>
+            Registered: {{data.dateRegistered | date:'longDate'}}
           </mat-panel-description>
         </mat-expansion-panel-header>
-          <div class="jumbotron jumbotron-fluid">
-            <p class="lead">{{data.description}}</p>
-          </div>
+        <br/><br/>
+          <div class="shadow p-3 mb-5 bg-white rounded text-center">{{data.description}}</div>
           <br/>
-          <h3>Contact Details</h3>
-          <ul>
-            <li>Address: {{data.address}}, {{data.city}} {{data.state}}, {{data.country}} {{data.postalCode}}</li>
-            <li>{{data.contactDetails}}</li>
-          </ul>
+          <table class="table table-borderless">
+            <thead>
+              <tr>
+                <th scope="col" style="width: 15%"></th>
+                <th scope="col" style="width: 85%"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-home"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Address
+                </td>
+                <td class="text-muted">{{data.address}}, {{data.city}} {{data.state}}, {{data.country}} {{data.postalCode}}</td>
+              </tr>
+              <tr>
+                <td>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-phone"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Phone
+                </td>
+                <td class="text-muted">{{parsePhone(data.contactDetails)}}</td>
+              </tr>
+              <tr>
+                <td>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-fax"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fax
+                </td>
+                <td class="text-muted">{{parseFax(data.contactDetails)}}</td>
+              </tr>
+              <tr>
+                <td>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-sitemap"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Website
+                </td>
+                <td class="text-muted">{{parseWebsite(data.contactDetails)}}</td>
+              </tr>
+              <tr>
+                <td>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-id-card"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Instagram
+                </td>
+                <td class="text-muted">{{parseInstagram(data.contactDetails)}}</td>
+              </tr>
+            </tbody>
+          </table>
+          <br/><br/>
       </mat-expansion-panel>
     </mat-accordion>
   
@@ -41,25 +79,60 @@
       <mat-expansion-panel *ngIf="data.isApproved==true && data.adminViewed==true">
         <mat-expansion-panel-header>
           <mat-panel-title>
-            {{data.name}}
+            <img src="data:image/png;base64, {{data.logo}}" alt="logo"/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{data.name}}
           </mat-panel-title>
           <mat-action-row> 
             <button mat-raised-button color="warn" (click)="rejectCompany(data)">Disable</button>
           </mat-action-row>
           <mat-panel-description>
-            Registered: {{data.dateRegistered}}&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Approved: {{data.dateApproved}}
-            <img src="data:image/png;base64, {{data.logo}}" alt="no image"/>
+            Registered: {{data.dateRegistered | date:'longDate'}}&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Approved: {{data.dateApproved | date:'longDate'}}
           </mat-panel-description>
         </mat-expansion-panel-header>
-          <div class="jumbotron jumbotron-fluid">
-            <p class="lead">{{data.description}}</p>
-          </div>
+        <br/><br/>
+          <div class="shadow p-3 mb-5 bg-white rounded text-center">{{data.description}}</div>
           <br/>
-          <h3>Contact Details</h3>
-          <ul>
-            <li>Address: {{data.address}}, {{data.city}} {{data.state}}, {{data.country}} {{data.postalCode}}</li>
-            <li>{{data.contactDetails}}</li>
-          </ul>
+          <table class="table table-borderless">
+            <thead>
+              <tr>
+                <th scope="col" style="width: 15%"></th>
+                <th scope="col" style="width: 85%"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-home"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Address
+                </td>
+                <td class="text-muted">{{data.address}}, {{data.city}} {{data.state}}, {{data.country}} {{data.postalCode}}</td>
+              </tr>
+              <tr>
+                <td>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-phone"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Phone
+                </td>
+                <td class="text-muted">{{parsePhone(data.contactDetails)}}</td>
+              </tr>
+              <tr>
+                <td>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-fax"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fax
+                </td>
+                <td class="text-muted">{{parseFax(data.contactDetails)}}</td>
+              </tr>
+              <tr>
+                <td>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-sitemap"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Website
+                </td>
+                <td class="text-muted">{{parseWebsite(data.contactDetails)}}</td>
+              </tr>
+              <tr>
+                <td>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-id-card"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Instagram
+                </td>
+                <td class="text-muted">{{parseInstagram(data.contactDetails)}}</td>
+              </tr>
+            </tbody>
+          </table>
+          <br/><br/>
       </mat-expansion-panel>
     </mat-accordion>
   
@@ -74,25 +147,60 @@
       <mat-expansion-panel *ngIf="data.isApproved==false && data.adminViewed==true && data.dateApproved==null">
         <mat-expansion-panel-header>
           <mat-panel-title>
-            {{data.name}}
+            <img src="data:image/png;base64, {{data.logo}}" alt="logo"/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{data.name}}
           </mat-panel-title>
           <mat-action-row> 
             <button mat-raised-button (click)="approveCompany(data)">Accept</button>
           </mat-action-row>
           <mat-panel-description>
-            Registered: {{data.dateRegistered}}
-            <img src="data:image/png;base64, {{data.logo}}" alt="no image"/>
+            Registered: {{data.dateRegistered | date:'longDate'}}
           </mat-panel-description>
         </mat-expansion-panel-header>
-          <div class="jumbotron jumbotron-fluid">
-            <p class="lead">{{data.description}}</p>
-          </div>
+        <br/><br/>
+          <div class="shadow p-3 mb-5 bg-white rounded text-center">{{data.description}}</div>
           <br/>
-          <h3>Contact Details</h3>
-          <ul>
-            <li>Address: {{data.address}}, {{data.city}} {{data.state}}, {{data.country}} {{data.postalCode}}</li>
-            <li>{{data.contactDetails}}</li>
-          </ul>
+          <table class="table table-borderless">
+            <thead>
+              <tr>
+                <th scope="col" style="width: 15%"></th>
+                <th scope="col" style="width: 85%"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-home"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Address
+                </td>
+                <td class="text-muted">{{data.address}}, {{data.city}} {{data.state}}, {{data.country}} {{data.postalCode}}</td>
+              </tr>
+              <tr>
+                <td>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-phone"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Phone
+                </td>
+                <td class="text-muted">{{parsePhone(data.contactDetails)}}</td>
+              </tr>
+              <tr>
+                <td>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-fax"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fax
+                </td>
+                <td class="text-muted">{{parseFax(data.contactDetails)}}</td>
+              </tr>
+              <tr>
+                <td>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-sitemap"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Website
+                </td>
+                <td class="text-muted">{{parseWebsite(data.contactDetails)}}</td>
+              </tr>
+              <tr>
+                <td>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-id-card"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Instagram
+                </td>
+                <td class="text-muted">{{parseInstagram(data.contactDetails)}}</td>
+              </tr>
+            </tbody>
+          </table>
+          <br/><br/>
       </mat-expansion-panel>
     </mat-accordion>
   
@@ -107,25 +215,60 @@
       <mat-expansion-panel *ngIf="data.isApproved==false && data.adminViewed==true && data.dateApproved!=null">
         <mat-expansion-panel-header>
           <mat-panel-title>
-            {{data.name}}
+            <img src="data:image/png;base64, {{data.logo}}" alt="logo"/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{data.name}}
           </mat-panel-title>
           <mat-action-row> 
             <button mat-raised-button (click)="approveCompany(data)">Re-Enable & Accept</button>
           </mat-action-row>
           <mat-panel-description>
-            Registered: {{data.dateRegistered}}&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Last Approved: {{data.dateApproved}}
-            <img src="data:image/png;base64, {{data.logo}}" alt="no image"/>
+            Registered: {{data.dateRegistered | date:'longDate'}}&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Last Approved: {{data.dateApproved | date:'longDate'}}
           </mat-panel-description>
         </mat-expansion-panel-header>
-          <div class="jumbotron jumbotron-fluid">
-            <p class="lead">{{data.description}}</p>
-          </div>
+        <br/><br/>
+          <div class="shadow p-3 mb-5 bg-white rounded text-center">{{data.description}}</div>
           <br/>
-          <h3>Contact Details</h3>
-          <ul>
-            <li>Address: {{data.address}}, {{data.city}} {{data.state}}, {{data.country}} {{data.postalCode}}</li>
-            <li>{{data.contactDetails}}</li>
-          </ul>
+          <table class="table table-borderless">
+            <thead>
+              <tr>
+                <th scope="col" style="width: 15%"></th>
+                <th scope="col" style="width: 85%"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-home"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Address
+                </td>
+                <td class="text-muted">{{data.address}}, {{data.city}} {{data.state}}, {{data.country}} {{data.postalCode}}</td>
+              </tr>
+              <tr>
+                <td>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-phone"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Phone
+                </td>
+                <td class="text-muted">{{parsePhone(data.contactDetails)}}</td>
+              </tr>
+              <tr>
+                <td>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-fax"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fax
+                </td>
+                <td class="text-muted">{{parseFax(data.contactDetails)}}</td>
+              </tr>
+              <tr>
+                <td>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-sitemap"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Website
+                </td>
+                <td class="text-muted">{{parseWebsite(data.contactDetails)}}</td>
+              </tr>
+              <tr>
+                <td>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-id-card"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Instagram
+                </td>
+                <td class="text-muted">{{parseInstagram(data.contactDetails)}}</td>
+              </tr>
+            </tbody>
+          </table>
+          <br/><br/>
       </mat-expansion-panel>
     </mat-accordion>
   

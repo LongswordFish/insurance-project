@@ -7,12 +7,12 @@
                     <h1 class="my-3">{{company.name}}</h1>
                     <p class="text-muted mb-1">{{company.city}}, {{company.state}}</p>
                     <hr>
+                    <br/>
                     <p class="mb-0">{{company.description}}</p>
                     <br/>
                     <br/>
                     <div class="d-flex justify-content-center mb-2">
-                        <button type="button" class="btn btn-outline-info ms-1">Update Profile</button>
-                        <button type="button" class="btn btn-outline-warning ms-1">Update Password</button>
+                        <button type="button" class="btn btn-outline-info ms-1" (click)="onButtonClickUpdate()">Update Profile</button>
                     </div>
                 </div>
             </div>

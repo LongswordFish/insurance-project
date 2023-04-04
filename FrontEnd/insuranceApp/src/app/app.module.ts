@@ -8,7 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NotificationModule } from './notification/notification.module';
 import { CompanyStatsModule } from './company-stats/company-stats.module';
 
-import { ClaimDashboardModule } from './claim-dashboard/claim-dashboard.module';
+
 import { MatInputModule } from '@angular/material/input';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
@@ -35,13 +35,13 @@ import { BundleFilterPipe } from './bundle-filter.pipe';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 
+import { ClaimDashboardModule } from './claim-dashboard/claim-dashboard.module';
 import { PurchasedModule } from './purchased/purchased.module';
 import { RouterModule } from '@angular/router';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { AllBundlesComponent } from './components/bundle/all-bundles/all-bundles.component';
-import { AddProductComponent } from './components/add-product/add-product.component';
 import { AddBundleComponent } from './components/bundle/add-bundle/add-bundle.component';
 import { AddClaimsComponent } from './components/add-claims/add-claims.component';
 import { BundleDetailsComponent } from './components/bundle/bundle-details/bundle-details.component';
@@ -49,27 +49,40 @@ import { ClientNavComponent } from './components/client-nav/client-nav.component
 import { PublicNavComponent } from './components/public-nav/public-nav.component';
 import { ClientProfileModule } from './client-profile/client-profile.module';
 import { RegisterloginComponent } from './authentication/registerlogin/registerlogin.component';
+
+// import { ClientDashboardModule } from './client-dashboard/client-dashboard.module';
+import { ClientnavbarComponent } from './client-dashboard/clientnavbar/clientnavbar.component';
+
+
+import { ViewProductComponent } from './client-dashboard/view-product/view-product.component';
+import { ViewBundlesComponent } from './client-dashboard/view-bundles/view-bundles.component';
+
 import { MatTabsModule } from '@angular/material/tabs';
 import { AuthenticateService } from './authentication/services/authenticate.service';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { ClientDashboardModule } from './client-dashboard/client-dashboard.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     FooterComponent,
     SideCompanyDashComponent,
-    AddProductComponent,
     AddBundleComponent,
     AddClaimsComponent,
     AllBundlesComponent,
     BundleDetailsComponent,
-    BundleFilterPipe,
     ClientNavComponent,
     PublicNavComponent,
     RegisterloginComponent,
+    ClientnavbarComponent,
+    
+    // ViewProductComponent,
+    // ViewBundlesComponent
+    
   ],
   imports: [
     BrowserModule,
+    MatToolbarModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     NotificationModule,
@@ -123,8 +136,8 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     MatOptionModule,
     MatSelectModule,
     ModalModule.forRoot(),
-    ClientProfileModule
-
+    ClientProfileModule,
+    ClientDashboardModule
   ],
   providers: [AuthenticateService],
   bootstrap: [AppComponent],
