@@ -57,7 +57,7 @@ export class BuyProductComponent implements OnInit{
         pp.quotePrice=Number(l.locationPrice);
       }
     })
-    
+    console.log(pp);
     this.ppService.postPurchased(pp).subscribe(res=>{
       this._snackBar.open("Record added", "close");
       this.routingService.openMyPlans();
