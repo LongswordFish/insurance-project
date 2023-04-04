@@ -13,3 +13,4 @@ export class Product {
     isAvailable!: boolean;
   }
   
+  

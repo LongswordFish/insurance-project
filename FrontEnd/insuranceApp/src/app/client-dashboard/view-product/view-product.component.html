@@ -1,62 +1,109 @@
-<!-- <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ViewProducts</title>
-    <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
-    <script src="/node_modules/bootstrap/dist/js/jquery.min.js" type="text/javascript"></script>
-</head>
-<body>
+<!-- Search bar -->
+<!-- <mat-form-field class="search-field">
+  <mat-label>Search for product</mat-label>
+  <input matInput [(ngModel)]="searchText">
+  <button mat-icon-button matSuffix>
+      <mat-icon>search</mat-icon>
+  </button>
+</mat-form-field> -->
 
-    <div class="container mt-5">
-        <div class="row">
-          <div class="col-md-4" *ngFor="let product of products">
-            <div class="card mb-3">
-              <img [src]="product.picture" class="card-img-top" alt="product image">
-              <div class="card-body">
-                <h5 class="card-title">{{ product.name }}</h5>
-                <p class="card-text">{{ product.description }}</p>
-                <p class="card-text"><strong>Price:</strong> {{ product.price }}</p>
-                <a href="#" class="btn btn-primary">View Details</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    
-</body>
-</html>  -->
-<!-- <div class="container mt-5">
-    <div class="row">
-      <div class="col-md-4" *ngFor="let product of products">
-        <div class="card mb-3">
-          <img [src]="product.picture" class="card-img-top" alt="product image">
-          <div class="card-body">
-            <h5 class="card-title">{{ product.name }}</h5>
-            <p class="card-text">{{ product.description }}</p>
-            <p class="card-text"><strong>Price:</strong> {{ product.price }}</p>
-            <a href="#" class="btn btn-primary">View Details</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div> -->
+<!-- Table to display products -->
+<table mat-table [dataSource]="products" class="mat-elevation-z8">
+  <ng-container matColumnDef="productId">
+      <th mat-header-cell *matHeaderCellDef> Product ID </th>
+      <td mat-cell *matCellDef="let product"> {{product.productId}} </td>
+  </ng-container>
 
-  <!-- <div class="container mt-5">
-    <div class="row">
-      <div class="col-md-4" *ngFor="let product of products">
-        <mat-card class="mb-3">
-          <img mat-card-image [src]="product.picture" alt="product image">
-          <mat-card-content>
-            <h5 mat-card-title>{{ product.name }}</h5>
-            <p mat-card-subtitle>{{ product.description }}</p>
-            <p><strong>Price:</strong> {{ product.price }}</p>
-          </mat-card-content>
-          <mat-card-actions>
-            <button mat-raised-button color="primary">View Details</button>
-          </mat-card-actions>
-        </mat-card>
-      </div>
-    </div>
-  </div>  -->
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> Name </th>
+    <td mat-cell *matCellDef="let product"> {{product.name}} </td>
+</ng-container>
+
+<ng-container matColumnDef="category">
+    <th mat-header-cell *matHeaderCellDef> Category </th>
+    <td mat-cell *matCellDef="let product"> {{product.category}} </td>
+</ng-container>
+
+<ng-container matColumnDef="picture">
+    <th mat-header-cell *matHeaderCellDef> Picture </th>
+    <td mat-cell *matCellDef="let product"> {{product.picture}} </td>
+</ng-container>
+
+<ng-container matColumnDef="description">
+    <th mat-header-cell *matHeaderCellDef> Description </th>
+    <td mat-cell *matCellDef="let product"> {{product.description}} </td>
+</ng-container>
+
+<ng-container matColumnDef="price">
+    <th mat-header-cell *matHeaderCellDef> Price </th>
+    <td mat-cell *matCellDef="let product"> {{product.price}} </td>
+</ng-container>
+
+<ng-container matColumnDef="locations">
+    <th mat-header-cell *matHeaderCellDef> Locations </th>
+    <td mat-cell *matCellDef="let product"> {{product.locations}} </td>
+</ng-container>
+
+<ng-container matColumnDef="companyId">
+    <th mat-header-cell *matHeaderCellDef> Company ID </th>
+    <td mat-cell *matCellDef="let product"> {{product.companyId}} </td>
+</ng-container>
+
+<ng-container matColumnDef="isAvailable">
+    <th mat-header-cell *matHeaderCellDef> Is Available </th>
+    <td mat-cell *matCellDef="let product"> {{product.isAvailable}} </td>
+</ng-container>
+
+<ng-container matColumnDef="actions">
+  <th mat-header-cell *matHeaderCellDef> Actions </th>
+  <td mat-cell *matCellDef="let product">
+      <button mat-icon-button color="primary" [routerLink]="['/buy-product', product.productId]">
+          <mat-icon>shopping_cart</mat-icon>
+      </button>
+  </td>
+</ng-container>
+
+<tr mat-header-row
+    *matHeaderRowDef="['productId', 'name', 'category', 'picture', 'description', 'price', 'locations', 'companyId', 'isAvailable', 'actions']">
+</tr>
+<tr mat-row *matRowDef="let product; columns: ['productId', 'name', 'category', 'picture', 'description', 'price', 'locations', 'companyId', 'isAvailable', 'actions'];">
+</tr>
+</table>
+
+<!-- Pagination -->
+<!-- <mat-paginator [length]="totalProducts" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
+  (page)="pageEvent = $event">
+</mat-paginator> -->
+
+  
+
+  <!-- <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">First</th>
+        <th scope="col">Last</th>
+        <th scope="col">Handle</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td>@mdo</td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>Jacob</td>
+        <td>Thornton</td>
+        <td>@fat</td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td>Larry</td>
+        <td>the Bird</td>
+        <td>@twitter</td>
+      </tr>
+    </tbody>
+  </table> -->
