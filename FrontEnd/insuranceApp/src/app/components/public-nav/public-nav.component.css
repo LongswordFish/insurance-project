@@ -1,8 +1,36 @@
-a{
-    text-decoration: none; 
-    margin-left: 20px;
+.link-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100vh;
+    padding: 0 20px;
 }
 
-.link-wrapper{
-    margin-left: 20px;
+a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1.2rem;
+    margin: 0 10px;
+    padding: 10px;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+}
+
+.logo-link img {
+    max-height: 50px;
+}
+
+a:hover {
+    /* background-color: #12BEC8; */
+    color: #12BEC8;
+}
+
+.active {
+    background-color: #333;
+    color: #fff;
+}
+
+img {
+    max-height: 150px;
+
 }

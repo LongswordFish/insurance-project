@@ -42,15 +42,6 @@
             </mat-error>
         </mat-form-field>
 
-        <!-- <mat-form-field appearance="outline">
-            <mat-label>Company ID</mat-label>
-            <input matInput formControlName="companyid" placeholder="Enter company ID">
-            <mat-error
-                *ngIf="bundleForm.get('companyid')?.invalid && (bundleForm.get('companyid')?.dirty || bundleForm.get('companyid')?.touched)">
-                Please enter a valid company ID
-            </mat-error>
-        </mat-form-field> -->
-
         <div fxLayout="row" fxLayoutAlign="end">
             <button type="submit" mat-raised-button color="primary" [disabled]="!bundleForm.valid">Create
                 Bundle</button>

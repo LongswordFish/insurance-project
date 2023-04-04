@@ -15,7 +15,6 @@ import { ViewBundlesComponent } from './client-dashboard/view-bundles/view-bundl
 
 import { AddBundleComponent } from './components/bundle/add-bundle/add-bundle.component';
 import { AddClaimsComponent } from './components/add-claims/add-claims.component';
-import { AddProductComponent } from './components/add-product/add-product.component';
 import { AllBundlesComponent } from './components/bundle/all-bundles/all-bundles.component';
 import { BundleDetailsComponent } from './components/bundle/bundle-details/bundle-details.component';
 import { BuyBundleComponent } from './purchased/components/buy-bundle/buy-bundle.component';
@@ -47,7 +46,6 @@ const routes: Routes = [
     path: 'addProduct',
     component: AddAProductComponent,
   },
-  { path: 'add-product', component: AddProductComponent },
   { path: 'add-bundle', component: AddBundleComponent },
   { path: 'viewAllBundles', component: AllBundlesComponent },
   { path: 'bundles/:id', component: BundleDetailsComponent },
@@ -87,7 +85,7 @@ const routes: Routes = [
   },
   { path: 'view-product', component: ViewProductComponent },
   { path: 'view-bundles', component: ViewBundlesComponent },
-  {path:'clientnavbar',component:ClientnavbarComponent}
+  { path: 'clientnavbar', component: ClientnavbarComponent },
 ];
 
 @NgModule({
