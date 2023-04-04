@@ -34,8 +34,8 @@
                     </button>
                     <button mat-menu-item>
                         <mat-icon>notifications</mat-icon> 
-                        <a  *ngIf="user?.role!=undefined && user?.role=='company'" routerLink="/notification/companyview">View notifications</a>
-                        <a  *ngIf="user?.role!=undefined && user?.role=='client'" routerLink="/notification/clientView">View notifications</a>
+                        <a *ngIf="user?.role!=undefined && user?.role=='client'" routerLink="/notification/clientView">View notifications</a>
+                        <a *ngIf="user?.role!=undefined && user?.role=='company'" routerLink="/notification/companyview">View notifications</a>
                     </button>
                 </mat-menu>
                 <button mat-icon-button [matMenuTriggerFor]="notificationsMenu">

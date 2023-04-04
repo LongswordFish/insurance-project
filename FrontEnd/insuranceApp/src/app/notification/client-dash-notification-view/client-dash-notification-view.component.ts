@@ -101,7 +101,6 @@ export class ClientDashNotificationViewComponent {
     this.nservice.deleteNotification(id).subscribe(
       (res:any)=>{
         console.log(`Delete with id ${id} has been deleted.`);
-        this.getAllNotificatonsForRecipient("34");
       },
       (err:any)=>{
         console.log(err.error);
