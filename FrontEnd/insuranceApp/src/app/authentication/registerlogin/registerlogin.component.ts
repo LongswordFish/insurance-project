@@ -37,7 +37,16 @@ export class RegisterloginComponent {
       user.Userid=res.userid;
       user.role=data.role;
       this.authenticate.updateUserForNavbar(user);
-      this.routingService.openMyPlans();
+      if(data.role=='company'){
+        this.routingService.openCompanyDash();
+      }else if(data.role=='client'){
+        this.routingService.openMyPlans();
+      }else if(data.role=='admin'){
+        this.routingService.openAdminDash()
+      }else{
+        this.routingService.openHome();
+      }
+      
     },error=>{
       this.modalMessage = error.error;
     })
