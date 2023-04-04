@@ -124,7 +124,6 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     MatSelectModule,
     ModalModule.forRoot(),
     ClientProfileModule
-
   ],
   providers: [AuthenticateService],
   bootstrap: [AppComponent],
