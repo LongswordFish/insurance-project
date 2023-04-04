@@ -60,6 +60,7 @@ import { ViewBundlesComponent } from './client-dashboard/view-bundles/view-bundl
 import { MatTabsModule } from '@angular/material/tabs';
 import { AuthenticateService } from './authentication/services/authenticate.service';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { ClientDashboardModule } from './client-dashboard/client-dashboard.module';
 
 @NgModule({
   declarations: [
@@ -70,13 +71,13 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     AddClaimsComponent,
     AllBundlesComponent,
     BundleDetailsComponent,
-    BundleFilterPipe,
     ClientNavComponent,
     PublicNavComponent,
     RegisterloginComponent,
     ClientnavbarComponent,
-    ViewProductComponent,
-    ViewBundlesComponent
+    
+    // ViewProductComponent,
+    // ViewBundlesComponent
     
   ],
   imports: [
@@ -135,7 +136,8 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     MatOptionModule,
     MatSelectModule,
     ModalModule.forRoot(),
-    ClientProfileModule
+    ClientProfileModule,
+    ClientDashboardModule
   ],
   providers: [AuthenticateService],
   bootstrap: [AppComponent],

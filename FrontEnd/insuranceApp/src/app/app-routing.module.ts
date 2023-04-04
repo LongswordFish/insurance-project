@@ -23,12 +23,33 @@ import { PurchasedProductListComponent } from './purchased/components/purchased-
 import { ClaimCreateComponent } from './claim-dashboard/claim-create/claim-create.component';
 import { ClaimViewComponent } from './claim-dashboard/claim-view/claim-view.component';
 import { ClientnavbarComponent } from './client-dashboard/clientnavbar/clientnavbar.component';
-
+import { ClientViewComponent } from './client-dashboard/client-view/client-view.component';
+import { ClientProfileComponent } from './client-profile/components/client-profile/client-profile.component';
 const routes: Routes = [
+  //common routes:
   {
-    path: '',
+    path: 'register-login',
     component: RegisterloginComponent,
   },
+  //clients flow:
+  {path:'client-view',component:ClientViewComponent},
+  { path: 'buy-product/:productId', component: BuyProductComponent },
+  { path: 'buy-bundle/:bundleId', component: BuyBundleComponent },
+  { path: 'claims', component: ClaimViewComponent },
+  { path: 'my-plans', component: MyPlanViewComponent },
+  { path: 'create-claim', component: ClaimCreateComponent },
+  {
+    path: 'client-profile',
+    loadChildren: () =>
+      import('./client-profile/client-profile.module').then(
+        (m) => m.ClientProfileModule
+      ),
+  },
+  {
+    path: 'notification/clientView',
+    component: ClientDashNotificationViewComponent,
+  },
+    // company flow
   {
     path: 'companyStats',
     redirectTo: 'companyStatsHome',
@@ -49,11 +70,6 @@ const routes: Routes = [
   { path: 'add-bundle', component: AddBundleComponent },
   { path: 'viewAllBundles', component: AllBundlesComponent },
   { path: 'bundles/:id', component: BundleDetailsComponent },
-  { path: 'claims', component: ClaimViewComponent },
-  { path: 'my-plans', component: MyPlanViewComponent },
-  { path: 'buy-product/:productId', component: BuyProductComponent },
-  { path: 'buy-bundle/:bundleId', component: BuyBundleComponent },
-  { path: 'create-claim', component: ClaimCreateComponent },
   {
     path: 'company-profile',
     loadChildren: () =>
@@ -62,30 +78,24 @@ const routes: Routes = [
       ),
   },
   {
+    path: 'notification/companyview',
+    component: CompanyDashNotificationViewComponent,
+  },
+  //admin flow
+  {
     path: 'admin',
     loadChildren: () =>
       import('./admin-dashboard/admin-dashboard.module').then(
         (m) => m.AdminDashboardModule
       ),
   },
-  {
-    path: 'notification/companyview',
-    component: CompanyDashNotificationViewComponent,
-  },
-  {
-    path: 'notification/clientView',
-    component: ClientDashNotificationViewComponent,
-  },
-  {
-    path: 'client-profile',
-    loadChildren: () =>
-      import('./client-profile/client-profile.module').then(
-        (m) => m.ClientProfileModule
-      ),
-  },
-  { path: 'view-product', component: ViewProductComponent },
-  { path: 'view-bundles', component: ViewBundlesComponent },
-  { path: 'clientnavbar', component: ClientnavbarComponent },
+{
+  path: '**',
+  redirectTo: 'register-login',
+  pathMatch:"full"
+}
+
+
 ];
 
 @NgModule({
