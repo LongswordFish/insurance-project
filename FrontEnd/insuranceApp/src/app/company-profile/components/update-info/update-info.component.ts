@@ -20,38 +20,41 @@ export class UpdateInfoComponent implements OnInit{
   }
 
   ngOnInit() {
-    this.api.getOneCompany(3).subscribe(res => {
-      this.company = res;
-      this.contactDetails = JSON.parse(this.company.contactDetails);
-
-      this.form = this.fb.group({
-        description: ['', Validators.required],
-        address: ['', Validators.required],
-        city: ['', Validators.required],
-        state: ['', Validators.required],
-        country: ['', Validators.required],
-        postalcode: ['', Validators.required],
-        email: ['', Validators.required],
-        phone: [null, [Validators.required, Validators.pattern(/^-?(0|[1-9]\d*)?$/)]],
-        fax: [null, [Validators.required, Validators.pattern(/^-?(0|[1-9]\d*)?$/)]],
-        website: ['', Validators.required],
-        instagram: ['', Validators.required]
+    let userId = sessionStorage.getItem("Userid");
+    if (userId) {
+      this.api.getOneCompany(parseInt(userId)).subscribe(res => {
+        this.company = res;
+        this.contactDetails = JSON.parse(this.company.contactDetails);
+  
+        this.form = this.fb.group({
+          description: ['', Validators.required],
+          address: ['', Validators.required],
+          city: ['', Validators.required],
+          state: ['', Validators.required],
+          country: ['', Validators.required],
+          postalcode: ['', Validators.required],
+          email: ['', Validators.required],
+          phone: [null, [Validators.required, Validators.pattern(/^-?(0|[1-9]\d*)?$/)]],
+          fax: [null, [Validators.required, Validators.pattern(/^-?(0|[1-9]\d*)?$/)]],
+          website: ['', Validators.required],
+          instagram: ['', Validators.required]
+        });
+  
+        this.form.patchValue({
+          description: this.company.description,
+          address: this.company.address,
+          city: this.company.city,
+          state: this.company.state,
+          country: this.company.country,
+          postalcode: this.company.postalCode,
+          email: this.company.email,
+          phone: this.contactDetails.Phone,
+          fax: this.contactDetails.Fax,
+          website: this.contactDetails.Website,
+          instagram: this.contactDetails.Instagram
+        });
       });
-
-      this.form.patchValue({
-        description: this.company.description,
-        address: this.company.address,
-        city: this.company.city,
-        state: this.company.state,
-        country: this.company.country,
-        postalcode: this.company.postalCode,
-        email: this.company.email,
-        phone: this.contactDetails.Phone,
-        fax: this.contactDetails.Fax,
-        website: this.contactDetails.Website,
-        instagram: this.contactDetails.Instagram
-      });
-    });
+    }
   }
 
   // Retrieve company information for profile 
