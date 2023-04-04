@@ -42,7 +42,6 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { AllBundlesComponent } from './components/bundle/all-bundles/all-bundles.component';
-import { AddProductComponent } from './components/add-product/add-product.component';
 import { AddBundleComponent } from './components/bundle/add-bundle/add-bundle.component';
 import { AddClaimsComponent } from './components/add-claims/add-claims.component';
 import { BundleDetailsComponent } from './components/bundle/bundle-details/bundle-details.component';
@@ -67,7 +66,6 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     AppComponent,
     FooterComponent,
     SideCompanyDashComponent,
-    AddProductComponent,
     AddBundleComponent,
     AddClaimsComponent,
     AllBundlesComponent,
@@ -76,7 +74,6 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     ClientNavComponent,
     PublicNavComponent,
     RegisterloginComponent,
-    
     ClientnavbarComponent,
     ViewProductComponent,
     ViewBundlesComponent
