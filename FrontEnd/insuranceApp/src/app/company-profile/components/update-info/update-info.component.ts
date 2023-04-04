@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CompanyDataService } from '../../services/company-data.service';
 import { CompanyModel } from '../../models/company.model';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-update-info',
@@ -16,7 +17,7 @@ export class UpdateInfoComponent implements OnInit{
   companyObj: CompanyModel = new CompanyModel();
   default = "default string";
 
-  constructor(private api:CompanyDataService, private router: Router, private fb: FormBuilder) { 
+  constructor(private api:CompanyDataService, private router: Router, private fb: FormBuilder, private _snackBar: MatSnackBar) { 
   }
 
   ngOnInit() {
@@ -93,10 +94,12 @@ export class UpdateInfoComponent implements OnInit{
     console.log(this.companyObj);
 
     this.api.updateCompany(this.companyObj, this.company.companyId).subscribe(res => {
-      alert("Profile has been updated successfully!");
+      this._snackBar.open("Profile has been updated successfully!", "Close");
       this.router.navigate(['/company-profile']);
     }, 
-    err => { alert("Failed to update profile, please try again"); }
+    err => {  
+      this._snackBar.open("Failed to update profile, please try again", "Close");
+    }
     );
   }
 
