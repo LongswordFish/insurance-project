@@ -1,0 +1,80 @@
+
+h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 16px;
+    margin-left: 10px;
+    margin-top: 16px;
+  }
+  
+  
+  
+  /* Set styles for the expansion panels */
+  mat-expansion-panel {
+    margin-bottom: 24px;
+  }
+  
+  /* Set styles for the expansion panel header */
+  mat-expansion-panel-header {
+    background-color: #F5F5F5;
+    padding: 16px;
+  }
+  
+  /* Set styles for the expansion panel title */
+  mat-panel-title {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  /* Set styles for the expansion panel description */
+  mat-panel-description {
+    font-size: 14px;
+    margin-top: 8px;
+  }
+  
+  /* Set styles for the document cards */
+  mat-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+  }
+  
+  /* Set styles for the document card titles */
+  mat-card-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 16px;
+  }
+  
+  /* Set styles for the document card content */
+  mat-card-content {
+    font-size: 14px;
+    text-align: center;
+    margin-top: 8px;
+  }
+  
+  /* Set styles for the Add a Document button */
+  button[color="primary"] {
+    background-color: #007bff;
+    color: white;
+    margin-top: 24px;
+    margin-right: 16px;
+  }
+  
+  /* Set styles for the Approve Claim button */
+  .green-button {
+    background-color: #28a745;
+    color: white;
+    margin-top: 24px;
+  }
+  
+  /* Set styles for the Loading claim details message */
+  div[ngIf="!claim"] {
+    font-size: 14px;
+    margin-top: 8px;
+  }
+  
+  
+  

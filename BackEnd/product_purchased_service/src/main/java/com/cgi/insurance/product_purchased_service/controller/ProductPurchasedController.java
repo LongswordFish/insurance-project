@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,8 +27,10 @@ import com.cgi.insurance.product_purchased_service.exception.PPIdNotExistsExcept
 import com.cgi.insurance.product_purchased_service.model.ProductPurchased;
 import com.cgi.insurance.product_purchased_service.service.ProductPurchasedService;
 import org.springframework.validation.FieldError;
+
 @RestController
 @RequestMapping("/api/v1/purchased")
+@CrossOrigin
 public class ProductPurchasedController {
     private final ProductPurchasedService ppService;
 
@@ -269,5 +272,35 @@ public class ProductPurchasedController {
         List<ProductPurchased> result = ppService.getAllProductPurchasedByCompanyIdAndBundleId(companyId,bundleId);
 
         return new ResponseEntity<List<ProductPurchased>>(result, HttpStatus.OK);
+	}
+
+    @GetMapping("/view/client/{clientId}/productname/{productName}")
+    public ResponseEntity<?> getAllProductPurchasedByClientIdAndProductName(@PathVariable String clientId, @PathVariable String productName) {   
+        if(clientId==null || productName==null){
+            return new ResponseEntity<String>("clientId and productName cannout be null", HttpStatus.BAD_REQUEST);
+        }          
+        List<ProductPurchased> result = ppService.getAllProductPurchasedByClientIdAndProductName(clientId,productName);
+
+        return new ResponseEntity<List<ProductPurchased>>(result, HttpStatus.OK);
+	}
+
+    @GetMapping("/view/company/clients/{productId}")
+    public ResponseEntity<?> getAllClientIdByProductId(@PathVariable String productId) {   
+        if(productId==null){
+            return new ResponseEntity<String>("productId bundleId be null", HttpStatus.BAD_REQUEST);
+        }          
+        List<String> result = ppService.getAllClientIdByProductId(productId);
+
+        return new ResponseEntity<List<String>>(result, HttpStatus.OK);
+	}
+
+    @GetMapping("/view/client/{clientId}/bundleids")
+    public ResponseEntity<?> getAllBundleIdByClientId(@PathVariable String clientId) {   
+        if(clientId==null ){
+            return new ResponseEntity<String>("clientId  cannout be null", HttpStatus.BAD_REQUEST);
+        }          
+        List<String> result = ppService.getAllBundleIdByClientId(clientId);
+
+        return new ResponseEntity<List<String>>(result, HttpStatus.OK);
 	}
 }

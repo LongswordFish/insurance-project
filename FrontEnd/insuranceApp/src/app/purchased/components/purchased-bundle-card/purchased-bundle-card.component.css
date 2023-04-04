@@ -1,0 +1,25 @@
+.bundle-card{
+    width: 100%;
+    background-color: whitesmoke;
+    margin-top: 30px;
+}
+
+.bundle-title{
+    display: flex;
+    justify-content:space-between;
+    width:100%;
+    margin-top: 12px;
+}
+.bundle-name{
+    font-size:larger;
+    font-weight: bolder;
+}
+
+.bundle-company{
+    font-weight: bold;
+}
+
+.date{
+    font-size: small;
+    margin-left: 20px;
+}

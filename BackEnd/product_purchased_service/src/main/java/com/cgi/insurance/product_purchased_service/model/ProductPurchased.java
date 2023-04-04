@@ -16,6 +16,8 @@ public class ProductPurchased {
 
     @NotBlank
     String productId;
+    String productName;
+    String productCategory;
     
     @NotBlank
     String companyId;
@@ -25,7 +27,8 @@ public class ProductPurchased {
     LocalDate purchaseDate = LocalDate.now();
     String bundleId; 
     String userDesription;
-    
+    String companyName;
+
     @NotBlank
     double quotePrice;
 
@@ -36,7 +39,8 @@ public class ProductPurchased {
      * constructor
      */
     public ProductPurchased(String ppId, @NotBlank String productId, @NotBlank String companyId,
-            @NotBlank String clientId, String bundleId, String userDesription, @NotBlank double quotePrice,@NotBlank String location) {
+            @NotBlank String clientId, String bundleId, String userDesription, @NotBlank double quotePrice,@NotBlank String location,
+            String productName, String productCategory, String companyName) {
         this.ppId = ppId;
         this.productId = productId;
         this.companyId = companyId;
@@ -45,6 +49,9 @@ public class ProductPurchased {
         this.userDesription = userDesription;
         this.quotePrice = quotePrice;
         this.location = location;
+        this.productName=productName;
+        this.productCategory=productCategory;
+        this.companyName=companyName;
     }
 
     /** 
@@ -123,6 +130,30 @@ public class ProductPurchased {
 
     public void setLocation(String location) {
         this.location = location;
+    }
+
+    public String getProductName() {
+        return productName;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
+
+    public String getProductCategory() {
+        return productCategory;
+    }
+
+    public void setProductCategory(String productCategory) {
+        this.productCategory = productCategory;
+    }
+
+    public String getCompanyName() {
+        return companyName;
+    }
+
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
     }
 
 }
