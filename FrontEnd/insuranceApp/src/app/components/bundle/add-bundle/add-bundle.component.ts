@@ -16,6 +16,8 @@ import { MatCheckboxChange } from '@angular/material/checkbox';
   styleUrls: ['./add-bundle.component.css'],
 })
 export class AddBundleComponent implements OnInit {
+  companyID: string = "CMP12355";
+  _productIds: string[] = [];
   bundles: Bundle[] = [];
   selectedBundle: Bundle | null = null;
   updateForm: FormGroup;
@@ -31,11 +33,12 @@ export class AddBundleComponent implements OnInit {
       Validators.min(0),
     ]),
     location: new FormControl<string | null>(null, [Validators.required]),
-    companyid: new FormControl<string | null>(null),
+    // companyid: new FormControl<string | null>(null),
   });
 
   isUpdateFormOpen: boolean = false;
   isEditing: boolean = false;
+
   constructor(
     private bundleService: BundleService,
     private snackBar: MatSnackBar,
@@ -48,20 +51,23 @@ export class AddBundleComponent implements OnInit {
       productids: ['', Validators.required],
       totalPrice: ['', Validators.required],
       location: ['', Validators.required],
-      companyid: [''],
+      // companyid: [''],
     });
+
+    this.loadProductIDs();
   }
-  productIds = [
-    '642707950be8eb014b1103f4',
-    '6e727f6c33c3401fb0cfa7b6',
-    '496ee6b28fbf16a10cd1b0b5',
-    '642707950be8eb014b1103f4',
-    '6e727f6c33c3401fb0cfa7b6',
-    '496ee6b28fbf16a10cd1b0b5',
-    '642707950be8eb014b1103f4',
-    '6e727f6c33c3401fb0cfa7b6',
-    '496ee6b28fbf16a10cd1b0b5',
-  ];
+
+  loadProductIDs(){
+    this.bundleService.getAllProductsByCompanyID(this.companyID)
+    .subscribe( (res) => {
+      console.log(res);
+      this._productIds = res.map( (ele) => ele.productId);
+      console.log(this._productIds);
+    },(err) => {
+      console.log(err);
+    })
+  }
+
 
   addMoreProductIds(event: MatCheckboxChange): void {
     if (event.checked) {
@@ -106,7 +112,7 @@ export class AddBundleComponent implements OnInit {
         productids: idString.split(','),
         totalPrice: this.bundleForm.get('totalPrice')?.value,
         location: this.bundleForm.get('location')?.value,
-        companyid: this.bundleForm.get('companyid')?.value,
+        companyid: this.companyID,
       };
       console.log(bundle.productids);
       this.bundleService.createBundle(bundle).subscribe(
