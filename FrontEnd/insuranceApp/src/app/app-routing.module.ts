@@ -10,6 +10,9 @@ import { ProductDetailsPageComponent } from './company-stats/components/product-
 import { MyPlanViewComponent } from './purchased/components/my-plan-view/my-plan-view.component';
 import { BuyProductComponent } from './purchased/components/buy-product/buy-product.component';
 
+import { ViewProductComponent } from './client-dashboard/view-product/view-product.component';
+import { ViewBundlesComponent } from './client-dashboard/view-bundles/view-bundles.component';
+
 import { AddBundleComponent } from './components/bundle/add-bundle/add-bundle.component';
 import { AddClaimsComponent } from './components/add-claims/add-claims.component';
 import { AddProductComponent } from './components/add-product/add-product.component';
@@ -20,6 +23,7 @@ import { PurchasedBundleListComponent } from './purchased/components/purchased-b
 import { PurchasedProductListComponent } from './purchased/components/purchased-product-list/purchased-product-list.component';
 import { ClaimCreateComponent } from './claim-dashboard/claim-create/claim-create.component';
 import { ClaimViewComponent } from './claim-dashboard/claim-view/claim-view.component';
+import { ClientnavbarComponent } from './client-dashboard/clientnavbar/clientnavbar.component';
 
 const routes: Routes = [
   {
@@ -80,7 +84,10 @@ const routes: Routes = [
       import('./client-profile/client-profile.module').then(
         (m) => m.ClientProfileModule
       ),
-  }
+  },
+  { path: 'view-product', component: ViewProductComponent },
+  { path: 'view-bundles', component: ViewBundlesComponent },
+  {path:'clientnavbar',component:ClientnavbarComponent}
 ];
 
 @NgModule({
