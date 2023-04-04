@@ -38,3 +38,8 @@ img {
     object-fit: cover;
     margin-right: 10px;
 }
+
+.notification a {
+    text-decoration: none;
+    color: black;
+}
