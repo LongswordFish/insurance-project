@@ -15,7 +15,6 @@ import { ViewBundlesComponent } from './client-dashboard/view-bundles/view-bundl
 
 import { AddBundleComponent } from './components/bundle/add-bundle/add-bundle.component';
 import { AddClaimsComponent } from './components/add-claims/add-claims.component';
-import { AddProductComponent } from './components/add-product/add-product.component';
 import { AllBundlesComponent } from './components/bundle/all-bundles/all-bundles.component';
 import { BundleDetailsComponent } from './components/bundle/bundle-details/bundle-details.component';
 import { BuyBundleComponent } from './purchased/components/buy-bundle/buy-bundle.component';
@@ -23,7 +22,6 @@ import { PurchasedBundleListComponent } from './purchased/components/purchased-b
 import { PurchasedProductListComponent } from './purchased/components/purchased-product-list/purchased-product-list.component';
 import { ClaimCreateComponent } from './claim-dashboard/claim-create/claim-create.component';
 import { ClaimViewComponent } from './claim-dashboard/claim-view/claim-view.component';
-import { ClientProfileComponent } from './client-profile/components/client-profile/client-profile.component';
 import { ClientnavbarComponent } from './client-dashboard/clientnavbar/clientnavbar.component';
 import { ClientViewComponent } from './client-dashboard/client-view/client-view.component';
 const routes: Routes = [
@@ -89,10 +87,19 @@ const routes: Routes = [
     component: CompanyDashNotificationViewComponent,
   },
   {
-    path: '**',
-    redirectTo: 'register-login',
-    pathMatch: 'full',
-  }
+    path: 'notification/clientView',
+    component: ClientDashNotificationViewComponent,
+  },
+  {
+    path: 'client-profile',
+    loadChildren: () =>
+      import('./client-profile/client-profile.module').then(
+        (m) => m.ClientProfileModule
+      ),
+  },
+  { path: 'view-product', component: ViewProductComponent },
+  { path: 'view-bundles', component: ViewBundlesComponent },
+  { path: 'clientnavbar', component: ClientnavbarComponent },
 ];
 
 @NgModule({

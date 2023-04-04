@@ -1,16 +1,30 @@
-/* app.component.scss */
-.sidenav-container {
-    height: 100%;
-}
-
-.sidenav {
-    width: 200px;
-}
-
 .mat-toolbar {
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    color: black;
+}
+
+.mat-toolbar a {
+    color: black;
+    text-decoration: none;
+    margin-right: 20px;
+}
+
+.mat-toolbar button {
+    color: black;
+}
+
+.mat-menu-content button {
+    display: block;
+    width: 100%;
+    text-align: left;
+}
+
+.mat-menu-panel {
+    background-color: white;
 }
 
 .spacer {
@@ -18,41 +32,9 @@
 }
 
 img {
-    height: 24px;
-    width: 24px;
+    height: 32px;
+    width: 32px;
     border-radius: 50%;
-    margin-right: 8px;
-}
-
-.search-field {
-    padding-left: 50%;
-    flex: auto;
-    margin: 0 10px;
-    margin-top: 22px;
-    color: black;
-}
-
-
-
-/* Responsive styles */
-@media (max-width: 600px) {
-
-    /* Sidebar */
-    mat-sidenav {
-        width: 100%;
-    }
-
-    /* Toolbar */
-    .search-field {
-        display: none;
-    }
-
-    button.mat-icon-button {
-        margin: 0;
-        padding: 8px;
-    }
-
-    .spacer {
-        display: none;
-    }
+    object-fit: cover;
+    margin-right: 10px;
 }
