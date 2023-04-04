@@ -4,7 +4,7 @@
     <ul>
       <mat-card>
         <mat-card-title>NOTIFICATIONS</mat-card-title>
-        <mat-card-content>
+        <mat-card-content *ngIf="notificationsWithSenderName && notificationsWithSenderName.length > 0">
           <div class="search-bar">
             <input type="text" [(ngModel)]="searchTerm" placeholder="Search">
           </div>
