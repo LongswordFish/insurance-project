@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 export class ViewProductComponent implements OnInit 
 {
   products!: Product[];
+  displayedColumns: string[] = ['category', 'picture', 'name', 'description', 'price', 'companyId', 'isAvailable', 'actions'];
 
   constructor(private productService: ProductService) { }
 
