@@ -27,7 +27,7 @@ export class CompanyStatsListPageComponent {
   productUnavailableArr: Array<Product>;
   purchasedProduct: Array<any>;
   listClientIDs: Array<any>;
-  companyID: string = "CMP12355";
+  companyID = sessionStorage.getItem('Userid') || "";
 
   token: string = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJPbmxpbmUgSldUIEJ1aWxkZXIiLCJpYXQiOjE2ODAxNTMzMzYsImV4cCI6MTcxMTY4OTMzNiwiYXVkIjoid3d3LmV4YW1wbGUuY29tIiwic3ViIjoianJvY2tldEBleGFtcGxlLmNvbSIsInJvbGUiOiJjb21wYW55In0.vhDwqEceK-VwZAlcXtxkfaKydwE94rQ24s4iItJT8gU";
   // displayedColumns: string[] = ["productId", "name", "category", "isAvailable", "price", "delete", "update"];
