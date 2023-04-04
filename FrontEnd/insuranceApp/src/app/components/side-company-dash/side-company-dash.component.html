@@ -25,7 +25,7 @@
                         <mat-icon>notifications_off</mat-icon>
                         <span>Turn off notifications</span>
                     </button>
-                    <button mat-menu-item>
+                    <button mat-menu-item class="notification">
                         <mat-icon>notifications</mat-icon>
                         <a *ngIf="user?.role!=undefined && user?.role=='client'"
                             routerLink="/notification/clientView">View notifications</a>
