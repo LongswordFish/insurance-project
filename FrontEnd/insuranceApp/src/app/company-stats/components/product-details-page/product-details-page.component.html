@@ -1,13 +1,22 @@
 
-<div style="padding: 2em; margin: 4em; border: 1px solid black;">
+
+<div class="card-container" style="width: 100%">
+
+<mat-card style="padding: 1em; margin: 2em 1em; 
+                display: flex; 
+                justify-content: center;
+                align-items: center;
+                ">
     <!-- <button (click)="loadClients()">get Client</button> -->
-    <h1 style="text-align: center;">List Of Clients</h1>
+    <h1 style="text-align: center; 
+        font-size: 1.6em; 
+        font-family: sans-serif">List Of Clients</h1>
     <mat-form-field style="width: 100%;">
       <mat-label>Search Clients</mat-label>
       <input matInput (keyup)="applyFilterClients($event)" placeholder="Search" #input>
     </mat-form-field>
-    <div class="mat-elevation-z8">
-        <table mat-table [dataSource]="dataSourceClient" matSort>
+    <div>
+        <table mat-table [dataSource]="obsClients | async" matSort>
 
         <!-- ID Column -->
         <ng-container matColumnDef="id">
@@ -42,25 +51,31 @@
         </tr>
         </table>
 
-        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+        <mat-paginator [pageSizeOptions]="[5, 10]" #paginatorClients></mat-paginator>
     </div>
-</div>
+</mat-card>
 
 <!-- List of Reviews -->
-<div style="padding: 2em; margin: 4em; border: 1px solid black;">
-    <h1 style="text-align: center;">List Of Reviews</h1>
+<mat-card style="padding: 1em; margin: 2em 1em; 
+            display: flex; 
+            justify-content: center;
+            align-items: center;
+            ">
+    <h1 style="text-align: center; 
+            font-size: 1.6em; 
+            font-family: sans-serif">List Of Reviews</h1>
     <mat-form-field style="width: 100%;">
       <mat-label>Search Reviews</mat-label>
       <input matInput (keyup)="applyFilterReviews($event)" placeholder="Search" #input>
     </mat-form-field>
-    <div class="mat-elevation-z8">
-        <table mat-table [dataSource]="dataSourceReview" matSort>
+    <div>
+        <table mat-table [dataSource]="obsReviews  | async" matSort>
 
         <!-- ID Column -->
-        <ng-container matColumnDef="reviewId">
+        <!-- <ng-container matColumnDef="reviewId">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
             <td mat-cell *matCellDef="let row"> {{row.reviewId}} </td>
-        </ng-container>
+        </ng-container> -->
         
         <!-- CREATION DATE Column -->
         <ng-container matColumnDef="reviewCreated_date">
@@ -101,6 +116,8 @@
         </tr>
         </table>
 
-        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+        <mat-paginator [pageSizeOptions]="[5, 10]" #paginatorReviews></mat-paginator>
     </div>
+</mat-card>
+
 </div>

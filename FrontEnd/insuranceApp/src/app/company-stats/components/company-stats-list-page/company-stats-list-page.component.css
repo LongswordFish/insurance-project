@@ -2,6 +2,32 @@
     width:auto
   } */
 
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-around;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .card-container {
+      flex-direction: column;
+    }
+  }
+  
+
+  .addProductBtn{
+    background-color: #12BEC8;
+    margin: 0.8em;
+    padding: 0.8em;
+    border-radius: 5px;
+    color: white;
+    font-size: 1.2em;
+    font-weight: 500;
+    outline: none;
+    border:none;
+
+  }
+
   .tableRow:hover {
     cursor: pointer;
   }
