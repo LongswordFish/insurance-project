@@ -16,7 +16,7 @@ import { MatCheckboxChange } from '@angular/material/checkbox';
   styleUrls: ['./add-bundle.component.css'],
 })
 export class AddBundleComponent implements OnInit {
-  companyID: string = "CMP12355";
+  companyID = sessionStorage.getItem('Userid') || "";
   _productIds: string[] = [];
   bundles: Bundle[] = [];
   selectedBundle: Bundle | null = null;
@@ -61,7 +61,7 @@ export class AddBundleComponent implements OnInit {
     this.bundleService.getAllProductsByCompanyID(this.companyID)
     .subscribe( (res) => {
       console.log(res);
-      this._productIds = res.map( (ele) => ele.productId);
+      this._productIds = res.map( (ele) => ele.name);
       console.log(this._productIds);
     },(err) => {
       console.log(err);
