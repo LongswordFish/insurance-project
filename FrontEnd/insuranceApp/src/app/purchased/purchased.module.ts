@@ -85,6 +85,8 @@ import { ProductCategoryFilterPipe } from './pipes/product-category-filter.pipe'
     PurchasedProductListComponent,
     PurchasedProductCardComponent,
     PurchasedBundleListComponent
-  ]
+  ],
+  providers: [    ProductNameFilterPipe,
+    ProductCategoryFilterPipe],
 })
 export class PurchasedModule { }

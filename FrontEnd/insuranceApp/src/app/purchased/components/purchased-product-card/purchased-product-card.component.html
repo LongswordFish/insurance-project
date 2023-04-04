@@ -4,13 +4,14 @@
     </div>
     <div class="text-wrapper">
         <div class="pp-title">
-            {{product.name}} -{{product.productId}} - {{product.category}}
+            {{product.name}} - {{product.category}}
         </div>
         <div class="pp-description">
             {{product.description}}
         </div>
         <div class="review-wrapper" *ngIf="currentRate!=0">
             <ngb-rating [rate]="currentRate" [readonly]="true"></ngb-rating>
+            <span style="display:inline; margin-left:20px; font-weight: bold;">{{rateTitle}}</span>
         </div>
     </div>
 

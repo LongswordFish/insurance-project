@@ -15,27 +15,22 @@
             </button>
             <app-client-nav *ngIf="user?.role!=undefined && user?.role=='client'"></app-client-nav>
             <app-public-nav *ngIf="user?.role==undefined"></app-public-nav>
+            
+            <a *ngIf="user?.role!=undefined && user?.role=='admin'"
+            routerLink="/admin">Admin Dashboard</a>
+            <a *ngIf="user?.role!=undefined && user?.role=='admin'"
+            routerLink="/admin/companies">Company Stats</a>
             <span class="spacer"></span>
             <div *ngIf="user?.role!=undefined">
-                <button mat-icon-button>
-                    <mat-icon>notifications</mat-icon>
-                </button>
-                <mat-menu #notificationsMenu="matMenu">
-                    <button mat-menu-item>
-                        <mat-icon>notifications_off</mat-icon>
-                        <span>Turn off notifications</span>
-                    </button>
-                    <button mat-menu-item class="notification">
-                        <mat-icon>notifications</mat-icon>
-                        <a *ngIf="user?.role!=undefined && user?.role=='client'"
-                            routerLink="/notification/clientView">View notifications</a>
-                        <a *ngIf="user?.role!=undefined && user?.role=='company'"
-                            routerLink="/notification/companyview">View notifications</a>
-                    </button>
-                </mat-menu>
-                <button mat-icon-button [matMenuTriggerFor]="notificationsMenu">
-                    <mat-icon>arrow_drop_down</mat-icon>
-                </button>
+
+                    <a *ngIf="user?.role!=undefined && user?.role=='client'"
+                            routerLink="/notification/clientView">
+                    <mat-icon>notifications</mat-icon></a>
+                    <a *ngIf="user?.role!=undefined && user?.role=='company'"
+                    routerLink="/notification/companyview">
+            <mat-icon>notifications</mat-icon></a>
+
+
                 <button mat-icon-button>
                     <img src="../../assets/images/samples/favicon.png" alt="Profile">
                 </button>
