@@ -10,7 +10,7 @@
     <mat-sidenav-content>
 
         <mat-toolbar color="primary">
-            <button mat-icon-button (click)="sidenav.toggle()">
+            <button *ngIf="user?.role!=undefined && user?.role=='company'" mat-icon-button (click)="sidenav.toggle()">
                 <mat-icon>menu</mat-icon>
             </button>
             <app-client-nav *ngIf="user?.role!=undefined && user?.role=='client'"></app-client-nav>
