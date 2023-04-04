@@ -10,7 +10,6 @@ import { BuyProductComponent } from './purchased/components/buy-product/buy-prod
 
 import { AddBundleComponent } from './components/bundle/add-bundle/add-bundle.component';
 import { AddClaimsComponent } from './components/add-claims/add-claims.component';
-import { AddProductComponent } from './components/add-product/add-product.component';
 import { AllBundlesComponent } from './components/bundle/all-bundles/all-bundles.component';
 import { BundleDetailsComponent } from './components/bundle/bundle-details/bundle-details.component';
 import { BuyBundleComponent } from './purchased/components/buy-bundle/buy-bundle.component';
@@ -21,35 +20,52 @@ import { ClaimViewComponent } from './claim-dashboard/claim-view/claim-view.comp
 
 const routes: Routes = [
   {
-    path: "",
-    redirectTo: "companyStatsHome",
-    pathMatch: "full",
+    path: '',
+    redirectTo: 'companyStatsHome',
+    pathMatch: 'full',
   },
   {
-    path: "companyStatsHome",
+    path: 'companyStatsHome',
     component: CompanyStatsListPageComponent,
-  },{
-    path: "productDetails",
+  },
+  {
+    path: 'productDetails',
     component: ProductDetailsPageComponent,
-  },{
-    path: "addProduct",
+  },
+  {
+    path: 'addProduct',
     component: AddAProductComponent,
   },
-  { path: 'add-product', component: AddProductComponent },
   { path: 'add-bundle', component: AddBundleComponent },
   { path: 'viewAllBundles', component: AllBundlesComponent },
   { path: 'bundles/:id', component: BundleDetailsComponent },
   { path: 'claims', component: ClaimViewComponent },
   { path: 'my-plans', component: MyPlanViewComponent },
   { path: 'buy-product/:productId', component: BuyProductComponent },
-  { path: 'buy-bundle/:bundleId', component:BuyBundleComponent },
-  { path: 'create-claim', component:ClaimCreateComponent },
-  { path: 'company-profile', loadChildren: () => import('./company-profile/company-profile.module').then(m => m.CompanyProfileModule)},
-  { path: 'admin', loadChildren: () => import('./admin-dashboard/admin-dashboard.module').then(m => m.AdminDashboardModule)},
-  { path: "notification/companyview", component: CompanyDashNotificationViewComponent, },
-  { path: "notification/clientView", component: ClientDashNotificationViewComponent },
- 
-
+  { path: 'buy-bundle/:bundleId', component: BuyBundleComponent },
+  { path: 'create-claim', component: ClaimCreateComponent },
+  {
+    path: 'company-profile',
+    loadChildren: () =>
+      import('./company-profile/company-profile.module').then(
+        (m) => m.CompanyProfileModule
+      ),
+  },
+  {
+    path: 'admin',
+    loadChildren: () =>
+      import('./admin-dashboard/admin-dashboard.module').then(
+        (m) => m.AdminDashboardModule
+      ),
+  },
+  {
+    path: 'notification/companyview',
+    component: CompanyDashNotificationViewComponent,
+  },
+  {
+    path: 'notification/clientView',
+    component: ClientDashNotificationViewComponent,
+  },
 ];
 
 @NgModule({
