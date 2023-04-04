@@ -1,0 +1,62 @@
+<mat-toolbar color="primary">
+  <span class="mr-auto">NexSure</span>
+  <!-- <span class="navbar-left">NexSure</span> -->
+  <span class="navbar-spacer"></span> 
+  <button mat-icon-button [matMenuTriggerFor]="notificationsMenu">
+    <mat-icon>notifications</mat-icon>
+  </button>
+  <mat-menu #notificationsMenu="matMenu">
+    <button mat-menu-item>Notification 1</button>
+    <button mat-menu-item>Notification 2</button>
+    <button mat-menu-item>Notification 3</button>
+  </mat-menu>
+
+  <button mat-icon-button [matMenuTriggerFor]="productsMenu">
+    <mat-icon>shopping_cart</mat-icon>
+  </button>
+  <mat-menu #productsMenu="matMenu">
+    <button mat-menu-item [routerLink]="['view-product']">Product 1</button>
+    <button mat-menu-item [routerLink]="['view-bundles']">Product 2</button>
+    <button mat-menu-item>Product 3</button>
+  </mat-menu>
+  
+  <button mat-icon-button [matMenuTriggerFor]="claimsMenu">
+    <mat-icon>assignment</mat-icon>
+  </button>
+  <mat-menu #claimsMenu="matMenu">
+    <button mat-menu-item>Claim 1</button>
+    <button mat-menu-item>Claim 2</button>
+    <button mat-menu-item>Claim 3</button>
+  </mat-menu>
+ 
+  <button mat-icon-button [matMenuTriggerFor]="profileMenu">
+    <mat-icon>person</mat-icon>
+  </button>
+  <mat-menu #profileMenu="matMenu">
+    <button mat-menu-item>Profile</button>
+    <button mat-menu-item>Settings</button>
+    <button mat-menu-item>Logout</button>
+  </mat-menu>
+</mat-toolbar>
+
+<!-- <mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #sidenav class="sidenav">
+    <mat-nav-list>
+      <a mat-list-item [routerLink]="['view-products']">Products</a>
+      <a mat-list-item [routerLink]="['view-bundles']">Bundles</a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+
+</mat-sidenav-content>
+</mat-sidenav-container> -->
+
+<!-- <mat-form-field class="search-field">
+  <input matInput placeholder="Search">
+  <button mat-icon-button matSuffix>
+      <mat-icon>search</mat-icon>
+  </button>
+</mat-form-field> -->
+
+
