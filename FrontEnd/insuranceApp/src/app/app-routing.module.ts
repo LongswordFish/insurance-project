@@ -23,7 +23,7 @@ import { ClaimViewComponent } from './claim-dashboard/claim-view/claim-view.comp
 import { ClientProfileComponent } from './client-profile/components/client-profile/client-profile.component';
 const routes: Routes = [
   {
-    path: '',
+    path: 'register-login',
     component: RegisterloginComponent,
   },
   {
