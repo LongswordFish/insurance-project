@@ -24,6 +24,7 @@ import { PurchasedProductListComponent } from './purchased/components/purchased-
 import { ClaimCreateComponent } from './claim-dashboard/claim-create/claim-create.component';
 import { ClaimViewComponent } from './claim-dashboard/claim-view/claim-view.component';
 import { ClientProfileComponent } from './client-profile/components/client-profile/client-profile.component';
+import { ClientnavbarComponent } from './client-dashboard/clientnavbar/clientnavbar.component';
 const routes: Routes = [
   {
     path: '',
@@ -77,10 +78,11 @@ const routes: Routes = [
     path: 'notification/clientView',
     component: ClientDashNotificationViewComponent,
   },
-  {path:'client-profile',component:ClientProfileComponent}
+  {path:'client-profile',component:ClientProfileComponent},
 
   { path: 'view-product', component: ViewProductComponent },
   { path: 'view-bundles', component: ViewBundlesComponent },
+  {path:'clientnavbar',component:ClientnavbarComponent}
 ];
 
 @NgModule({
