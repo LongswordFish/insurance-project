@@ -1,13 +1,21 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Bundle } from '../app/bundle';
+import { Product } from './company-stats/models/product';
 
 @Injectable({
   providedIn: 'root',
 })
 export class BundleService {
   private baseURL = 'http://localhost:9095/bundles';
+  token = sessionStorage.getItem('token') as string | undefined;
+
+  httpOptions = {
+    headers: new HttpHeaders({
+    'Authorization': 'Bearer ' + this.token
+    })
+  };
 
   constructor(private http: HttpClient) {}
 
@@ -33,5 +41,9 @@ export class BundleService {
 
   deleteBundle(id: string): Observable<void> {
     return this.http.delete<void>(`${this.baseURL}/delete/${id}`);
+  }
+
+  getAllProductsByCompanyID(companyID: string): Observable<Array<Product>>{    
+      return this.http.get<Array<Product>>(`http://localhost:9093/products/view/products-by-company/${companyID}`, this.httpOptions)
   }
 }

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CompanyDataService } from '../../services/company-data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -10,7 +11,7 @@ export class ProfileComponent {
   company: any;
   contactDetails: any;
 
-  constructor(private api:CompanyDataService) { 
+  constructor(private api:CompanyDataService, private router: Router) { 
     this.getCompany(3);
   }
 
@@ -20,5 +21,9 @@ export class ProfileComponent {
       this.company = res; 
       this.contactDetails = JSON.parse(this.company.contactDetails);
     })
+  }
+
+  onButtonClickUpdate() {
+    this.router.navigate(['/company-profile/update']);
   }
 }

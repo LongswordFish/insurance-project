@@ -8,7 +8,8 @@ import { BehaviorSubject, Observable, of, Subject } from 'rxjs';
 })
 export class ProductService {
 
-  token: string = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJPbmxpbmUgSldUIEJ1aWxkZXIiLCJpYXQiOjE2ODAxNTMzMzYsImV4cCI6MTcxMTY4OTMzNiwiYXVkIjoid3d3LmV4YW1wbGUuY29tIiwic3ViIjoianJvY2tldEBleGFtcGxlLmNvbSIsInJvbGUiOiJjb21wYW55In0.vhDwqEceK-VwZAlcXtxkfaKydwE94rQ24s4iItJT8gU";
+  token = sessionStorage.getItem('token') as string | undefined;
+  role = sessionStorage.getItem('role') as string | undefined;
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -18,24 +19,35 @@ export class ProductService {
 
   constructor(private httpClient: HttpClient) { }
 
-  //getting all the products by the company id
   getAllProductsByCompanyID(companyID: string): Observable<Array<Product>>{
+    if (this.role !== 'company') {
+      throw new Error('Access denied');
+    }
+
     return this.httpClient.get<Array<Product>>(`http://localhost:9093/products/view/products-by-company/${companyID}`, this.httpOptions)                 
   }
 
-  //delete a product by productID
   deleteProductByProductID(productID: string): Observable<Product> {
+    if (this.role !== 'company') {
+      throw new Error('Access denied');
+    }
+
     return this.httpClient.delete<Product>(`http://localhost:9093/products/delete/${productID}`, {responseType: 'text' as 'json', headers: new HttpHeaders().set('Authorization', 'Bearer ' + this.token) });
   }
 
-  //update a product by productID
   updateProduct(productID: string, product: Product): Observable<Product> {
-    // console.log(product);
+    if (this.role !== 'company') {
+      throw new Error('Access denied');
+    }
+
     return this.httpClient.put<Product>(`http://localhost:9093/products/update/${productID}`, product, this.httpOptions);
   }
 
-  //add a product
   addProduct(product: any): Observable<Product> {
+    if (this.role !== 'company') {
+      throw new Error('Access denied');
+    }
+
     return this.httpClient.post<Product>(`http://localhost:9093/products/add`, product, this.httpOptions);
   }
 }

@@ -19,7 +19,7 @@ export class ProductDetailsPageComponent {
   listClientIDs: Array<any> = [];
   listClients!: Client[];
   listReviews: Array<Review> = [];
-  sampleClientsArr: Array<Client> = [];
+  clientsArr: Array<Client> = [];
 
   displayedColumns: string[] = ["id", "name", "location", "email"];
   displayedReviewColumns: string[] = ["reviewId", "reviewCreated_date", "reviewTitle", "rating", "feedback", "customerId"];
@@ -45,39 +45,42 @@ export class ProductDetailsPageComponent {
                         // this.purchasedProduct = response;
                         console.log(response);
 
-                        this.listClientIDs = response.map( (ele: { clientId: any; }) => ele.clientId);
+                        this.listClientIDs = response.map( (ele: { clientId: any; }) => ele.clientId); 
                         
                         // this.listClientIDs = [...new Set(this.listClientIDs)];
                         this.listClientIDs = Array.from(new Set(this.listClientIDs).values());
-                        console.log(this.listClientIDs);
+                        // console.log(this.listClientIDs);
 
                         // Call getClientDetails for each clientID
-                        //TO DO: create a list of client Objs and make that as dataSourceClient
                         for (const clientId of this.listClientIDs) {
+                          this.loadClients(clientId);
+                        } 
+                        console.log(this.clientsArr);
 
-                          this.clientService.getClientDetailsByClientID(clientId)
-                              .subscribe((response) => {
-                                console.log(response); //check this
-                              }, (err) => {
-                                console.log(err);
-                              })
-                        }
-
-
-
-                        //for testing purposes:
-                        this.loadClientsSample();
 
                       }, (err) => {
                         console.log(err);
                       })
 
-
-
     //load the reviews
     this.loadReviews(this.productID);
   }
 
+
+  loadClients(clientId: number){
+    this.clientService.getClientDetailsByClientID(clientId)
+    .subscribe((response) => {
+      console.log(response); //check this
+      this.clientsArr.push(response);
+
+      //assign data source here
+      this.dataSourceClient = new MatTableDataSource(this.clientsArr);
+      this.dataSourceClient.paginator = this.paginator;
+      this.dataSourceClient.sort = this.sort;
+    }, (err) => {
+      console.log(err);
+    })
+  }
 
   //function for filtering?: searchBar
   applyFilterClients(event: Event) {
@@ -89,34 +92,6 @@ export class ProductDetailsPageComponent {
     }
   }
 
-
-  loadClientsSample(){
-    this.sampleClientsArr = [
-      {
-        "ClientId": 11111,
-        "Email" : "client02@gmail.com",
-        "Location": "Toronto",
-        "ClientName": "Parth Patel"
-    },
-    {
-      "ClientId": 11112,
-      "Email" : "vrushang02@gmail.com",
-      "Location": "Vadodara",
-      "ClientName": "Vrushang Patel"
-    },
-    {
-      "ClientId": 11113,
-      "Email" : "samarth03@gmail.com",
-      "Location": "Ohio",
-      "ClientName": "Samarth Patel"
-    }
-    ];
-
-    this.dataSourceClient = new MatTableDataSource(this.sampleClientsArr);
-    this.dataSourceClient.paginator = this.paginator;
-    this.dataSourceClient.sort = this.sort;
-  }
-
   //function for filtering?: searchBar
   applyFilterReviews(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
@@ -126,7 +101,6 @@ export class ProductDetailsPageComponent {
       this.dataSourceReview.paginator.firstPage();
     }
   }
-
 
   loadReviews(productID: string){
     this.clientService.getReviewsByProductID(productID)
