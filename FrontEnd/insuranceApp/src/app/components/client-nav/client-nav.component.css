@@ -1,8 +1,16 @@
-a{
-    text-decoration: none; 
-    margin-left: 20px;
+.link-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 20px;
 }
 
-.link-wrapper{
-    margin-left: 20px;
+.link-wrapper a {
+    color: #333;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.link-wrapper a.active {
+    font-weight: bold;
 }
