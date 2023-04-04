@@ -25,11 +25,26 @@ import { ClaimCreateComponent } from './claim-dashboard/claim-create/claim-creat
 import { ClaimViewComponent } from './claim-dashboard/claim-view/claim-view.component';
 import { ClientProfileComponent } from './client-profile/components/client-profile/client-profile.component';
 import { ClientnavbarComponent } from './client-dashboard/clientnavbar/clientnavbar.component';
+import { ClientViewComponent } from './client-dashboard/client-view/client-view.component';
 const routes: Routes = [
+  //common routes:
   {
     path: 'register-login',
     component: RegisterloginComponent,
   },
+  //clients flow:
+  {path:'client-view',component:ClientViewComponent},
+  { path: 'buy-product/:productId', component: BuyProductComponent },
+  { path: 'buy-bundle/:bundleId', component: BuyBundleComponent },
+  { path: 'claims', component: ClaimViewComponent },
+  { path: 'my-plans', component: MyPlanViewComponent },
+  { path: 'create-claim', component: ClaimCreateComponent },
+  {path:'client-profile',component:ClientProfileComponent},
+  {
+    path: 'notification/clientView',
+    component: ClientDashNotificationViewComponent,
+  },
+    // company flow
   {
     path: 'companyStats',
     redirectTo: 'companyStatsHome',
@@ -47,15 +62,9 @@ const routes: Routes = [
     path: 'addProduct',
     component: AddAProductComponent,
   },
-  { path: 'add-product', component: AddProductComponent },
   { path: 'add-bundle', component: AddBundleComponent },
   { path: 'viewAllBundles', component: AllBundlesComponent },
   { path: 'bundles/:id', component: BundleDetailsComponent },
-  { path: 'claims', component: ClaimViewComponent },
-  { path: 'my-plans', component: MyPlanViewComponent },
-  { path: 'buy-product/:productId', component: BuyProductComponent },
-  { path: 'buy-bundle/:bundleId', component: BuyBundleComponent },
-  { path: 'create-claim', component: ClaimCreateComponent },
   {
     path: 'company-profile',
     loadChildren: () =>
@@ -63,6 +72,11 @@ const routes: Routes = [
         (m) => m.CompanyProfileModule
       ),
   },
+  {
+    path: 'notification/companyview',
+    component: CompanyDashNotificationViewComponent,
+  },
+  //admin flow
   {
     path: 'admin',
     loadChildren: () =>
@@ -75,14 +89,10 @@ const routes: Routes = [
     component: CompanyDashNotificationViewComponent,
   },
   {
-    path: 'notification/clientView',
-    component: ClientDashNotificationViewComponent,
-  },
-  {path:'client-profile',component:ClientProfileComponent},
-
-  { path: 'view-product', component: ViewProductComponent },
-  { path: 'view-bundles', component: ViewBundlesComponent },
-  {path:'clientnavbar',component:ClientnavbarComponent}
+    path: '**',
+    redirectTo: 'register-login',
+    pathMatch: 'full',
+  }
 ];
 
 @NgModule({
