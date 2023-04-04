@@ -33,7 +33,9 @@ export class PurchasedProductListComponent {
     this.purchasedService.fetchPurchasedDataByClientId(clientId);
     this.purchasedService.getPurchasedData().subscribe(
       res=>{
+        
         this.ppList=res;
+        console.log(this.ppList);
         this.dataSource = new MatTableDataSource<any>(this.ppList);
         this.dataSource.paginator = this.paginator
         this.obs = this.dataSource.connect();

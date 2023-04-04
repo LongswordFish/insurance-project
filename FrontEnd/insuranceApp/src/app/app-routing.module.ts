@@ -1,5 +1,7 @@
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { JwtModule } from '@auth0/angular-jwt';
+import { RegisterloginComponent } from './authentication/registerlogin/registerlogin.component';
 import { ClientDashNotificationViewComponent } from './notification/client-dash-notification-view/client-dash-notification-view.component';
 import { CompanyDashNotificationViewComponent } from './notification/company-dash-notification-view/company-dash-notification-view.component';
 import { AddAProductComponent } from './company-stats/components/addproduct/addproduct.component';
@@ -17,10 +19,14 @@ import { PurchasedBundleListComponent } from './purchased/components/purchased-b
 import { PurchasedProductListComponent } from './purchased/components/purchased-product-list/purchased-product-list.component';
 import { ClaimCreateComponent } from './claim-dashboard/claim-create/claim-create.component';
 import { ClaimViewComponent } from './claim-dashboard/claim-view/claim-view.component';
-
+import { ClientProfileComponent } from './client-profile/components/client-profile/client-profile.component';
 const routes: Routes = [
   {
     path: '',
+    component: RegisterloginComponent,
+  },
+  {
+    path: 'companyStats',
     redirectTo: 'companyStatsHome',
     pathMatch: 'full',
   },
@@ -66,6 +72,7 @@ const routes: Routes = [
     path: 'notification/clientView',
     component: ClientDashNotificationViewComponent,
   },
+  { path: 'client-profile', component: ClientProfileComponent },
 ];
 
 @NgModule({

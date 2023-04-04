@@ -1,5 +1,6 @@
 
 <div style="padding: 2em; margin: 4em; border: 1px solid black;">
+    <!-- <button (click)="loadClients()">get Client</button> -->
     <h1 style="text-align: center;">List Of Clients</h1>
     <mat-form-field style="width: 100%;">
       <mat-label>Search Clients</mat-label>
@@ -11,25 +12,25 @@
         <!-- ID Column -->
         <ng-container matColumnDef="id">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
-            <td mat-cell *matCellDef="let row"> {{row.ClientId}} </td>
+            <td mat-cell *matCellDef="let row"> {{row.clientId}} </td>
         </ng-container>
 
         <!-- Name Column -->
         <ng-container matColumnDef="name">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> NAME </th>
-            <td mat-cell *matCellDef="let row"> {{row.ClientName}} </td>
+            <td mat-cell *matCellDef="let row"> {{row.clientName}} </td>
         </ng-container>
 
         <!-- Location column -->
         <ng-container matColumnDef="location">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> LOCATION </th>
-            <td mat-cell *matCellDef="let row"> {{row.Location}} </td>
+            <td mat-cell *matCellDef="let row"> {{row.location}} </td>
         </ng-container>
 
         <!-- Email column -->
         <ng-container matColumnDef="email">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> EMAIL </th>
-            <td mat-cell *matCellDef="let row"> {{row.Email}} </td>
+            <td mat-cell *matCellDef="let row"> {{row.email}} </td>
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

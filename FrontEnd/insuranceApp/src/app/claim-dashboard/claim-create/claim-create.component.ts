@@ -5,6 +5,8 @@ import { ClaimserviceService } from '../claimservice.service';
 import { Claim } from '../Model/Claim';
 import {MatDialog} from '@angular/material/dialog';
 import { ClaimDocument } from '../Model/ClaimDocument';
+import { NotificationServiceService } from 'src/app/notification/service/notification-service.service';
+import { Notification } from 'src/app/notification/model/notification';
 
 @Component({
   selector: 'app-claim-create',
@@ -13,11 +15,14 @@ import { ClaimDocument } from '../Model/ClaimDocument';
 })
 export class ClaimCreateComponent {
   claimForm!: FormGroup;
+  notify : Notification = new Notification();
+  senderIdForNotification = sessionStorage.getItem("Userid") as String;
 
   constructor(
     private fb: FormBuilder,
     private snackBar: MatSnackBar,
-    private claimservice:ClaimserviceService
+    private claimservice:ClaimserviceService,
+    private notificationservice: NotificationServiceService
   ) {
     this.createForm();
   }
@@ -39,12 +44,22 @@ export class ClaimCreateComponent {
     newClaim.companyId = this.claimForm.value.companyId;
     newClaim.description = this.claimForm.value.description;
     newClaim.notes = this.claimForm.value.notes;
+
+    this.notify.senderId = this.senderIdForNotification;
+    this.notify.message= "Claim Added!"
+    this.notify.recipientId= this.claimForm.value.companyId;
+    this.notify.read = false;
+    console.log(newClaim);
     this.claimservice.addClaim(newClaim).subscribe(
       () => {
         this.claimForm.reset();
-        this.snackBar.open('Claim added successfully', 'Close', {
+        const res = this.notificationservice.createNotification(this.notify).subscribe();
+        console.log(res);
+        this.snackBar.open('Claim added successfully and Notification sent to the company', 'Close', {
           duration: 3000
         });
+
+
       },
       error => {
         this.snackBar.open('Error adding claim', 'Close', {

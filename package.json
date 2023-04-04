@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@filestack/angular": "^1.4.0",
+    "filestack-js": "^3.26.0"
+  }
+}

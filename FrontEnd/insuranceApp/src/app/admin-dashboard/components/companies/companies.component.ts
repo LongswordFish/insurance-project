@@ -10,6 +10,7 @@ import { CompanyModel } from '../../models/company.model';
 export class CompaniesComponent {
   companyObj: CompanyModel = new CompanyModel();
   allCompanyData: any;
+  
 
   constructor(private api:CompanyDataService) { 
     this.getAllCompanies();
@@ -34,5 +35,29 @@ export class CompaniesComponent {
     this.api.rejectCompany(data.companyId).subscribe(res => {
       this.getAllCompanies();
     })
+  }
+
+  parsePhone(contactDetails: string): string {
+    const contactObj = JSON.parse(contactDetails);
+    return `${contactObj.Phone}`;
+  }
+
+  parseFax(contactDetails: string): string {
+    const contactObj = JSON.parse(contactDetails);
+    return `${contactObj.Fax}`;
+  }
+
+  parseWebsite(contactDetails: string): string {
+    const contactObj = JSON.parse(contactDetails);
+    return `${contactObj.Website}`;
+  }
+
+  parseInstagram(contactDetails: string): string {
+    const contactObj = JSON.parse(contactDetails);
+    if (contactObj && contactObj.Instagram) {
+      return `${contactObj.Instagram}`;
+    } else {
+      return '';
+    }
   }
 }

@@ -8,11 +8,13 @@ export class ProductCategoryFilterPipe implements PipeTransform {
 
   transform(pps: PurchasedProduct[], category: any): PurchasedProduct[] {
     if(category==null || category=="" || category==='All'){
+      console.log(pps);
       return pps;
     }
   
       return pps.filter(pp=>{
-        return  pp?.productCategory?.toLowerCase().includes(category.toLowerCase());
+        // return  pp?.productCategory?.toLowerCase().includes(category.toLowerCase());
+        return true;
       })
   }
 

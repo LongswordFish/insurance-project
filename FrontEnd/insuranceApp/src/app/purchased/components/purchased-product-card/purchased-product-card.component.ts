@@ -16,7 +16,7 @@ import { ViewreviewComponent } from '../viewreview/viewreview.component';
   styleUrls: ['./purchased-product-card.component.css'],
   
 })
-export class PurchasedProductCardComponent implements OnChanges{
+export class PurchasedProductCardComponent {
   @Input()
   productId:string="";
 
@@ -26,13 +26,13 @@ export class PurchasedProductCardComponent implements OnChanges{
   @Input()
   showDelete:boolean=true;
 
-  @Input()
-  searchText:string="";
+  // @Input()
+  // searchText:string="";
 
-  @Input()
-  category="all";
+  // @Input()
+  // category="all";
 
-  show:Boolean=true;
+  // show:Boolean=true;
 
   product:pp_Product;
 
@@ -50,26 +50,7 @@ export class PurchasedProductCardComponent implements OnChanges{
     this.pp_review={};
     this.reviewList=[];
   }
-  ngOnChanges(changes: SimpleChanges): void {
-    // if(this.searchText==""){
-    //   if(this.category=="all" || this.product.category?.toLocaleLowerCase()==this.category.toLocaleLowerCase()){
-    //     this.show=true;
-    //   }else{
-    //     this.show=false;
-    //   }
-    //   return;
-    // }
-    // if(this.product.name?.toLocaleLowerCase().includes(this.searchText.toLocaleLowerCase())){
-    //   if(this.category=="all" || this.product.category?.toLocaleLowerCase()==this.category.toLocaleLowerCase()){
-    //     this.show=true;
-    //   }else{
-    //     this.show=false;
-    //   }
-    //   return;
-    // }else{
-    //   this.show=false;
-    // }
-  }
+
 
   ngOnInit(): void {
     this.clientId=sessionStorage.getItem('Userid');
