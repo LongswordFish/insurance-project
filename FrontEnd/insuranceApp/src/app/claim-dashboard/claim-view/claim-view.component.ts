@@ -23,16 +23,47 @@ export class ClaimViewComponent {
   showUnapproved: boolean = false;
   panelOpenState = false;
   role = sessionStorage.getItem("role");
+  Userid = sessionStorage.getItem("Userid");
 
   constructor(private claimservice:ClaimserviceService, public snackBar: MatSnackBar, public dialog:MatDialog){}
 
   ngOnInit(): void{
     
-    this.claimservice.getClaims().subscribe(
-      data => {
-        this.claims = data;
+    // this.claimservice.getClaims().subscribe(
+    //   data => {
+    //     this.claims = data;
+    //   }
+    // )
+
+    if(this.role != null && this.Userid != null){
+
+      if(this.role === "client"){
+
+        this.claimservice.getClaimsByCustomer(this.Userid).subscribe(
+          data => {
+            this.claims = data;
+          }
+        )
+  
+      }else if(this.role === "company"){
+  
+        this.claimservice.getClaimsByCompany(this.Userid).subscribe(
+          data => {
+            this.claims = data;
+          }
+        )
+
       }
-    )
+
+    }else{
+
+      this.claimservice.getClaims().subscribe(
+        data => {
+          this.claims = data;
+        }
+      )
+    }
+
   }
 
   openSnackBar(message: string, action: string) {
