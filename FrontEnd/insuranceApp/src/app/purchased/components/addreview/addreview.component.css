@@ -23,3 +23,7 @@
     flex-direction: row;
     flex-wrap: wrap;
 }
+
+.filled {
+  color: #802d09;
+}
