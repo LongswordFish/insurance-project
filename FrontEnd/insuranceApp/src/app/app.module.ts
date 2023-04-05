@@ -36,7 +36,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 
 import { ClaimDashboardModule } from './claim-dashboard/claim-dashboard.module';
-import { PurchasedModule } from './purchased/purchased.module';
+
 import { RouterModule } from '@angular/router';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatRadioModule } from '@angular/material/radio';
@@ -61,6 +61,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { AuthenticateService } from './authentication/services/authenticate.service';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { ClientDashboardModule } from './client-dashboard/client-dashboard.module';
+import { PurchasedModule } from './purchased/purchased.module';
 
 @NgModule({
   declarations: [
