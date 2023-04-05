@@ -13,6 +13,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
 import { BundleFilterPipe } from '../bundle-filter.pipe';
 import {MatCardModule} from '@angular/material/card';
+import { AvailableFilterPipe } from './pipes/available-filter.pipe';
 @NgModule({
   declarations: [
     // ClientfooterComponent,
@@ -22,7 +23,8 @@ import {MatCardModule} from '@angular/material/card';
     ViewBundlesComponent,
   
     ClientViewComponent,
-    BundleFilterPipe
+    BundleFilterPipe,
+    AvailableFilterPipe
   ],
   imports: [
     CommonModule,
