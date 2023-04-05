@@ -1,35 +1,35 @@
 <h1 mat-dialog-title>Update Product</h1>
 <div mat-dialog-content>
-  <form [formGroup]="updateProductForm">
-    <mat-form-field>
+  <form [formGroup]="updateProductForm" style="display: flex; justify-content: center; flex-direction: column;">
+    <mat-form-field class="fields">
         <mat-label>Name</mat-label>
       <input matInput formControlName="name" placeholder="Name">
       <mat-error *ngIf="updateProductForm.get('name')!.hasError('required')">Name is required</mat-error>
     </mat-form-field>
 
-    <mat-form-field>
+    <mat-form-field class="fields">
         <mat-label>Category</mat-label>
       <input matInput formControlName="category" placeholder="Category">
       <mat-error *ngIf="updateProductForm.get('category')!.hasError('required')">Category is required</mat-error>
     </mat-form-field>
 
-    <mat-form-field>
-        <mat-label>Description</mat-label>
-      <textarea matInput formControlName="description" placeholder="Description"></textarea>
-      <mat-error *ngIf="updateProductForm.get('description')!.hasError('required')">Description is required</mat-error>
-    </mat-form-field>
-
-    <mat-form-field>
+    <mat-form-field class="fields">
         <mat-label>Price</mat-label>
       <input matInput formControlName="price" placeholder="Price">
       <mat-error *ngIf="updateProductForm.get('price')!.hasError('required')">Price is required</mat-error>
     </mat-form-field>
 
-    <mat-form-field>
+    <mat-form-field class="fields">
         <mat-label>Picture</mat-label>
       <input matInput formControlName="picture" placeholder="Picture URL">
       <mat-error *ngIf="updateProductForm.get('picture')!.hasError('required')">Picture URL is required</mat-error>
     </mat-form-field>
+
+    <mat-form-field class="fields">
+      <mat-label>Description</mat-label>
+    <textarea matInput formControlName="description" placeholder="Description"></textarea>
+    <mat-error *ngIf="updateProductForm.get('description')!.hasError('required')">Description is required</mat-error>
+  </mat-form-field>
 
     <!-- Add a checkbox to update product availability -->
     <mat-checkbox formControlName="available">Availability</mat-checkbox>
@@ -60,14 +60,13 @@
         </mat-card-content>
       </mat-card>
       
-      
-      
-
-      <button mat-raised-button color="primary" type="button" (click)="addLocation()">Add Location</button>
+      <div class="addLocationBtn_Container">
+        <button class="addLocationBtn" mat-raised-button type="button" color="primary" (click)="addLocation()">Add Location</button>
+      </div>
     </div>
   </form>
 </div>
-<div mat-dialog-actions>
-  <button mat-button (click)="cancel()">Cancel</button>
-  <button mat-raised-button color="primary" (click)="update()" [disabled]="!updateProductForm.valid">Update</button>
+<div mat-dialog-actions class="actionsContainer">
+  <button mat-button (click)="cancel()" class="cancelBtn">Cancel</button>
+  <button class="updateProductBtn" mat-raised-button color="primary" (click)="update()" [disabled]="!updateProductForm.valid">Update</button>
 </div>
