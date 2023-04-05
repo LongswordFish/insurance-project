@@ -19,6 +19,7 @@ export class CompaniesComponent {
   // Get all companies 
   getAllCompanies() {
     this.api.getAllCompanies().subscribe(res => {
+      console.log(res);
       this.allCompanyData = res; 
     })
   }
@@ -37,27 +38,27 @@ export class CompaniesComponent {
     })
   }
 
-  parsePhone(contactDetails: string): string {
-    const contactObj = JSON.parse(contactDetails);
-    return `${contactObj.Phone}`;
-  }
+  // parsePhone(contactDetails: string): string {
+  //   const contactObj = JSON.parse(contactDetails);
+  //   return `${contactObj.Phone}`;
+  // }
 
-  parseFax(contactDetails: string): string {
-    const contactObj = JSON.parse(contactDetails);
-    return `${contactObj.Fax}`;
-  }
+  // parseFax(contactDetails: string): string {
+  //   const contactObj = JSON.parse(contactDetails);
+  //   return `${contactObj.Fax}`;
+  // }
 
-  parseWebsite(contactDetails: string): string {
-    const contactObj = JSON.parse(contactDetails);
-    return `${contactObj.Website}`;
-  }
+  // parseWebsite(contactDetails: string): string {
+  //   const contactObj = JSON.parse(contactDetails);
+  //   return `${contactObj.Website}`;
+  // }
 
-  parseInstagram(contactDetails: string): string {
-    const contactObj = JSON.parse(contactDetails);
-    if (contactObj && contactObj.Instagram) {
-      return `${contactObj.Instagram}`;
-    } else {
-      return '';
-    }
-  }
+  // parseInstagram(contactDetails: string): string {
+  //   const contactObj = JSON.parse(contactDetails);
+  //   if (contactObj && contactObj.Instagram) {
+  //     return `${contactObj.Instagram}`;
+  //   } else {
+  //     return '';
+  //   }
+  // }
 }

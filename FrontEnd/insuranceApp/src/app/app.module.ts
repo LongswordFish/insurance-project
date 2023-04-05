@@ -62,6 +62,7 @@ import { AuthenticateService } from './authentication/services/authenticate.serv
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { ClientDashboardModule } from './client-dashboard/client-dashboard.module';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -138,6 +139,7 @@ import { ClientDashboardModule } from './client-dashboard/client-dashboard.modul
     ModalModule.forRoot(),
     ClientProfileModule,
     ClientDashboardModule
+ 
   ],
   providers: [AuthenticateService],
   bootstrap: [AppComponent],
