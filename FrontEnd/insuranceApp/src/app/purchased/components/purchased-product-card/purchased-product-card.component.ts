@@ -106,8 +106,8 @@ export class PurchasedProductCardComponent {
   viewReview(){
     {
       this.matdialogobj.open(ViewreviewComponent,{
-        width:'50%',
-        height:'80%',
+        width:'30%',
+        height:'30%',
         data:{revId : this.pp_review.reviewId}
       }).afterClosed().subscribe (
         res=>

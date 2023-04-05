@@ -30,7 +30,9 @@
           </mat-card-title>
           <mat-card-content>
             <p>Date Created {{ document.date }}</p>
-            <p>URL: {{ document.url }}</p>
+            <a href={{document.url}}>Click to See The image</a>
+            <!-- <img mat-card-image id="pic" [src]=" document.url " alt="" /> -->
+            <!-- <p>URL: {{ document.url }}</p> -->
             <p>{{ document.information }}</p>
 
             <button mat-raised-button color="warn"(click)="deleteDocument(claim, document)" (click)="openSnackBar('Deleted Document', 'OK')">
