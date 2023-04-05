@@ -1,10 +1,10 @@
-.link-wrapper {
+/* .link-wrapper {
     display: flex;
     align-items: center;
     justify-content: flex-end;
     height: 100vh;
     padding: 0 20px;
-}
+} */
 
 a {
     text-decoration: none;

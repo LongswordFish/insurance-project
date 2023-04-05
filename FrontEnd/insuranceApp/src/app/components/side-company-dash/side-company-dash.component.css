@@ -31,12 +31,16 @@
     flex: 1 1 auto;
 }
 
-img {
+/* img {
     height: 32px;
     width: 32px;
     border-radius: 50%;
     object-fit: cover;
     margin-right: 10px;
+} */
+
+img {
+    max-height: 150px;
 }
 
 .notification a {
