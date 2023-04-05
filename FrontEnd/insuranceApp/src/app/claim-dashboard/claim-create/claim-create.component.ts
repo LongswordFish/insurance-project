@@ -7,6 +7,7 @@ import {MatDialog} from '@angular/material/dialog';
 import { ClaimDocument } from '../Model/ClaimDocument';
 import { NotificationServiceService } from 'src/app/notification/service/notification-service.service';
 import { Notification } from 'src/app/notification/model/notification';
+import { RoutingService } from 'src/app/purchased/services/routing.service';
 
 @Component({
   selector: 'app-claim-create',
@@ -27,7 +28,8 @@ export class ClaimCreateComponent {
     private fb: FormBuilder,
     private snackBar: MatSnackBar,
     private claimservice:ClaimserviceService,
-    private notificationservice: NotificationServiceService
+    private notificationservice: NotificationServiceService,
+    private routingService:RoutingService
   ) {
     this.createForm();
   }
@@ -37,12 +39,13 @@ export class ClaimCreateComponent {
     if(this.Userid != null && this.productId != null && this.companyId != null){
       
       this.claimForm = this.fb.group({
-        customerId: [this.Userid, Validators.required],
-        productId: [this.productId, Validators.required],
-        companyId: [this.companyId, Validators.required],
-        description:['', Validators.required],
-        notes:['']
-      });
+        customerId: [{value: this.Userid, disabled: true}, Validators.required],
+        productId: [{value: this.productId, disabled: true}, Validators.required],
+        companyId: [{value: this.companyId, disabled: true}, Validators.required],
+        description: ['', Validators.required],
+        notes: ['']
+    });
+    
 
     }else{
       this.claimForm = this.fb.group({
@@ -58,9 +61,9 @@ export class ClaimCreateComponent {
 
   onSubmit() {
     const newClaim = new Claim();
-    newClaim.customerId = this.claimForm.value.customerId;
-    newClaim.productId = this.claimForm.value.productId;
-    newClaim.companyId = this.claimForm.value.companyId;
+    newClaim.customerId = this.claimForm.controls['customerId'].value;
+    newClaim.productId = this.claimForm.controls['productId'].value;
+    newClaim.companyId = this.claimForm.controls['companyId'].value;
     newClaim.description = this.claimForm.value.description;
     newClaim.notes = this.claimForm.value.notes;
 
@@ -78,6 +81,7 @@ export class ClaimCreateComponent {
           duration: 3000
         });
 
+        this.routingService.openMyPlans();
 
       },
       error => {

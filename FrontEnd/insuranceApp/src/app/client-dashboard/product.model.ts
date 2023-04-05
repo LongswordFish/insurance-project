@@ -10,7 +10,7 @@ export class Product {
       locationPrice: number;
     }[];
     companyId!: string;
-    isAvailable!: boolean;
+    available!: boolean;
   }
   
   

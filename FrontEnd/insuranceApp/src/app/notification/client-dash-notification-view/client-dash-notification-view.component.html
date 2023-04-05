@@ -1,9 +1,20 @@
 <body>
+  
   <div class="card-container gradient">
     <ul>
       <mat-card>
         <mat-card-title>NOTIFICATIONS</mat-card-title>
-        <mat-card-content>
+        <div *ngIf="!notificationsWithSenderName || notificationsWithSenderName.length === 0">
+          <mat-list class="card-border mat-card-content">    
+            <mat-list-item class="notification-item">
+              <div>
+                <mat-icon mat-list-icon>notifications</mat-icon>
+                <h5 mat-line  class="noNotifications">You don't have any Notifications!</h5>
+              </div>
+            </mat-list-item>
+          </mat-list>
+        </div>
+        <mat-card-content *ngIf="notificationsWithSenderName && notificationsWithSenderName.length > 0">
           <div class="search-bar">
             <input type="text" [(ngModel)]="searchTerm" placeholder="Search">
           </div>
@@ -14,7 +25,7 @@
                 
               </div>
               <div class="notification-body">
-                <h5 mat-line>Company name: {{ notification.senderName }} </h5>
+                <h5 mat-line>Client name: {{ notification.senderName }} </h5>
                 <h4 mat-line class="message-text">message - {{notification.message}}</h4>
                 <h4 mat-line class="notification-date">Date - {{notification.createdAt}}</h4>
               </div>

@@ -4,7 +4,12 @@
         <input [(ngModel)]="review.reviewTitle" class="form-control" placeholder="enter title of review">
       </div>
       <p>Please rate the product</p>
-      <ngb-rating [(rate)]="selected"></ngb-rating>
+
+      <ngb-rating [(rate)]="selected" [max]=5>
+        <ng-template let-fill="fill" >
+          <i class="bi-star{{fill === 100 ? '-fill' : ''}}" [class.filled]="fill === 100" ></i>
+        </ng-template>
+      </ngb-rating>
       <br>
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Feedback</label>
@@ -12,6 +17,6 @@
       </div>
     </div>
     <div class ="button">
-    <button (click)="addreview()">Submit review</button>
+    <button (click)="addreview()" mat-button color="primary" >Submit review</button>
     <button mat-button mat-dialog-close>Cancel</button>
     </div>

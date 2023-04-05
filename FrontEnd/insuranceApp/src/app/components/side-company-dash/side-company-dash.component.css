@@ -3,7 +3,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    background-color: white;
+    background-color: #12BEC8;
     color: black;
 }
 
@@ -31,10 +31,19 @@
     flex: 1 1 auto;
 }
 
-img {
+.profile-img {
     height: 32px;
     width: 32px;
     border-radius: 50%;
     object-fit: cover;
     margin-right: 10px;
+}
+
+img {
+    max-height: 150px;
+}
+
+.notification a {
+    text-decoration: none;
+    color: black;
 }

@@ -109,9 +109,11 @@ export class CompanyStatsListPageComponent {
     dialogRef.afterClosed().subscribe(result => {
       this.loadProducts();
       this.loadUnavailableProducts();
-      if(result == 'success'){
+      // if(result == 'success'){
+      //   //refresh the table data
+      //   this.loadProducts();
 
-      }
+      // }
     });
   }
 
@@ -154,10 +156,12 @@ export class CompanyStatsListPageComponent {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      if(result == 'success'){
-        //refresh the table data
-        this.loadProducts();
-      }
+      this.loadProducts();
+      this.loadUnavailableProducts();
+      // if(result == 'success'){
+      //   //refresh the table data
+      //   this.loadProducts();
+      // }
     });
   }
   

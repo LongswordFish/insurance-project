@@ -10,6 +10,7 @@ import { NgModule }      from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { RoutingService } from '../../services/routing.service';
 import { ActivatedRoute } from '@angular/router';
+import { ClientDataService } from 'src/app/client-profile/services/client-data.service';
 
 @Component({
   selector: 'app-buy-product',
@@ -27,7 +28,8 @@ export class BuyProductComponent implements OnInit{
               private ppService:PurchasedService,
               private _snackBar:MatSnackBar,
               private routingService:RoutingService,
-              private activatedRoute: ActivatedRoute){
+              private activatedRoute: ActivatedRoute,
+              private clientService:ClientDataService){
                 this.locationform = new FormGroup({
                   sLocation: new FormControl('', [Validators.required])
                 });
@@ -46,22 +48,34 @@ export class BuyProductComponent implements OnInit{
   addToAccount(){
     let pp = new PurchasedProduct();
     let clientId=sessionStorage.getItem("Userid");
-    pp.productId=this.product.productId;
-    pp.productName=this.product.name;
-    pp.productCategory=this.product.category;
-    pp.clientId=clientId!=undefined?clientId:"";
-    pp.companyId=this.product.companyId;
-    this.product.locations?.forEach(l=>{
-      if(l.locationName==this.selected){
-        pp.location=l.locationName;
-        pp.quotePrice=Number(l.locationPrice);
-      }
-    })
-    console.log(pp);
-    this.ppService.postPurchased(pp).subscribe(res=>{
-      this._snackBar.open("Record added", "close");
-      this.routingService.openMyPlans();
-    });
+    if(clientId!=undefined){
+      // this.clientService.getOneClient(parseInt(clientId))
+      //   .subscribe(
+      //     res=>{
+            pp.productId=this.product.productId;
+            pp.productName=this.product.name;
+            pp.productCategory=this.product.category;
+            pp.clientId=clientId!=undefined?clientId:"";
+            pp.companyId=this.product.companyId;
+            this.product.locations?.forEach(l=>{
+              if(l.locationName==this.selected){
+                pp.location=l.locationName;
+                pp.quotePrice=Number(l.locationPrice);
+              }
+            })
+            console.log(pp);
+            this.ppService.postPurchased(pp).subscribe(res=>{
+              this._snackBar.open("Record added", "close");
+              this.routingService.openMyPlans();
+            });
+          // },
+          // err=>this._snackBar.open("Please update your profile first!", "close")
+        //)
+
+
+
+    }
+
 
   }
 
