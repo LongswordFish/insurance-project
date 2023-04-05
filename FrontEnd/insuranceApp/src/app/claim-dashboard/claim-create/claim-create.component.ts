@@ -61,9 +61,9 @@ export class ClaimCreateComponent {
 
   onSubmit() {
     const newClaim = new Claim();
-    newClaim.customerId = this.claimForm.value.customerId;
-    newClaim.productId = this.claimForm.value.productId;
-    newClaim.companyId = this.claimForm.value.companyId;
+    newClaim.customerId = this.claimForm.controls['customerId'].value;
+    newClaim.productId = this.claimForm.controls['productId'].value;
+    newClaim.companyId = this.claimForm.controls['companyId'].value;
     newClaim.description = this.claimForm.value.description;
     newClaim.notes = this.claimForm.value.notes;
 
