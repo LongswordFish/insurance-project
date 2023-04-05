@@ -8,15 +8,15 @@
 
 
 .auto{
-    background-color: aquamarine;
+    background: rgba(51, 170, 51, .3);
 }
 
 .house{
-    background-color: yellowgreen;
+    background-color: rgba(167, 165, 235, .3);
 }
 
 .life{
-    background-color: blueviolet;
+    background-color: #BEFCFF;
 }
 
 
@@ -46,7 +46,8 @@ i {
     color: #b0c4de;
 }
 .filled {
-    color: #87ff1e;
+    /* color: #87ff1e; */
+    color: #802d09;
 }
 .low {
     color: #deb0b0;
