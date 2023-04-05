@@ -92,25 +92,8 @@ export class ClaimViewComponent {
     
   }
 
-  // addDocument(claim: Claim) {
-  //   this.claimservice.addDocument(claim.claimId, this.newDocument).subscribe(
-  //     data => {
-  //       console.log(data);
-  //       if (claim.documents) {
-  //         claim.documents.push(data);
-  //         this.newDocument = {
-  //           url: '',
-  //           date: '',
-  //           information: ''
-  //         };
-  //       }
-  //     },
-  //     err => console.log(err)
-  //   );
-  // }
-
-
   approveClaim(claim:Claim): void{
+    
     this.claimservice.approveClaim(claim.claimId, !claim.isApproved + "").subscribe(
       data=>{
         console.log(data);
@@ -131,30 +114,43 @@ export class ClaimViewComponent {
     }
   }
 
-
+  
   openAddDocumentDialog(claim: Claim, addDocumentDialog: TemplateRef<any>): void {
     const dialogRef = this.dialog.open(addDocumentDialog, {
       width: '400px'
     });
   
     dialogRef.afterClosed().subscribe(result => {
-      if (result) {        
-        this.claimservice.addDocument(claim.claimId, this.newDocument).subscribe(
+      if (result) {
+        const newDocumentToAdd: ClaimDocument = {
+          documentId: this.newDocument.documentId,
+          url: this.newDocument.url,
+          information: this.newDocument.information,
+          date: new Date().toISOString().substring(0, 10)
+        };
+  
+        this.claimservice.addDocument(claim.claimId, newDocumentToAdd).subscribe(
           data => {
-            
+  
           },
           err => console.log(err)
         );
         if (!claim.documents) {
           claim.documents = [];
         }
-
-        const today: string = new Date().toISOString().substring(0, 10);
-        this.newDocument.date = today;
-        claim.documents.push(this.newDocument);
+  
+        claim.documents.push(newDocumentToAdd);
+  
+        this.newDocument = {
+          documentId: '',
+          url: '',
+          information: ''
+        };
       }
     });
   }
+  
+  
   
   
   

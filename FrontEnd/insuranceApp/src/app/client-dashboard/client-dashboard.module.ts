@@ -12,6 +12,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
 import { BundleFilterPipe } from '../bundle-filter.pipe';
+import {MatCardModule} from '@angular/material/card';
 @NgModule({
   declarations: [
     // ClientfooterComponent,
@@ -28,7 +29,8 @@ import { BundleFilterPipe } from '../bundle-filter.pipe';
     ClientDashboardRoutingModule,
     MatTabsModule,
     MatIconModule,
-    MatTableModule
+    MatTableModule,
+    MatCardModule
     
   ],
   exports: [

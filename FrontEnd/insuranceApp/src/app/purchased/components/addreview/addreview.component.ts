@@ -42,6 +42,7 @@ addreview(){
     {
     this._snackBar.open("New review added!","close");
     this.ppService.fetchPurchasedDataByClientId(this.clientId);
+    this.ppService.fetchPurchasedBundleDataByClientId(this.clientId);
   this.dialogref.close("Addreview")
     },
     err=>

@@ -25,14 +25,29 @@ import { ClaimViewComponent } from './claim-dashboard/claim-view/claim-view.comp
 import { ClientnavbarComponent } from './client-dashboard/clientnavbar/clientnavbar.component';
 import { ClientViewComponent } from './client-dashboard/client-view/client-view.component';
 import { ClientProfileComponent } from './client-profile/components/client-profile/client-profile.component';
+import { AboutUsComponent } from './about-us/about-us.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
+import { HomeComponent } from './home/home.component';
 const routes: Routes = [
   //common routes:
   {
     path: 'register-login',
     component: RegisterloginComponent,
   },
+  {
+    path: 'home',
+    component: HomeComponent,
+  },
+  {
+    path: 'about',
+    component: AboutUsComponent,
+  },
+  {
+    path: 'contact',
+    component: ContactUsComponent,
+  },
   //clients flow:
-  {path:'client-view',component:ClientViewComponent},
+  { path: 'client-view', component: ClientViewComponent },
   { path: 'buy-product/:productId', component: BuyProductComponent },
   { path: 'buy-bundle/:bundleId', component: BuyBundleComponent },
   { path: 'claims', component: ClaimViewComponent },
@@ -49,7 +64,7 @@ const routes: Routes = [
     path: 'notification/clientView',
     component: ClientDashNotificationViewComponent,
   },
-    // company flow
+  // company flow
   {
     path: 'companyStats',
     redirectTo: 'companyStatsHome',
@@ -89,13 +104,11 @@ const routes: Routes = [
         (m) => m.AdminDashboardModule
       ),
   },
-{
-  path: '**',
-  redirectTo: 'register-login',
-  pathMatch:"full"
-}
-
-
+  {
+    path: '**',
+    redirectTo: 'register-login',
+    pathMatch: 'full',
+  },
 ];
 
 @NgModule({

@@ -46,12 +46,17 @@ export class ClaimserviceService {
     });
   }
 
-  approveClaim(claimId:string | undefined, doApprove:string):Observable<any>{
-    
-    return this.http.post(this.url + "approve/" + claimId + "/" + doApprove, {
-      headers: new HttpHeaders({'Authorization': 'Bearer ' + this.token})
-    });
+  approveClaim(claimId: string | undefined, doApprove: string): Observable<any> {
+    const options = {
+      headers: new HttpHeaders({
+        'Authorization': 'Bearer ' + this.token
+      })
+    };
+  
+    return this.http.post(this.url + 'approve/' + claimId + '/' + doApprove, null, options);
   }
+  
+  
  
   deleteClaimDocument(claimId:string | undefined, claimDocumentId:string | undefined):Observable<any>{
 
