@@ -33,6 +33,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { BundleFilterPipe } from './bundle-filter.pipe';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSliderModule } from '@angular/material/slider';
 
 import { ClaimDashboardModule } from './claim-dashboard/claim-dashboard.module';
 
@@ -62,6 +63,7 @@ import { ClientDashboardModule } from './client-dashboard/client-dashboard.modul
 import { PurchasedModule } from './purchased/purchased.module';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -80,6 +82,7 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
     ContactUsComponent,
     AboutUsComponent,
     ContactUsComponent,
+    HomeComponent,
 
     // ViewProductComponent,
     // ViewBundlesComponent
@@ -142,6 +145,7 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
     ModalModule.forRoot(),
     ClientProfileModule,
     ClientDashboardModule,
+    MatSliderModule,
   ],
   providers: [AuthenticateService],
   bootstrap: [AppComponent],
