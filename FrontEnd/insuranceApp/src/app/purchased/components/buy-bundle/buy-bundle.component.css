@@ -20,3 +20,22 @@ h3{
 .product-card{
     margin-left:30px;
 }
+.title{
+    text-align: center;
+    font-size: 1.5em;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+h1{
+    text-align: center;
+    font-weight: bold;
+}
+
+.buttons{
+    margin-top: 20px;
+    text-align: center;
+}
+
+a{
+    text-decoration: none;
+}

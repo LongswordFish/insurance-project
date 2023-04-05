@@ -9,6 +9,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Bundle } from '../../../bundle';
 import { BundleService } from '../../../bundle.service';
 import { MatCheckboxChange } from '@angular/material/checkbox';
+import { ProductPair } from './productPairs.type';
 
 @Component({
   selector: 'app-add-bundle',
@@ -18,6 +19,8 @@ import { MatCheckboxChange } from '@angular/material/checkbox';
 export class AddBundleComponent implements OnInit {
   companyID = sessionStorage.getItem('Userid') || "";
   _productIds: string[] = [];
+  _productNames: string[] = [];
+  _productPairs:ProductPair[]=[];
   bundles: Bundle[] = [];
   selectedBundle: Bundle | null = null;
   updateForm: FormGroup;
@@ -61,7 +64,14 @@ export class AddBundleComponent implements OnInit {
     this.bundleService.getAllProductsByCompanyID(this.companyID)
     .subscribe( (res) => {
       console.log(res);
-      this._productIds = res.map( (ele) => ele.name);
+      this._productIds = res.map( (ele) => ele.productId);
+      this._productNames = res.map( (ele) => ele.name);
+      this._productPairs=res.map(e=>{
+        let productPair:ProductPair = new ProductPair();
+        productPair.productId = e.productId;
+        productPair.productName=e.name;
+        return productPair;
+      })
       console.log(this._productIds);
     },(err) => {
       console.log(err);

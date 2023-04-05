@@ -14,8 +14,8 @@
         <mat-form-field appearance="outline">
             <mat-label>Product IDs</mat-label>
             <mat-select formControlName="productids" placeholder="Select product IDs" multiple>
-                <mat-option *ngFor="let productId of _productIds" [value]="productId">
-                    {{ productId }}
+                <mat-option *ngFor="let productPair of _productPairs" [value]="productPair.productId">
+                    {{ productPair.productName }}
                 </mat-option>
             </mat-select>
             <mat-error
