@@ -38,7 +38,6 @@ animation: anime 16s linear infinite;}
 
 
 mat-card {
-  position: relative;
   margin-top: 100px;
   margin-bottom: 100px;
   
@@ -58,7 +57,8 @@ mat-card-title {
   font-family: 'Raleway', sans-serif;
   font-size: 48px;
   font-weight: 800;
-
+  margin-top: 20px;
+  margin-bottom: 20px;
   text-align: center;
   color: #333333;
   text-shadow: 1px 1px 1px #b4adad;
@@ -90,7 +90,7 @@ h4 {
 }
 
 .card-container {
-  position: absolute;
+
   width: 100%;
 }
 
@@ -102,27 +102,7 @@ h4 {
  padding-left: 20px;
 }
 
-body {
-  background: linear-gradient(-45deg, #ff9946, #5feed8, #f27f9e);
-  background-size: 400% 400%;
-  animation: gradient-bg 20s ease infinite;
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  min-height: 100%;
-}
 
-@keyframes gradient-bg {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
 
 
 .search-bar {
@@ -217,5 +197,12 @@ mat-list-item {
   padding-bottom: 100px;
 }
 
-
+.noNotifications{
+  font-size: 24px; /* Sets the font size to 24 pixels */
+  font-weight: bold; /* Makes the text bold */
+  color: #555; /* Sets the text color to a dark gray */
+  text-align: center; /* Centers the text */
+  margin: 20px 0; /* Adds some vertical spacing above and below the text */
+  padding: 20px; /* Adds some padding around the text to make it stand out */
+}
 }
