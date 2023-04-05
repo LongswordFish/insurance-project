@@ -31,7 +31,9 @@ export class CompanyStatsListPageComponent {
 
   token: string = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJPbmxpbmUgSldUIEJ1aWxkZXIiLCJpYXQiOjE2ODAxNTMzMzYsImV4cCI6MTcxMTY4OTMzNiwiYXVkIjoid3d3LmV4YW1wbGUuY29tIiwic3ViIjoianJvY2tldEBleGFtcGxlLmNvbSIsInJvbGUiOiJjb21wYW55In0.vhDwqEceK-VwZAlcXtxkfaKydwE94rQ24s4iItJT8gU";
   // displayedColumns: string[] = ["productId", "name", "category", "isAvailable", "price", "delete", "update"];
-  displayedColumns: string[] = ["name", "category", "price", "delete", "update"];
+  displayedColumns: string[] = ["name", "category", "price", "delete", "update", "moreInfo"];
+  displayedColumnsReviews: string[] = ["name", "category", "price", "delete", "update"];
+
 
   dataSourceProduct!: MatTableDataSource<Product>
   dataSourceUnavailableProduct!: MatTableDataSource<Product>
@@ -205,9 +207,11 @@ export class CompanyStatsListPageComponent {
     });
 
     dialogRef.afterClosed().subscribe(result => {
+      this.loadProducts();
+      this.loadUnavailableProducts();
       if(result == 'success'){
         //refresh the table data
-        this.loadProducts();
+        
       }
     });
   }
