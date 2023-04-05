@@ -1,9 +1,19 @@
-<p>company-dash-notification-view works!</p>
 <body>
+  
   <div class="card-container gradient">
     <ul>
       <mat-card>
         <mat-card-title>NOTIFICATIONS</mat-card-title>
+        <div *ngIf="!notificationsWithSenderName || notificationsWithSenderName.length === 0">
+          <mat-list class="card-border mat-card-content">    
+            <mat-list-item class="notification-item">
+              <div>
+                <mat-icon mat-list-icon>notifications</mat-icon>
+                <h5 mat-line>You don't have any Notifications!</h5>
+              </div>
+            </mat-list-item>
+          </mat-list>
+        </div>
         <mat-card-content *ngIf="notificationsWithSenderName && notificationsWithSenderName.length > 0">
           <div class="search-bar">
             <input type="text" [(ngModel)]="searchTerm" placeholder="Search">
