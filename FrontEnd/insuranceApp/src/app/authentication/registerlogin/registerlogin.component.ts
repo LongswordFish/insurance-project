@@ -40,7 +40,7 @@ export class RegisterloginComponent {
       if(data.role=='company'){
         this.routingService.openCompanyDash();
       }else if(data.role=='client'){
-        this.routingService.openMyPlans();
+        this.routingService.openAllProducts();
       }else if(data.role=='admin'){
         this.routingService.openAdminDash()
       }else{
