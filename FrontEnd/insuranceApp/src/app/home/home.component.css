@@ -1,15 +1,65 @@
+.banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 500px;
+    background-color: #f0f0f0;
+}
+
+.banner-image img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.banner-content {
+    position: absolute;
+    z-index: 1;
+    text-align: center;
+    max-width: 800px;
+    padding: 20px;
+}
+
+.banner-content h2 {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.banner-content p {
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+.banner-content button {
+    font-size: 20px;
+}
+
+
 .container-fluid {
     padding: 0;
 }
 
-.mat-slider {
+/* .mat-slider {
     width: 100%;
     height: 500px;
     background: url("https://via.placeholder.com/1920x500") no-repeat center center;
     background-size: cover;
-}
+} */
 
 .example-header-image {
     background-image: url('https://via.placeholder.com/50');
+    background-size: cover;
+}
+
+mat-carousel {
+    height: 500px;
+    width: 100%;
+}
+
+mat-carousel-slide {
+    height: 100%;
+    background-position: center;
     background-size: cover;
 }
