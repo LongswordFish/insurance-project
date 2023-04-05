@@ -27,11 +27,16 @@ import { ClientViewComponent } from './client-dashboard/client-view/client-view.
 import { ClientProfileComponent } from './client-profile/components/client-profile/client-profile.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
+import { HomeComponent } from './home/home.component';
 const routes: Routes = [
   //common routes:
   {
     path: 'register-login',
     component: RegisterloginComponent,
+  },
+  {
+    path: 'home',
+    component: HomeComponent,
   },
   {
     path: 'about',

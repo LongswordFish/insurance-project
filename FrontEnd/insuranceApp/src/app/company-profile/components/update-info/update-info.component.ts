@@ -28,6 +28,7 @@ export class UpdateInfoComponent implements OnInit{
         this.contactDetails = JSON.parse(this.company.contactDetails);
   
         this.form = this.fb.group({
+          name:['', Validators.required],
           description: ['', Validators.required],
           address: ['', Validators.required],
           city: ['', Validators.required],
@@ -42,6 +43,7 @@ export class UpdateInfoComponent implements OnInit{
         });
   
         this.form.patchValue({
+          name:this.company.name,
           description: this.company.description,
           address: this.company.address,
           city: this.company.city,
@@ -67,8 +69,9 @@ export class UpdateInfoComponent implements OnInit{
   }
 
   onButtonClickSubmit() {
+    console.log(this.form);
     this.companyObj.companyId = this.company.companyId;
-    this.companyObj.name = this.company.name;
+    this.companyObj.name = this.form.value.name;
     this.companyObj.email = this.form.value.email;
     this.companyObj.description = this.form.value.description;
     this.companyObj.address = this.form.value.address;
