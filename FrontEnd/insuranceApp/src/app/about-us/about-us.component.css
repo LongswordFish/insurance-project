@@ -1,0 +1,60 @@
+.container {
+    margin-top: 50px;
+}
+
+.img-fluid {
+    max-width: 100%;
+}
+
+.heading {
+    color: #12BEC8;
+}
+
+.lead {
+    font-size: 18px;
+}
+
+.card {
+    margin-bottom: 30px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.card-text {
+    font-size: 16px;
+}
+
+.col-md-6 {
+    text-align: center;
+}
+
+.custom-card {
+    background-color: #303F9F;
+}
+
+.card-pop-out {
+    transition: transform 0.3s ease-in-out;
+}
+
+.card-pop-out:hover {
+    transform: scale(1.05);
+}
+
+.testimonial-card {
+    border: 3px solid #12BEC8;
+    border-radius: 5px;
+
+}
+
+#testimonial {
+    display: flex;
+}

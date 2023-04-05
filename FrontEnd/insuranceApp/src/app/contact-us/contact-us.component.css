@@ -1,0 +1,27 @@
+.container {
+    margin-top: 50px;
+}
+
+.img-fluid {
+    max-width: 100%;
+}
+
+.heading {
+    color: #12BEC8;
+    text-align: center;
+}
+
+.lead {
+    font-size: 18px;
+}
+
+.card-deck {
+    border: 3px solid #12BEC8;
+    /* Replace with your desired border properties */
+    border-radius: 5px;
+    /* Replace with your desired border radius */
+}
+
+#para {
+    text-align: center;
+}

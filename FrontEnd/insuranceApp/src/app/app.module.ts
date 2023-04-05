@@ -8,7 +8,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { NotificationModule } from './notification/notification.module';
 import { CompanyStatsModule } from './company-stats/company-stats.module';
 
-
 import { MatInputModule } from '@angular/material/input';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
@@ -53,7 +52,6 @@ import { RegisterloginComponent } from './authentication/registerlogin/registerl
 // import { ClientDashboardModule } from './client-dashboard/client-dashboard.module';
 import { ClientnavbarComponent } from './client-dashboard/clientnavbar/clientnavbar.component';
 
-
 import { ViewProductComponent } from './client-dashboard/view-product/view-product.component';
 import { ViewBundlesComponent } from './client-dashboard/view-bundles/view-bundles.component';
 
@@ -61,6 +59,8 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { AuthenticateService } from './authentication/services/authenticate.service';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { ClientDashboardModule } from './client-dashboard/client-dashboard.module';
+import { AboutUsComponent } from './about-us/about-us.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
 
 @NgModule({
   declarations: [
@@ -75,10 +75,13 @@ import { ClientDashboardModule } from './client-dashboard/client-dashboard.modul
     PublicNavComponent,
     RegisterloginComponent,
     ClientnavbarComponent,
-    
+    AboutUsComponent,
+    ContactUsComponent,
+    AboutUsComponent,
+    ContactUsComponent,
+
     // ViewProductComponent,
     // ViewBundlesComponent
-    
   ],
   imports: [
     BrowserModule,
@@ -137,7 +140,7 @@ import { ClientDashboardModule } from './client-dashboard/client-dashboard.modul
     MatSelectModule,
     ModalModule.forRoot(),
     ClientProfileModule,
-    ClientDashboardModule
+    ClientDashboardModule,
   ],
   providers: [AuthenticateService],
   bootstrap: [AppComponent],
