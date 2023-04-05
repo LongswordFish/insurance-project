@@ -26,6 +26,10 @@ export class RoutingService {
   {
     this.routeobj.navigate(['my-bundles'])
   }
+  openAllProducts()
+  {
+    this.routeobj.navigate(['client-view'])
+  }
   openAddClaim()
   {
     this.routeobj.navigate(['create-claim'])

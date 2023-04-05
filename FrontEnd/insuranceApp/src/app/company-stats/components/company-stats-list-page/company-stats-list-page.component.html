@@ -1,29 +1,45 @@
-<div style="display: flex; justify-content: center; flex-direction: column; padding: 2em; margin: 4em; border: 1px solid black;">
-  <h1 style="text-align: center;">Product Usage Details</h1>
-  <button style="width: fit-content; align-self: center;" (click)="addProduct()">Add Product</button>
-</div>
+<mat-card style="display: flex; justify-content: center; flex-direction: column; padding: 1em; margin: 2em 6em;">
+  <mat-card-content>  
+    <mat-card-title style="text-align: center; font-size: 2em; font-family: sans-serif">Welcome to your Dashboard</mat-card-title>
+  </mat-card-content>
+  <mat-card-actions style="display: flex; justify-content: center;">
+    <button mat-button (click)="addProduct()" class="addProductBtn">Add Product</button>
+  </mat-card-actions>
+</mat-card>
+
+
+
+<div class="card-container" style="width: 100%">
 
 <!-- List of Available Products -->
-<div style="padding: 2em; margin: 4em; border: 1px solid black;">
-  <h1 style="text-align: center;">List Of Available Products</h1>
+<mat-card style="padding: 1em; margin: 2em 1em; 
+                 display: flex; 
+                 justify-content: center;
+                 align-items: center;
+                 ">
+                 
+  <h1 style="text-align: center; 
+             font-size: 1.6em; 
+             font-family: sans-serif">Available Products</h1>
+
   <mat-form-field style="width: 100%;">
     <mat-label>Search Products</mat-label>
     <input matInput (keyup)="applyFilterAvailaibleProducts($event)" placeholder="Search" #input>
   </mat-form-field>
 
-  <div class="mat-elevation-z8">
+  <div style="">
     <table mat-table [dataSource]="obsAvailableProds | async" matSort>
 
       <!-- ID Column -->
-      <ng-container matColumnDef="productId">
+      <!-- <ng-container matColumnDef="productId">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
-        <td mat-cell *matCellDef="let row" (click)="navigateToDetails(row)" class="tableRow"> {{row.productId}} </td>
-      </ng-container>
+        <td mat-cell *matCellDef="let row" (click)="navigateToDetails(row)" > {{row.productId}} </td>
+      </ng-container> -->
 
       <!-- Name Column -->
       <ng-container matColumnDef="name">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> NAME </th>
-        <td mat-cell *matCellDef="let row"> {{row.name}} </td>
+        <td mat-cell *matCellDef="let row" (click)="navigateToDetails(row)" class="tableRow"> {{row.name}} </td>
       </ng-container>
 
       <!-- Category Column -->
@@ -68,28 +84,35 @@
       </tr>
     </table>
 
-    <mat-paginator [pageSizeOptions]="[5, 10]" #availablePaginator></mat-paginator>
+    <mat-paginator [pageSizeOptions]="[5, 10]" #availablePaginator aria-label="Clients Label"></mat-paginator>
   </div>
-</div>
+</mat-card>
 
 
 
 <!-- List of Unavailable Products -->
-<div style="padding: 2em; margin: 4em; border: 1px solid black;">
-  <h1 style="text-align: center;">List Of Unavailable Products</h1>
+<mat-card style="padding: 1em; margin: 2em 1em;
+                 display: flex;
+                 justify-content: center;
+                 align-items: center;
+                 ">
+  <h1 style="text-align: center;
+             font-size: 1.6em;
+             font-family: sans-serif;">Unavailable Products</h1>
+
   <mat-form-field style="width: 100%;">
     <mat-label>Search Products</mat-label>
     <input matInput (keyup)="applyFilterUnavailaibleProducts($event)" placeholder="Search" #input>
   </mat-form-field>
 
-  <div class="mat-elevation-z8">
+  <div>
     <table mat-table [dataSource]="obsUnavailableProds | async" matSort>
 
       <!-- ID Column -->
-      <ng-container matColumnDef="productId">
+      <!-- <ng-container matColumnDef="productId">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
         <td mat-cell *matCellDef="let row"> {{row.productId}} </td>
-      </ng-container>
+      </ng-container> -->
 
       <!-- Name Column -->
       <ng-container matColumnDef="name">
@@ -113,9 +136,7 @@
       <ng-container matColumnDef="delete">
         <th mat-header-cell *matHeaderCellDef> DELETE </th>
         <td mat-cell *matCellDef="let row"> 
-          <!-- <button mat-icon-button color="warn" (click)="deleteProduct(row)"> -->
             <mat-icon color="warn" (click)="deleteUnavailaibleProduct(row)">delete</mat-icon>
-          <!-- </button> -->
         </td>
       </ng-container>
 
@@ -139,6 +160,8 @@
       </tr>
     </table>
 
-    <mat-paginator [pageSizeOptions]="[5, 10]" #unavailablePaginator></mat-paginator>
+    <mat-paginator [pageSizeOptions]="[5, 10]" #unavailablePaginator aria-label="Reviews Label"></mat-paginator>
   </div>
+</mat-card>
+
 </div>

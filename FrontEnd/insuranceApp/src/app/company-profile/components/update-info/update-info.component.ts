@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CompanyDataService } from '../../services/company-data.service';
 import { CompanyModel } from '../../models/company.model';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-update-info',
@@ -16,42 +17,45 @@ export class UpdateInfoComponent implements OnInit{
   companyObj: CompanyModel = new CompanyModel();
   default = "default string";
 
-  constructor(private api:CompanyDataService, private router: Router, private fb: FormBuilder) { 
+  constructor(private api:CompanyDataService, private router: Router, private fb: FormBuilder, private _snackBar: MatSnackBar) { 
   }
 
   ngOnInit() {
-    this.api.getOneCompany(3).subscribe(res => {
-      this.company = res;
-      this.contactDetails = JSON.parse(this.company.contactDetails);
-
-      this.form = this.fb.group({
-        description: ['', Validators.required],
-        address: ['', Validators.required],
-        city: ['', Validators.required],
-        state: ['', Validators.required],
-        country: ['', Validators.required],
-        postalcode: ['', Validators.required],
-        email: ['', Validators.required],
-        phone: [null, [Validators.required, Validators.pattern(/^-?(0|[1-9]\d*)?$/)]],
-        fax: [null, [Validators.required, Validators.pattern(/^-?(0|[1-9]\d*)?$/)]],
-        website: ['', Validators.required],
-        instagram: ['', Validators.required]
+    let userId = sessionStorage.getItem("Userid");
+    if (userId) {
+      this.api.getOneCompany(parseInt(userId)).subscribe(res => {
+        this.company = res;
+        this.contactDetails = JSON.parse(this.company.contactDetails);
+  
+        this.form = this.fb.group({
+          description: ['', Validators.required],
+          address: ['', Validators.required],
+          city: ['', Validators.required],
+          state: ['', Validators.required],
+          country: ['', Validators.required],
+          postalcode: ['', Validators.required],
+          email: ['', Validators.required],
+          phone: [null, [Validators.required, Validators.pattern(/^-?(0|[1-9]\d*)?$/)]],
+          fax: [null, [Validators.required, Validators.pattern(/^-?(0|[1-9]\d*)?$/)]],
+          website: ['', Validators.required],
+          instagram: ['', Validators.required]
+        });
+  
+        this.form.patchValue({
+          description: this.company.description,
+          address: this.company.address,
+          city: this.company.city,
+          state: this.company.state,
+          country: this.company.country,
+          postalcode: this.company.postalCode,
+          email: this.company.email,
+          phone: this.contactDetails.Phone,
+          fax: this.contactDetails.Fax,
+          website: this.contactDetails.Website,
+          instagram: this.contactDetails.Instagram
+        });
       });
-
-      this.form.patchValue({
-        description: this.company.description,
-        address: this.company.address,
-        city: this.company.city,
-        state: this.company.state,
-        country: this.company.country,
-        postalcode: this.company.postalCode,
-        email: this.company.email,
-        phone: this.contactDetails.Phone,
-        fax: this.contactDetails.Fax,
-        website: this.contactDetails.Website,
-        instagram: this.contactDetails.Instagram
-      });
-    });
+    }
   }
 
   // Retrieve company information for profile 
@@ -90,10 +94,12 @@ export class UpdateInfoComponent implements OnInit{
     console.log(this.companyObj);
 
     this.api.updateCompany(this.companyObj, this.company.companyId).subscribe(res => {
-      alert("Profile has been updated successfully!");
+      this._snackBar.open("Profile has been updated successfully!", "Close");
       this.router.navigate(['/company-profile']);
     }, 
-    err => { alert("Failed to update profile, please try again"); }
+    err => {  
+      this._snackBar.open("Failed to update profile, please try again", "Close");
+    }
     );
   }
 

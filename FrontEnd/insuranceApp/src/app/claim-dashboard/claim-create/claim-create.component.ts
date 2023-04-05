@@ -7,6 +7,7 @@ import {MatDialog} from '@angular/material/dialog';
 import { ClaimDocument } from '../Model/ClaimDocument';
 import { NotificationServiceService } from 'src/app/notification/service/notification-service.service';
 import { Notification } from 'src/app/notification/model/notification';
+import { RoutingService } from 'src/app/purchased/services/routing.service';
 
 @Component({
   selector: 'app-claim-create',
@@ -18,23 +19,44 @@ export class ClaimCreateComponent {
   notify : Notification = new Notification();
   senderIdForNotification = sessionStorage.getItem("Userid") as String;
 
+  role = sessionStorage.getItem("role");
+  Userid = sessionStorage.getItem("Userid");
+  productId = sessionStorage.getItem("productId");
+  companyId = sessionStorage.getItem("companyId");
+
   constructor(
     private fb: FormBuilder,
     private snackBar: MatSnackBar,
     private claimservice:ClaimserviceService,
-    private notificationservice: NotificationServiceService
+    private notificationservice: NotificationServiceService,
+    private routingService:RoutingService
   ) {
     this.createForm();
   }
 
   createForm() {
-    this.claimForm = this.fb.group({
-      customerId: ['', Validators.required],
-      productId: ['', Validators.required],
-      companyId: ['', Validators.required],
-      description:['', Validators.required],
-      notes:['']
+
+    if(this.Userid != null && this.productId != null && this.companyId != null){
+      
+      this.claimForm = this.fb.group({
+        customerId: [{value: this.Userid, disabled: true}, Validators.required],
+        productId: [{value: this.productId, disabled: true}, Validators.required],
+        companyId: [{value: this.companyId, disabled: true}, Validators.required],
+        description: ['', Validators.required],
+        notes: ['']
     });
+    
+
+    }else{
+      this.claimForm = this.fb.group({
+        customerId: ['', Validators.required],
+        productId: ['', Validators.required],
+        companyId: ['', Validators.required],
+        description:['', Validators.required],
+        notes:['']
+      });
+    }
+
   }
 
   onSubmit() {
@@ -59,6 +81,7 @@ export class ClaimCreateComponent {
           duration: 3000
         });
 
+        this.routingService.openMyPlans();
 
       },
       error => {

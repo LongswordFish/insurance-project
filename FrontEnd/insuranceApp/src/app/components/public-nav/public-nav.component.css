@@ -1,10 +1,10 @@
-.link-wrapper {
+/* .link-wrapper {
     display: flex;
     align-items: center;
     justify-content: flex-end;
     height: 100vh;
     padding: 0 20px;
-}
+} */
 
 a {
     text-decoration: none;
@@ -16,10 +16,9 @@ a {
     transition: all 0.3s ease-in-out;
 }
 
-.logo-link img {
+/* .logo-link img {
     max-height: 50px;
-
-}
+} */
 
 a:hover {
     /* background-color: #12BEC8; */

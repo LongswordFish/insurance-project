@@ -68,6 +68,8 @@ export class DashboardComponent {
     })
   }
 
+
+
   // Approve company
   approveCompany(data:any){
     this.api.approveCompany(data.companyId).subscribe(res => {

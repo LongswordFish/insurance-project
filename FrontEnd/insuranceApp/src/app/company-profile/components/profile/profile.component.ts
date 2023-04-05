@@ -12,7 +12,10 @@ export class ProfileComponent {
   contactDetails: any;
 
   constructor(private api:CompanyDataService, private router: Router) { 
-    this.getCompany(3);
+    let userId = sessionStorage.getItem("Userid");
+    if (userId) {
+      this.getCompany(parseInt(userId));
+    }
   }
 
   // Retrieve company information for profile 

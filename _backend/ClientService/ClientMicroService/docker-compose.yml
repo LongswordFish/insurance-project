@@ -1,0 +1,29 @@
+﻿version: '3.4'
+
+services:
+   db:
+     image: mysql:8.0.32
+     environment: 
+        MYSQL_ROOT_PASSWORD: password         
+        MYSQL_DATABASE: test  
+     restart: always
+     container_name: db-mysql          
+       
+     ports:
+       - 3306:3306               
+
+   clientmicroservice:
+    depends_on:
+     - db
+    image: ${DOCKER_REGISTRY-}clientmicroservice
+    restart: on-failure
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    build:
+      context: .
+      dockerfile: ClientMicroService/Dockerfile
+    ports:
+       - "8000:80"
+
+volumes:
+    dbdata:

@@ -36,8 +36,8 @@
             </mat-form-field>
 
             <!-- <mat-checkbox>Remember Me</mat-checkbox> -->
-            <button mat-raised-button class="login-button" style="background-color:#12BEC8;"
-              onsubmit="userLogin(login.value)">
+            <button mat-raised-button color="primary" class="login-button" onsubmit="userLogin(login.value)"
+              [ngStyle]="{'background-color': '#12BEC8'}">
               Login
             </button>
 
@@ -91,8 +91,8 @@
               </mat-error>
               <mat-icon matSuffix>perm_identity</mat-icon>
             </mat-form-field>
-            <button mat-raised-button class="login-button" style="background-color:#12BEC8;"
-              onsubmit=" userRegister(register.value)">
+            <button mat-raised-button color="primary" class="login-button" onsubmit="userRegister(register.value)"
+              [ngStyle]="{'background-color': '#12BEC8'}">
               Register
             </button>
           </form>

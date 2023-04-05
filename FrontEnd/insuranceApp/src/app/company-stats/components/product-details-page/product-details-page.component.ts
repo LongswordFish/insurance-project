@@ -6,6 +6,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Client } from '../../models/client';
 import { Review } from '../../models/review';
 import { ClientService } from '../../services/client.service';
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -22,13 +23,19 @@ export class ProductDetailsPageComponent {
   clientsArr: Array<Client> = [];
 
   displayedColumns: string[] = ["id", "name", "location", "email"];
-  displayedReviewColumns: string[] = ["reviewId", "reviewCreated_date", "reviewTitle", "rating", "feedback", "customerId"];
+  displayedReviewColumns: string[] = ["reviewCreated_date", "reviewTitle", "rating", "feedback", "customerId"];
 
   dataSourceClient!: MatTableDataSource<Client>
   dataSourceReview!: MatTableDataSource<Review>
 
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  obsClients!: Observable<any>
+  obsReviews!: Observable<any>
+
+  @ViewChild('paginatorClients') paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
+
+  @ViewChild('paginatorReviews') paginatorReviews!: MatPaginator;
+  @ViewChild(MatSort) sortReviews!: MatSort;
 
   constructor(private route: ActivatedRoute,
               private clientService: ClientService) {
@@ -38,9 +45,17 @@ export class ProductDetailsPageComponent {
     console.log(this.productID);
     });
 
-    
-    //making api call to fetch all purchaed products by giving productID: this return [] where each obj has same productID but different clientID
-    this.clientService.getAllPurhcasedProducts(this.productID)
+    //load the clients
+    this.getPurchasedProds(this.productID);
+
+    //load the reviews
+    this.loadReviews(this.productID);
+  }
+
+
+  //making api call to fetch all purchaed products by giving productID: this return [] where each obj has same productID but different clientID
+  getPurchasedProds(productID: string) {
+    this.clientService.getAllPurhcasedProducts(productID)
                       .subscribe((response) => {
                         // this.purchasedProduct = response;
                         console.log(response);
@@ -61,9 +76,6 @@ export class ProductDetailsPageComponent {
                       }, (err) => {
                         console.log(err);
                       })
-
-    //load the reviews
-    this.loadReviews(this.productID);
   }
 
 
@@ -77,6 +89,8 @@ export class ProductDetailsPageComponent {
       this.dataSourceClient = new MatTableDataSource(this.clientsArr);
       this.dataSourceClient.paginator = this.paginator;
       this.dataSourceClient.sort = this.sort;
+
+      this.obsClients = this.dataSourceClient.connect();
     }, (err) => {
       console.log(err);
     })
@@ -109,8 +123,9 @@ export class ProductDetailsPageComponent {
                         this.listReviews = response as unknown as Review[];
 
                         this.dataSourceReview = new MatTableDataSource(this.listReviews);
-                        this.dataSourceReview.paginator = this.paginator;
-                        this.dataSourceReview.sort = this.sort;
+                        this.dataSourceReview.paginator = this.paginatorReviews;
+                        this.dataSourceReview.sort = this.sortReviews;
+                        this.obsReviews = this.dataSourceReview.connect();
                         // console.log(this.listReviews);
                       }, (err) => {
                         console.log(err);

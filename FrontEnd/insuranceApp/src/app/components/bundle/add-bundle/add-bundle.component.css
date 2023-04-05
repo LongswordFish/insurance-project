@@ -29,6 +29,7 @@ textarea {
 
 button[type="submit"] {
     margin-top: 20px;
+    background-color: #12BEC8;
 }
 
 button.mat-button {
