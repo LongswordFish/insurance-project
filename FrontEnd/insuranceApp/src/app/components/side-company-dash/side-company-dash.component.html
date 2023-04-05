@@ -31,11 +31,11 @@
             <mat-icon>notifications</mat-icon></a>
 
 
-                <button mat-icon-button>
+                <button mat-icon-button *ngIf="user?.role!=undefined">
                     <img src="../../assets/images/samples/favicon.png" alt="Profile">
                 </button>
-                <mat-menu #profileMenu="matMenu">
-                    <button mat-menu-item>
+                <mat-menu #profileMenu="matMenu" >
+                    <button mat-menu-item *ngIf="user?.role!=undefined && user?.role!='admin'" >
                         <mat-icon>account_circle</mat-icon>
                         <!-- <span>My Profile</span> -->
                         <span *ngIf="user?.role!=undefined && user?.role=='company'"

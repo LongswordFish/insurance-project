@@ -10,7 +10,11 @@
             {{product.description}}
         </div>
         <div class="review-wrapper" *ngIf="currentRate!=0">
-            <ngb-rating [rate]="currentRate" [readonly]="true"></ngb-rating>
+            <ngb-rating [rate]="currentRate" [readonly]="true">
+                <ng-template let-fill="fill" >
+                  <i class="bi-star{{fill === 100 ? '-fill' : ''}}" [class.filled]="fill === 100" ></i>
+                </ng-template>
+              </ngb-rating>
             <span style="display:inline; margin-left:20px; font-weight: bold;">{{rateTitle}}</span>
         </div>
     </div>
