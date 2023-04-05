@@ -3,7 +3,7 @@
     <div class="search-area">
         <mat-form-field class="search-field">
             <mat-label>Search By Product Name</mat-label>
-            <input matInput [(ngModel)]="searchText" >
+            <input matInput [(ngModel)]="searchText" (ngModelChange)="searchTextChange($event)" >
             <button mat-icon-button matSuffix (click)="search()">
                 <mat-icon>search</mat-icon>
             </button>
@@ -11,7 +11,7 @@
         
         <mat-radio-group
           class="radio-group"
-          [(ngModel)]="category">
+          [(ngModel)]="category" (ngModelChange)="categoryChange($event)">
           <mat-radio-button class="example-radio-button" *ngFor="let cat of categories" [value]='cat'>
             {{cat}}
            </mat-radio-button>

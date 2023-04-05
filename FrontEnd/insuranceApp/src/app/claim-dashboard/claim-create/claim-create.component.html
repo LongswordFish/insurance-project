@@ -2,28 +2,34 @@
     <div class="form-middle">
       <h2 class="form-title">Create a Claim</h2>
       <form [formGroup]="claimForm" (ngSubmit)="onSubmit()" class="claim-form">
+
         <mat-form-field class="form-field">
-          <input matInput placeholder="Customer ID" formControlName="customerId">
-          <mat-error *ngIf="claimForm.get('customerId')?.hasError('required')">Customer ID is required</mat-error>
+            <h4>Customer ID:</h4>
+            <input matInput placeholder="Customer ID" formControlName="customerId">
+            <mat-error *ngIf="claimForm.get('customerId')?.hasError('required')">Customer ID is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="form-field">
+            <h4>Product ID:</h4>
+            <input matInput placeholder="Product ID" formControlName="productId">
+            <mat-error *ngIf="claimForm.get('productId')?.hasError('required')">Product ID is required</mat-error>
         </mat-form-field>
   
         <mat-form-field class="form-field">
-          <input matInput placeholder="Product ID" formControlName="productId">
-          <mat-error *ngIf="claimForm.get('productId')?.hasError('required')">Product ID is required</mat-error>
+            <h4>Company ID:</h4>
+            <input matInput placeholder="Company ID" formControlName="companyId">
+            <mat-error *ngIf="claimForm.get('companyId')?.hasError('required')">Company ID is required</mat-error>
         </mat-form-field>
-  
+        
         <mat-form-field class="form-field">
-          <input matInput placeholder="Company ID" formControlName="companyId">
-          <mat-error *ngIf="claimForm.get('companyId')?.hasError('required')">Company ID is required</mat-error>
+            <h4>Description:</h4>
+            <textarea matInput placeholder="Enter description of claim here" formControlName="description"></textarea>
+            <mat-error *ngIf="claimForm.get('description')?.hasError('required')">Description is required</mat-error>
         </mat-form-field>
-  
+   
         <mat-form-field class="form-field">
-          <textarea matInput placeholder="Description" formControlName="description"></textarea>
-          <mat-error *ngIf="claimForm.get('description')?.hasError('required')">Description is required</mat-error>
-        </mat-form-field>
-  
-        <mat-form-field class="form-field">
-          <textarea matInput placeholder="Notes" formControlName="notes"></textarea>
+            <h4>Notes:</h4>
+            <textarea matInput placeholder="Write additional notes here" formControlName="notes"></textarea>
         </mat-form-field>
   
         <button mat-raised-button color="primary" type="submit" class="submit-button">Create Claim</button>

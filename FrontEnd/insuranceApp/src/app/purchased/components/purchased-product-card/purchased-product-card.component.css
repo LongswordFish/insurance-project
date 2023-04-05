@@ -37,7 +37,22 @@
 }
 
 .review-wrapper{
-    width: 100px;
+    width: 400px;
+}
+
+i {
+    font-size: 0.8rem;
+    padding-right: 0.1rem;
+    color: #b0c4de;
+}
+.filled {
+    color: #87ff1e;
+}
+.low {
+    color: #deb0b0;
+}
+.filled.low {
+    color: #ff1e1e;
 }
 
 @media only screen and (max-width: 600px) {

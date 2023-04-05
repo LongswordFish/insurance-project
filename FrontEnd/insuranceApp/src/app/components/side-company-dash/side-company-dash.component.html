@@ -1,53 +1,47 @@
 <mat-sidenav-container class="sidenav-container">
-    <mat-sidenav  #sidenav class="sidenav" >
+    <mat-sidenav #sidenav class="sidenav">
         <mat-nav-list>
-            <a mat-list-item routerLink="/add-product">Add Product</a>
+            <a mat-list-item routerLink="/companyStatsHome">Products</a>
             <a mat-list-item routerLink="/add-bundle">Add Bundle</a>
             <a mat-list-item routerLink="/viewAllBundles">View Bundles</a>
-            <!-- <a mat-list-item routerLink="/bundle/:id">View Bundles</a> -->
             <a mat-list-item routerLink="/claims">All Claims</a>
         </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>
 
         <mat-toolbar color="primary">
-            <button  mat-icon-button (click)="sidenav.toggle()">
+            <button *ngIf="user?.role!=undefined && user?.role=='company'" mat-icon-button (click)="sidenav.toggle()">
                 <mat-icon>menu</mat-icon>
             </button>
             <app-client-nav *ngIf="user?.role!=undefined && user?.role=='client'"></app-client-nav>
             <app-public-nav *ngIf="user?.role==undefined"></app-public-nav>
-            <!-- <mat-form-field class="search-field">
-                <input matInput placeholder="Search">
-                <button mat-icon-button matSuffix>
-                    <mat-icon>search</mat-icon>
-                </button>
-            </mat-form-field> -->
+            
+            <a *ngIf="user?.role!=undefined && user?.role=='admin'"
+            routerLink="/admin">Admin Dashboard</a>
+            <a *ngIf="user?.role!=undefined && user?.role=='admin'"
+            routerLink="/admin/companies">Company Stats</a>
             <span class="spacer"></span>
             <div *ngIf="user?.role!=undefined">
-                <button mat-icon-button>
-                    <mat-icon>notifications</mat-icon>
-                </button>
-                <mat-menu #notificationsMenu="matMenu">
-                    <button mat-menu-item>
-                        <mat-icon>notifications_off</mat-icon>
-                        <span>Turn off notifications</span>
-                    </button>
-                    <button mat-menu-item>
-                        <mat-icon>notifications</mat-icon> 
-                        <a *ngIf="user?.role!=undefined && user?.role=='client'" routerLink="/notification/clientView">View notifications</a>
-                        <a *ngIf="user?.role!=undefined && user?.role=='company'" routerLink="/notification/companyview">View notifications</a>
-                    </button>
-                </mat-menu>
-                <button mat-icon-button [matMenuTriggerFor]="notificationsMenu">
-                    <mat-icon>arrow_drop_down</mat-icon>
-                </button>
-                <button mat-icon-button>
+
+                    <a *ngIf="user?.role!=undefined && user?.role=='client'"
+                            routerLink="/notification/clientView">
+                    <mat-icon>notifications</mat-icon></a>
+                    <a *ngIf="user?.role!=undefined && user?.role=='company'"
+                    routerLink="/notification/companyview">
+            <mat-icon>notifications</mat-icon></a>
+
+
+                <button mat-icon-button *ngIf="user?.role!=undefined">
                     <img src="../../assets/images/samples/favicon.png" alt="Profile">
                 </button>
-                <mat-menu #profileMenu="matMenu">
-                    <button mat-menu-item>
+                <mat-menu #profileMenu="matMenu" >
+                    <button mat-menu-item *ngIf="user?.role!=undefined && user?.role!='admin'" >
                         <mat-icon>account_circle</mat-icon>
-                        <span>My Profile</span>
+                        <!-- <span>My Profile</span> -->
+                        <span *ngIf="user?.role!=undefined && user?.role=='company'"
+                            routerLink="/company-profile">My Profile</span>
+                        <span *ngIf="user?.role!=undefined && user?.role=='client'"
+                        routerLink="/client-profile">My Profile</span>
                     </button>
                     <button mat-menu-item (click)="logout()">
                         <mat-icon>logout</mat-icon>

@@ -26,8 +26,22 @@ export class RoutingService {
   {
     this.routeobj.navigate(['my-bundles'])
   }
+  openAllProducts()
+  {
+    this.routeobj.navigate(['client-view'])
+  }
   openAddClaim()
   {
     this.routeobj.navigate(['create-claim'])
+  }
+
+    openAdminDash()
+  {
+    this.routeobj.navigate(['admin'])
+  }
+
+  openCompanyDash()
+  {
+    this.routeobj.navigate(['companyStatsHome'])
   }
 }

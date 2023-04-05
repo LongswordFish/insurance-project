@@ -39,6 +39,7 @@ export class PurchasedProductCardComponent {
   pp_review:pp_Review;
   reviewList:any;
   currentRate = 0;
+  rateTitle:any="";
   clientId:string|null="";
   constructor(private ppProductService:PpProductService,
             private ppService:PurchasedService,
@@ -68,6 +69,7 @@ export class PurchasedProductCardComponent {
           this.pp_review=this.reviewList[0];
           if(this.pp_review?.rating!=undefined){  
             this.currentRate=this.pp_review?.rating;
+            this.rateTitle=this.pp_review?.reviewTitle;
           } 
         }
       },err=>{

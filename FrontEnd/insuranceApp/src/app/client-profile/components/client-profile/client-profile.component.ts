@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { ClientProfile } from '../../model/client.type';
+import { Router } from '@angular/router';
+import { ClientDataService } from '../../services/client-data.service';
 
 @Component({
   selector: 'app-client-profile',
@@ -7,15 +8,24 @@ import { ClientProfile } from '../../model/client.type';
   styleUrls: ['./client-profile.component.css']
 })
 export class ClientProfileComponent {
-  client:ClientProfile;
-  edit:Boolean=false;
+  client: any;
 
-
-  constructor(){
-    this.client=new ClientProfile();
-    this.client.clientName="Buzz LightYear";
-    this.client.email="buzz@gmail.com";
-    this.client.location="Pixar";
+  constructor(private api:ClientDataService, private router: Router) { 
+    let userId = sessionStorage.getItem("Userid");
+    if (userId) {
+      this.getClient(parseInt(userId));
+    }
   }
 
+  // Retrieve company information for profile 
+  getClient(id: number) {
+    this.api.getOneClient(id).subscribe(res => {
+      this.client = res; 
+      console.log(res);
+    })
+  }
+
+  onButtonClickUpdate() {
+    this.router.navigate(['/client-profile/update']);
+  }
 }

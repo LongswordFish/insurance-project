@@ -13,8 +13,7 @@ export class ProductCategoryFilterPipe implements PipeTransform {
     }
   
       return pps.filter(pp=>{
-        // return  pp?.productCategory?.toLowerCase().includes(category.toLowerCase());
-        return true;
+        return  pp?.productCategory?.toLowerCase().includes(category.toLowerCase());
       })
   }
 
