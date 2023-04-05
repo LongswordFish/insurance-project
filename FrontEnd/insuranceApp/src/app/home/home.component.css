@@ -41,12 +41,10 @@
     padding: 0;
 }
 
-/* .mat-slider {
-    width: 100%;
-    height: 500px;
-    background: url("https://via.placeholder.com/1920x500") no-repeat center center;
-    background-size: cover;
-} */
+.container {
+    padding-bottom: 20px;
+
+}
 
 .example-header-image {
     background-image: url('https://via.placeholder.com/50');
