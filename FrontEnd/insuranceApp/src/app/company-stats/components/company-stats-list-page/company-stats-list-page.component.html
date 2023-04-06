@@ -3,7 +3,7 @@
     <mat-card-title style="text-align: center; font-size: 2em; font-family: sans-serif">Welcome to your Dashboard</mat-card-title>
   </mat-card-content>
   <mat-card-actions style="display: flex; justify-content: center;">
-    <button mat-button (click)="addProduct()" class="addProductBtn">Add Product</button>
+    <button mat-button (click)="addProduct()" class="addProductBtn" *ngIf="comp?.isApproved" >Add Product</button>
   </mat-card-actions>
 </mat-card>
 
