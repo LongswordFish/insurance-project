@@ -18,6 +18,7 @@
             
             <app-client-nav *ngIf="user?.role!=undefined && user?.role=='client'"></app-client-nav>
             <app-public-nav *ngIf="user?.role==undefined"></app-public-nav>
+            <!-- <app-public-nav ></app-public-nav> -->
             <span class="spacer"></span>
             <a *ngIf="user?.role!=undefined && user?.role=='admin'" routerLink="/admin">Admin Dashboard</a>
             <a *ngIf="user?.role!=undefined && user?.role=='admin'" routerLink="/admin/companies">Company Stats</a>
