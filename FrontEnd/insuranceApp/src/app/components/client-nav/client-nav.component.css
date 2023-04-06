@@ -1,0 +1,16 @@
+.link-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 20px;
+}
+
+.link-wrapper a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.link-wrapper a.active {
+    font-weight: bold;
+}

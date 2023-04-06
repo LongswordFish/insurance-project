@@ -22,7 +22,9 @@ public interface ProductPurchasedService {
     List<ProductPurchased> getALlProductPurchasedByClientIdAndBundleId(String clientId, String bundleId);
     ProductPurchased getProductPurchasedByPPId(String ppid);
     List<ProductPurchased> getAllProductPurchasedByClientIdPurchaseDate(String clientId,LocalDate date);
-
+    List<ProductPurchased> getAllProductPurchasedByClientIdAndProductName(String clientId,String productName);
+    List<String> getAllClientIdByProductId(String productId);
+    List<String> getAllBundleIdByClientId(String clientId);
     List<ProductPurchased> getAllProductPurchasedByCompanyIdAndProductId(String companyId, String productId);
     List<ProductPurchased> getAllProductPurchasedByCompanyIdAndBundleId(String companyId, String bundleId);
 }

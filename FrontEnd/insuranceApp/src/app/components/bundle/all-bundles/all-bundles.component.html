@@ -1,0 +1,106 @@
+<div style="display: flex; justify-content: center; flex-direction: column; margin: 0 8em">
+
+<!-- search bundle by name and id -->
+<mat-form-field class="search-field _container" >
+    <mat-label>Search for bundle</mat-label>
+    <input matInput [(ngModel)]="searchText" (ngModelChange)="searchTextChange($event)" style="width:100%;">
+    <button mat-icon-button matSuffix>
+        <mat-icon>search</mat-icon>
+    </button>
+</mat-form-field>
+
+<!-- update bundle -->
+<div class="_container">
+    <form *ngIf="selectedBundle && isUpdateFormOpen"
+        (ngSubmit)="updateBundle(selectedBundle!.bundleid, selectedBundle)" style="border: 1px solid #12BEC8; border-radius: 10px">
+        <div class="form-group">
+            <label for="bundleid">Bundle ID</label>
+            <input type="text" class="form-control" id="bundle" [(ngModel)]="selectedBundle.bundleid" name="bundleid">
+        </div>
+        <div class="form-group">
+            <label for="bundlename">Bundle Name</label>
+            <input type="text" class="form-control" id="bundle" [(ngModel)]="selectedBundle.bundlename"
+                name="bundlename">
+        </div>
+        <div class="form-group">
+            <label for="productids">Product IDs</label>
+            <input type="text" class="form-control" id="bundle" [(ngModel)]="selectedBundle.productids"
+                name="productids">
+        </div>
+        <div class="form-group">
+            <label for="price">Total Price</label>
+            <input type="text" class="form-control" id="bundle" [(ngModel)]="selectedBundle.totalPrice"
+                name="totalPrice">
+        </div>
+        <div class="form-group">
+            <label for="location">Location</label>
+            <input type="text" class="form-control" id="bundle" [(ngModel)]="selectedBundle.location" name="location">
+        </div>
+        <div class="form-group">
+            <label for="companyid">Company ID</label>
+            <input type="text" class="form-control" id="bundle" [(ngModel)]="selectedBundle.companyid" name="companyid">
+        </div>
+        <div class="_form-group">
+            <div style="margin-right: 0.4em;">
+                <button type="submit" class="btn btn-primary" style="width: fit-content; margin: 0.8em 0;">Update</button>
+            </div>
+            <button type="button" class="btn btn-secondary" style="width: fit-content; margin: 0.8em 0"
+                (click)="updateForm.reset(); selectedBundle = null; isUpdateFormOpen = false;">Cancel</button>
+        </div>
+    </form>
+</div>
+
+
+<!-- view all bundles -->
+<div class="container">
+    <table mat-table [dataSource]="obs|async">
+        <ng-container matColumnDef="bundlename">
+            <th mat-header-cell *matHeaderCellDef> BUNDLE NAME</th>
+            <td mat-cell *matCellDef="let bundle"> {{bundle.bundlename}} </td>
+        </ng-container>
+        <ng-container matColumnDef="productids">
+            <th mat-header-cell *matHeaderCellDef> PRODUCT NAMES</th>
+            <td mat-cell *matCellDef="let bundle">
+                <div *ngFor="let productId of bundle.productids" style="margin: 0.4em 0">{{ productId }}</div>
+            </td>
+        </ng-container>
+        
+        <ng-container matColumnDef="totalPrice">
+            <th mat-header-cell *matHeaderCellDef> PRICE </th>
+            <td mat-cell *matCellDef="let bundle"> {{bundle.totalPrice}} </td>
+        </ng-container>
+        <ng-container matColumnDef="location">
+            <th mat-header-cell *matHeaderCellDef> LOCATION </th>
+            <td mat-cell *matCellDef="let bundle"> {{bundle.location}} </td>
+        </ng-container>
+        <ng-container matColumnDef="companyid">
+            <th mat-header-cell *matHeaderCellDef> COMPANY ID </th>
+            <td mat-cell *matCellDef="let bundle"> {{bundle.companyid}} </td>
+        </ng-container>
+        <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef> ACTIONS </th>
+            <td mat-cell *matCellDef="let bundle">
+                <button mat-icon-button color="primary" (click)="editBundle(bundle)">
+                    <mat-icon>edit</mat-icon>
+                </button>
+                <button mat-icon-button color="warn" (click)="deleteBundle(bundle.bundleid)">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </td>
+        </ng-container>
+        <tr mat-header-row
+            *matHeaderRowDef="['bundlename', 'productids', 'totalPrice', 'location', 'companyid', 'actions']">
+        </tr>
+        <tr mat-row
+            *matRowDef="let bundle; columns: ['bundlename', 'productids', 'totalPrice', 'location', 'companyid', 'actions'];">
+        </tr>
+    </table>
+
+    
+    <mat-paginator [pageSizeOptions]="[5,10]"></mat-paginator>
+    
+    
+</div>
+
+</div>
+

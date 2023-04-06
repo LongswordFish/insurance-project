@@ -1,0 +1,46 @@
+* {
+    box-sizing: border-box;
+    padding-bottom: 2px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.card {
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.2);
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.card-text {
+    font-size: 1rem;
+    margin-bottom: 0;
+}
+
+.text-muted {
+    color: #6c757d;
+}
+
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+.heading {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+#para {
+    font-size: 1.125rem;
+    margin-bottom: 1.5rem;
+}

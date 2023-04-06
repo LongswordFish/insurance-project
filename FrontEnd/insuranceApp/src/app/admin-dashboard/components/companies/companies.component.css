@@ -1,0 +1,19 @@
+.example-headers-align .mat-expansion-panel-header-description {
+    justify-content: space-between;
+    align-items: center;
+}
+
+img {
+    width:30px;
+    height:30px;
+    border-radius: 50%;
+}
+
+.company-accordion {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+mat-icon {
+    font-size: 10px;
+  }

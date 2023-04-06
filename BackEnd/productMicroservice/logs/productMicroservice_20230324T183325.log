@@ -1,0 +1,161 @@
+2023-03-24 18:33:26 [background-preinit] INFO  o.h.validator.internal.util.Version -
+				HV000001: Hibernate Validator 8.0.0.Final
+2023-03-24 18:33:26 [main] INFO  c.c.p.ProductMicroserviceApplication -
+				Starting ProductMicroserviceApplication using Java 17.0.5 with PID 14272 (C:\Users\parth.patel1\Documents\workspace-spring-tool-suite-4-4.17.1.RELEASE\productMicroservice\target\classes started by parth.patel1 in C:\Users\parth.patel1\Documents\workspace-spring-tool-suite-4-4.17.1.RELEASE\productMicroservice)
+2023-03-24 18:33:26 [main] INFO  c.c.p.ProductMicroserviceApplication -
+				No active profile set, falling back to 1 default profile: "default"
+2023-03-24 18:33:27 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate -
+				Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2023-03-24 18:33:27 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate -
+				Finished Spring Data repository scanning in 150 ms. Found 1 MongoDB repository interfaces.
+2023-03-24 18:33:27 [main] INFO  o.s.cloud.context.scope.GenericScope -
+				BeanFactory id=ec4291c3-5348-343f-a4ae-92f970b4a7fb
+2023-03-24 18:33:28 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer -
+				Tomcat initialized with port(s): 9093 (http)
+2023-03-24 18:33:28 [main] INFO  o.a.coyote.http11.Http11NioProtocol -
+				Initializing ProtocolHandler ["http-nio-9093"]
+2023-03-24 18:33:28 [main] INFO  o.a.catalina.core.StandardService -
+				Starting service [Tomcat]
+2023-03-24 18:33:28 [main] INFO  o.a.catalina.core.StandardEngine -
+				Starting Servlet engine: [Apache Tomcat/10.1.5]
+2023-03-24 18:33:28 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] -
+				Initializing Spring embedded WebApplicationContext
+2023-03-24 18:33:28 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext -
+				Root WebApplicationContext: initialization completed in 1417 ms
+2023-03-24 18:33:28 [main] INFO  org.mongodb.driver.client -
+				MongoClient with metadata {"driver": {"name": "mongo-java-driver|sync|spring-boot", "version": "4.8.2"}, "os": {"type": "Windows", "name": "Windows 10", "architecture": "amd64", "version": "10.0"}, "platform": "Java/Eclipse Adoptium/17.0.5+8"} created with settings MongoClientSettings{readPreference=primary, writeConcern=WriteConcern{w=null, wTimeout=null ms, journal=null}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=null}, credential=null, streamFactoryFactory=null, commandListeners=[], codecRegistry=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, CollectionCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, EnumCodecProvider{}, com.mongodb.Jep395RecordCodecProvider@44d43cc9]}, clusterSettings={hosts=[localhost:27017], srvServiceName=mongodb, mode=SINGLE, requiredClusterType=UNKNOWN, requiredReplicaSetName='null', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='30000 ms', localThreshold='30000 ms'}, socketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=0, receiveBufferSize=0, sendBufferSize=0}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=10000, receiveBufferSize=0, sendBufferSize=0}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=0, maxWaitTimeMS=120000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=false, invalidHostNameAllowed=false, context=null}, applicationName='null', compressorList=[], uuidRepresentation=JAVA_LEGACY, serverApi=null, autoEncryptionSettings=null, contextProvider=null}
+2023-03-24 18:33:28 [cluster-ClusterId{value='641e2538b71e353012eccac4', description='null'}-localhost:27017] INFO  org.mongodb.driver.cluster -
+				Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=17, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=17271000}
+2023-03-24 18:33:29 [main] INFO  o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration -
+				Eureka HTTP Client uses RestTemplate.
+2023-03-24 18:33:29 [main] WARN  o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger -
+				Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2023-03-24 18:33:29 [main] INFO  o.s.c.n.eureka.InstanceInfoFactory -
+				Setting initial instance status as: STARTING
+2023-03-24 18:33:29 [main] INFO  c.netflix.discovery.DiscoveryClient -
+				Initializing Eureka in region us-east-1
+2023-03-24 18:33:29 [main] INFO  c.n.d.s.r.aws.ConfigClusterResolver -
+				Resolving eureka endpoints via configuration
+2023-03-24 18:33:30 [main] INFO  c.netflix.discovery.DiscoveryClient -
+				Disable delta property : false
+2023-03-24 18:33:30 [main] INFO  c.netflix.discovery.DiscoveryClient -
+				Single vip registry refresh property : null
+2023-03-24 18:33:30 [main] INFO  c.netflix.discovery.DiscoveryClient -
+				Force full registry fetch : false
+2023-03-24 18:33:30 [main] INFO  c.netflix.discovery.DiscoveryClient -
+				Application is null : false
+2023-03-24 18:33:30 [main] INFO  c.netflix.discovery.DiscoveryClient -
+				Registered Applications size is zero : true
+2023-03-24 18:33:30 [main] INFO  c.netflix.discovery.DiscoveryClient -
+				Application version is -1: true
+2023-03-24 18:33:30 [main] INFO  c.netflix.discovery.DiscoveryClient -
+				Getting all instance registry info from the eureka server
+2023-03-24 18:33:30 [main] INFO  c.netflix.discovery.DiscoveryClient -
+				The response status is 200
+2023-03-24 18:33:30 [main] INFO  c.netflix.discovery.DiscoveryClient -
+				Starting heartbeat executor: renew interval is: 30
+2023-03-24 18:33:30 [main] INFO  c.n.discovery.InstanceInfoReplicator -
+				InstanceInfoReplicator onDemand update allowed rate per min is 4
+2023-03-24 18:33:30 [main] INFO  c.netflix.discovery.DiscoveryClient -
+				Discovery Client initialized at timestamp 1679697210355 with initial instances count: 0
+2023-03-24 18:33:30 [main] INFO  o.s.c.n.e.s.EurekaServiceRegistry -
+				Registering application PRODUCTMICROSERVICE with eureka with status UP
+2023-03-24 18:33:30 [main] INFO  c.netflix.discovery.DiscoveryClient -
+				Saw local status change event StatusChangeEvent [timestamp=1679697210358, current=UP, previous=STARTING]
+2023-03-24 18:33:30 [main] INFO  o.a.coyote.http11.Http11NioProtocol -
+				Starting ProtocolHandler ["http-nio-9093"]
+2023-03-24 18:33:30 [DiscoveryClient-InstanceInfoReplicator-0] INFO  c.netflix.discovery.DiscoveryClient -
+				DiscoveryClient_PRODUCTMICROSERVICE/host.docker.internal:productmicroservice:9093: registering service...
+2023-03-24 18:33:30 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer -
+				Tomcat started on port(s): 9093 (http) with context path ''
+2023-03-24 18:33:30 [main] INFO  o.s.c.n.e.s.EurekaAutoServiceRegistration -
+				Updating port to 9093
+2023-03-24 18:33:30 [DiscoveryClient-InstanceInfoReplicator-0] INFO  c.netflix.discovery.DiscoveryClient -
+				DiscoveryClient_PRODUCTMICROSERVICE/host.docker.internal:productmicroservice:9093 - registration status: 204
+2023-03-24 18:33:30 [main] INFO  c.c.p.ProductMicroserviceApplication -
+				Started ProductMicroserviceApplication in 4.444 seconds (process running for 5.2)
+2023-03-24 18:34:00 [DiscoveryClient-CacheRefreshExecutor-0] INFO  c.netflix.discovery.DiscoveryClient -
+				Disable delta property : false
+2023-03-24 18:34:00 [DiscoveryClient-CacheRefreshExecutor-0] INFO  c.netflix.discovery.DiscoveryClient -
+				Single vip registry refresh property : null
+2023-03-24 18:34:00 [DiscoveryClient-CacheRefreshExecutor-0] INFO  c.netflix.discovery.DiscoveryClient -
+				Force full registry fetch : false
+2023-03-24 18:34:00 [DiscoveryClient-CacheRefreshExecutor-0] INFO  c.netflix.discovery.DiscoveryClient -
+				Application is null : false
+2023-03-24 18:34:00 [DiscoveryClient-CacheRefreshExecutor-0] INFO  c.netflix.discovery.DiscoveryClient -
+				Registered Applications size is zero : true
+2023-03-24 18:34:00 [DiscoveryClient-CacheRefreshExecutor-0] INFO  c.netflix.discovery.DiscoveryClient -
+				Application version is -1: false
+2023-03-24 18:34:00 [DiscoveryClient-CacheRefreshExecutor-0] INFO  c.netflix.discovery.DiscoveryClient -
+				Getting all instance registry info from the eureka server
+2023-03-24 18:34:00 [DiscoveryClient-CacheRefreshExecutor-0] INFO  c.netflix.discovery.DiscoveryClient -
+				The response status is 200
+2023-03-24 18:34:13 [http-nio-9093-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] -
+				Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-03-24 18:34:13 [http-nio-9093-exec-2] INFO  o.s.web.servlet.DispatcherServlet -
+				Initializing Servlet 'dispatcherServlet'
+2023-03-24 18:34:13 [http-nio-9093-exec-2] INFO  o.s.web.servlet.DispatcherServlet -
+				Completed initialization in 1 ms
+2023-03-24 18:34:14 [http-nio-9093-exec-2] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] -
+				Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception
+io.jsonwebtoken.ExpiredJwtException: JWT expired at 2023-03-24T18:27:14Z. Current time: 2023-03-24T18:34:14Z, a difference of 420008 milliseconds.  Allowed clock skew: 0 milliseconds.
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:385)
+	at com.cgi.productMicroservice.filter.ClientCompanyFilter.doFilter(ClientCompanyFilter.java:61)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:177)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:119)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:400)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:859)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1734)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2023-03-24 18:37:09 [RMI TCP Connection(8)-127.0.0.1] INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin -
+				Application shutdown requested.
+2023-03-24 18:37:09 [RMI TCP Connection(8)-127.0.0.1] INFO  o.s.c.n.e.s.EurekaServiceRegistry -
+				Unregistering application PRODUCTMICROSERVICE with eureka with status DOWN
+2023-03-24 18:37:09 [RMI TCP Connection(8)-127.0.0.1] INFO  c.netflix.discovery.DiscoveryClient -
+				Saw local status change event StatusChangeEvent [timestamp=1679697429648, current=DOWN, previous=UP]
+2023-03-24 18:37:09 [DiscoveryClient-InstanceInfoReplicator-0] INFO  c.netflix.discovery.DiscoveryClient -
+				DiscoveryClient_PRODUCTMICROSERVICE/host.docker.internal:productmicroservice:9093: registering service...
+2023-03-24 18:37:09 [DiscoveryClient-InstanceInfoReplicator-0] INFO  c.netflix.discovery.DiscoveryClient -
+				DiscoveryClient_PRODUCTMICROSERVICE/host.docker.internal:productmicroservice:9093 - registration status: 204
+2023-03-24 18:37:09 [RMI TCP Connection(8)-127.0.0.1] INFO  o.a.coyote.http11.Http11NioProtocol -
+				Pausing ProtocolHandler ["http-nio-9093"]
+2023-03-24 18:37:09 [RMI TCP Connection(8)-127.0.0.1] INFO  o.a.catalina.core.StandardService -
+				Stopping service [Tomcat]
+2023-03-24 18:37:09 [RMI TCP Connection(8)-127.0.0.1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] -
+				Destroying Spring FrameworkServlet 'dispatcherServlet'
+2023-03-24 18:37:09 [RMI TCP Connection(8)-127.0.0.1] INFO  o.a.coyote.http11.Http11NioProtocol -
+				Stopping ProtocolHandler ["http-nio-9093"]
+2023-03-24 18:37:09 [RMI TCP Connection(8)-127.0.0.1] INFO  o.a.coyote.http11.Http11NioProtocol -
+				Destroying ProtocolHandler ["http-nio-9093"]
+2023-03-24 18:37:09 [RMI TCP Connection(8)-127.0.0.1] INFO  c.netflix.discovery.DiscoveryClient -
+				Shutting down DiscoveryClient ...
+2023-03-24 18:37:12 [RMI TCP Connection(8)-127.0.0.1] INFO  c.netflix.discovery.DiscoveryClient -
+				Unregistering ...
+2023-03-24 18:37:12 [RMI TCP Connection(8)-127.0.0.1] INFO  c.netflix.discovery.DiscoveryClient -
+				DiscoveryClient_PRODUCTMICROSERVICE/host.docker.internal:productmicroservice:9093 - deregister  status: 200
+2023-03-24 18:37:12 [RMI TCP Connection(8)-127.0.0.1] INFO  c.netflix.discovery.DiscoveryClient -
+				Completed shut down of DiscoveryClient

@@ -1,0 +1,33 @@
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 5px;
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+mat-form-field {
+    width: 100%;
+}
+
+mat-error {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+textarea {
+    height: 80px;
+    resize: vertical;
+}
+
+button[type="submit"] {
+    margin-top: 20px;
+    background-color: #12BEC8;
+}

@@ -1,0 +1,93 @@
+<h1>Your Claims</h1>
+
+<mat-checkbox [(ngModel)] = "showUnapproved">Show only unapproved claims</mat-checkbox>
+
+  <mat-accordion>
+    <mat-expansion-panel *ngFor="let claim of filteredClaims">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Claim ID: {{ claim.claimId }}
+        </mat-panel-title>
+        <mat-panel-description>
+          Company ID: {{ claim.companyId }}, Date Created: {{ claim.date_created }}, Is Active: {{ claim.isActive }}, Is Approved: {{ claim.isApproved }}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+        <p><strong>Customer ID:</strong> {{ claim.customerId }}</p>
+        <p><strong>Product ID:</strong> {{ claim.productId }}</p>
+        <p><strong>Company ID:</strong> {{ claim.companyId }}</p>
+        <p><strong>Date Created:</strong> {{ claim.date_created }}</p>
+        <p><strong>Is Active:</strong> {{ claim.isActive }}</p>
+        <p><strong>Is Approved:</strong> {{ claim.isApproved }}</p>
+        <p><strong>Description:</strong></p>
+        <p>{{ claim.description }}</p>
+        <p><strong>Notes:</strong></p>
+        <p>{{ claim.notes }}</p>
+
+      <div class="row" style="display: flex; flex-wrap: wrap;">
+        <mat-card *ngFor="let document of claim.documents" style="width: 300px; margin: 16px;">
+          <mat-card-title>
+            Document ID: {{ document.documentId }}
+          </mat-card-title>
+          <mat-card-content>
+            <p>Date Created {{ document.date }}</p>
+            <a href={{document.url}}>Click to view image</a>
+            <p></p>
+            <!-- <img mat-card-image id="pic" [src]=" document.url " alt="" /> -->
+            <!-- <p>URL: {{ document.url }}</p> -->
+            <p>{{ document.information }}</p>
+
+            <button mat-raised-button color="warn"(click)="deleteDocument(claim, document)" (click)="openSnackBar('Deleted Document', 'OK')">
+              <mat-icon>delete</mat-icon>
+              Delete
+            </button>
+
+          </mat-card-content>
+        </mat-card>
+      </div>
+
+
+      <button mat-raised-button color="primary" (click)="openAddDocumentDialog(claim, addDocumentDialog)" >
+        Add a Document
+      </button>
+
+      <button *ngIf="role != 'client'" mat-raised-button class="green-button" (click)="approveClaim(claim)" (click)="openSnackBar('Updated Claim', 'OK')" >
+        <div *ngIf="!claim.isApproved">Approve Claim</div>
+        <div *ngIf="claim.isApproved">Unapprove Claim</div>
+      </button>
+      
+      
+  
+      <div *ngIf="!claim">
+        Loading claim details...
+      </div>
+      
+    </mat-expansion-panel>
+  </mat-accordion>
+
+
+  <ng-template #addDocumentDialog let-dialogRef="dialogRef">
+    <h1 mat-dialog-title>Add a Document</h1>
+    <div mat-dialog-content>
+      <mat-form-field appearance="fill">
+        <mat-label>Document Title/ID</mat-label>
+        <input matInput [(ngModel)]="newDocument.documentId" />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>URL</mat-label>
+        <input matInput [(ngModel)]="newDocument.url" />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Information</mat-label>
+        <textarea matInput [(ngModel)]="newDocument.information"></textarea>
+      </mat-form-field>
+    </div>
+    <div mat-dialog-actions>
+      <button mat-button (click)="dialogRef.close()">Cancel</button>
+      <button mat-button (click)="dialogRef.close(true)">Add</button>
+    </div>
+  </ng-template>
+  
+  
+  
+
+  
