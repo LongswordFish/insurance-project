@@ -28,6 +28,7 @@ export class CompanyStatsListPageComponent {
   purchasedProduct: Array<any>;
   listClientIDs: Array<any>;
   companyID = sessionStorage.getItem('Userid') || "";
+  isApproved: boolean = false;
 
   token: string = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJPbmxpbmUgSldUIEJ1aWxkZXIiLCJpYXQiOjE2ODAxNTMzMzYsImV4cCI6MTcxMTY4OTMzNiwiYXVkIjoid3d3LmV4YW1wbGUuY29tIiwic3ViIjoianJvY2tldEBleGFtcGxlLmNvbSIsInJvbGUiOiJjb21wYW55In0.vhDwqEceK-VwZAlcXtxkfaKydwE94rQ24s4iItJT8gU";
   // displayedColumns: string[] = ["productId", "name", "category", "isAvailable", "price", "delete", "update"];
@@ -52,9 +53,26 @@ export class CompanyStatsListPageComponent {
     this.purchasedProduct = [];
     this.listClientIDs = [];
 
+    this.loadCompany(this.companyID);
+
+    
     //backend call for getting all  products by companyID:
     this.loadProducts();
     this.loadUnavailableProducts();
+
+    
+  }
+
+  loadCompany(companyID: string){
+    this.productService.getCompanyByCompanyID(companyID).subscribe(
+      (res) => {
+        console.log(res);
+        this.isApproved = res.isApproved;
+        console.log(this.isApproved);
+      }, (err) => {
+        console.log(err);
+      }
+    )
   }
 
 
