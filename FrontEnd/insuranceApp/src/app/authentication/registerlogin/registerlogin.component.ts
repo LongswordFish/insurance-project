@@ -24,6 +24,7 @@ export class RegisterloginComponent {
   value:any='client';
   clientArr: ClientModel = new ClientModel();
   companyArr: CompanyModel = new CompanyModel();
+  name:any;
   //client and company data
 
 
@@ -50,7 +51,11 @@ export class RegisterloginComponent {
       this.clientArr.clientName = "";
 
       this.companyArr.companyId = res.userid;
-      this.companyArr.name = "";
+      let o = sessionStorage.getItem("name");
+      if(o!=undefined){
+        this.companyArr.name = o as string;
+      }
+      
       this.companyArr.email=data.email;
       this.companyArr.city="";
       this.companyArr.state="";
@@ -123,6 +128,7 @@ export class RegisterloginComponent {
       }else{
       this.authenticate.register(data).subscribe((response:any)=>{
         this.modalMessage = "Your registration was Successful";
+        sessionStorage.setItem("name",data.name);
         //api post for client and company based on the role selected...role - data.role, email - data.email, 
       },error=>{
         this.modalMessage = error.error;

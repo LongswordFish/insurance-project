@@ -22,6 +22,7 @@
               </mat-error>
               <mat-icon matSuffix>lock</mat-icon>
             </mat-form-field>
+
             <mat-form-field appearence="fill">
               <mat-label>Role</mat-label>
               <mat-select [(ngModel)]="value" name="role" required>
@@ -63,6 +64,12 @@
               </mat-error>
               <mat-icon matSuffix>lock</mat-icon>
 
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="Name" type="text" required 
+                name="name" ngModel #name="ngModel">
+
+              <mat-icon matSuffix>profile</mat-icon>
             </mat-form-field>
             <!-- <mat-form-field>
                   <input
