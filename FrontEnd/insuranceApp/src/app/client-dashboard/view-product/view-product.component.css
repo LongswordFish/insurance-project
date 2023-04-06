@@ -62,3 +62,20 @@
   .product-row-hidden{
     display: none;
   }
+
+  .addProductBtn{
+    background-color: #12BEC8;
+    margin: 0.8em;
+    padding: 0.8em;
+    border-radius: 5px;
+    color: white;
+    font-size: 0.8em;
+    font-weight: 500;
+    outline: none;
+    border:none;
+
+  }
+
+  /* .not-available{
+    display: none;
+  } */

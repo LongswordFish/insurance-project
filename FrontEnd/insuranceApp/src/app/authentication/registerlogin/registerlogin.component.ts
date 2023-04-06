@@ -4,6 +4,9 @@ import { BsModalRef,BsModalService } from 'ngx-bootstrap/modal';
 import { EmailValidator } from '@angular/forms';
 import { RoutingService } from 'src/app/purchased/services/routing.service';
 import { User } from '../model/User.type';
+import { ClientModel } from 'src/app/client-profile/models/client.model';
+import { CompanyModel } from 'src/app/company-profile/models/company.model';
+
 
 @Component({
   selector: 'app-registerlogin',
@@ -19,6 +22,12 @@ export class RegisterloginComponent {
   errorlist:any[]=[];
   modalMessage:any;
   value:any='client';
+  clientArr: ClientModel = new ClientModel();
+  companyArr: CompanyModel = new CompanyModel();
+  name:any;
+  //client and company data
+
+
   constructor(private authenticate:AuthenticateService,private modalService:BsModalService,
               private routingService:RoutingService){
    
@@ -28,11 +37,63 @@ export class RegisterloginComponent {
 
   userLogin(data:any){
     this.authenticate.login(data).subscribe((res:any)=>{
+      console.log(res);
       console.warn(res),
       sessionStorage.setItem("token",res.token);
       sessionStorage.setItem("Userid",res.userid);
       sessionStorage.setItem("role",data.role);
       this.modalMessage = "Your login was Successful";
+  
+      //Creating client and company Post calls
+      this.clientArr.clientId = res.userid;
+      this.clientArr.email = data.email;
+      this.clientArr.location = "";
+      this.clientArr.clientName = "";
+
+      this.companyArr.companyId = res.userid;
+      let o = sessionStorage.getItem("name");
+      if(o!=undefined){
+        this.companyArr.name = o as string;
+      }
+      
+      this.companyArr.email=data.email;
+      this.companyArr.city="";
+      this.companyArr.state="";
+      this.companyArr.address="";
+      this.companyArr.country="";
+      this.companyArr.postalCode="";
+
+
+
+      
+      console.log(this.clientArr);
+
+
+      //  if(data.role == "client"){
+      //   // client post api
+      //   this.authenticate.getClientById(res.userid).subscribe((client) => {
+      //     console.log(client)
+      //   },
+      //   (error)=>{
+      //     this.authenticate.insertIntoClientTable(this.clientArr).subscribe(result => {
+      //     console.log(result);
+      //     });
+      //   }
+      //   );
+      // }
+      if(data.role == "company"){
+        //company call
+        this.authenticate.getCompanyById(res.userid).subscribe((company) => {
+          console.log(company)
+        },
+        (error)=>{
+          this.authenticate.insertIntoCompanyTable(this.companyArr).subscribe(result => {
+          console.log(result);
+          
+          });
+        }
+        );
+      }
       let user = new User();
       user.Userid=res.userid;
       user.role=data.role;
@@ -65,8 +126,10 @@ export class RegisterloginComponent {
       if(data.role == null){
         this.modalMessage = "Please select a Role";
       }else{
-      this.authenticate.register(data).subscribe(()=>{
+      this.authenticate.register(data).subscribe((response:any)=>{
         this.modalMessage = "Your registration was Successful";
+        sessionStorage.setItem("name",data.name);
+        //api post for client and company based on the role selected...role - data.role, email - data.email, 
       },error=>{
         this.modalMessage = error.error;
       })
