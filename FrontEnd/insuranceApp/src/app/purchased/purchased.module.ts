@@ -39,6 +39,7 @@ import { AddreviewComponent } from './components/addreview/addreview.component';
 import { ViewreviewComponent } from './components/viewreview/viewreview.component';
 import { ProductNameFilterPipe } from './pipes/product-name-filter.pipe';
 import { ProductCategoryFilterPipe } from './pipes/product-category-filter.pipe';
+import { AvailableProductsFilterPipe } from './pipes/available-products-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { ProductCategoryFilterPipe } from './pipes/product-category-filter.pipe'
     AddreviewComponent,
     ViewreviewComponent,
     ProductNameFilterPipe,
-    ProductCategoryFilterPipe
+    ProductCategoryFilterPipe,
+    AvailableProductsFilterPipe
   ],
   imports: [
     FormsModule,

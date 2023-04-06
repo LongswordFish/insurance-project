@@ -66,8 +66,8 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-sm-4" *ngFor="let product of products">
-      <mat-card class="product-card">
+    <div class="col-sm-4" *ngFor="let product of (products|availableFilter)">
+      <mat-card class="product-card" [ngClass]="product.available?'':'not-available'" >
         <mat-card-header>
           <mat-card-title>{{ product.name }}</mat-card-title>
           <mat-card-subtitle>{{ product.category }}</mat-card-subtitle>
@@ -76,7 +76,7 @@
         <mat-card-content>
           <p>{{ product.description }}</p>
           <p>Price: {{ product.price }}</p>
-          <p>Availability: {{ product.available }}</p>
+          <!-- <p>Availability: {{ product.available }}</p> -->
           <!-- <p>Locations: {{ product.locations }}</p> -->
           <p>Company ID: {{ product.companyId }}</p>
         </mat-card-content>
