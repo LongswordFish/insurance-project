@@ -45,7 +45,7 @@ export class CompanyStatsListPageComponent {
 
   @ViewChild('unavailablePaginator') paginatorUnavailableProds!: MatPaginator;
   @ViewChild(MatSort) sortUnavailableProds!: MatSort;
-
+  
   constructor(private router: Router, private productService: ProductService, public dialog: MatDialog, private _snackBar: MatSnackBar){
     this.productArr = [];
     this.productUnavailableArr = [];
