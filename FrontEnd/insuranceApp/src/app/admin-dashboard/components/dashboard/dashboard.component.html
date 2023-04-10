@@ -35,7 +35,7 @@
           <tbody *ngFor ="let data of allCompanyData">
             <tr *ngIf="!data.isApproved && !data.adminViewed">
               <td scope="row" class="align-middle">
-                <img src="data:image/png;base64, {{data.logo}}" alt="logo"/>
+                <!-- <img src="data:image/png;base64, {{data.logo}}" alt="logo"/> -->
                 &nbsp;&nbsp;&nbsp;
                 {{data.name}}
               </td>
