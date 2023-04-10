@@ -10,10 +10,13 @@
     </mat-form-field>
 
   <mat-form-field class="fields">
-    <mat-label>Category</mat-label>
-    <input matInput formControlName="category" required>
+    <mat-label>Product Category</mat-label>
+    <mat-select formControlName="category" required>
+      <mat-option *ngFor="let category of categoryOptions" [value]="category">{{category}}</mat-option>
+    </mat-select>
     <mat-error *ngIf="productForm.controls['category'].invalid">Category is required.</mat-error>
   </mat-form-field>
+  
 
   <mat-form-field class="fields">
     <mat-label>Picture</mat-label>
@@ -43,7 +46,9 @@
             <div *ngFor="let location of locationForms.controls; let i=index" [formGroupName]="i" style="display: flex; flex-direction: row; align-items: center; margin-bottom: 1em;">
             <mat-form-field style="flex-grow: 1; margin-right: 0.8em;">
                 <mat-label>Location Name</mat-label>
-                <input matInput formControlName="locationName" required>
+                <mat-select formControlName="locationName" required>
+                  <mat-option *ngFor="let locationName of locationOptions" [value]="locationName">{{locationName}}</mat-option>
+                </mat-select>
                 <mat-error *ngIf="locationForms.controls[i].get('locationName')!.invalid">Location name is required.</mat-error>
             </mat-form-field>
 
@@ -65,6 +70,7 @@
 
 
   <div style="display: flex; justify-content: center;" mat-dialog-actions>
+    <button class="cancelBtn" mat-raised-button (click)="cancel()">Cancel</button>
     <button class="addProductBtn" mat-raised-button type="submit" color="primary" [disabled]="!productForm.valid">Add Product</button>
   </div>
 </form>

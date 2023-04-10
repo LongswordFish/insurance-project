@@ -15,6 +15,8 @@ export class AddAProductComponent {
   productForm!: FormGroup;
   newLocations!: FormArray;
   companyId: string = "";
+  categoryOptions: string[] = ['House', 'Auto', 'Life'];
+  locationOptions: string[] = ['Toronto', 'Montreal', 'Vancouver', 'Calgary', 'Edmonton', 'Ottawa', 'Quebec City', 'Hamilton', 'Winnipeg', 'Halifax'];
 
   constructor(private formBuilder: FormBuilder, 
               private route: ActivatedRoute, 
@@ -34,7 +36,6 @@ export class AddAProductComponent {
       });
     
   }
-
 
   initLocation() {
     return this.formBuilder.group({
@@ -85,12 +86,10 @@ export class AddAProductComponent {
         available: this.productForm.get('available')!.value,
         companyId: this.data
       };
-      console.log(dataToSend);
+      // console.log(dataToSend);
 
-      // this.productService.addProduct(dataToSend).subscribe(...);
-      
-
-      //api call to add product
+    
+      // api call to add product
       this.productService.addProduct(dataToSend).subscribe(
         (res) =>{
           console.log(res);
