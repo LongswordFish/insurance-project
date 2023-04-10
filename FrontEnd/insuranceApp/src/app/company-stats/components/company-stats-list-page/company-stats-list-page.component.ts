@@ -13,6 +13,8 @@ import { Product } from '../../models/product';
 import { ProductService } from '../../services/product.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import { Observable } from 'rxjs';
+import { p_Company } from '../../models/company.type';
+import { CompanyService } from '../../services/company.service';
 
 
 @Component({
@@ -31,7 +33,10 @@ export class CompanyStatsListPageComponent {
 
   token: string = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJPbmxpbmUgSldUIEJ1aWxkZXIiLCJpYXQiOjE2ODAxNTMzMzYsImV4cCI6MTcxMTY4OTMzNiwiYXVkIjoid3d3LmV4YW1wbGUuY29tIiwic3ViIjoianJvY2tldEBleGFtcGxlLmNvbSIsInJvbGUiOiJjb21wYW55In0.vhDwqEceK-VwZAlcXtxkfaKydwE94rQ24s4iItJT8gU";
   // displayedColumns: string[] = ["productId", "name", "category", "isAvailable", "price", "delete", "update"];
-  displayedColumns: string[] = ["name", "category", "price", "delete", "update"];
+  displayedColumns: string[] = ["name", "category", "price", "delete", "update", "moreInfo"];
+  displayedColumnsReviews: string[] = ["name", "category", "price", "delete", "update"];
+
+  comp:p_Company={};
 
   dataSourceProduct!: MatTableDataSource<Product>
   dataSourceUnavailableProduct!: MatTableDataSource<Product>
@@ -44,7 +49,8 @@ export class CompanyStatsListPageComponent {
   @ViewChild('unavailablePaginator') paginatorUnavailableProds!: MatPaginator;
   @ViewChild(MatSort) sortUnavailableProds!: MatSort;
 
-  constructor(private router: Router, private productService: ProductService, public dialog: MatDialog, private _snackBar: MatSnackBar){
+  constructor(private router: Router, private productService: ProductService, public dialog: MatDialog, private _snackBar: MatSnackBar,
+              private companyService:CompanyService){
     this.productArr = [];
     this.productUnavailableArr = [];
     this.purchasedProduct = [];
@@ -53,8 +59,15 @@ export class CompanyStatsListPageComponent {
     //backend call for getting all  products by companyID:
     this.loadProducts();
     this.loadUnavailableProducts();
+    this.loadCompany();
   }
 
+  loadCompany(){
+    this.companyService.getCompanyById(this.companyID).subscribe(res=>{
+      this.comp=res;
+      // console.log(this.comp);
+    })
+  }
 
   //function to load products
   loadProducts(){
@@ -205,9 +218,11 @@ export class CompanyStatsListPageComponent {
     });
 
     dialogRef.afterClosed().subscribe(result => {
+      this.loadProducts();
+      this.loadUnavailableProducts();
       if(result == 'success'){
         //refresh the table data
-        this.loadProducts();
+        
       }
     });
   }

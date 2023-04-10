@@ -3,12 +3,12 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    background-color: white;
+    background-color: #12BEC8;
     color: black;
 }
 
 .mat-toolbar a {
-    color: black;
+    color: white;
     text-decoration: none;
     margin-right: 20px;
 }

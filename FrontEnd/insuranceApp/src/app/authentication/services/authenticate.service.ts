@@ -45,4 +45,20 @@ export class AuthenticateService {
     return this.userSubject;
   }
 
+  insertIntoClientTable(data:any){
+    return this.http.post<any>(`http://localhost:9092/api/Client`,data);
+  }
+  
+  getClientById(id?:string){
+    return this.http.get<any>(`http://localhost:9092/api/Client/${id}`);
+  }
+
+  insertIntoCompanyTable(data:any){
+    return this.http.post<any>(`http://localhost:9091/api/company/add`,data);
+  }
+  
+  getCompanyById(id?:string){
+    return this.http.get<any>(`http://localhost:9091/api/company/id/${id}`);
+  }
+
 }

@@ -61,20 +61,23 @@ export class ClaimCreateComponent {
 
   onSubmit() {
     const newClaim = new Claim();
-    newClaim.customerId = this.claimForm.value.customerId;
-    newClaim.productId = this.claimForm.value.productId;
-    newClaim.companyId = this.claimForm.value.companyId;
+    newClaim.customerId = this.claimForm.controls['customerId'].value;
+    newClaim.productId = this.claimForm.controls['productId'].value;
+    newClaim.companyId = this.claimForm.controls['companyId'].value;
     newClaim.description = this.claimForm.value.description;
     newClaim.notes = this.claimForm.value.notes;
 
     this.notify.senderId = this.senderIdForNotification;
     this.notify.message= "Claim Added!"
-    this.notify.recipientId= this.claimForm.value.companyId;
+    this.notify.recipientId= this.companyId as String;
+ 
     this.notify.read = false;
     console.log(newClaim);
+    console.log(this.notify);
     this.claimservice.addClaim(newClaim).subscribe(
       () => {
         this.claimForm.reset();
+        console.log(this.notify);
         const res = this.notificationservice.createNotification(this.notify).subscribe();
         console.log(res);
         this.snackBar.open('Claim added successfully and Notification sent to the company', 'Close', {

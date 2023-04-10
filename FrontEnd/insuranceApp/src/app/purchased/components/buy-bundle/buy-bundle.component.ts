@@ -55,7 +55,7 @@ export class BuyBundleComponent {
     this.ppService.postPurchasedList(ppListToPost).subscribe(res=>{
       this._snackBar.open("Bundle added to your account", "close");
       sessionStorage.removeItem("bid");
-      this.routingService.openMyBundles();
+      this.routingService.openMyPlans();
     });
 
   }

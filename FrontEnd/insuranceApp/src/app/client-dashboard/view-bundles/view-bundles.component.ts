@@ -6,7 +6,8 @@ import {
   Validators,
 } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Bundle } from '../bundle.model';
+// import { Bundle } from '../bundle.model';
+import { Bundle } from 'src/app/bundle';
 import { BundleService } from 'src/app/shared/bundle.service';
 import { BundleFilterPipe } from 'src/app/bundle-filter.pipe';
 
