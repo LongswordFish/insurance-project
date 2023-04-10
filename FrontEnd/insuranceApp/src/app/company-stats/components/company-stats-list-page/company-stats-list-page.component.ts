@@ -13,6 +13,8 @@ import { Product } from '../../models/product';
 import { ProductService } from '../../services/product.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import { Observable } from 'rxjs';
+import { p_Company } from '../../models/company.type';
+import { CompanyService } from '../../services/company.service';
 
 
 @Component({
@@ -35,6 +37,7 @@ export class CompanyStatsListPageComponent {
   displayedColumns: string[] = ["name", "category", "price", "delete", "update", "moreInfo"];
   displayedColumnsReviews: string[] = ["name", "category", "price", "delete", "update"];
 
+  comp:p_Company={};
 
   dataSourceProduct!: MatTableDataSource<Product>
   dataSourceUnavailableProduct!: MatTableDataSource<Product>
@@ -47,7 +50,8 @@ export class CompanyStatsListPageComponent {
   @ViewChild('unavailablePaginator') paginatorUnavailableProds!: MatPaginator;
   @ViewChild(MatSort) sortUnavailableProds!: MatSort;
 
-  constructor(private router: Router, private productService: ProductService, public dialog: MatDialog, private _snackBar: MatSnackBar){
+  constructor(private router: Router, private productService: ProductService, public dialog: MatDialog, private _snackBar: MatSnackBar,
+              private companyService:CompanyService){
     this.productArr = [];
     this.productUnavailableArr = [];
     this.purchasedProduct = [];
@@ -59,22 +63,15 @@ export class CompanyStatsListPageComponent {
     //backend call for getting all  products by companyID:
     this.loadProducts();
     this.loadUnavailableProducts();
-
-    
+    this.loadCompany();
   }
 
-  // loadCompany(companyID: string){
-  //   this.productService.getCompanyByCompanyID(companyID).subscribe(
-  //     (res) => {
-  //       console.log(res);
-  //       this.isApproved = res.isApproved;
-  //       console.log(this.isApproved);
-  //     }, (err) => {
-  //       console.log(err);
-  //     }
-  //   )
-  // }
-
+  loadCompany(){
+    this.companyService.getCompanyById(this.companyID).subscribe(res=>{
+      this.comp=res;
+      // console.log(this.comp);
+    })
+  }
 
   //function to load products
   loadProducts(){
