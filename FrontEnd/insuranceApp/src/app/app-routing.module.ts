@@ -53,7 +53,7 @@ const routes: Routes = [
   { path: 'client-view', component: ClientViewComponent,canActivate:[ClientGuard] },
   { path: 'buy-product/:productId', component: BuyProductComponent,canActivate:[ClientGuard] },
   { path: 'buy-bundle/:bundleId', component: BuyBundleComponent,canActivate:[ClientGuard] },
-  { path: 'claims', component: ClaimViewComponent ,canActivate:[ClientGuard]},
+  { path: 'claims', component: ClaimViewComponent},
   { path: 'my-plans', component: MyPlanViewComponent ,canActivate:[ClientGuard]},
   { path: 'create-claim', component: ClaimCreateComponent ,canActivate:[ClientGuard]},
   {
