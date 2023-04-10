@@ -1,0 +1,179 @@
+<div class="container py-5">
+    <form [formGroup]="form" (ngSubmit)="onButtonClickSubmit()">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="card mb-4">
+                    <div class="card-body text-center">
+                        <img src="data:image/png;base64, {{company.logo}}" alt="logo"/>
+                        <h1 class="my-3">{{company.name}}</h1>
+                        <p class="text-muted mb-1">{{company.city}}, {{company.state}}</p>
+                        <hr/>
+                        <div class="row">
+                            <div class="col-sm-1">
+                                <mat-icon>alarm</mat-icon>
+                            </div>
+                            <div class="col-sm-3">
+                                <p class="mb-0">Registered</p>
+                            </div>
+                            <div class="col-sm-8">
+                                <p class="text-muted mb-0">{{ company.dateRegistered | date:'medium' }}</p>
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="row">
+                            <div class="col-sm-1">
+                                <mat-icon>alarm</mat-icon>
+                            </div>
+                            <div class="col-sm-3">
+                                <p class="mb-0">Approved</p>
+                            </div>
+                            <div class="col-sm-8">
+                                <p class="text-muted mb-0">{{company.dateApproved | date:'medium'}}</p>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="d-flex justify-content-center mb-2">
+                            <input class="btn btn-outline-warning ms-1" type="submit" value="Apply Changes">
+                            <button type="button" class="btn btn-outline-info ms-1" (click)="onButtonClickCancel()">Cancel Updates</button>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-1">
+                                <mat-icon>public</mat-icon>
+                            </div>
+                            <div class="col-sm-2">
+                                <p class="mb-0">Company name</p>
+                            </div>
+                            <div class="col-sm-9">
+                                <input formControlName="name" type="text">
+                            </div>
+                        </div>
+                        <!-- <label>Company Name: </label>
+                        <input formControlName="name" type="text"> -->
+                        <div class="row">
+                            <div class="col-sm-1">
+                                <mat-icon>book</mat-icon>
+                            </div>
+                            <div class="col-sm-2">
+                                <p class="mb-0">Profile</p>
+                            </div>
+                            <div class="col-sm-9">
+                                <textarea formControlName="description" [value]="default" style="height: 150pt; width: 100%; padding: 0; margin: 0;"></textarea>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="row">
+                            <div class="col-sm-1">
+                                <mat-icon>public</mat-icon>
+                            </div>
+                            <div class="col-sm-2">
+                                <p class="mb-0">Address</p>
+                            </div>
+                            <div class="col-sm-9">
+                                <input formControlName="address" type="text">
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="row">
+                            <div class="col-sm-1"></div>
+                            <div class="col-sm-2">
+                                <p class="mb-0">City</p>
+                            </div>
+                            <div class="col-sm-3">
+                                <input formControlName="city" type="text">
+                            </div>
+                            <div class="col-sm-2">
+                                <p class="mb-0">Province/Territory</p>
+                            </div>
+                            <div class="col-sm-4">
+                                <input formControlName="state" type="text">
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="row">
+                            <div class="col-sm-1"></div>
+                            <div class="col-sm-2">
+                                <p class="mb-0">Country</p>
+                            </div>
+                            <div class="col-sm-3">
+                                <input formControlName="country" type="text">
+                            </div>
+                            <div class="col-sm-2">
+                                <p class="mb-0">Postal Code</p>
+                            </div>
+                            <div class="col-sm-4">
+                                <input formControlName="postalcode" type="text">
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-1">
+                                <mat-icon>email</mat-icon>
+                            </div>
+                            <div class="col-sm-2">
+                                <p class="mb-0">Email</p>
+                            </div>
+                            <div class="col-sm-9">
+                                <input formControlName="email" type="text">
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-1">
+                                <mat-icon>phone</mat-icon>
+                            </div>
+                            <div class="col-sm-2">
+                                <p class="mb-0">Phone Number</p>
+                            </div>
+                            <div class="col-sm-9">
+                                <input formControlName="phone" type="text">
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-1">
+                                <mat-icon>keyboard</mat-icon>
+                            </div>
+                            <div class="col-sm-2">
+                                <p class="mb-0">Fax Number</p>
+                            </div>
+                            <div class="col-sm-9">
+                                <input formControlName="fax" type="text">
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-1">
+                                <mat-icon>language</mat-icon>
+                            </div>
+                            <div class="col-sm-2">
+                                <p class="mb-0">Website</p>
+                            </div>
+                            <div class="col-sm-9">
+                                <input formControlName="website" type="text">
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-1">
+                                <mat-icon>people-outline</mat-icon>
+                            </div>
+                            <div class="col-sm-2">
+                                <p class="mb-0">Instagram</p>
+                            </div>
+                            <div class="col-sm-9">
+                                <input formControlName="instagram" type="text">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>        
+        </div>
+    </form>
+</div>

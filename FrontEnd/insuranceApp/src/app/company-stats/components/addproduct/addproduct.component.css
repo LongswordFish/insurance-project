@@ -1,0 +1,74 @@
+.addProductBtn{
+    background-color: #12BEC8;
+    margin: 0.8em;
+    padding: 0.8em;
+    border-radius: 5px;
+    color: white;
+    font-size: 1.2em;
+    font-weight: 500;
+    outline: none;
+    border:none;
+  }
+
+  .addProductBtn:hover{
+    background-color: #12BEC8;
+    margin: 0.8em;
+    padding: 0.8em;
+    border-radius: 5px;
+    color: white;
+    font-size: 1.2em;
+    font-weight: 500;
+    outline: none;
+    border:none;
+    cursor: pointer;
+  }
+
+.addLocationBtn{
+    background-color: white;
+    margin: 0.8em;
+    padding: 0.4em;
+    border-radius: 5px;
+    color: #12BEC8;
+    font-size: 1.2em;
+    font-weight: 500;
+    outline: none;
+    border: 1px solid #12BEC8;
+
+}
+
+.cancelBtn{
+    background-color: white;
+    margin: 0.8em;
+    padding: 0.4em;
+    border-radius: 5px;
+    color: #12BEC8;
+    font-size: 1.2em;
+    font-weight: 500;
+    outline: none;
+    border: none
+
+}
+
+.cancelBtn:hover{
+    background-color: white;
+    margin: 0.8em;
+    padding: 0.4em;
+    border-radius: 5px;
+    color: #12BEC8;
+    font-size: 1.2em;
+    font-weight: 500;
+    outline: none;
+    border: none;
+    cursor: pointer;
+
+}
+
+.addLocationBtn_Container{
+    display: flex;
+    justify-content: center;
+
+}
+
+.fields{
+    margin: 0.4em;
+}

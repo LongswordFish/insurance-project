@@ -1,0 +1,46 @@
+<body>
+  
+  <div class="card-container gradient">
+    <ul>
+      <mat-card>
+        <mat-card-title>NOTIFICATIONS</mat-card-title>
+        <div *ngIf="!notificationsWithSenderName || notificationsWithSenderName.length === 0">
+          <mat-list class="card-border mat-card-content">    
+            <mat-list-item class="notification-item">
+              <div>
+                <mat-icon mat-list-icon>notifications</mat-icon>
+                <h5 mat-line  class="noNotifications">You don't have any Notifications!</h5>
+              </div>
+            </mat-list-item>
+          </mat-list>
+        </div>
+        <mat-card-content *ngIf="notificationsWithSenderName && notificationsWithSenderName.length > 0">
+          <div class="search-bar">
+            <input type="text" [(ngModel)]="searchTerm" placeholder="Search">
+          </div>
+          <mat-list class="card-border mat-card-content" *ngFor="let notification of notificationsWithSenderName | notificationFilter: searchTerm | paginate: { itemsPerPage: 3, currentPage: currentPage }">    
+            <mat-list-item class="notification-item">
+              <div>
+                <mat-icon mat-list-icon>notifications</mat-icon>
+                
+              </div>
+              <div class="notification-body">
+                <h5 mat-line style="font-size: 20px; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Company name: {{ notification.senderName }} </h5>
+                <h4 mat-line class="message-text">message - {{notification.message}}</h4>
+                <h4 mat-line class="notification-date">Date - {{notification.createdAt}}</h4>
+              </div>
+              <div class="button-container notification-actions">
+                <button class="btn3 btn-danger" (click)="deleteNotification(notification.notificationId)">Delete</button>
+                <button class="btn" (click)="openNotificationDialog(notification.senderId)">Reply</button>
+                
+                
+              </div>
+            </mat-list-item>
+          </mat-list>
+          <pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
+          
+        </mat-card-content>
+      </mat-card>
+    </ul>
+  </div>
+</body>

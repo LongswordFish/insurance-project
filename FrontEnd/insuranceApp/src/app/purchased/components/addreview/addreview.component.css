@@ -1,0 +1,29 @@
+.clsdiv
+{
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+  margin-bottom: 40px;
+  margin-right: 40px;
+  margin-left: 40px;
+}
+.button
+{
+    display: flex;
+    align-content: center;
+    margin-top: 40px;
+  margin-bottom: 40px;
+  margin-right: 40px;
+  margin-left: 40px;
+}
+
+.clscontainer
+{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.filled {
+  color: #802d09;
+}

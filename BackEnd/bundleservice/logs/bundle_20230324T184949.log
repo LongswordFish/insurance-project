@@ -1,0 +1,90 @@
+2023-03-24 18:49:50 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils -
+				Could not detect default configuration classes for test class [com.cgi.bundleservice.BundleserviceApplicationTests]: BundleserviceApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2023-03-24 18:49:50 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper -
+				Found @SpringBootConfiguration com.cgi.bundleservice.BundleserviceApplication for test class com.cgi.bundleservice.BundleserviceApplicationTests
+2023-03-24 18:49:51 [main] INFO  c.c.b.BundleserviceApplicationTests -
+				Starting BundleserviceApplicationTests using Java 17.0.5 with PID 13720 (started by vipul.darji in C:\CGI\Stack\GITPARTS\bundleservice)
+2023-03-24 18:49:51 [main] INFO  c.c.b.BundleserviceApplicationTests -
+				No active profile set, falling back to 1 default profile: "default"
+2023-03-24 18:49:53 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate -
+				Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2023-03-24 18:49:53 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate -
+				Finished Spring Data repository scanning in 137 ms. Found 1 MongoDB repository interfaces.
+2023-03-24 18:49:54 [main] INFO  org.mongodb.driver.client -
+				MongoClient with metadata {"driver": {"name": "mongo-java-driver|sync|spring-boot", "version": "4.8.2"}, "os": {"type": "Windows", "name": "Windows 10", "architecture": "amd64", "version": "10.0"}, "platform": "Java/Eclipse Adoptium/17.0.5+8"} created with settings MongoClientSettings{readPreference=primary, writeConcern=WriteConcern{w=null, wTimeout=null ms, journal=null}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=null}, credential=null, streamFactoryFactory=null, commandListeners=[], codecRegistry=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, CollectionCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, EnumCodecProvider{}, com.mongodb.Jep395RecordCodecProvider@2b6c7012]}, clusterSettings={hosts=[localhost:27017], srvServiceName=mongodb, mode=SINGLE, requiredClusterType=UNKNOWN, requiredReplicaSetName='null', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='30000 ms', localThreshold='30000 ms'}, socketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=0, receiveBufferSize=0, sendBufferSize=0}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=10000, receiveBufferSize=0, sendBufferSize=0}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=0, maxWaitTimeMS=120000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=false, invalidHostNameAllowed=false, context=null}, applicationName='null', compressorList=[], uuidRepresentation=JAVA_LEGACY, serverApi=null, autoEncryptionSettings=null, contextProvider=null}
+2023-03-24 18:49:55 [cluster-ClusterId{value='641e2912eedc716fe43fa36d', description='null'}-localhost:27017] INFO  org.mongodb.driver.cluster -
+				Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=17, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=51624200}
+2023-03-24 18:49:56 [main] INFO  c.c.b.BundleserviceApplicationTests -
+				Started BundleserviceApplicationTests in 5.955 seconds (process running for 9.184)
+2023-03-24 18:49:58 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils -
+				Could not detect default configuration classes for test class [com.cgi.bundleservice.controller.BundleControllerTest]: BundleControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2023-03-24 18:49:58 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper -
+				Found @SpringBootConfiguration com.cgi.bundleservice.BundleserviceApplication for test class com.cgi.bundleservice.controller.BundleControllerTest
+2023-03-24 18:49:58 [main] INFO  c.c.b.c.BundleControllerTest -
+				Starting BundleControllerTest using Java 17.0.5 with PID 13720 (started by vipul.darji in C:\CGI\Stack\GITPARTS\bundleservice)
+2023-03-24 18:49:58 [main] INFO  c.c.b.c.BundleControllerTest -
+				No active profile set, falling back to 1 default profile: "default"
+2023-03-24 18:49:58 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate -
+				Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2023-03-24 18:49:58 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate -
+				Finished Spring Data repository scanning in 34 ms. Found 1 MongoDB repository interfaces.
+2023-03-24 18:49:59 [main] INFO  org.mongodb.driver.client -
+				MongoClient with metadata {"driver": {"name": "mongo-java-driver|sync|spring-boot", "version": "4.8.2"}, "os": {"type": "Windows", "name": "Windows 10", "architecture": "amd64", "version": "10.0"}, "platform": "Java/Eclipse Adoptium/17.0.5+8"} created with settings MongoClientSettings{readPreference=primary, writeConcern=WriteConcern{w=null, wTimeout=null ms, journal=null}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=null}, credential=null, streamFactoryFactory=null, commandListeners=[], codecRegistry=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, CollectionCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, EnumCodecProvider{}, com.mongodb.Jep395RecordCodecProvider@2b6c7012]}, clusterSettings={hosts=[localhost:27017], srvServiceName=mongodb, mode=SINGLE, requiredClusterType=UNKNOWN, requiredReplicaSetName='null', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='30000 ms', localThreshold='30000 ms'}, socketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=0, receiveBufferSize=0, sendBufferSize=0}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=10000, receiveBufferSize=0, sendBufferSize=0}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=0, maxWaitTimeMS=120000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=false, invalidHostNameAllowed=false, context=null}, applicationName='null', compressorList=[], uuidRepresentation=JAVA_LEGACY, serverApi=null, autoEncryptionSettings=null, contextProvider=null}
+2023-03-24 18:49:59 [cluster-ClusterId{value='641e2917eedc716fe43fa36e', description='null'}-localhost:27017] INFO  org.mongodb.driver.cluster -
+				Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=17, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=10317300}
+2023-03-24 18:49:59 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext -
+				Initializing Spring TestDispatcherServlet ''
+2023-03-24 18:49:59 [main] INFO  o.s.t.w.s.TestDispatcherServlet -
+				Initializing Servlet ''
+2023-03-24 18:49:59 [main] INFO  o.s.t.w.s.TestDispatcherServlet -
+				Completed initialization in 2 ms
+2023-03-24 18:49:59 [main] INFO  c.c.b.c.BundleControllerTest -
+				Started BundleControllerTest in 1.317 seconds (process running for 12.1)
+2023-03-24 18:50:00 [main] INFO  c.c.bundleservice.aspect.AspectLogs -
+				Calling method: getBundleById
+2023-03-24 18:50:00 [main] INFO  c.c.bundleservice.aspect.AspectLogs -
+				With arguments: [bundle-001]
+2023-03-24 18:50:00 [main] INFO  c.c.bundleservice.aspect.AspectLogs -
+				Finished calling method: getBundleById
+2023-03-24 18:50:01 [main] INFO  c.c.bundleservice.aspect.AspectLogs -
+				Calling method: getAllBundles
+2023-03-24 18:50:01 [main] INFO  c.c.bundleservice.aspect.AspectLogs -
+				With arguments: []
+2023-03-24 18:50:01 [main] INFO  c.c.bundleservice.aspect.AspectLogs -
+				Finished calling method: getAllBundles
+2023-03-24 18:50:01 [main] INFO  c.c.bundleservice.aspect.AspectLogs -
+				Calling method: updateBundle
+2023-03-24 18:50:01 [main] INFO  c.c.bundleservice.aspect.AspectLogs -
+				With arguments: [bundle-001, com.cgi.bundleservice.model.Bundle@452e2210]
+2023-03-24 18:50:01 [main] INFO  c.c.bundleservice.aspect.AspectLogs -
+				Finished calling method: updateBundle
+2023-03-24 18:50:01 [main] INFO  c.c.bundleservice.aspect.AspectLogs -
+				Calling method: deleteBundle
+2023-03-24 18:50:01 [main] INFO  c.c.bundleservice.aspect.AspectLogs -
+				With arguments: [bundle-001]
+2023-03-24 18:50:01 [main] INFO  c.c.bundleservice.aspect.AspectLogs -
+				Finished calling method: deleteBundle
+2023-03-24 18:50:01 [main] INFO  c.c.bundleservice.aspect.AspectLogs -
+				Calling method: createBundle
+2023-03-24 18:50:01 [main] INFO  c.c.bundleservice.aspect.AspectLogs -
+				With arguments: [com.cgi.bundleservice.model.Bundle@3c4e23be]
+2023-03-24 18:50:01 [main] INFO  c.c.bundleservice.aspect.AspectLogs -
+				Finished calling method: createBundle
+2023-03-24 18:50:01 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils -
+				Could not detect default configuration classes for test class [com.cgi.bundleservice.service.BundleServiceImplTest]: BundleServiceImplTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2023-03-24 18:50:01 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper -
+				Found @SpringBootConfiguration com.cgi.bundleservice.BundleserviceApplication for test class com.cgi.bundleservice.service.BundleServiceImplTest
+2023-03-24 18:50:01 [main] INFO  c.c.b.service.BundleServiceImplTest -
+				Starting BundleServiceImplTest using Java 17.0.5 with PID 13720 (started by vipul.darji in C:\CGI\Stack\GITPARTS\bundleservice)
+2023-03-24 18:50:01 [main] INFO  c.c.b.service.BundleServiceImplTest -
+				The following 1 profile is active: "test"
+2023-03-24 18:50:01 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate -
+				Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2023-03-24 18:50:01 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate -
+				Finished Spring Data repository scanning in 41 ms. Found 1 MongoDB repository interfaces.
+2023-03-24 18:50:02 [main] INFO  org.mongodb.driver.client -
+				MongoClient with metadata {"driver": {"name": "mongo-java-driver|sync|spring-boot", "version": "4.8.2"}, "os": {"type": "Windows", "name": "Windows 10", "architecture": "amd64", "version": "10.0"}, "platform": "Java/Eclipse Adoptium/17.0.5+8"} created with settings MongoClientSettings{readPreference=primary, writeConcern=WriteConcern{w=null, wTimeout=null ms, journal=null}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=null}, credential=null, streamFactoryFactory=null, commandListeners=[], codecRegistry=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, CollectionCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, EnumCodecProvider{}, com.mongodb.Jep395RecordCodecProvider@2b6c7012]}, clusterSettings={hosts=[localhost:27017], srvServiceName=mongodb, mode=SINGLE, requiredClusterType=UNKNOWN, requiredReplicaSetName='null', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='30000 ms', localThreshold='30000 ms'}, socketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=0, receiveBufferSize=0, sendBufferSize=0}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=10000, receiveBufferSize=0, sendBufferSize=0}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=0, maxWaitTimeMS=120000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=false, invalidHostNameAllowed=false, context=null}, applicationName='null', compressorList=[], uuidRepresentation=JAVA_LEGACY, serverApi=null, autoEncryptionSettings=null, contextProvider=null}
+2023-03-24 18:50:02 [cluster-ClusterId{value='641e291aeedc716fe43fa36f', description='null'}-localhost:27017] INFO  org.mongodb.driver.cluster -
+				Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=17, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=3955200}
+2023-03-24 18:50:02 [main] INFO  c.c.b.service.BundleServiceImplTest -
+				Started BundleServiceImplTest in 0.927 seconds (process running for 14.878)

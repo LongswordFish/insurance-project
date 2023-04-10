@@ -1,0 +1,78 @@
+2023-03-24 18:08:52 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils -
+				Could not detect default configuration classes for test class [com.cgi.productMicroservice.ProductMicroserviceApplicationTests]: ProductMicroserviceApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2023-03-24 18:08:52 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper -
+				Found @SpringBootConfiguration com.cgi.productMicroservice.ProductMicroserviceApplication for test class com.cgi.productMicroservice.ProductMicroserviceApplicationTests
+2023-03-24 18:08:53 [background-preinit] INFO  o.h.validator.internal.util.Version -
+				HV000001: Hibernate Validator 8.0.0.Final
+2023-03-24 18:08:54 [main] INFO  c.c.p.ProductMicroserviceApplicationTests -
+				Starting ProductMicroserviceApplicationTests using Java 17.0.5 with PID 16660 (started by parth.patel1 in C:\Users\parth.patel1\Documents\workspace-spring-tool-suite-4-4.17.1.RELEASE\productMicroservice)
+2023-03-24 18:08:54 [main] INFO  c.c.p.ProductMicroserviceApplicationTests -
+				No active profile set, falling back to 1 default profile: "default"
+2023-03-24 18:08:55 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate -
+				Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2023-03-24 18:08:56 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate -
+				Finished Spring Data repository scanning in 310 ms. Found 1 MongoDB repository interfaces.
+2023-03-24 18:08:56 [main] INFO  o.s.cloud.context.scope.GenericScope -
+				BeanFactory id=022160f1-ecf6-3c76-a5aa-cd6763b48fba
+2023-03-24 18:08:57 [main] INFO  org.mongodb.driver.client -
+				MongoClient with metadata {"driver": {"name": "mongo-java-driver|sync|spring-boot", "version": "4.8.2"}, "os": {"type": "Windows", "name": "Windows 10", "architecture": "amd64", "version": "10.0"}, "platform": "Java/Eclipse Adoptium/17.0.5+8"} created with settings MongoClientSettings{readPreference=primary, writeConcern=WriteConcern{w=null, wTimeout=null ms, journal=null}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=null}, credential=null, streamFactoryFactory=null, commandListeners=[], codecRegistry=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, CollectionCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, EnumCodecProvider{}, com.mongodb.Jep395RecordCodecProvider@472719df]}, clusterSettings={hosts=[localhost:27017], srvServiceName=mongodb, mode=SINGLE, requiredClusterType=UNKNOWN, requiredReplicaSetName='null', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='30000 ms', localThreshold='30000 ms'}, socketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=0, receiveBufferSize=0, sendBufferSize=0}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=10000, receiveBufferSize=0, sendBufferSize=0}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=0, maxWaitTimeMS=120000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=false, invalidHostNameAllowed=false, context=null}, applicationName='null', compressorList=[], uuidRepresentation=JAVA_LEGACY, serverApi=null, autoEncryptionSettings=null, contextProvider=null}
+2023-03-24 18:08:57 [cluster-ClusterId{value='641e1f79abf7cc513be6c8ff', description='null'}-localhost:27017] INFO  org.mongodb.driver.cluster -
+				Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=17, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=36513400}
+2023-03-24 18:09:02 [main] INFO  o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration -
+				Eureka HTTP Client uses RestTemplate.
+2023-03-24 18:09:03 [main] WARN  o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger -
+				Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2023-03-24 18:09:03 [main] INFO  o.s.c.n.eureka.InstanceInfoFactory -
+				Setting initial instance status as: STARTING
+2023-03-24 18:09:03 [main] INFO  c.netflix.discovery.DiscoveryClient -
+				Initializing Eureka in region us-east-1
+2023-03-24 18:09:03 [main] INFO  c.n.d.s.r.aws.ConfigClusterResolver -
+				Resolving eureka endpoints via configuration
+2023-03-24 18:09:04 [main] INFO  c.netflix.discovery.DiscoveryClient -
+				Disable delta property : false
+2023-03-24 18:09:04 [main] INFO  c.netflix.discovery.DiscoveryClient -
+				Single vip registry refresh property : null
+2023-03-24 18:09:04 [main] INFO  c.netflix.discovery.DiscoveryClient -
+				Force full registry fetch : false
+2023-03-24 18:09:04 [main] INFO  c.netflix.discovery.DiscoveryClient -
+				Application is null : false
+2023-03-24 18:09:04 [main] INFO  c.netflix.discovery.DiscoveryClient -
+				Registered Applications size is zero : true
+2023-03-24 18:09:04 [main] INFO  c.netflix.discovery.DiscoveryClient -
+				Application version is -1: true
+2023-03-24 18:09:04 [main] INFO  c.netflix.discovery.DiscoveryClient -
+				Getting all instance registry info from the eureka server
+2023-03-24 18:09:05 [main] INFO  c.netflix.discovery.DiscoveryClient -
+				The response status is 200
+2023-03-24 18:09:05 [main] INFO  c.netflix.discovery.DiscoveryClient -
+				Starting heartbeat executor: renew interval is: 30
+2023-03-24 18:09:05 [main] INFO  c.n.discovery.InstanceInfoReplicator -
+				InstanceInfoReplicator onDemand update allowed rate per min is 4
+2023-03-24 18:09:05 [main] INFO  c.netflix.discovery.DiscoveryClient -
+				Discovery Client initialized at timestamp 1679695745138 with initial instances count: 0
+2023-03-24 18:09:05 [main] INFO  o.s.c.n.e.s.EurekaServiceRegistry -
+				Registering application PRODUCTMICROSERVICE with eureka with status UP
+2023-03-24 18:09:05 [main] INFO  c.netflix.discovery.DiscoveryClient -
+				Saw local status change event StatusChangeEvent [timestamp=1679695745146, current=UP, previous=STARTING]
+2023-03-24 18:09:05 [DiscoveryClient-InstanceInfoReplicator-0] INFO  c.netflix.discovery.DiscoveryClient -
+				DiscoveryClient_PRODUCTMICROSERVICE/host.docker.internal:productmicroservice:9093: registering service...
+2023-03-24 18:09:05 [main] INFO  c.c.p.ProductMicroserviceApplicationTests -
+				Started ProductMicroserviceApplicationTests in 11.928 seconds (process running for 15.441)
+2023-03-24 18:09:05 [DiscoveryClient-InstanceInfoReplicator-0] INFO  c.netflix.discovery.DiscoveryClient -
+				DiscoveryClient_PRODUCTMICROSERVICE/host.docker.internal:productmicroservice:9093 - registration status: 204
+2023-03-24 18:09:05 [SpringApplicationShutdownHook] INFO  o.s.c.n.e.s.EurekaServiceRegistry -
+				Unregistering application PRODUCTMICROSERVICE with eureka with status DOWN
+2023-03-24 18:09:05 [SpringApplicationShutdownHook] INFO  c.netflix.discovery.DiscoveryClient -
+				Saw local status change event StatusChangeEvent [timestamp=1679695745680, current=DOWN, previous=UP]
+2023-03-24 18:09:05 [DiscoveryClient-InstanceInfoReplicator-0] INFO  c.netflix.discovery.DiscoveryClient -
+				DiscoveryClient_PRODUCTMICROSERVICE/host.docker.internal:productmicroservice:9093: registering service...
+2023-03-24 18:09:05 [SpringApplicationShutdownHook] INFO  c.netflix.discovery.DiscoveryClient -
+				Shutting down DiscoveryClient ...
+2023-03-24 18:09:05 [DiscoveryClient-InstanceInfoReplicator-0] INFO  c.netflix.discovery.DiscoveryClient -
+				DiscoveryClient_PRODUCTMICROSERVICE/host.docker.internal:productmicroservice:9093 - registration status: 204
+2023-03-24 18:09:05 [SpringApplicationShutdownHook] INFO  c.netflix.discovery.DiscoveryClient -
+				Unregistering ...
+2023-03-24 18:09:05 [SpringApplicationShutdownHook] INFO  c.netflix.discovery.DiscoveryClient -
+				DiscoveryClient_PRODUCTMICROSERVICE/host.docker.internal:productmicroservice:9093 - deregister  status: 200
+2023-03-24 18:09:05 [SpringApplicationShutdownHook] INFO  c.netflix.discovery.DiscoveryClient -
+				Completed shut down of DiscoveryClient

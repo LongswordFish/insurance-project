@@ -1,0 +1,34 @@
+﻿version: '3.4'
+
+services:
+   #eurekaservice: 
+   #  image: longswordfish/eureka_server:latest 
+   #  ports: 
+   #     - "8761:8761"
+   db:
+     image: mysql:8.0.32
+     environment: 
+        MYSQL_ROOT_PASSWORD: password         
+        MYSQL_DATABASE: Authentication  
+     restart: always
+     container_name: db-mysql           
+     ports:
+       - 3305:3306               
+
+   authenticationservice:
+     depends_on:
+       - db
+       #- eurekaservice
+     image: ${DOCKER_REGISTRY-}authenticationservice
+     restart: on-failure
+     environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - EUREKAURL=http://eurekaservice:8761/eureka 
+     build:
+       context: .
+       dockerfile: Dockerfile
+     ports:
+       - 9000:80
+
+volumes:
+    dbdata:

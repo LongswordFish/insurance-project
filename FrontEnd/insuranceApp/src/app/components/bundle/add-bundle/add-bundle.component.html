@@ -1,0 +1,51 @@
+<div class="container">
+    <h2>Add Bundle</h2>
+    <form class="form-group" [formGroup]="bundleForm" (ngSubmit)="createBundle()" fxLayout="column"
+        fxLayoutAlign="start stretch" fxLayoutGap="20px">
+        <mat-form-field appearance="outline" class="fields">
+            <mat-label>Bundle Name</mat-label>
+            <input matInput formControlName="bundlename" placeholder="Enter bundle name">
+            <mat-error
+                *ngIf="bundleForm.get('bundlename')?.invalid && (bundleForm.get('bundlename')?.dirty || bundleForm.get('bundlename')?.touched)">
+                Please enter a valid bundle name
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="fields">
+            <mat-label>Products</mat-label>
+            <mat-select formControlName="productids" placeholder="Select product IDs" multiple>
+                <mat-option *ngFor="let productPair of _productPairs" [value]="productPair.productId">
+                    {{ productPair.productName }}
+                </mat-option>
+            </mat-select>
+            <mat-error
+                *ngIf="bundleForm.get('productids')?.invalid && (bundleForm.get('productids')?.dirty || bundleForm.get('productids')?.touched)">
+                Please select valid product IDs
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="fields">
+            <mat-label>Total Price</mat-label>
+            <input matInput formControlName="totalPrice" placeholder="Enter total price">
+            <mat-error
+                *ngIf="bundleForm.get('totalPrice')?.invalid && (bundleForm.get('totalPrice')?.dirty || bundleForm.get('totalPrice')?.touched)">
+                Please enter a valid total price
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="fields">
+            <mat-label>Location</mat-label>
+            <mat-select formControlName="location" required>
+                <mat-option *ngFor="let locationName of locationOptions" [value]="locationName">{{locationName}}</mat-option>
+            </mat-select>
+            <mat-error
+                *ngIf="bundleForm.get('location')?.invalid && (bundleForm.get('location')?.dirty || bundleForm.get('location')?.touched)">
+                Please enter a valid location
+            </mat-error>
+        </mat-form-field>
+
+        <div fxLayout="row" fxLayoutAlign="end">
+            <button class="bundleBtn" [disabled]="!bundleForm.valid">Create Bundle</button>
+        </div>
+    </form>
+</div>

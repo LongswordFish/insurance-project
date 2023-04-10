@@ -1,0 +1,93 @@
+<!-- Search bar -->
+<!-- <mat-form-field class="search-field">
+  <mat-label>Search for product</mat-label>
+  <input matInput [(ngModel)]="searchText">
+  <button mat-icon-button matSuffix>
+      <mat-icon>search</mat-icon>
+  </button>
+</mat-form-field> -->
+
+<!-- Table to display products -->
+<!-- <table mat-table [dataSource]="products" class="mat-elevation-z8">
+
+  <ng-container matColumnDef="category">
+    <th mat-header-cell *matHeaderCellDef>Category</th>
+    <td mat-cell *matCellDef="let product">{{ product.category }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="picture">
+    <th mat-header-cell *matHeaderCellDef>Picture</th>
+    <td mat-cell *matCellDef="let product">{{ product.picture }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef>Name</th>
+    <td mat-cell *matCellDef="let product">{{ product.name }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="description">
+    <th mat-header-cell *matHeaderCellDef>Description</th>
+    <td mat-cell *matCellDef="let product">{{ product.description }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="price">
+    <th mat-header-cell *matHeaderCellDef>Price</th>
+    <td mat-cell *matCellDef="let product">{{ product.price }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="locations">
+    <th mat-header-cell *matHeaderCellDef>Locations</th>
+    <td mat-cell *matCellDef="let product">{{ product.locations }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="companyId">
+    <th mat-header-cell *matHeaderCellDef>Company ID</th>
+    <td mat-cell *matCellDef="let product">{{ product.companyId }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="isAvailable">
+    <th mat-header-cell *matHeaderCellDef>Is Available</th>
+    <td mat-cell *matCellDef="let product">{{ product.available }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef> Actions </th>
+    <td mat-cell *matCellDef="let product">
+        <button mat-icon-button color="primary" [routerLink]="['/buy-product', product.productId]">
+            <mat-icon>shopping_cart</mat-icon>
+        </button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let product; columns: displayedColumns;" [ngClass]="{'product-row-hidden': !product.available}"></tr>
+</table> -->
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4" *ngFor="let product of (products|availableFilter)">
+      <mat-card class="product-card" [ngClass]="product.available?'':'not-available'" >
+        <mat-card-header>
+          <mat-card-title>{{ product.name }}</mat-card-title>
+          <mat-card-subtitle>{{ product.category }}</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image [src]="product.picture" alt="Product image">
+        <mat-card-content>
+          <p>{{ product.description }}</p>
+          <p>Price: {{ product.price }}</p>
+          <!-- <p>Availability: {{ product.available }}</p> -->
+          <!-- <p>Locations: {{ product.locations }}</p> -->
+          <p>Company ID: {{ product.companyId }}</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <!-- <button mat-raised-button color="primary" [routerLink]="['/buy-product', product.productId]">
+            Buy
+          </button> -->
+          <button mat-button [routerLink]="['/buy-product', product.productId]" class="addProductBtn" >View Product</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>
+
