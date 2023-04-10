@@ -14,6 +14,9 @@ import { MatTableModule } from '@angular/material/table';
 import { BundleFilterPipe } from '../bundle-filter.pipe';
 import {MatCardModule} from '@angular/material/card';
 import { AvailableFilterPipe } from './pipes/available-filter.pipe';
+import { ProductIdToNamePipe } from './pipes/product-id-to-name.pipe';
+
+
 @NgModule({
   declarations: [
     // ClientfooterComponent,
@@ -24,7 +27,8 @@ import { AvailableFilterPipe } from './pipes/available-filter.pipe';
   
     ClientViewComponent,
     BundleFilterPipe,
-    AvailableFilterPipe
+    AvailableFilterPipe,
+    ProductIdToNamePipe
   ],
   imports: [
     CommonModule,
