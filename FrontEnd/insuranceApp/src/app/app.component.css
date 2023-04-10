@@ -1,0 +1,16 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.app-wrapper {
+    min-height: 100%;
+    margin-bottom: -50px;
+    background-color: #fafafa;
+}
+
+.app-footer {
+    height: 50px;
+    clear: both;
+}
