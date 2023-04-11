@@ -1,3 +1,4 @@
+/* CSS for normal screens */
 .login-page {
   top: 0;
   margin: 0;
@@ -32,4 +33,88 @@ mat-card-content {
   display: block;
   width: 80%;
   margin: 20px auto;
+}
+
+/* CSS for mobile devices */
+@media only screen and (max-width: 600px) {
+
+  /* Login/Register card */
+  .mat-card {
+    width: 90%;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+
+  /* Login/Register tab group */
+  .example-stretched-tabs {
+    height: 400px;
+  }
+
+  /* Login/Register tab label */
+  .mat-tab-labels {
+    flex-wrap: wrap;
+  }
+
+  /* Login/Register tab content */
+  .mat-tab-body {
+    height: 300px;
+  }
+
+  /* Login/Register form */
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Login/Register form fields */
+  mat-form-field {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+  }
+
+  /* Login/Register button */
+  .login-button {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+  }
+
+  /* Additional styles for mobile devices */
+  body {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    line-height: 1.5;
+    font-family: sans-serif;
+  }
+
+  .login-page {
+    height: auto;
+  }
+
+  mat-card {
+    width: 90%;
+    margin: 50px auto;
+  }
+
+  mat-form-field {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  .login-button {
+    width: 100%;
+    margin: 20px 0;
+  }
+
+  .mat-tab-label {
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  .mat-tab-label-active {
+    color: #2196f3;
+  }
 }
