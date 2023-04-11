@@ -53,7 +53,17 @@ i {
     color: #ff1e1e;
 }
 
+<<<<<<< HEAD
 
+=======
+/* .add-review-icon{
+    color: #f96d6d;
+}
+
+.review-icon{
+    color:#d789d7;
+} */
+>>>>>>> 5b5a1a71d7f7cb4bc9d7e01904a7dd5c1c787ec4
 
 @media only screen and (max-width: 600px) {
     .pp-product-card{

@@ -106,8 +106,8 @@ export class PurchasedProductCardComponent {
   viewReview(){
     {
       this.matdialogobj.open(ViewreviewComponent,{
-        width:'30%',
-        height:'30%',
+        width:'5image.png0%',
+        height:'50%',
         data:{revId : this.pp_review.reviewId}
       }).afterClosed().subscribe (
         res=>
@@ -125,6 +125,9 @@ export class PurchasedProductCardComponent {
     }
     if(this.product.companyId!=undefined){
       sessionStorage.setItem("companyId",this.product.companyId);
+    }
+    if(this.product.name!=undefined){
+      sessionStorage.setItem("productName",this.product.name);
     }
     this.routingService.openAddClaim();
   }

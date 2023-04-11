@@ -5,6 +5,12 @@ import { ClaimDocument } from '../Model/ClaimDocument';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import { TemplateRef } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { CompanyDataService } from 'src/app/admin-dashboard/services/company-data.service';
+import { ClientDataService } from 'src/app/client-profile/services/client-data.service';
+import { CompanyModel } from 'src/app/admin-dashboard/models/company.model';
+import { ClientModel } from 'src/app/client-profile/models/client.model';
+import { ProductService } from 'src/app/shared/product.service';
+import { Product } from 'src/app/client-dashboard/product.model';
 
 @Component({
   selector: 'app-claim-view',
@@ -25,7 +31,14 @@ export class ClaimViewComponent {
   role = sessionStorage.getItem("role");
   Userid = sessionStorage.getItem("Userid");
 
-  constructor(private claimservice:ClaimserviceService, public snackBar: MatSnackBar, public dialog:MatDialog){}
+  companies:CompanyModel[]=[];
+  clients:ClientModel[]=[];
+
+  products:Product[]=[]
+
+  constructor(private claimservice:ClaimserviceService, public snackBar: MatSnackBar, public dialog:MatDialog,
+              private companyService:CompanyDataService, private clientService:ClientDataService,
+              private productService:ProductService){}
 
   ngOnInit(): void{
     
@@ -44,6 +57,10 @@ export class ClaimViewComponent {
             this.claims = data;
           }
         )
+
+        this.companyService.getAllCompanies().subscribe(
+          res=>this.companies=res
+        )
   
       }else if(this.role === "company"){
   
@@ -52,6 +69,7 @@ export class ClaimViewComponent {
             this.claims = data;
           }
         )
+
 
       }
 
@@ -63,6 +81,7 @@ export class ClaimViewComponent {
         }
       )
     }
+    this.getAllProducts();
 
   }
 
@@ -150,7 +169,21 @@ export class ClaimViewComponent {
     });
   }
   
-  
+  getCompanyNameByCompanyId(companyId:string|undefined){
+    return this.companies.filter(c=>(c.companyId+"")==companyId).map(c=>c.name)[0];
+  }
+
+  getAllProducts(){
+    this.productService.getAllProducts()
+      .subscribe(
+        res=>this.products=res
+      )
+    
+  }
+
+  getProductNameByProductId(productId:string|undefined){
+    return this.products.filter(p=>p.productId==productId).map(p=>p.name)[0];
+  }
   
   
   

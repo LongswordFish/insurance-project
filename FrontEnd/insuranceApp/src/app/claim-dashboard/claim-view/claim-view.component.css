@@ -85,3 +85,13 @@ h1 {
     text-decoration: none;
   }
   
+
+  .check-mark{
+    text-align: right;
+    color:#28a745;
+    margin-left: 30px;
+  }
+
+  .date-in-title{
+    margin-left: 20px;
+  }
