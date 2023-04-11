@@ -8,15 +8,18 @@
                 <mat-icon>search</mat-icon>
             </button>
         </mat-form-field>
+        <div>
+            <label>Choose Category</label>
+            <mat-radio-group
+              class="radio-group"
+              [(ngModel)]="category" (ngModelChange)="categoryChange($event)">
+              <mat-radio-button class="example-radio-button" *ngFor="let cat of categories" [value]='cat'>
+                {{cat}}
+               </mat-radio-button>
         
-        <mat-radio-group
-          class="radio-group"
-          [(ngModel)]="category" (ngModelChange)="categoryChange($event)">
-          <mat-radio-button class="example-radio-button" *ngFor="let cat of categories" [value]='cat'>
-            {{cat}}
-           </mat-radio-button>
-    
-        </mat-radio-group>
+            </mat-radio-group>
+        </div>
+
     </div>
 
     

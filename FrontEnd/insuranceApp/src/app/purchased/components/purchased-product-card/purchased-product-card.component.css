@@ -56,6 +56,14 @@ i {
     color: #ff1e1e;
 }
 
+/* .add-review-icon{
+    color: #f96d6d;
+}
+
+.review-icon{
+    color:#d789d7;
+} */
+
 @media only screen and (max-width: 600px) {
     .pp-product-card{
         text-align: center;
