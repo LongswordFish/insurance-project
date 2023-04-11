@@ -8,6 +8,7 @@ import { ClaimDocument } from '../Model/ClaimDocument';
 import { NotificationServiceService } from 'src/app/notification/service/notification-service.service';
 import { Notification } from 'src/app/notification/model/notification';
 import { RoutingService } from 'src/app/purchased/services/routing.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-claim-create',
@@ -20,18 +21,23 @@ export class ClaimCreateComponent {
   senderIdForNotification = sessionStorage.getItem("Userid") as String;
 
   role = sessionStorage.getItem("role");
-  Userid = sessionStorage.getItem("Userid");
-  productId = sessionStorage.getItem("productId");
-  companyId = sessionStorage.getItem("companyId");
+  Userid = sessionStorage.getItem("Userid") as string;
+  productId = sessionStorage.getItem("productId") as string;
+  companyId = sessionStorage.getItem("companyId") as string;
 
   constructor(
     private fb: FormBuilder,
     private snackBar: MatSnackBar,
     private claimservice:ClaimserviceService,
     private notificationservice: NotificationServiceService,
-    private routingService:RoutingService
+    private routingService:RoutingService,
+    private location: Location
   ) {
     this.createForm();
+  }
+
+  back(): void {
+    this.location.back()
   }
 
   createForm() {
@@ -61,9 +67,9 @@ export class ClaimCreateComponent {
 
   onSubmit() {
     const newClaim = new Claim();
-    newClaim.customerId = this.claimForm.controls['customerId'].value;
-    newClaim.productId = this.claimForm.controls['productId'].value;
-    newClaim.companyId = this.claimForm.controls['companyId'].value;
+    newClaim.customerId = this.Userid;
+    newClaim.productId = this.productId;
+    newClaim.companyId = this.companyId;
     newClaim.description = this.claimForm.value.description;
     newClaim.notes = this.claimForm.value.notes;
 
