@@ -9,7 +9,6 @@ import { NotificationServiceService } from 'src/app/notification/service/notific
 import { Notification } from 'src/app/notification/model/notification';
 import { RoutingService } from 'src/app/purchased/services/routing.service';
 import { Location } from '@angular/common';
-import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-claim-create',
@@ -25,6 +24,7 @@ export class ClaimCreateComponent {
   Userid = sessionStorage.getItem("Userid") as string;
   productId = sessionStorage.getItem("productId") as string;
   companyId = sessionStorage.getItem("companyId") as string;
+  productName = sessionStorage.getItem("productName") as string;
 
   constructor(
     private fb: FormBuilder,
@@ -33,8 +33,7 @@ export class ClaimCreateComponent {
     private notificationservice: NotificationServiceService,
     private routingService:RoutingService,
     private location: Location
-    private routingService:RoutingService,
-    private location: Location
+
   ) {
     this.createForm();
   }
@@ -51,6 +50,7 @@ export class ClaimCreateComponent {
         customerId: [{value: this.Userid, disabled: true}, Validators.required],
         productId: [{value: this.productId, disabled: true}, Validators.required],
         companyId: [{value: this.companyId, disabled: true}, Validators.required],
+        productName:[{value: this.productName, disabled: true}],
         description: ['', Validators.required],
         notes: ['']
     });

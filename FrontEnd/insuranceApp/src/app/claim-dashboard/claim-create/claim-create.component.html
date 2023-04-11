@@ -1,5 +1,4 @@
   <div class="form-outer">
-    <button mat-raised-button color="primary" (click)="goBack()" style="margin-bottom: 1em;">Go Back</button>
     <div class="form-middle">
       <h2 class="form-title">Create a Claim</h2>
       <form [formGroup]="claimForm" (ngSubmit)="onSubmit()" class="claim-form">
@@ -16,11 +15,10 @@
             <mat-error *ngIf="claimForm.get('productId')?.hasError('required')">Product ID is required</mat-error>
         </mat-form-field> -->
   
-        <!-- <mat-form-field class="form-field">
-            <h4>Company ID:</h4>
-            <input matInput placeholder="Company ID" formControlName="companyId">
-            <mat-error *ngIf="claimForm.get('companyId')?.hasError('required')">Company ID is required</mat-error>
-        </mat-form-field> -->
+        <mat-form-field class="form-field">
+            <h4>Product:</h4>
+            <input matInput placeholder="Product Name" formControlName="productName">
+        </mat-form-field>
         
         <mat-form-field class="form-field">
             <h4>Description:</h4>
@@ -35,7 +33,7 @@
   
         <button mat-raised-button color="primary" type="submit" class="submit-button">Create Claim</button>  
       </form>
-      <button mat-raised-button color="primary" (click)="back()">Cancel</button>
+      <button class="cancelbutton" mat-raised-button color="warn" (click)="back()">Cancel</button>
     </div>
   </div>
   
