@@ -8,6 +8,7 @@ import { ClaimDocument } from '../Model/ClaimDocument';
 import { NotificationServiceService } from 'src/app/notification/service/notification-service.service';
 import { Notification } from 'src/app/notification/model/notification';
 import { RoutingService } from 'src/app/purchased/services/routing.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-claim-create',
@@ -29,9 +30,14 @@ export class ClaimCreateComponent {
     private snackBar: MatSnackBar,
     private claimservice:ClaimserviceService,
     private notificationservice: NotificationServiceService,
-    private routingService:RoutingService
+    private routingService:RoutingService,
+    private location: Location
   ) {
     this.createForm();
+  }
+
+  goBack() {
+    this.location.back();
   }
 
   createForm() {

@@ -41,6 +41,8 @@ import { ProductNameFilterPipe } from './pipes/product-name-filter.pipe';
 import { ProductCategoryFilterPipe } from './pipes/product-category-filter.pipe';
 import { AvailableProductsFilterPipe } from './pipes/available-products-filter.pipe';
 import {MatTooltipModule} from '@angular/material/tooltip';
+
+
 @NgModule({
   declarations: [
     MyPlanViewComponent,
