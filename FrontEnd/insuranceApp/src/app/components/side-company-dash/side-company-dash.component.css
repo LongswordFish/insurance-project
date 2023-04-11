@@ -1,4 +1,4 @@
-.mat-toolbar {
+/* .mat-toolbar {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -41,9 +41,143 @@
 
 img {
     max-height: 150px;
+    margin-right: 50px;
 }
 
 .notification a {
     text-decoration: none;
     color: black;
+} */
+
+.mat-toolbar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #12BEC8;
+    color: black;
+    position: relative;
+}
+
+.mat-toolbar a {
+    color: white;
+    text-decoration: none;
+    margin-right: 20px;
+}
+
+.mat-toolbar button {
+    color: black;
+}
+
+.mat-menu-content button {
+    display: block;
+    width: 100%;
+    text-align: left;
+}
+
+.mat-menu-panel {
+    background-color: white;
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+.profile-img {
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+img {
+    max-height: 150px;
+    margin-right: 50px;
+}
+
+.notification a {
+    text-decoration: none;
+    color: black;
+}
+
+/* media queries for responsive design */
+
+@media (max-width: 768px) {
+    .mat-toolbar a {
+        margin-right: 10px;
+    }
+
+    img {
+        max-height: 100px;
+        margin-right: 20px;
+    }
+
+    .profile-img {
+        height: 25px;
+        width: 25px;
+        margin-right: 5px;
+    }
+
+    .mat-toolbar .menu-toggle {
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
+        z-index: 1;
+        display: block;
+    }
+
+    .mat-toolbar .menu-toggle button {
+        background-color: transparent;
+        border: none;
+        padding: 0;
+        font-size: 24px;
+        color: white;
+    }
+
+    .mat-toolbar .menu-items {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #12BEC8;
+        margin-top: 5px;
+        z-index: 1;
+    }
+
+    .mat-toolbar .menu-items a {
+        display: block;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+    }
+
+    .mat-toolbar .menu-items a:hover {
+        background-color: #107c87;
+    }
+
+    .mat-toolbar .menu-toggle.open .menu-items {
+        display: block;
+    }
+}
+
+@media (max-width: 576px) {
+    .mat-toolbar a {
+        margin-right: 5px;
+        font-size: 0.8rem;
+    }
+
+    img {
+        max-height: 80px;
+        margin-right: 10px;
+    }
+
+    .profile-img {
+        height: 20px;
+        width: 20px;
+        margin-right: 3px;
+    }
 }

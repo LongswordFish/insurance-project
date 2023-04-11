@@ -50,4 +50,11 @@ export class ProductService {
 
     return this.httpClient.post<Product>(`http://localhost:9093/products/add`, product, this.httpOptions);
   }
+
+
+  //get company by companyID
+  getCompanyByCompanyID(companyID: string): Observable<any>{
+    return this.httpClient.get<any>(`http://localhost:9091/api/company/id/${companyID}`);
+  }
+
 }

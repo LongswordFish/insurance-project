@@ -9,7 +9,7 @@
         </div>
         <div class="button-wrapper">
             <span *ngIf="bundle.productList!==undefined">
-                <mat-icon (click)="onDelete(bundle.productList)">delete</mat-icon>
+                <mat-icon (click)="onDelete(bundle.productList)" matTooltip="Cancel The Bundle">delete</mat-icon>
             </span>
             
         </div>

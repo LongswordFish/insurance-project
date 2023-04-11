@@ -2,7 +2,7 @@
     <h2>Add Bundle</h2>
     <form class="form-group" [formGroup]="bundleForm" (ngSubmit)="createBundle()" fxLayout="column"
         fxLayoutAlign="start stretch" fxLayoutGap="20px">
-        <mat-form-field appearance="outline">
+        <mat-form-field appearance="outline" class="fields">
             <mat-label>Bundle Name</mat-label>
             <input matInput formControlName="bundlename" placeholder="Enter bundle name">
             <mat-error
@@ -11,8 +11,8 @@
             </mat-error>
         </mat-form-field>
 
-        <mat-form-field appearance="outline">
-            <mat-label>Product IDs</mat-label>
+        <mat-form-field appearance="outline" class="fields">
+            <mat-label>Products</mat-label>
             <mat-select formControlName="productids" placeholder="Select product IDs" multiple>
                 <mat-option *ngFor="let productPair of _productPairs" [value]="productPair.productId">
                     {{ productPair.productName }}
@@ -24,7 +24,7 @@
             </mat-error>
         </mat-form-field>
 
-        <mat-form-field appearance="outline">
+        <mat-form-field appearance="outline" class="fields">
             <mat-label>Total Price</mat-label>
             <input matInput formControlName="totalPrice" placeholder="Enter total price">
             <mat-error
@@ -33,9 +33,11 @@
             </mat-error>
         </mat-form-field>
 
-        <mat-form-field appearance="outline">
+        <mat-form-field appearance="outline" class="fields">
             <mat-label>Location</mat-label>
-            <input matInput formControlName="location" placeholder="Enter location">
+            <mat-select formControlName="location" required>
+                <mat-option *ngFor="let locationName of locationOptions" [value]="locationName">{{locationName}}</mat-option>
+            </mat-select>
             <mat-error
                 *ngIf="bundleForm.get('location')?.invalid && (bundleForm.get('location')?.dirty || bundleForm.get('location')?.touched)">
                 Please enter a valid location
@@ -43,8 +45,7 @@
         </mat-form-field>
 
         <div fxLayout="row" fxLayoutAlign="end">
-            <button type="submit" mat-raised-button color="primary" [disabled]="!bundleForm.valid">Create
-                Bundle</button>
+            <button class="bundleBtn" [disabled]="!bundleForm.valid">Create Bundle</button>
         </div>
     </form>
 </div>

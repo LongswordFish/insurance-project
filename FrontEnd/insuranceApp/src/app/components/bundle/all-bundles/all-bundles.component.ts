@@ -24,6 +24,7 @@ export class AllBundlesComponent {
   bundles: Bundle[] = [];
   selectedBundle: Bundle | null = null;
   updateForm: FormGroup;
+  
   bundleForm: FormGroup = new FormGroup({
     bundleid: new FormControl<string | null>(null),
     bundlename: new FormControl<string | null>(null, [

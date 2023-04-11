@@ -22,6 +22,9 @@ import { CompanyStatsListPageComponent } from './components/company-stats-list-p
 import { UpdateProductDialogComponent } from './components/update-product-dialog/update-product-dialog.component';
 import { ProductDetailsPageComponent } from './components/product-details-page/product-details-page.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatSelectModule } from '@angular/material/select';
+
+
 
 
 @NgModule({
@@ -46,7 +49,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     ReactiveFormsModule,
     MatCheckboxModule,
     MatCardModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatSelectModule,
   ],
   providers: [ProductService, ClientService],
 })

@@ -24,6 +24,9 @@ export class AddBundleComponent implements OnInit {
   bundles: Bundle[] = [];
   selectedBundle: Bundle | null = null;
   updateForm: FormGroup;
+
+  locationOptions: string[] = ['Toronto', 'Montreal', 'Vancouver', 'Calgary', 'Edmonton', 'Ottawa', 'Quebec City', 'Hamilton', 'Winnipeg', 'Halifax'];
+
   bundleForm: FormGroup = new FormGroup({
     bundleid: new FormControl<string | null>(null),
     bundlename: new FormControl<string | null>(null, [

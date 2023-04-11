@@ -1,20 +1,17 @@
 <mat-sidenav-container class="sidenav-container">
     <mat-sidenav #sidenav class="sidenav">
         <mat-nav-list>
-            <a mat-list-item routerLink="/companyStatsHome">Home</a>
-            <a mat-list-item routerLink="/add-bundle">Add Bundle</a>
-            <a mat-list-item routerLink="/viewAllBundles">View Bundles</a>
-            <a mat-list-item routerLink="/claims">All Claims</a>
+           
         </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>
         <span class="spacer"></span>
-        <mat-toolbar color="primary">
-            <button *ngIf="user?.role!=undefined && user?.role=='company'" mat-icon-button (click)="sidenav.toggle()">
-                <mat-icon>menu</mat-icon>
-            </button>
-            
+        <mat-toolbar color="primary">            
                 <img src="../../../assets/images/NexGensurelogo_transparent.png" alt="Logo">
+                <a *ngIf="user?.role!=undefined && user?.role=='company'" routerLink="/companyStatsHome">Home</a>
+                <a *ngIf="user?.role!=undefined && user?.role=='company'" routerLink="/add-bundle">Add Bundle</a>
+                <a *ngIf="user?.role!=undefined && user?.role=='company'" routerLink="/viewAllBundles">View Bundles</a>
+                <a *ngIf="user?.role!=undefined && user?.role=='company'" routerLink="/claims">All Claims</a>
             
             <app-client-nav *ngIf="user?.role!=undefined && user?.role=='client'"></app-client-nav>
             <app-public-nav *ngIf="user?.role==undefined"></app-public-nav>
@@ -56,6 +53,6 @@
         </mat-toolbar>
         <!-- <app-add-bundle></app-add-bundle> -->
         <router-outlet></router-outlet>
-        <app-footer></app-footer>
+      
     </mat-sidenav-content>
 </mat-sidenav-container>
