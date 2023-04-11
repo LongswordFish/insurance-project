@@ -40,7 +40,7 @@ import { ViewreviewComponent } from './components/viewreview/viewreview.componen
 import { ProductNameFilterPipe } from './pipes/product-name-filter.pipe';
 import { ProductCategoryFilterPipe } from './pipes/product-category-filter.pipe';
 import { AvailableProductsFilterPipe } from './pipes/available-products-filter.pipe';
-
+import {MatTooltipModule} from '@angular/material/tooltip';
 @NgModule({
   declarations: [
     MyPlanViewComponent,
@@ -80,7 +80,8 @@ import { AvailableProductsFilterPipe } from './pipes/available-products-filter.p
     ReactiveFormsModule,
     MatTabsModule,
     MatRadioModule,
-    MatDialogModule
+    MatDialogModule,
+    MatTooltipModule
   ],
   exports: [
     MyPlanViewComponent,

@@ -9,14 +9,16 @@
           Claim ID: {{ claim.claimId }}
         </mat-panel-title>
         <mat-panel-description>
-          Company ID: {{ claim.companyId }}, Date Created: {{ claim.date_created }}, Is Active: {{ claim.isActive }}, Is Approved: {{ claim.isApproved }}
+          <span *ngIf="role && role=='client'"> Company Name: {{ getCompanyNameByCompanyId(claim.companyId )}}</span>
+          <span class="date-in-title">Date Created: {{ claim.date_created }}</span>
+          <mat-icon *ngIf="claim.isApproved" class="check-mark">check_circle_outline</mat-icon>
         </mat-panel-description>
       </mat-expansion-panel-header>
-        <p><strong>Customer ID:</strong> {{ claim.customerId }}</p>
-        <p><strong>Product ID:</strong> {{ claim.productId }}</p>
-        <p><strong>Company ID:</strong> {{ claim.companyId }}</p>
+        <p *ngIf="role=='company'"><strong>Customer ID:</strong> {{ claim.customerId }}</p>
+        <p><strong>Product Name:</strong> {{   getProductNameByProductId(claim.productId) }}</p>
+        <p *ngIf="role=='client'"><strong>Company Name:</strong> {{  getCompanyNameByCompanyId(claim.companyId ) }}</p>
         <p><strong>Date Created:</strong> {{ claim.date_created }}</p>
-        <p><strong>Is Active:</strong> {{ claim.isActive }}</p>
+        <!-- <p><strong>Is Active:</strong> {{ claim.isActive }}</p> -->
         <p><strong>Is Approved:</strong> {{ claim.isApproved }}</p>
         <p><strong>Description:</strong></p>
         <p>{{ claim.description }}</p>

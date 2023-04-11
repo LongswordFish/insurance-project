@@ -5,4 +5,6 @@ export class Bundle {
   totalPrice!: number;
   location!: string;
   companyid!: string;
+  companyName?:string;
+  productNames?:string[];
 }
