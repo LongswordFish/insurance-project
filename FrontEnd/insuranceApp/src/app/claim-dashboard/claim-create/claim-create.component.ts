@@ -9,6 +9,7 @@ import { NotificationServiceService } from 'src/app/notification/service/notific
 import { Notification } from 'src/app/notification/model/notification';
 import { RoutingService } from 'src/app/purchased/services/routing.service';
 import { Location } from '@angular/common';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-claim-create',
@@ -30,6 +31,8 @@ export class ClaimCreateComponent {
     private snackBar: MatSnackBar,
     private claimservice:ClaimserviceService,
     private notificationservice: NotificationServiceService,
+    private routingService:RoutingService,
+    private location: Location
     private routingService:RoutingService,
     private location: Location
   ) {

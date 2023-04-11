@@ -1,4 +1,5 @@
   <div class="form-outer">
+    <button mat-raised-button color="primary" (click)="goBack()" style="margin-bottom: 1em;">Go Back</button>
     <div class="form-middle">
       <h2 class="form-title">Create a Claim</h2>
       <form [formGroup]="claimForm" (ngSubmit)="onSubmit()" class="claim-form">

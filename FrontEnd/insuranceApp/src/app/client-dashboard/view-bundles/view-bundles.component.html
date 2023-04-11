@@ -57,17 +57,21 @@
 
 <div class="container">
     <div class="row">
-      <div class="col-sm-4" *ngFor="let bundle of bundles | bundleFilter:searchText">
+      <div class="col-sm-4" *ngFor="let bundle of bundles">
         <mat-card class="bundle-card">
           <mat-card-header>
             <mat-card-title>{{ bundle.bundlename }}</mat-card-title>
           </mat-card-header>
           <mat-card-content>
-            <p>Bundle ID: {{ bundle.bundleid }}</p>
-            <p>Product IDs: {{ bundle.productids }}</p>
+            <!-- <p>Bundle ID: {{ bundle.bundleid }}</p> -->
+            <!-- <p>Product IDs: {{ bundle.productids }}</p> -->
+            <p>Products:</p>
+            <p *ngFor="let productId of bundle.productNames">
+               <b>Product Name: </b>{{productId}} <br>
+            </p>
             <p>Total Price: {{ bundle.totalPrice }}</p>
             <p>Location: {{ bundle.location }}</p>
-            <p>Company ID: {{ bundle.companyid }}</p>
+            <p>Company Name: {{ bundle.companyName }}</p>
           </mat-card-content>
           <mat-card-actions>
             <button mat-button color="primary" [routerLink]="['/buy-bundle', bundle.bundleid]" class="addProductBtn">
