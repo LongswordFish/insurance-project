@@ -1,20 +1,50 @@
-h2{
+h2 {
     text-align: center;
     margin-top: 50px;
 }
 
-table{
+table {
     width: 80%;
 }
 
-.pp-list{
+.pp-list {
     width: 80%;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 30px;
 }
 
-.search-area{
+.search-area {
     display: flex;
-    justify-content:space-between;
+    justify-content: space-between;
+}
+
+@media screen and (max-width: 767px) {
+    .pp-list {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .search-area {
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 1em;
+    }
+
+    .search-field {
+        width: 100%;
+        margin-bottom: 1em;
+    }
+
+    .radio-group {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-bottom: 1em;
+    }
+
+    .example-radio-button {
+        margin-right: 1em;
+    }
 }
