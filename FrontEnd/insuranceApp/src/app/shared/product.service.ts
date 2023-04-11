@@ -81,4 +81,8 @@ export class ProductService {
     return this.http.get<Product[]>(`${this.baseUrl}/location/${locationName}`);
   }
 
+  getCompanyNameByCompanyId(id?: String): Observable<any> {
+    return this.http.get<any>(`http://localhost:9091/api/company/id/${id}`);
+  }
+
 }

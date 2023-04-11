@@ -70,6 +70,7 @@ export class CompanyDashNotificationViewComponent {
             const senderNames = await this.getClientNameBySenderId(notification.senderId);
             console.log(senderNames)
             const sender: String | undefined = this.senderName 
+            console.log(sender)
             const notificationWithSenderName: NotificationsWithSenderName = {
               notificationId: notification.notificationId,
               senderId: notification.senderId,
