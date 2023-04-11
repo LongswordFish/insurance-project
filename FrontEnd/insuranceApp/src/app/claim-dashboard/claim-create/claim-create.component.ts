@@ -21,9 +21,10 @@ export class ClaimCreateComponent {
   senderIdForNotification = sessionStorage.getItem("Userid") as String;
 
   role = sessionStorage.getItem("role");
-  Userid = sessionStorage.getItem("Userid");
-  productId = sessionStorage.getItem("productId");
-  companyId = sessionStorage.getItem("companyId");
+  Userid = sessionStorage.getItem("Userid") as string;
+  productId = sessionStorage.getItem("productId") as string;
+  companyId = sessionStorage.getItem("companyId") as string;
+  productName = sessionStorage.getItem("productName") as string;
 
   constructor(
     private fb: FormBuilder,
@@ -32,12 +33,13 @@ export class ClaimCreateComponent {
     private notificationservice: NotificationServiceService,
     private routingService:RoutingService,
     private location: Location
+
   ) {
     this.createForm();
   }
 
-  goBack() {
-    this.location.back();
+  back(): void {
+    this.location.back()
   }
 
   createForm() {
@@ -48,6 +50,7 @@ export class ClaimCreateComponent {
         customerId: [{value: this.Userid, disabled: true}, Validators.required],
         productId: [{value: this.productId, disabled: true}, Validators.required],
         companyId: [{value: this.companyId, disabled: true}, Validators.required],
+        productName:[{value: this.productName, disabled: true}],
         description: ['', Validators.required],
         notes: ['']
     });
@@ -67,9 +70,9 @@ export class ClaimCreateComponent {
 
   onSubmit() {
     const newClaim = new Claim();
-    newClaim.customerId = this.claimForm.controls['customerId'].value;
-    newClaim.productId = this.claimForm.controls['productId'].value;
-    newClaim.companyId = this.claimForm.controls['companyId'].value;
+    newClaim.customerId = this.Userid;
+    newClaim.productId = this.productId;
+    newClaim.companyId = this.companyId;
     newClaim.description = this.claimForm.value.description;
     newClaim.notes = this.claimForm.value.notes;
 

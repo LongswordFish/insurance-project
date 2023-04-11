@@ -36,7 +36,10 @@
   }
 
 
-
+.cancelbutton{
+  margin-top:30px;
+  align-items: center;
+}
   
 .claim-form h4 {
     display: inline-block;
