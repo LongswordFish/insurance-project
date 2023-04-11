@@ -1,8 +1,8 @@
 .product-detail{
     width: 60%;
-    background-color: aquamarine;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 4em;
 }
 
 .mat-card{
@@ -23,9 +23,10 @@
 }
 
 img{
-    max-width: 50%;
-    margin-left: auto;
-    margin-right: auto;
+    width: 500px;
+    height: 300px;
+    /* margin-left: auto; */
+    /* margin-right: auto; */
 }
 
 a{
